@@ -2,43 +2,43 @@
 layout: home
 
 title: Vite
-titleTemplate: Next Generation Frontend Tooling
+titleTemplate: Ferramental de Frontend de Nova Geração
 
 hero:
   name: Vite
-  text: Next Generation Frontend Tooling
-  tagline: Get ready for a development environment that can finally catch up with you.
+  text: Ferramental de Frontend de Nova Geração
+  tagline: Prepara-te para um ambiente de desenvolvimento que pode finalmente atualizar-se contigo.
   image:
     src: /logo-with-shadow.png
     alt: Vite
   actions:
     - theme: brand
-      text: Get Started
+      text: Começar
       link: /guide/
     - theme: alt
-      text: Why Vite?
+      text: Porquê Vite?
       link: /guide/why
     - theme: alt
-      text: View on GitHub
+      text: Ver na GitHub
       link: https://github.com/vitejs/vite
 
 features:
   - icon: 💡
-    title: Instant Server Start
-    details: On demand file serving over native ESM, no bundling required!
+    title: Inicio de Servidor Imediato
+    details: Ficheiro sobre demanda servindo sobre Módulo de ECMAScript, sem necessidade de empacotamento!
   - icon: ⚡️
-    title: Lightning Fast HMR
-    details: Hot Module Replacement (HMR) that stays fast regardless of app size.
+    title: Substituição de Módulo Instantânea Rápida como Relâmpago
+    details: Substituição de Módulo Instantânea (HMR, sigla em Inglês) que continua rápida independentemente do tamanho da aplicação.
   - icon: 🛠️
-    title: Rich Features
-    details: Out-of-the-box support for TypeScript, JSX, CSS and more.
+    title: Funcionalidades Ricas
+    details: Suporte fora da caixa para TypeScript, JSX, CSS e muito mais.
   - icon: 📦
-    title: Optimized Build
-    details: Pre-configured Rollup build with multi-page and library mode support.
+    title: Construção Otimizada
+    details: Construção de Rollup pré-configurada com suporte a várias páginas e mode de biblioteca.
   - icon: 🔩
-    title: Universal Plugins
-    details: Rollup-superset plugin interface shared between dev and build.
+    title: Extensões Universais
+    details: Interface de extensão de superconjunto de Rollup partilhada entre o desenvolvimento e a construção.
   - icon: 🔑
-    title: Fully Typed APIs
-    details: Flexible programmatic APIs with full TypeScript typing.
+    title: APIs Completamente Tipadas
+    details: APIs programáticas flexíveis com tipagem de TypeScript completa.
 ---
