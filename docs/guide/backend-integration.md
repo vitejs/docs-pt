@@ -1,35 +1,35 @@
-# Backend Integration
+# Integração de Backend
 
-:::tip Note
-If you want to serve the HTML using a traditional backend (e.g. Rails, Laravel) but use Vite for serving assets, check for existing integrations listed in [Awesome Vite](https://github.com/vitejs/awesome-vite#integrations-with-backends).
+:::tip Nota
+Se quiseres servir a HTML utilizando um backend tradicional (por exemplo, Rails, Laravel) porém utilizar a Vite para servir os recursos, consulte pelas integrações existentes listadas na [Awesome Vite](https://github.com/vitejs/awesome-vite#integrations-with-backends).
 
-If you need a custom integration, you can follow the steps in this guide to configure it manually
+Se precisares uma integração personalizada, podes seguir os passos neste guia para a configurares manualmente.
 :::
 
-1. In your Vite config, configure the entry and enable build manifest:
+1. Na tua configuração de Vite, configure a entrada e ative o manifesto de construção:
 
    ```js
    // vite.config.js
    export default defineConfig({
      build: {
-       // generate manifest.json in outDir
+       // gera o "manifest.json" no "outDir"
        manifest: true,
        rollupOptions: {
-         // overwrite default .html entry
+         // sobrescreve a entrada ".html" padrão
          input: '/path/to/main.js'
        }
      }
    })
    ```
 
-   If you haven't disabled the [module preload polyfill](/config/build-options.md#build-polyfillmodulepreload), you also need to import the polyfill in your entry
+   Se não desativaste o ["polyfill" de precarregamento de módulo](/config/build-options.md#build-polyfillmodulepreload), também precisas importar o "polyfill" na tua entrada.
 
    ```js
-   // add the beginning of your app entry
+   // adiciona no inicio da entrada da tua aplicação
    import 'vite/modulepreload-polyfill'
    ```
 
-2. For development, inject the following in your server's HTML template (substitute `http://localhost:5173` with the local URL Vite is running at):
+2. Para desenvolvimento, injete o seguinte no modelo de HTML do teu servidor (substitua `http://localhost:5173` com a URL local que a Vite está executando):
 
    ```html
    <!-- if development -->
@@ -37,14 +37,14 @@ If you need a custom integration, you can follow the steps in this guide to conf
    <script type="module" src="http://localhost:5173/main.js"></script>
    ```
 
-   In order to properly serve assets, you have two options:
+   Para servir os recursos apropriadamente, tens duas opções:
 
-   - Make sure the server is configured to proxy static assets requests to the Vite server
-   - Set [`server.origin`](/config/server-options.md#server-origin) so that generated asset URLs will be resolved using the back-end server URL instead of a relative path
+   - Certifica-te de que o servidor está configurada para delegar as requisições de recursos estáticos para o servidor da Vite
+   - Defina a opção [`server.origin`](/config/server-options.md#server-origin) para que as URLs de recurso geradas sejam resolvidas utilizando a URL do servidor de back-end ao invés de um caminho relativo
 
-   This is needed for assets such as images to load properly.
+   Isto é necessário para recursos tais como imagens carreguem apropriadamente.
 
-   Note if you are using React with `@vitejs/plugin-react`, you'll also need to add this before the above scripts, since the plugin is not able to modify the HTML you are serving:
+   Nota que se estiveres utilizando a React com `@vitejs/plugin-react`, também precisarás adicionar isto antes dos programas acima, já que a extensão não é capaz de modificar a HTML que estás servindo:
 
    ```html
    <script type="module">
@@ -56,7 +56,7 @@ If you need a custom integration, you can follow the steps in this guide to conf
    </script>
    ```
 
-3. For production: after running `vite build`, a `manifest.json` file will be generated alongside other asset files. An example manifest file looks like this:
+3. Para produção: depois da execução de `vite build`, um ficheiro `manifest.json` será gerado ao lado de outros ficheiros de recurso. Um exemplo de ficheiro de manifesto se parece com isto:
 
    ```json
    {
@@ -80,12 +80,12 @@ If you need a custom integration, you can follow the steps in this guide to conf
    }
    ```
 
-   - The manifest has a `Record<name, chunk>` structure
-   - For entry or dynamic entry chunks, the key is the relative src path from project root.
-   - For non entry chunks, the key is the base name of the generated file prefixed with `_`.
-   - Chunks will contain information on its static and dynamic imports (both are keys that map to the corresponding chunk in the manifest), and also its corresponding CSS and asset files (if any).
+   - O manifesto tem uma estrutura `Registo<nome, pedaço>`
+   - Para os pedaços de entrada ou entrada dinâmica, a chave é o caminho do recurso relativo da raiz do projeto.
+   - Para os pedaços que não são de entrada, a chave é no nome da base do ficheiro gerado prefixado com `_`.
+   - Os pedaços conterão informações sobre a sua importação estática ou dinâmica (ambas são chaves que delineiam para o pedaço correspondente no manifesto), e também seus ficheiros de recurso e CSS correspondente (se houver algum).
 
-   You can use this file to render links or preload directives with hashed filenames (note: the syntax here is for explanation only, substitute with your server templating language):
+   Tu podes utilizar este ficheiro para interpretar as ligações ou pré-carregar as diretivas com os nomes de ficheiro baralhado (nota: a sintaxe aqui é para explicação apenas, substitua com a linguagem geradora de modelos de marcação do teu servidor):
 
    ```html
    <!-- if production -->
