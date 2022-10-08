@@ -1,86 +1,86 @@
-# Env Variables and Modes
+# Variáveis de Ambiente e Modos
 
-## Env Variables
+## Variáveis de Ambiente
 
-Vite exposes env variables on the special **`import.meta.env`** object. Some built-in variables are available in all cases:
+A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`**. Algumas variáveis embutidas estão disponíveis em todos os casos:
 
-- **`import.meta.env.MODE`**: {string} the [mode](#modes) the app is running in.
+- **`import.meta.env.MODE`**: {sequência de caracteres} o [modo](#modo) em que a aplicação está executando.
 
-- **`import.meta.env.BASE_URL`**: {string} the base url the app is being served from. This is determined by the [`base` config option](/config/shared-options.md#base).
+- **`import.meta.env.BASE_URL`**: {sequência de caracteres} a url de base a partir da qual a aplicação está sendo servida. Isto é determinado pela [opção de configuração `base`](/config/shared-options.md#base).
 
-- **`import.meta.env.PROD`**: {boolean} whether the app is running in production.
+- **`import.meta.env.PROD`**: {booleano} se a aplicação estiver executando em produção.
 
-- **`import.meta.env.DEV`**: {boolean} whether the app is running in development (always the opposite of `import.meta.env.PROD`)
+- **`import.meta.env.DEV`**: {booleano} se a aplicação estiver executando em desenvolvimento (sempre o oposto de `import.meta.env.PROD`)
 
-- **`import.meta.env.SSR`**: {boolean} whether the app is running in the [server](./ssr.md#conditional-logic).
+- **`import.meta.env.SSR`**: {booleano} se a aplicação estiver executando no [servidor](./ssr.md#lógica-condicional).
 
-### Production Replacement
+### Substituição de Produção
 
-During production, these env variables are **statically replaced**. It is therefore necessary to always reference them using the full static string. For example, dynamic key access like `import.meta.env[key]` will not work.
+Durante a produção, estas variáveis de ambiente são **substituídas estaticamente**. É portanto necessário sempre fazer referência a elas utilizando a sequência de caracteres estático completa. Por exemplo, chave de acesso dinâmico como `import.meta.env[key]` não funcionarão.
 
-It will also replace these strings appearing in JavaScript strings and Vue templates. This should be a rare case, but it can be unintended. You may see errors like `Missing Semicolon` or `Unexpected token` in this case, for example when `"process.env.`<wbr>`NODE_ENV"` is transformed to `""development": "`. There are ways to work around this behavior:
+Isto também substituirá estas sequências de caracteres que aparecem nas sequências de caracteres de JavaScript e das do modelos de marcação de Vue. Isto deve ser um caso raro, mas pode ser não intencional. Tu podes ver erros como `Missing Semicolon` ou neste caso `Unexpected token`, por exemplo quando `"process.env.`<wbr>`NODE_ENV"` é transformada para `""development": "`. Existem maneiras de solucionar este comportamento:
 
-- For JavaScript strings, you can break the string up with a Unicode zero-width space, e.g. `'import.meta\u200b.env.MODE'`.
+- Para as sequências de caracteres de JavaScript, podes dividir a sequência de caracteres com um espaço de Unicode de largura zero, por exemplo `'import.meta\u200b.env.MODE'`.
 
-- For Vue templates or other HTML that gets compiled into JavaScript strings, you can use the [`<wbr>` tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr), e.g. `import.meta.<wbr>env.MODE`.
+- Para os modelos de marcação de Vue ou outro HTML que é compilado para sequências de caracteres de JavaScript, podes utilizar o [marcador `<wbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr), por exemplo `import.meta.<wbr>env.MODE`.
 
-## `.env` Files
+## Os Ficheiros `.env`
 
-Vite uses [dotenv](https://github.com/motdotla/dotenv) to load additional environment variables from the following files in your [environment directory](/config/shared-options.md#envdir):
+A Vite utiliza o pacote [dotenv](https://github.com/motdotla/dotenv) para carregar variáveis de ambiente adicionais a partir dos seguintes ficheiros no teu [diretório de ambiente](/config/shared-options.md#envdir):
 
 ```
-.env                # loaded in all cases
-.env.local          # loaded in all cases, ignored by git
-.env.[mode]         # only loaded in specified mode
-.env.[mode].local   # only loaded in specified mode, ignored by git
+.env                # carregado em todos casos
+.env.local          # carregado em todos casos, mas ignorado pelo git
+.env.[mode]         # carregado apenas em um modo especificado
+.env.[mode].local   # carregado apenas em um modo especificado, mas ignorado pelo git
 ```
 
-:::tip Env Loading Priorities
+:::tip Prioridades de Carregamento de Ambiente
 
-An env file for a specific mode (e.g. `.env.production`) will take higher priority than a generic one (e.g. `.env`).
+Um ficheiro de ambiente para um modo especifico (por exemplo, `.env.production`) receberá prioridade mais elevada do que um modo genérico (por exemplo, `.env`)
 
-In addition, environment variables that already exist when Vite is executed have the highest priority and will not be overwritten by `.env` files. For example, when running `VITE_SOME_KEY=123 vite build`.
+Além disto, as variáveis de ambiente que já existirem quando a Vite for executada tem a prioridade mais alta e não serão sobrescritas pelos ficheiros `.env`. Por exemplo, quando estiveres executando `VITE_SOME_KEY=123 vite build`.
 
-`.env` files are loaded at the start of Vite. Restart the server after making changes.
+Os ficheiros `.env` são carregados no início da Vite. Reinicie o servidor depois de fazer mudanças.
 :::
 
-Loaded env variables are also exposed to your client source code via `import.meta.env` as strings.
+As variáveis de ambiente carregadas também são expostas para o teu código-fonte do cliente através de `import.meta.env` como sequências de caracteres.
 
-To prevent accidentally leaking env variables to the client, only variables prefixed with `VITE_` are exposed to your Vite-processed code. e.g. for the following env variables:
+Para previr a fuga acidental das variáveis de ambiente para o cliente, só as variáveis prefixadas com `VITE_` são expostas para o teu código processado pela Vite. Por exemplo para as seguintes variáveis de ambiente:
 
 ```
 VITE_SOME_KEY=123
 DB_PASSWORD=foobar
 ```
 
-Only `VITE_SOME_KEY` will be exposed as `import.meta.env.VITE_SOME_KEY` to your client source code, but `DB_PASSWORD` will not.
+Só `VITE_SOME_KEY` será exposta como `import.meta.env.VITE_SOME_KEY` para o teu código-fonte do cliente, porém `DB_PASSWORD` não será exposta.
 
 ```js
 console.log(import.meta.env.VITE_SOME_KEY) // 123
 console.log(import.meta.env.DB_PASSWORD) // undefined
 ```
 
-If you want to customize the env variables prefix, see the [envPrefix](/config/shared-options.html#envprefix) option.
+Se quiseres personalizar o prefixo das variáveis de ambiente consulte a opção [`envPrefix`](/config/shared-options.html#envprefix).
 
-:::warning SECURITY NOTES
+:::warning NOTAS DE SEGURANÇA
 
-- `.env.*.local` files are local-only and can contain sensitive variables. You should add `*.local` to your `.gitignore` to avoid them being checked into git.
+- Os ficheiros `.env.*.local` são apenas para o local e podem conter variáveis sensíveis. Tu deves adicionar `*.local` no teu `.gitignore` para evitar que eles sejam verificados pelo git.
 
-- Since any variables exposed to your Vite source code will end up in your client bundle, `VITE_*` variables should _not_ contain any sensitive information.
-  :::
+- Já que quaisquer variáveis exposta para o teu código-fonte de Vite terminará no teu pacote de cliente, as variáveis `VITE_*` _não_ devem conter quaisquer informações sensíveis.
+:::
 
-### IntelliSense for TypeScript
+### Sensor Inteligente para TypeScript
 
-By default, Vite provides type definitions for `import.meta.env` in [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). While you can define more custom env variables in `.env.[mode]` files, you may want to get TypeScript IntelliSense for user-defined env variables that are prefixed with `VITE_`.
+Por padrão, a Vite fornece definições de tipo para `import.meta.env` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Embora podes definir mais variáveis de ambiente personalizadas nos ficheiros `.env.[mode]`, podes querer receber o Sensor Inteligente de TypeScript para as variáveis de ambiente definidas para o utilizador que são prefixadas com `VITE_`.
 
-To achieve this, you can create an `env.d.ts` in `src` directory, then augment `ImportMetaEnv` like this:
+Para alcançar isto, podes criar um ficheiro `env.d.ts` no diretório `src`, e então aumentar o `ImportMetaEnv` desta maneira:
 
 ```typescript
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
   readonly VITE_APP_TITLE: string
-  // more env variables...
+  // mais variáveis de ambiente...
 }
 
 interface ImportMeta {
@@ -88,7 +88,7 @@ interface ImportMeta {
 }
 ```
 
-If your code relies on types from browser environments such as [DOM](https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts) and [WebWorker](https://github.com/microsoft/TypeScript/blob/main/lib/lib.webworker.d.ts), you can update the [lib](https://www.typescriptlang.org/tsconfig#lib) field in `tsconfig.json`.
+Se o teu código depender dos tipos dos ambientes do navegador tais como [DOM](https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts) e [WebWorker](https://github.com/microsoft/TypeScript/blob/main/lib/lib.webworker.d.ts), podes atualizar o campo [lib](https://www.typescriptlang.org/tsconfig#lib) no `tsconfig.json`.
 
 ```json
 {
@@ -96,28 +96,28 @@ If your code relies on types from browser environments such as [DOM](https://git
 }
 ```
 
-## Modes
+## Modos
 
-By default, the dev server (`dev` command) runs in `development` mode and the `build` command runs in `production` mode.
+Por padrão, o servidor de desenvolvimento (comando `dev`) executa no modo de `development (desenvolvimento)` e o comando `build` executa no modo de `production (produção)`. 
 
-This means when running `vite build`, it will load the env variables from `.env.production` if there is one:
+Isto significa que quando estiveres executando `vite build`, ela carregará as variáveis de ambiente a partir de `.env.production` se houver uma:
 
 ```
 # .env.production
 VITE_APP_TITLE=My App
 ```
 
-In your app, you can render the title using `import.meta.env.VITE_APP_TITLE`.
+Na tua aplicação, podes interpretar o título utilizando `import.meta.env.VITE_APP_TITLE`.
 
-However, it is important to understand that **mode** is a wider concept than just development vs. production. A typical example is you may want to have a "staging" mode where it should have production-like behavior, but with slightly different env variables from production.
+No entanto, é importante entender que o **modo** é um conceito abrange muito mais do que desenvolvimento versus produção. Um exemplo comum é poderes desejar ter um modo de "staging (encenação)" onde deveria haver um comportamento parecido com o de produção, mas com ligeira diferença de variáveis de ambiente de produção.
 
-You can overwrite the default mode used for a command by passing the `--mode` option flag. For example, if you want to build your app for our hypothetical staging mode:
+Tu podes sobrescrever o modo padrão utilizado por um comando passando a bandeira de opção `--mode`. Por exemplo, se quiseres construir a tua aplicação para o modo de encenação hipotético:
 
 ```bash
 vite build --mode staging
 ```
 
-And to get the behavior we want, we need a `.env.staging` file:
+E para atingir o comportamento que queremos, precisamos de um ficheiro `.env.staging`:
 
 ```
 # .env.staging
@@ -125,4 +125,4 @@ NODE_ENV=production
 VITE_APP_TITLE=My App (staging)
 ```
 
-Now your staging app should have production-like behavior, but display a different title from production.
+Agora a tua aplicação de encenação deve ter o comportamento parecido com o de produção, porém exibir um título diferente do de produção.
