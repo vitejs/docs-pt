@@ -56,11 +56,16 @@ const sponsors = computed(() => {
 }
 .viteconf img {
   position: absolute;
-  left: 1.5rem;
+  left: 1.2rem;
   transition: transform 0.5s;
 }
 .viteconf:hover img {
   transform: scale(1.75);
+}
+
+.viteconf .heading {
+  padding-left: 0.4rem;
+  transition: transform 0.2s;
 }
 
 .viteconf:hover .heading {
@@ -73,13 +78,14 @@ const sponsors = computed(() => {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  transform: translate3d(0.4rem, 0, 0);
 }
 
 .viteconf .extra-info {
   color: var(--vp-c-text-1);
   opacity: 0;
   font-size: 0.7rem;
-  padding-left: 0.1rem;
+  padding-left: 0.4rem;
   transition: opacity 0.5s;
 }
 .viteconf:hover .extra-info {
