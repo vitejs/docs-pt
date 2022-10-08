@@ -1,9 +1,3 @@
-
-<!-- You can remove the following notice from your fork -->
-## This repo is a template for [Vite.js docs translation repositories](https://github.com/vitejs?q=docs). See [guide](/.github/CONTRIBUTING.md).
-
----
-
 <p align="center">
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
     <img width="180" src="https://vitejs.dev/logo.svg" alt="Vite logo">
@@ -11,37 +5,37 @@
 </p>
 <br/>
 <p align="center">
-  <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="npm package"></a>
-  <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="node compatibility"></a>
-  <a href="https://github.com/vitejs/vite/actions/workflows/ci.yml"><img src="https://github.com/vitejs/vite/actions/workflows/ci.yml/badge.svg?branch=main" alt="build status"></a>
-  <a href="https://chat.vitejs.dev"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="discord chat"></a>
+  <a href="https://npmjs.com/package/vite"><img src="https://img.shields.io/npm/v/vite.svg" alt="pacote de npm"></a>
+  <a href="https://nodejs.org/en/about/releases/"><img src="https://img.shields.io/node/v/vite.svg" alt="compatibilidade de node"></a>
+  <a href="https://github.com/vitejs/vite/actions/workflows/ci.yml"><img src="https://github.com/vitejs/vite/actions/workflows/ci.yml/badge.svg?branch=main" alt="estado da construção"></a>
+  <a href="https://chat.vitejs.dev"><img src="https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord" alt="conversa de discord"></a>
 </p>
 <br/>
 
 # Vite ⚡
 
-> Next Generation Frontend Tooling
+> Ferramental de Frontend de Nova Geração
 
-- 💡 Instant Server Start
-- ⚡️ Lightning Fast HMR
-- 🛠️ Rich Features
-- 📦 Optimized Build
-- 🔩 Universal Plugin Interface
-- 🔑 Fully Typed APIs
+- 💡 Inicio de Servidor Imediato
+- ⚡️ Substituição de Módulo Instantânea Rápida como Relâmpago
+- 🛠️ Funcionalidades Ricas
+- 📦 Construção Otimizada
+- 🔩 Interface de Extensão Universal
+- 🔑 APIs Completamente Tipadas
 
-Vite (French word for "quick", pronounced [`/vit/`](https://cdn.jsdelivr.net/gh/vitejs/vite@main/docs/public/vite.mp3), like "veet") is a new breed of frontend build tool that significantly improves the frontend development experience. It consists of two major parts:
+Vite (palavra Francesa para "rápido", pronunciado [`/vit/`](https://cdn.jsdelivr.net/gh/vitejs/vite@main/docs/public/vite.mp3), como "veet") é uma nova espécie de ferramenta de construção que melhora significativamente a experiência de programação de frontend. Ela consiste em tuas partes principais:
 
-- A dev server that serves your source files over [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), with [rich built-in features](https://vitejs.dev/guide/features.html) and astonishingly fast [Hot Module Replacement (HMR)](https://vitejs.dev/guide/features.html#hot-module-replacement).
+- Um servidor de desenvolvimento que serve o teu ficheiros de fonte sobre os [módulos de ECMAScript nativo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), com [funcionalidades embutidas ricas](./features), e [Substituição de Módulo Instantânea (HMR, sigla em Inglês)](./features#substituição-de-módulo-instantânea) surpreendentemente rápida.
 
-- A [build command](https://vitejs.dev/guide/build.html) that bundles your code with [Rollup](https://rollupjs.org), pre-configured to output highly optimized static assets for production.
+Um [comando de construção](https://pt.vitejs.dev/guide/build.html) que empacota o teu código com [Rollup](https://rollupjs.org), pré-configurado para produzir recursos estáticos altamente otimizados para produção.
 
-In addition, Vite is highly extensible via its [Plugin API](https://vitejs.dev/guide/api-plugin.html) and [JavaScript API](https://vitejs.dev/guide/api-javascript.html) with full typing support.
+Além disto, a Vite é altamente extensível através de sua [API de Extensão](https://pt.vitejs.dev/guide/api-plugin.html) e [API de JavaScript](https://pt.vitejs.dev/guide/api-javascript.html) como suporte de tipagem completa.
 
-[Read the Docs to Learn More](https://vitejs.dev).
+[Leia a Documentação para Aprender Mais](https://pt.vitejs.dev).
 
-## Packages
+## Pacotes
 
-| Package                                           | Version (click for changelogs)                                                                                                       |
+| Pacote                                           | Versão (clicar para relatório de mudança)                                                                                                       |
 | ------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------- |
 | [vite](packages/vite)                             | [![vite version](https://img.shields.io/npm/v/vite.svg?label=%20)](packages/vite/CHANGELOG.md)                                       |
 | [@vitejs/plugin-vue](packages/plugin-vue)         | [![plugin-vue version](https://img.shields.io/npm/v/@vitejs/plugin-vue.svg?label=%20)](packages/plugin-vue/CHANGELOG.md)             |
@@ -50,15 +44,15 @@ In addition, Vite is highly extensible via its [Plugin API](https://vitejs.dev/g
 | [@vitejs/plugin-legacy](packages/plugin-legacy)   | [![plugin-legacy version](https://img.shields.io/npm/v/@vitejs/plugin-legacy.svg?label=%20)](packages/plugin-legacy/CHANGELOG.md)    |
 | [create-vite](packages/create-vite)               | [![create-vite version](https://img.shields.io/npm/v/create-vite.svg?label=%20)](packages/create-vite/CHANGELOG.md)                  |
 
-## Contribution
+## Contribuição
 
-See [Contributing Guide](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md).
+Consulte o [Guia de Contribuição](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md).
 
-## License
+## Licença
 
 MIT
 
-## Sponsors
+## Patrocinadores
 
 <p align="center">
   <a target="_blank" href="https://github.com/sponsors/yyx990803">
