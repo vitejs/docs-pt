@@ -1,33 +1,33 @@
-# Plugins
+# Extensões
 
-:::tip NOTE
-Vite aims to provide out-of-the-box support for common web development patterns. Before searching for a Vite or Compatible Rollup plugin, check out the [Features Guide](../guide/features.md). A lot of the cases where a plugin would be needed in a Rollup project are already covered in Vite.
+:::tip NOTA
+A Vite tem por objetivo fornecer suporte fora da caixa para os padrões comum de desenvolvimento de web. Antes de procurares por uma extensão compatível com a Vite ou Rollup, consulte o [Guia de Funcionalidades](../guide/features.md). Muitos casos onde uma extensão seria necessária em um projeto de Rollup já são cobertos na Vite.
 :::
 
-Check out [Using Plugins](../guide/using-plugins) for information on how to use plugins.
+Consulte [Utilizando Extensões](../guide/using-plugins) para obter informações a respeito de como utilizar as extensões.
 
-## Official Plugins
+## Extensões Oficiais
 
 ### [@vitejs/plugin-vue](https://github.com/vitejs/vite/tree/main/packages/plugin-vue)
 
-- Provides Vue 3 Single File Components support.
+- Fornece suporta para Componentes de Ficheiro Único de Vue 3
 
 ### [@vitejs/plugin-vue-jsx](https://github.com/vitejs/vite/tree/main/packages/plugin-vue-jsx)
 
-- Provides Vue 3 JSX support (via [dedicated Babel transform](https://github.com/vuejs/jsx-next)).
+- Fornece suporta a JSX de Vue 3 (através da [opção `transform` de Babel dedicada](https://github.com/vuejs/jsx-next)).
 
 ### [@vitejs/plugin-react](https://github.com/vitejs/vite/tree/main/packages/plugin-react)
 
-- Provides all-in-one React Support.
+- Fornece suporte para o tudo em um de React.
 
 ### [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)
 
-- Provides legacy browsers support for the production build.
+- Fornece suporte de navegadores legados para a construção de produção.
 
-## Community Plugins
+## Extensões da Comunidade
 
-Check out [awesome-vite](https://github.com/vitejs/awesome-vite#plugins) - you can also submit a PR to list your plugins there.
+Consulte a [awesome-vite](https://github.com/vitejs/awesome-vite#plugins) - tu também podes submeter uma PR para listar as tuas extensões lá.
 
-## Rollup Plugins
+## Extensões de Rollup
 
-[Vite plugins](../guide/api-plugin) are an extension of Rollup's plugin interface. Check out the [Rollup Plugin Compatibility section](../guide/api-plugin#rollup-plugin-compatibility) for more information.
+As [extensões de Vite](../guide/api-plugin) são uma extensão da interface de extensão da Rollup. Consulte a [secção de Compatibilidade de Extensão de Rollup](../guide/api-plugin#compatibilidade-de-extensão-de-rollup) para obter mais informações.
