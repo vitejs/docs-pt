@@ -1,30 +1,30 @@
-# SSR Options
+# Opções de SSR
 
 ## ssr.external
 
-- **Type:** `string[]`
-- **Related:** [SSR Externals](/guide/ssr#ssr-externals)
+- **Tipo:** `string[]`
+- **Relacionado ao:** [Aspetos Externos da SSR](/guide/ssr#ssr-externals)
 
-Force externalize dependencies for SSR.
+Força a exposição de dependências para a SSR.
 
 ## ssr.noExternal
 
-- **Type:** `string | RegExp | (string | RegExp)[] | true`
-- **Related:** [SSR Externals](/guide/ssr#ssr-externals)
+- **Tipo:** `string | RegExp | (string | RegExp)[] | true`
+- **Relacionado ao:** [Aspetos Externos da SSR](/guide/ssr#ssr-externals)
 
-Prevent listed dependencies from being externalized for SSR. If `true`, no dependencies are externalized.
+Impede as dependências listadas de serem expostas externamente para a SSR. Se for `true`, nenhuma dependência é exposta externamente.
 
 ## ssr.target
 
-- **Type:** `'node' | 'webworker'`
-- **Default:** `node`
+- **Tipo:** `'node' | 'webworker'`
+- **Predefinido como:** `node`
 
-Build target for the SSR server.
+Alvo da construção para o servidor da SSR.
 
 ## ssr.format
 
 - **Experimental**
-- **Type:** `'esm' | 'cjs'`
-- **Default:** `esm`
+- **Tipo:** `'esm' | 'cjs'`
+- **Predefinido como:** `esm`
 
-Build format for the SSR server. Since Vite v3 the SSR build generates ESM by default. `'cjs'` can be selected to generate a CJS build, but it isn't recommended. The option is left marked as experimental to give users more time to update to ESM. CJS builds require complex externalization heuristics that aren't present in the ESM format.
+Formato de construção para o servidor da SSR. Visto que na versão 3 da Vite a construção da SSR gera Módulo de ECMAScript por padrão. `'cjs'` pode ser selecionado para gerar uma construção em "CJS ou CommonJS", mas não é recomendado. A opção é deixada marcada como experimental para dar aos utilizadores mais tempo para atualizarem para "ESM ou ECMAScript Modulo" (Módulo de ECMAScript). As construções de "CJS" exigem heurísticas de exposição complexas que não estão presentes no formato de Módulo de ECMAScript.
