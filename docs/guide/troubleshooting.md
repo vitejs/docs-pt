@@ -1,91 +1,115 @@
-# Troubleshooting
+# Resolução de Problemas
 
-See [Rollup's troubleshooting guide](https://rollupjs.org/guide/en/#troubleshooting) for more information too.
+Consulte também o [guia de resolução de problemas da Rollup](https://rollupjs.org/guide/en/#troubleshooting) para obter mais informações.
 
-If the suggestions here don't work, please try posting questions on [GitHub Discussions](https://github.com/vitejs/vite/discussions) or in the `#help` channel of [Vite Land Discord](https://chat.vitejs.dev).
+Se as sugestões neste documento não funcionarem, tente publicar as questões nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) ou no canal de `#help` da [Discord do País de Vite (Vite Land)](https://chat.vitejs.dev).
 
-## CLI
+## Interface de Linha de Comando
 
 ### `Error: Cannot find module 'C:\foo\bar&baz\vite\bin\vite.js'`
 
-The path to your project folder may include `&`, which doesn't work with `npm` on Windows ([npm/cmd-shim#45](https://github.com/npm/cmd-shim/issues/45)).
+O caminho para a pasta do teu projeto talvez inclua `&`, o qual não funciona com o `npm` no Windows ([npm/cmd-shim#45](https://github.com/npm/cmd-shim/issues/45)).
 
-You will need to either:
+Tu precisarás ou de:
 
-- Switch to another package manager (e.g. `pnpm`, `yarn`)
-- Remove `&` from the path to your project
+- Mudar para um outro gestor de pacote (por exemplo, `pnpm`, `yarn`)
+- Remover o `&` do caminho do teu projeto
 
-## Dev Server
+## Servidor de Desenvolvimento
 
-### Requests are stalled forever
+### Requisições são bloqueada para sempre
 
-If you are using Linux, file descriptor limits and inotify limits may be causing the issue. As Vite does not bundle most of the files, browsers may request many files which require many file descriptors, going over the limit.
+Se estiveres utilizando Linux, limites de descritor de ficheiro e limites de `inotify` podem estar causando o problema. Já que a Vite não empacota  a maior parte dos ficheiros, os navegadores podem requisitar muitos ficheiros os quais requerem muitos descritores de ficheiro, ultrapassando o limite.
 
-To solve this:
+Para resolver isto:
 
-- Increase file descriptor limit by `ulimit`
+- Aumente o limite do descritor de ficheiro pelo `ulimit`
 
   ```shell
-  # Check current limit
+  # Consulte o limite atual
   $ ulimit -Sn
-  # Change limit (temporary)
-  $ ulimit -Sn 10000 # You might need to change the hard limit too
-  # Restart your browser
+  # Mude o limite (temporário)
+  $ ulimit -Sn 10000 # Tu podes também precisar mudar o limite manualmente
+  # Reinicie o teu navegador
   ```
 
-- Increase the following inotify related limits by `sysctl`
+- Aumente os seguintes limites relacionado com `inotify` pelo `sysctl`
 
   ```shell
-  # Check current limits
+  # Consulte os limites atuais
   $ sysctl fs.inotify
-  # Change limits (temporary)
+  # Mude os limites (temporário)
   $ sudo sysctl fs.inotify.max_queued_events=16384
   $ sudo sysctl fs.inotify.max_user_instances=8192
   $ sudo sysctl fs.inotify.max_user_watches=524288
   ```
 
-### 431 Request Header Fields Too Large
+### 431 Campos do Cabeçalho da Requisição Muito Grandes
 
-When the server / WebSocket server receives a large HTTP header, the request will be dropped and the following warning will be shown.
+Quando o servidor ou servidor de websocket recebe um cabeçalho de HTTP grande, a requisição será largada e o seguinte aviso será exibido.
 
 > Server responded with status code 431. See https://vitejs.dev/guide/troubleshooting.html#_431-request-header-fields-too-large.
 
-This is because Node.js limits request header size to mitigate [CVE-2018-12121](https://www.cve.org/CVERecord?id=CVE-2018-12121).
+> (Tradução) O servidor respondeu com o código de estado 431. Consulte https://pt.vitejs.dev/guide/troubleshooting.html#_campos-do-cabeçalho-da-requisição-muito-grandes.
 
-To avoid this, try to reduce your request header size. For example, if the cookie is long, delete it. Or you can use [`--max-http-header-size`](https://nodejs.org/api/cli.html#--max-http-header-sizesize) to change max header size.
+Isto porque a Node.js limita o tamanho do cabeçalho da requisição para mitigar o [CVE-2018-12121](https://www.cve.org/CVERecord?id=CVE-2018-12121).
 
-## HMR
+Para evitar isto, tente reduzir o tamanho do cabeçalho da tua requisição. Por exemplo, se o cookie for longo, elimine-o. Ou podes utilizar a [`--max-http-header-size`](https://nodejs.org/api/cli.html#--max-http-header-sizesize) para mudar o tamanho máximo do cabeçalho.
 
-### Vite detects a file change but the HMR is not working
+## Substituição de Módulo Instantânea ou HMR em Inglês
 
-You may be importing a file with a different case. For example, `src/foo.js` exists and `src/bar.js` contains:
+### A Vite deteta uma mudança de ficheiro mas a HMR não está funcionando
+
+Tu talvez estejas importando um ficheiro com uma caixa diferente. Por exemplo, `src/foo.js` existe e `src/bar.js` contém:
 
 ```js
-import './Foo.js' // should be './foo.js'
+import './Foo.js' // deveria ser './foo.js'
 ```
 
-Related issue: [#964](https://github.com/vitejs/vite/issues/964)
+Problema relacionado: [#964](https://github.com/vitejs/vite/issues/964)
 
-### Vite does not detect a file change
+### A Vite não deteta uma mudança de ficheiro
 
-If you are running Vite with WSL2, Vite cannot watch file changes in some conditions. See [`server.watch` option](/config/server-options.md#server-watch).
+Se estiveres executando a Vite com o WSL2, a Vite não consegue observar mudanças de ficheiro em algumas condições. Consulte a [opção `server.watch`](/config/server-options.md#server-watch).
 
-### A full reload happens instead of HMR
+### Um recarregamento completo acontece no lugar da HMR
 
-If HMR is not handled by Vite or a plugin, a full reload will happen.
+Se a HMR não for manipulada pela Vite ou uma extensão, um recarregamento completo acontecerá.
 
-Also if there is a dependency loop, a full reload will happen. To solve this, try removing the loop.
+Além disto se houver um laço de dependência, um recarregamento completo acontecerá. Para resolver isto, tente a remoção do laço.
 
-## Others
+## Construção
 
-### Syntax Error / Type Error happens
+### O ficheiro construído não funciona por causo do erro de CORS
 
-Vite cannot handle and does not support code that only runs on non-strict mode (sloppy mode). This is because Vite uses ESM and it is always [strict mode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) inside ESM.
+Se o ficheiro HTML de saída foi aberto com o protocolo `file`, os programas (ou scripts se preferires) não executarão com o seguinte erro.
 
-For example, you might see these errors.
+> Access to script at 'file:///foo/bar.js' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: http, data, isolated-app, chrome-extension, chrome, https, chrome-untrusted.
+
+> (Tradução) O acesso ao programa em 'file:///foo/bar.js' a partir da origem 'null' foi bloqueada pela política de CORS: As requisições de origem cruzadas apenas são suportadas para os esquemas de protocolo: http, data, isolated-app, chrome-extension, chrome, https, chrome-untrusted.
+
+> Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at file:///foo/bar.js. (Reason: CORS request not http).
+
+> (Tradução) Requisição de Origem Cruzada Bloqueada: A Mesma Política de Origem desautoriza a leitura do recurso em file:///foo/bar.js. (Motivo: Requisição de CORS não é de http).
+
+Consulte o [Motivo: Requisição de CORS não é HTTP - HTTP | MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSRequestNotHttp) para obter mais informações a respeito do por quê isto acontece.
+
+Tu precisarás acessar o ficheiro com o protocolo de `http`. A maneira mais fácil de alcançar isto é executar o `npx vite preview`.
+
+## Outros
+
+### Ocorre Erro de Sintaxe / Erro de Tipo
+
+A Vite não consegui manipular e não suporta o código que só executa no modo não restrito (modo desleixado). Isto porque a Vite utiliza Módulo de ECMAScript e sempre é [modo restrito](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) dentro do Módulo de ECMAScript.
+
+Por exemplo, podes ver estes erros.
 
 > [ERROR] With statements cannot be used with the "esm" output format due to strict mode
 
+> (Tradução) [ERRO] a expressão `with` não pode ser utilizada com o formato de saída "esm" por causa do modo estrito
+
 > TypeError: Cannot create property 'foo' on boolean 'false'
 
-If these code are used inside dependencies, you could use [`patch-package`](https://github.com/ds300/patch-package) (or [`yarn patch`](https://yarnpkg.com/cli/patch) or [`pnpm patch`](https://pnpm.io/cli/patch)) for an escape hatch.
+> (Tradução) Erro de Tipo: Não possível criar a propriedade `'foo'` sobre o booleano '`false`'
+
+Se estes códigos são utilizados dentro de dependências, poderias utilizar [`patch-package`](https://github.com/ds300/patch-package) (ou [`yarn patch`](https://yarnpkg.com/cli/patch) ou [`pnpm patch`](https://pnpm.io/cli/patch)) por uma escotilha de saída.
