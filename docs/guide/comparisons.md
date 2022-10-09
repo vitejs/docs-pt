@@ -2,7 +2,7 @@
 
 ## WMR
 
-A [WMR](https://github.com/preactjs/wmr) pela equipa da Preact fornece um conjunto de funcionalidade semelhante, e o suporte da Vite 2.0 para a interface de extensão da Rollup é inspirada por ela.
+A [WMR](https://github.com/preactjs/wmr) criada pela equipa da Preact fornece um conjunto de funcionalidade semelhante, e o suporte da Vite 2.0 para a interface de extensão da Rollup é inspirada por ela.
 
 A WMR é desenhada principalmente para projetos de [Preact](https://preactjs.com/), e oferece mais funcionalidades integradas tais como a pré-interpretação. Em termos de escopo, está mais perto de uma meta abstração de Preact, com a mesma ênfase no tamanho compacto conforme a própria Preact. Se estiveres utilizando a Preact, a WMR é a que provavelmente oferecerá uma experiência mais refinada.
 
