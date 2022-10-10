@@ -1,23 +1,23 @@
-# Dep Optimization Options
+# Opções de Otimização de Dependência
 
-- **Related:** [Dependency Pre-Bundling](/guide/dep-pre-bundling)
+- **Relacionado ao:** [Pré-Empacotamento de Dependência](/guide/dep-pre-bundling)
 
 ## optimizeDeps.entries
 
-- **Type:** `string | string[]`
+- **Tipo:** `string | string[]`
 
-By default, Vite will crawl all your `.html` files to detect dependencies that need to be pre-bundled (ignoring `node_modules`, `build.outDir`, `__tests__` and `coverage`). If `build.rollupOptions.input` is specified, Vite will crawl those entry points instead.
+Por padrão, a Vite rastreará todos os teus ficheiros `.html` para detetar dependências que precisam ser pré-empacotadas (ignorando a `node_modules`, `build.outDir`, `__tests__` e `coverage`). Se `build.rollupOptions.input` for especificado, a Vite rastreará estes pontos de entrada.
 
-If neither of these fit your needs, you can specify custom entries using this option - the value should be a [fast-glob pattern](https://github.com/mrmlnc/fast-glob#basic-syntax) or array of patterns that are relative from Vite project root. This will overwrite default entries inference. Only `node_modules` and `build.outDir` folders will be ignored by default when `optimizeDeps.entries` is explicitly defined. If other folders need to be ignored, you can use an ignore pattern as part of the entries list, marked with an initial `!`.
+Se nenhum destes adequado as tuas necessidades, podes especificar entradas personalizadas utilizando esta opção - o valor deve ser um [padrão `fast-glob`](https://github.com/mrmlnc/fast-glob#basic-syntax) ou um arranjo de padrões que são relativos da raiz do projeto de Vite. Isto sobrescreverá as inferências de entradas padrão. Apenas as pastas `node_modules` e `build.outDir` serão ignoradas por padrão quando a `optimizeDeps.entries` for explicitamente definidas. Se outras pastas precisarem ser ignoradas, podes utilizar um padrão de ignorar como parte da lista de entradas, marcado com um `!` inicial.
 
 ## optimizeDeps.exclude
 
-- **Type:** `string[]`
+- **Tipo:** `string[]`
 
-Dependencies to exclude from pre-bundling.
+Dependências à excluir do pré-empacotamento.
 
 :::warning CommonJS
-CommonJS dependencies should not be excluded from optimization. If an ESM dependency is excluded from optimization, but has a nested CommonJS dependency, the CommonJS dependency should be added to `optimizeDeps.include`. Example:
+As dependências da CommonJS não devem ser excluídas da otimização. Se uma dependência de Módulo de ECMAScript for excluída da otimização, mas tiver uma dependência de CommonJS encaixada, a dependência de CommonJS deve ser adicionada ao `optimizeDeps.include`. Por exemplo:
 
 ```js
 export default defineConfig({
@@ -31,23 +31,23 @@ export default defineConfig({
 
 ## optimizeDeps.include
 
-- **Type:** `string[]`
+- **Tipo:** `string[]`
 
-By default, linked packages not inside `node_modules` are not pre-bundled. Use this option to force a linked package to be pre-bundled.
+Por padrão, pacotes ligados não os que estão dentro do `node_modules` não são pré-empacotados. Utilize esta opção para forçar com que um pacote ligado seja pré-empacotado.
 
 ## optimizeDeps.esbuildOptions
 
-- **Type:** [`EsbuildBuildOptions`](https://esbuild.github.io/api/#simple-options)
+- **Tipo:** [`EsbuildBuildOptions`](https://esbuild.github.io/api/#simple-options)
 
-Options to pass to esbuild during the dep scanning and optimization.
+Opções para passar para esbuild durante o exame e otimização de dependência.
 
-Certain options are omitted since changing them would not be compatible with Vite's dep optimization.
+Certas opções são omitidas visto que a mudança delas não seria compatível com otimização de dependência da Vite.
 
-- `external` is also omitted, use Vite's `optimizeDeps.exclude` option
-- `plugins` are merged with Vite's dep plugin
+- `external` também é omitida, utilize a opção `optimizeDeps.exclude` da Vite
+- `plugins` são combinadas com a extensão de dependência da Vite
 
 ## optimizeDeps.force
 
-- **Type:** `boolean`
+- **Tipo:** `boolean`
 
-Set to `true` to force dependency pre-bundling, ignoring previously cached optimized dependencies.
+Defina para `true` para forçar o pré-empacotamento de dependência, ignorando as dependências otimizadas cacheadas previamente.
