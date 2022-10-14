@@ -100,15 +100,15 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 Tu também podes executar o programa acima na tua configuração do CI para ativar o desdobramento automático em cada empurrão.
 :::
 
-## GitLab Pages and GitLab CI
+## GitLab Pages e GitLab CI
 
-1. Set the correct `base` in `vite.config.js`.
+2. Defina a `base` correta no `vite.config.js`.
 
-   If you are deploying to `https://<USERNAME or GROUP>.gitlab.io/`, you can omit `base` as it defaults to `'/'`.
+   Se estiveres desdobrando para `https://<USERNAME or GROUP>.gitlab.io/`, podes omitir a `base` porque ela padroniza para `'/'`.
 
-   If you are deploying to `https://<USERNAME or GROUP>.gitlab.io/<REPO>/`, for example your repository is at `https://gitlab.com/<USERNAME>/<REPO>`, then set `base` to `'/<REPO>/'`.
+   Se estiveres desdobrando para `https://<USERNAME or GROUP>.gitlab.io/<REPO>/`, por exemplo o teu repositório está em `https://gitlab.com/<USERNAME>/<REPO>`, então defina a `base` para `'/<REPO>/'`.
 
-2. Create a file called `.gitlab-ci.yml` in the root of your project with the content below. This will build and deploy your site whenever you make changes to your content:
+2. Cria um ficheiro chamado `.gitlab-ci.yml` na raiz do teu projeto com o conteúdo abaixo. Isto construirá e desdobrará o teu sítio sempre que fizeres mudanças ao teu conteúdo:
 
    ```yaml
    image: node:16.5.0
