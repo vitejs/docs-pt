@@ -136,7 +136,7 @@ Tu também podes executar o programa acima na tua configuração do CI para ativ
 
 ### Netlify CLI
 
-1. Instala a [Linha de Comando da Netlify](https://cli.netlify.com/).
+1. Instale a [Linha de Comando da Netlify](https://cli.netlify.com/).
 2. Cria um novo sítio utilizando o `ntl init`.
 3. Desdobra utilizando `ntl deploy`.
 
@@ -172,9 +172,9 @@ Depois de o teu projeto ter sido importado e desdobrado, todos os empurrões sub
 
 ### Vercel CLI
 
-1. Install the [Vercel CLI](https://vercel.com/cli) and run `vercel` to deploy.
-2. Vercel will detect that you are using Vite and will enable the correct settings for your deployment.
-3. Your application is deployed! (e.g. [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/))
+1. Instale a [Linha de Comando da Vercel](https://vercel.com/cli) e execute `vercel` para desdobrar.
+2. A Vercel detetará que estás utilizando a Vite e ativará as definições corretas para o teu desdobramento.
+3. A tua aplicação está desdobrada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/)).
 
 ```bash
 $ npm i -g vercel
