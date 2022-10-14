@@ -158,15 +158,15 @@ A Linha de Comando da Netlify partilhará contigo uma URL de pré-visualização
 $ ntl deploy --prod
 ```
 
-### Netlify with Git
+### Netlify com Git
 
-1. Push your code to a git repository (GitHub, GitLab, BitBucket, Azure DevOps).
-2. [Import the project](https://app.netlify.com/start) to Netlify.
-3. Choose the branch, output directory, and set up environment variables if applicable.
-4. Click on **Deploy**.
-5. Your Vite app is deployed!
+1. Empurre o teu código para um repositório de git (GitHub, GitLab, BitBucket, Azure DevOps).
+2. [Importe o projeto](https://app.netlify.com/start) para a Netlify.
+3. Escolha o ramo, diretório de saída, e configure as variáveis de ambiente se aplicável.
+4. Clique sobre **Deploy (Desdobrar)**
+5. A tua aplicação de Vite está desdobrada!
 
-After your project has been imported and deployed, all subsequent pushes to branches other than the production branch along with pull requests will generate [Preview Deployments](https://docs.netlify.com/site-deploys/deploy-previews/), and all changes made to the Production Branch (commonly “main”) will result in a [Production Deployment](https://docs.netlify.com/site-deploys/overview/#definitions).
+Depois de o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://docs.netlify.com/site-deploys/deploy-previews/), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://docs.netlify.com/site-deploys/overview/#definitions).
 
 ## Vercel
 
