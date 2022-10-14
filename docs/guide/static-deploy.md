@@ -166,7 +166,7 @@ $ ntl deploy --prod
 4. Clique sobre **Deploy (Desdobrar)**
 5. A tua aplicação de Vite está desdobrada!
 
-Depois de o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://docs.netlify.com/site-deploys/deploy-previews/), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://docs.netlify.com/site-deploys/overview/#definitions).
+Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://docs.netlify.com/site-deploys/deploy-previews/), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://docs.netlify.com/site-deploys/overview/#definitions).
 
 ## Vercel
 
@@ -184,16 +184,16 @@ Vercel CLI
 - To deploy, `cd vite` and run `vercel`.
 ```
 
-### Vercel for Git
+### Vercel com Git
 
-1. Push your code to your git repository (GitHub, GitLab, Bitbucket).
-2. [Import your Vite project](https://vercel.com/new) into Vercel.
-3. Vercel will detect that you are using Vite and will enable the correct settings for your deployment.
-4. Your application is deployed! (e.g. [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/))
+1. Empurre o teu código para o teu repositório de git (GitHub, GitLab, Bitbucket).
+2. [Importe o teu projeto de Vite](https://vercel.com/new) para a Vercel.
+3. A Vercel detetará que estás utilizando a Vite e ativará as definições corretas para o teu desdobramento.
+4. A tua aplicação está desdobrada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/))
 
-After your project has been imported and deployed, all subsequent pushes to branches will generate [Preview Deployments](https://vercel.com/docs/concepts/deployments/environments#preview), and all changes made to the Production Branch (commonly “main”) will result in a [Production Deployment](https://vercel.com/docs/concepts/deployments/environments#production).
+Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://vercel.com/docs/concepts/deployments/environments#preview), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://vercel.com/docs/concepts/deployments/environments#production).
 
-Learn more about Vercel’s [Git Integration](https://vercel.com/docs/concepts/git).
+Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concepts/git) da Vercel.
 
 ## Cloudflare Pages
 
