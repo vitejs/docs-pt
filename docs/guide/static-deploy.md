@@ -1,10 +1,10 @@
-# Deploying a Static Site
+# Desdobrando um Sítio Estático
 
-The following guides are based on some shared assumptions:
+Os seguintes guias são baseados em algumas suposições partilhadas:
 
-- You are using the default build output location (`dist`). This location [can be changed using `build.outDir`](/config/build-options.md#build-outdir), and you can extrapolate instructions from these guides in that case.
-- You are using npm. You can use equivalent commands to run the scripts if you are using Yarn or other package managers.
-- Vite is installed as a local dev dependency in your project, and you have setup the following npm scripts:
+- Tu estás utilizando a localização da saída da construção padrão (`dist`). Esta localização [pode ser mudada utilizando `build.outDir`](/config/build-options.md#build-outdir), e podes extrapolar as instruções destes guias neste caso.
+- Tu estás utilizando o npm. Tu podes utilizar comandos equivalentes para executar os programas se estiveres utilizando o Yarn ou outro gestor de pacote.
+- A Vite está instalada como uma dependência local no teu projeto, e configuraste os seguintes programas de npm:
 
 ```json
 {
@@ -15,34 +15,34 @@ The following guides are based on some shared assumptions:
 }
 ```
 
-It is important to note that `vite preview` is intended for previewing the build locally and not meant as a production server.
+É importante notar que `vite preview` está destinado para a pré-visualização da construção localmente e não destinada como servidor de produção.
 
-::: tip NOTE
-These guides provide instructions for performing a static deployment of your Vite site. Vite also supports Server Side Rendering. SSR refers to front-end frameworks that support running the same application in Node.js, pre-rendering it to HTML, and finally hydrating it on the client. Check out the [SSR Guide](./ssr) to learn about this feature. On the other hand, if you are looking for integration with traditional server-side frameworks, check out the [Backend Integration guide](./backend-integration) instead.
+:::tip NOTA
+Estes guias fornecem instruções para realização de um desdobramento estático do teu sítio de Vite. A Vite também suporta a Interpretação no Lado do Servidor (SSR, sigla em Inglês). A SSR refere-se as abstrações de front-end que suportam a execução da mesma aplicação em Node.js, pré-interpretando-a para HTML, e finalmente hidratando-a no cliente. Consulte o [Guia da SSR](./ssr) para aprender a respeito desta funcionalidade. Por outro lado, se estiveres procurando pela integração com abstrações de lado do servidor tradicionais, consulte o [Guia da Integração de Backend](./backend-integration).
 :::
 
-## Building the App
+## Construindo a Aplicação
 
-You may run `npm run build` command to build the app.
+Tu podes executar o comando `npm run build` para construir a aplicação.
 
 ```bash
 $ npm run build
 ```
 
-By default, the build output will be placed at `dist`. You may deploy this `dist` folder to any of your preferred platforms.
+Por padrão, a saída da construção será colocada no `dist`. Tu podes desdobrar esta pasta `dist` para quaisquer plataformas de tua preferência.
 
-### Testing the App Locally
+### Testando a Aplicação Localmente
 
-Once you've built the app, you may test it locally by running `npm run preview` command.
+Um vez que construiste a aplicação, podes testá-la localmente executando o comando `npm run preview`.
 
 ```bash
 $ npm run build
 $ npm run preview
 ```
 
-The `vite preview` command will boot up a local static web server that serves the files from `dist` at `http://localhost:4173`. It's an easy way to check if the production build looks OK in your local environment.
+O comando `vite preview` iniciará um servidor de web estático local que serve os ficheiros do `dist` no `http://localhost:4173`. É uma maneira fácil para verificar se a construção de produção parece bem no teu ambiente local.
 
-You may configure the port of the server by passing the `--port` flag as an argument.
+Tu podes configurar a porta do servidor passando a bandeira `--port` como um argumento.
 
 ```json
 {
@@ -52,7 +52,7 @@ You may configure the port of the server by passing the `--port` flag as an argu
 }
 ```
 
-Now the `preview` command will launch the server at `http://localhost:8080`.
+Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 
 ## GitHub Pages
 
@@ -64,7 +64,7 @@ Now the `preview` command will launch the server at `http://localhost:8080`.
 
 2. Inside your project, create `deploy.sh` with the following content (with highlighted lines uncommented appropriately), and run it to deploy:
 
-   ```bash{13,21,24}
+   ```bash{16,24,27}
    #!/usr/bin/env sh
 
    # abort on errors
@@ -75,6 +75,9 @@ Now the `preview` command will launch the server at `http://localhost:8080`.
 
    # navigate into the build output directory
    cd dist
+
+   # place .nojekyll to bypass Jekyll processing
+   echo > .nojekyll
 
    # if you are deploying to a custom domain
    # echo 'www.example.com' > CNAME
