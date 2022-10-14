@@ -136,25 +136,25 @@ Tu também podes executar o programa acima na tua configuração do CI para ativ
 
 ### Netlify CLI
 
-1. Install the [Netlify CLI](https://cli.netlify.com/).
-2. Create a new site using `ntl init`.
-3. Deploy using `ntl deploy`.
+1. Instala a [Linha de Comando da Netlify](https://cli.netlify.com/).
+2. Cria um novo sítio utilizando o `ntl init`.
+3. Desdobra utilizando `ntl deploy`.
 
 ```bash
-# Install the Netlify CLI
+# Instalar a Linha de Comando da Netlify
 $ npm install -g netlify-cli
 
-# Create a new site in Netlify
+# Criar um novo sítio na Netlify
 $ ntl init
 
-# Deploy to a unique preview URL
+# Desdobrar para uma URL de pré-visualização única.
 $ ntl deploy
 ```
 
-The Netlify CLI will share with you a preview URL to inspect. When you are ready to go into production, use the `prod` flag:
+A Linha de Comando da Netlify partilhará contigo uma URL de pré-visualização para inspecionar. Quando estiveres pronto para avançar para produção, utilize a bandeira `prod`:
 
 ```bash
-# Deploy the site into production
+# Desdobrar o sítio para produção
 $ ntl deploy --prod
 ```
 
