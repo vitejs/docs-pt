@@ -1,12 +1,14 @@
-# HMR API
+# API da HMR
 
-:::tip Note
-This is the client HMR API. For handling HMR update in plugins, see [handleHotUpdate](./api-plugin#handlehotupdate).
+:::tip Nota
+HMR é a sigla para o termo Hot Module Replacement em Inglês, que traduz-se para Substituição de Módulo Instantânea em Português.
 
-The manual HMR API is primarily intended for framework and tooling authors. As an end user, HMR is likely already handled for you in the framework specific starter templates.
+Esta é a API da HMR do cliente. Para a manipulação da HMR nas extensões, consulte a [handleHotUpdate](./api-plugin#handlehotupdate).
+
+O manual da API da HMR está principalmente destinada para os autores de abstração e ferramental. Como um utilizador final, a HMR já está provavelmente resolvida ou configurada para ti nos modelos de arranque especifico de abstração.
 :::
 
-Vite exposes its manual HMR API via the special `import.meta.hot` object:
+A Vite expõe o manual da sua API de HMR através do objeto especial `import.meta.hot`:
 
 ```ts
 interface ImportMeta {
@@ -32,7 +34,7 @@ interface ViteHotContext {
   decline(): void
   invalidate(): void
 
-  // `InferCustomEventPayload` provides types for built-in Vite events
+  // `InferCustomEventPayload` fornece tipos para eventos de Vite embutidos
   on<T extends string>(
     event: T,
     cb: (payload: InferCustomEventPayload<T>) => void
@@ -41,19 +43,19 @@ interface ViteHotContext {
 }
 ```
 
-## Required Conditional Guard
+## Guarda Condicional Obrigatória
 
-First of all, make sure to guard all HMR API usage with a conditional block so that the code can be tree-shaken in production:
+Primeiro de todo, certifica-te de guardar todas as utilizações da API de HMR com um bloco condicional para que o código possa ter a árvore sacudida em produção:
 
 ```js
 if (import.meta.hot) {
-  // HMR code
+  // código da HMR
 }
 ```
 
 ## `hot.accept(cb)`
 
-For a module to self-accept, use `import.meta.hot.accept` with a callback which receives the updated module:
+Para um módulo aceitar-se, utilize a `import.meta.hot.accept` com uma resposta que receba o módulo atualizado:
 
 ```js
 export const count = 1
@@ -61,22 +63,22 @@ export const count = 1
 if (import.meta.hot) {
   import.meta.hot.accept((newModule) => {
     if (newModule) {
-      // newModule is undefined when SyntaxError happened
+      // "newModule" é "não definido" quando "SyntaxError" aconteceu
       console.log('updated: count is now ', newModule.count)
     }
   })
 }
 ```
 
-A module that "accepts" hot updates is considered an **HMR boundary**.
+Um módulo que "aceita" atualizações instantâneas é considerado uma **fronteira de HMR**. 
 
-Note that Vite's HMR does not actually swap the originally imported module: if an HMR boundary module re-exports imports from a dep, then it is responsible for updating those re-exports (and these exports must be using `let`). In addition, importers up the chain from the boundary module will not be notified of the change.
+Nota que a HMR da Vite na realidade não troca o módulo importado originalmente: se um módulo de fronteira de HMR reexportar as importações de uma dependência, então é responsável pela atualização destas reexportações (e estas exportações devem estar utilizando o `let`). Além disto, os importadores em cima da cadeia do módulo de fronteiro não serão notificados da mudança.
 
-This simplified HMR implementation is sufficient for most dev use cases, while allowing us to skip the expensive work of generating proxy modules.
+Esta implementação da HMR simplificada é suficiente para a maior parte dos casos de uso do desenvolvimento, ao passo que permite-nos saltar o trabalho dispendioso de gerar módulos de delegação.
 
 ## `hot.accept(deps, cb)`
 
-A module can also accept updates from direct dependencies without reloading itself:
+Um módulo também pode aceitar atualizações de dependências diretas sem recarregar-se a si mesmo:
 
 ```js
 import { foo } from './foo.js'
@@ -85,15 +87,15 @@ foo()
 
 if (import.meta.hot) {
   import.meta.hot.accept('./foo.js', (newFoo) => {
-    // the callback receives the updated './foo.js' module
+    // a resposta recebe o módulo './foo.js' atualizado
     newFoo?.foo()
   })
 
-  // Can also accept an array of dep modules:
+  // Também pode aceitar um arranjo de módulos de dependência:
   import.meta.hot.accept(
     ['./foo.js', './bar.js'],
     ([newFooModule, newBarModule]) => {
-      // the callback receives the updated modules in an Array
+      // a resposta recebe os módulos atualizados num Arranjo (ou Array)
     }
   )
 }
@@ -101,7 +103,7 @@ if (import.meta.hot) {
 
 ## `hot.dispose(cb)`
 
-A self-accepting module or a module that expects to be accepted by others can use `hot.dispose` to clean-up any persistent side effects created by its updated copy:
+Um módulo de auto-aceitação ou um módulo que espera ser aceitado por outros pode utilizar `hot.dispose` para limpar quaisquer efeitos colaterais persistente criado pela sua cópia atualizada:
 
 ```js
 function setupSideEffect() {}
@@ -110,40 +112,52 @@ setupSideEffect()
 
 if (import.meta.hot) {
   import.meta.hot.dispose((data) => {
-    // cleanup side effect
+    // limpar o efeito colateral
   })
 }
 ```
 
 ## `hot.data`
 
-The `import.meta.hot.data` object is persisted across different instances of the same updated module. It can be used to pass on information from a previous version of the module to the next one.
+O objeto `import.meta.hot.data` é persistido através de diferentes instâncias do mesmo módulo atualizado. Ele pode ser utilizado para transmitir informação de uma versão anterior do módulo para a próxima.
 
 ## `hot.decline()`
 
-Calling `import.meta.hot.decline()` indicates this module is not hot-updatable, and the browser should perform a full reload if this module is encountered while propagating HMR updates.
+A chamada de `import.meta.hot.decline()` indica que este módulo não atualizável de maneira instantânea, e que o navegador deve realizar um recarregamento completo se este módulo for encontrado enquanto estiver propagando as atualizações de HMR,
 
 ## `hot.invalidate()`
 
-For now, calling `import.meta.hot.invalidate()` simply reloads the page.
+Um módulo de auto-aceitação pode aperceber-se de que durante o tempo de execução que não pode lidar com uma atualização de HMR, e assim a atualização precisa ser energicamente propagada para os importadores. Ao chamar `import.meta.hot.invalidate()`, o servidor de HMR invalidará os importadores do chamador, como se o chamador não fosse de auto-aceitação.
+
+Nota que deves sempre chamar `import.meta.hot.accept` mesmo se planeias chamar `invalidate` imediatamente mais tarde, ou então o cliente de HMR não ouvirá as futuras mudanças para o módulo de auto-aceitação. Para comunicar a tua intenção de maneira clara, recomendamos a chamada de `invalidade` dentro da resposta de `accept` desta maneira:
+
+```ts
+import.meta.hot.accept(module => {
+  // Tu podes utilizar a nova instância do módulo para decidir se invalida.
+  if (cannotHandleUpdate(module)) {
+    import.meta.hot.invalidate()
+    }
+})
+```
 
 ## `hot.on(event, cb)`
 
-Listen to an HMR event.
+Ouve um evento de HMR
 
-The following HMR events are dispatched by Vite automatically:
+Os seguintes eventos de HMR são despachados pela Vite automaticamente:
 
-- `'vite:beforeUpdate'` when an update is about to be applied (e.g. a module will be replaced)
-- `'vite:beforeFullReload'` when a full reload is about to occur
-- `'vite:beforePrune'` when modules that are no longer needed are about to be pruned
-- `'vite:error'` when an error occurs (e.g. syntax error)
+- `'vite:beforeUpdate'` quando uma atualização estiver para ser aplicada (por exemplo, um módulo será substituído)
+- `'vite:beforeFullReload'` quando um recarregamento completo estiver para ocorrer
+- `'vite:beforePrune'` quando os módulos que não são mais necessários estiverem para ser  cortados
+- `'vite:invalidate'` quando um módulo for invalidado com `import.meta.hot.invalidate()`
+- `'vite:error'` quando um erro ocorrer (por exemplo, erro de sintaxe)
 
-Custom HMR events can also be sent from plugins. See [handleHotUpdate](./api-plugin#handlehotupdate) for more details.
+Os eventos de HMR personalizados também podem ser enviados a partir das extensões. Consulta a [handleHotUpdate](./api-plugin#handlehotupdate) para mais detalhes.
 
 ## `hot.send(event, data)`
 
-Send custom events back to Vite's dev server.
+Envia os eventos personalizados de volta para o servidor de desenvolvimento da Vite.
 
-If called before connected, the data will be buffered and sent once the connection is established.
+Se chamado antes de conectado, o dado será armazenado temporariamente e enviado uma vez que a conexão for estabelecida.
 
-See [Client-server Communication](/guide/api-plugin.html#client-server-communication) for more details.
+Consulte a [Comunicação Cliente-Servidor](/guide/api-plugin.html#comunicação-cliente-servidor) para mais detalhes.
