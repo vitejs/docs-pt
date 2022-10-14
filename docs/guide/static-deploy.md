@@ -56,30 +56,30 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 
 ## GitHub Pages
 
-1. Set the correct `base` in `vite.config.js`.
+1. Defina a `base` correta no `vite.config.js`.
 
-   If you are deploying to `https://<USERNAME>.github.io/`, you can omit `base` as it defaults to `'/'`.
+   Se estiveres desdobrando para `https://<USERNAME>.github.io/`, podes omitir a `base` porque ela padroniza para `'/'`.
 
-   If you are deploying to `https://<USERNAME>.github.io/<REPO>/`, for example your repository is at `https://github.com/<USERNAME>/<REPO>`, then set `base` to `'/<REPO>/'`.
+   Se estiveres desdobrando para `https://<USERNAME>.github.io/<REPO>/`, por exemplo o teu repositório está em `https://github.com/<USERNAME>/<REPO>`, então defina a `base` para `'/<REPO>/'`.
 
-2. Inside your project, create `deploy.sh` with the following content (with highlighted lines uncommented appropriately), and run it to deploy:
+2. Dentro do teu projeto, crie `deploy.sh` com o seguinte conteúdo (com as linhas destacadas apropriadamente descomentada), e execute-o para desdobrar:
 
    ```bash{16,24,27}
    #!/usr/bin/env sh
 
-   # abort on errors
+   # abortar em caso de erros
    set -e
 
-   # build
+   # construir
    npm run build
 
-   # navigate into the build output directory
+   # navegar para o diretório de saída da construção
    cd dist
 
-   # place .nojekyll to bypass Jekyll processing
+   # colocar .nojekull para contornar o processamento do Jekyll
    echo > .nojekyll
 
-   # if you are deploying to a custom domain
+   # Se estiveres desdobrando para um domínio personalizado
    # echo 'www.example.com' > CNAME
 
    git init
@@ -87,17 +87,17 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
    git add -A
    git commit -m 'deploy'
 
-   # if you are deploying to https://<USERNAME>.github.io
+   # Se estiveres desdobrando para https://<USERNAME>.github.io
    # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
 
-   # if you are deploying to https://<USERNAME>.github.io/<REPO>
+   # Se estiveres desdobrando para https://<USERNAME>.github.io/<REPO>
    # git push -f git@github.com:<USERNAME>/<REPO>.git main:gh-pages
 
    cd -
    ```
 
 ::: tip
-You can also run the above script in your CI setup to enable automatic deployment on each push.
+Tu também podes executar o programa acima na tua configuração do CI para ativar o desdobramento automático em cada empurrão.
 :::
 
 ## GitLab Pages and GitLab CI
