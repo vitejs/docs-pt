@@ -237,9 +237,9 @@ Tu também podes adicionar domínios personalizados e manipular as definições 
 
 ## Google Firebase
 
-1. Make sure you have [firebase-tools](https://www.npmjs.com/package/firebase-tools) installed.
+1. Certifica-te de que tens a [firebase-tools](https://www.npmjs.com/package/firebase-tools) instalada.
 
-2. Create `firebase.json` and `.firebaserc` at the root of your project with the following content:
+2. Crie o `firebase.json` e o `.firebaserc` na raiz do teu projeto com o seguinte conteúdo:
 
    `firebase.json`:
 
@@ -268,7 +268,7 @@ Tu também podes adicionar domínios personalizados e manipular as definições 
    }
    ```
 
-3. After running `npm run build`, deploy using the command `firebase deploy`.
+3. Após executares `npm run build`, desdobre utilizando o comando `firebase deploy`.
 
 ## Surge
 
