@@ -199,26 +199,27 @@ Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concept
 
 ### Cloudflare Pages via Wrangler
 
-1. Install [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/get-started/).
-2. Authenticate Wrangler with your Cloudflare account using `wrangler login`.
-3. Run your build command.
-4. Deploy using `npx wrangler pages publish dist`.
+1. Instale a [Linha de Comando Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
+2. Autentica a Wrangler com a tua conta da Cloudflare utilizando `wrangler login`.
+3. Executa o teu comando de construção.
+4. Desdobra utilizando `npx wrangler pages publish dist`.
 
 ```bash
-# Install Wrangler CLI
+# Instalar a Linha de Comando Wrangler
 $ npm install -g wrangler
 
-# Login to Cloudflare account from CLI
+# Iniciar sessão da conta da Cloudflare
+# a partir da Linha de Comando
 $ wrangler login
 
-# Run your build command
+# Executar o teu comando de construção
 $ npm run build
 
-# Create new deployment
+# Criar novo desdobramento
 $ npx wrangler pages publish dist
 ```
 
-After your assets are uploaded, Wrangler will give you a preview URL to inspect your site. When you log into the Cloudflare Pages dashboard, you will see your new project.
+Após os teus recursos serem carregados, a Wrangler dar-te-á uma URL de pré-visualização para inspecionar o teu sítio. Quando entrares no painel de controlo da Cloudflare Pages, verás o teu novo projeto.
 
 ### Cloudflare Pages with Git
 
