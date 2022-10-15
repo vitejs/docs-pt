@@ -221,19 +221,19 @@ $ npx wrangler pages publish dist
 
 Após os teus recursos serem carregados, a Wrangler dar-te-á uma URL de pré-visualização para inspecionar o teu sítio. Quando entrares no painel de controlo da Cloudflare Pages, verás o teu novo projeto.
 
-### Cloudflare Pages with Git
+### Cloudflare Pages com Git
 
-1. Push your code to your git repository (GitHub, GitLab).
-2. Log in to the Cloudflare dashboard and select your account in **Account Home** > **Pages**.
-3. Select **Create a new Project** and the **Connect Git** option.
-4. Select the git project you want to deploy and click **Begin setup**
-5. Select the corresponding framework preset in the build setting depending on the Vite framework you have selected.
-6. Then save and deploy!
-7. Your application is deployed! (e.g `https://<PROJECTNAME>.pages.dev/`)
+1. Empurre o teu código para o teu repositório (GitHub, GitLab).
+2. Entre no painel de controlo da Cloudflare e selecione a tua conta em **Account Home (Casa da Conta)** > **Pages (Páginas)**.
+3. Selecione **Create a new Project (Criar um novo Projeto)** e a opção **Connect Git (Conectar a Git)**.
+4. Selecione o projeto de git que queres desdobrar e clique em **Begin setup (Iniciar a configuração)**.
+5. Selecione a configuração da abstração correspondente nas definições da construção dependendo da abstração de Vite que selecionaste.
+6. Depois guarde e desdobre!
+7. A tua aplicação está desdobrada! (por exemplo, `https://<PROJECTNAME>.pages.dev/`)
 
-After your project has been imported and deployed, all subsequent pushes to branches will generate [Preview Deployments](https://developers.cloudflare.com/pages/platform/preview-deployments/) unless specified not to in your [branch build controls](https://developers.cloudflare.com/pages/platform/branch-build-controls/). All changes to the Production Branch (commonly “main”) will result in a Production Deployment.
+Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para os ramos gerarão [Desdobramentos de Pré-Visualização](https://developers.cloudflare.com/pages/platform/preview-deployments/) a menos que seja especificado para não o fazer nos teus [controlos da construção do ramo](https://developers.cloudflare.com/pages/platform/branch-build-controls/). Todas as mudanças para o Ramo de Produção (comummente “main”) resultarão em um Desdobramento de Produção.
 
-You can also add custom domains and handle custom build settings on Pages. Learn more about [Cloudflare Pages Git Integration](https://developers.cloudflare.com/pages/get-started/#manage-your-site).
+Tu também podes adicionar domínios personalizados e manipular as definições da construção personalizada na Pages. Aprenda mais a respeito da [Integração de Git da Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/#manage-your-site).
 
 ## Google Firebase
 
