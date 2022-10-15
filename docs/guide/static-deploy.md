@@ -272,13 +272,13 @@ Tu também podes adicionar domínios personalizados e manipular as definições 
 
 ## Surge
 
-1. First install [surge](https://www.npmjs.com/package/surge), if you haven’t already.
+1. Primeiro instale a [surge](https://www.npmjs.com/package/surge), se já não a tiveres instalada.
 
-2. Run `npm run build`.
+2. Execute `npm run build`.
 
-3. Deploy to surge by typing `surge dist`.
+3. Desdobre para surge digitando `surge dist`.
 
-You can also deploy to a [custom domain](http://surge.sh/help/adding-a-custom-domain) by adding `surge dist yourdomain.com`.
+Tu também podes desdobrar para um [domínio personalizado](http://surge.sh/help/adding-a-custom-domain) adicionado `surge dist yourdomain.com`.
 
 ## Azure Static Web Apps
 
