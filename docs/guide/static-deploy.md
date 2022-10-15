@@ -296,23 +296,24 @@ A ação trabalhará para desdobrar a tua aplicação (observe o seu progresso n
 
 ## Render
 
-You can deploy your Vite app as a Static Site on [Render](https://render.com/).
+Tu podes desdobrar a tua aplicação de Vite como um Sítio Estático na [Render](https://render.com/).
 
-1. Create a [Render account](https://dashboard.render.com/register).
+1. Crie uma [conta Render](https://dashboard.render.com/register).
 
-2. In the [Dashboard](https://dashboard.render.com/), click the **New** button and select **Static Site**.
+2. No [Painel de Controlo](https://dashboard.render.com/), clique no botão **Novo (New, em Inglês)** e selecione o **Sítio Estático (Static Site, em Inglês)**.
 
-3. Connect your GitHub/GitLab account or use a public repository.
+3. Conecte a tua conta GitHub/GitLab ou utilize um repositório público.
 
-4. Specify a project name and branch.
+4. Especifique um nome de projeto e o ramo.
 
-   - **Build Command**: `npm run build`
-   - **Publish Directory**: `dist`
+   - **Comando de Construção (Build Command, em Inglês)**: `npm run build`
+   - **Diretório de Publicação (Publish Directory, em Inglês)**: `dist`
 
-5. Click **Create Static Site**.
+5. Clique em **Criar Sítio Estático (Create Static Site, em Inglês)**
 
-   Your app should be deployed at `https://<PROJECTNAME>.onrender.com/`.
+   A tua aplicação deveria ser desdobrada em `https://<PROJECTNAME>.onrender.com/`.
 
-By default, any new commit pushed to the specified branch will automatically trigger a new deployment. [Auto-Deploy](https://render.com/docs/deploys#toggling-auto-deploy-for-a-service) can be configured in the project settings.
+Por padrão, qualquer nova consolidação empurrada para o ramo especificado acionará automaticamente um novo desdobramento.
+O [Desdobrar Automaticamente (Auto-Deploy, em Inglês)](https://render.com/docs/deploys#toggling-auto-deploy-for-a-service) pode ser configurado nas definições do projeto.
 
-You can also add a [custom domain](https://render.com/docs/custom-domains) to your project.
+Tu também podes adicionar um [domínio personalizado](https://render.com/docs/custom-domains) ao teu projeto.
