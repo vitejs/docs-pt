@@ -282,17 +282,17 @@ Tu também podes desdobrar para um [domínio personalizado](http://surge.sh/help
 
 ## Azure Static Web Apps
 
-You can quickly deploy your Vite app with Microsoft Azure [Static Web Apps](https://aka.ms/staticwebapps) service. You need:
+Tu podes desdobrar rapidamente a tua aplicação de Vite com o serviço de [Aplicações de Web Estáticas](https://aka.ms/staticwebapps) da Microsoft Azure. Tu precisas:
 
-- An Azure account and a subscription key. You can create a [free Azure account here](https://azure.microsoft.com/free).
-- Your app code pushed to [GitHub](https://github.com).
-- The [SWA Extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) in [Visual Studio Code](https://code.visualstudio.com).
+- De uma conta Azure e de uma chave de subscrição. Tu podes criar uma [conta Azure gratuita aqui](https://azure.microsoft.com/free).
+- Que o código da tua aplicação seja empurrado para [GitHub](https://github.com).
+- Da [Extensão SWA](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) no [Visual Studio Code](https://code.visualstudio.com).
 
-Install the extension in VS Code and navigate to your app root. Open the Static Web Apps extension, sign in to Azure, and click the '+' sign to create a new Static Web App. You will be prompted to designate which subscription key to use.
+Instale a extensão no VS Code e navegar para a raiz da tua aplicação. Abrir a extensão Static Web Apps, registar-se na Azure, e clicar no sinal '+' para criar uma nova Aplicação de Web Estática. Tu serás levado a designar qual chave de subscrição utilizar.
 
-Follow the wizard started by the extension to give your app a name, choose a framework preset, and designate the app root (usually `/`) and built file location `/dist`. The wizard will run and will create a GitHub action in your repo in a `.github` folder.
+Siga o assistente ("wizard" ou "feiticeiro" se preferires) iniciado pela extensão para dares um nome a tua aplicação, escolher uma configuração de abstração, e designar a raiz da aplicação (normalmente `/`) e a localização do ficheiro construído `/dist`. O assistente ("wizard" ou "feiticeiro" se preferires) executará e criará uma ação de GitHub no teu repositório numa pasta `.github`.
 
-The action will work to deploy your app (watch its progress in your repo's Actions tab) and, when successfully completed, you can view your app in the address provided in the extension's progress window by clicking the 'Browse Website' button that appears when the GitHub action has run.
+A ação trabalhará para desdobrar a tua aplicação (observe o seu progresso na aba Ações (Actions, em Inglês) do teu repositório) e, quando terminada com sucesso, podes visualizar a tua aplicação no endereço fornecido na janela de progresso da extensão clicando no botão 'Olhar o Sítio (Browse Website, em Inglês)' que aparece quando a ação de GitHub executa.
 
 ## Render
 
