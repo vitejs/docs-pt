@@ -1,83 +1,84 @@
-# Migration from v2
+# Migração da v2
 
-## Node.js Support
+## Suporte de Node.js
 
-Vite no longer supports Node.js 12 / 13 / 15, which reached its EOL. Node.js 14.18+ / 16+ is now required.
+A Vite já não suporta a Node.js 12 / 13 / 15, as quais alcançaram sua expectativa de vida. Node.js 14.18+ / 16+ é agora obrigatória.
 
-## Modern Browser Baseline change
+## Mudança de Base do Navegador Moderno
 
-The production bundle assumes support for modern JavaScript. By default, Vite targets browsers which support the [native ES Modules](https://caniuse.com/es6-module), [native ESM dynamic import](https://caniuse.com/es6-module-dynamic-import), and [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
+O pacote de produção presume o suporte para a JavaScript moderno. Por padrão, a Vite tem como alvo navegadores que suportam os [Módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
 
 - Chrome >=87
 - Firefox >=78
 - Safari >=13
 - Edge >=88
 
-A small fraction of users will now require using [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), which will automatically generate legacy chunks and corresponding ES language feature polyfills.
+Um fração pequena de utilizadores exigirão agora a utilização de [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará automaticamente pedaços legados e "pollyfills" da funcionalidade da linguagem de ECMAScript correspondente.
 
-## Config Options Changes
+## Mudanças de Opções de Configuração
 
-The following options that were already deprecated in v2 have been removed:
+As seguintes opções que já foram depreciadas na v2 têm sido removidas:
 
-- `alias` (switch to [`resolve.alias`](../config/shared-options.md#resolve-alias))
-- `dedupe` (switch to [`resolve.dedupe`](../config/shared-options.md#resolve-dedupe))
-- `build.base` (switch to [`base`](../config/shared-options.md#base))
-- `build.brotliSize` (switch to [`build.reportCompressedSize`](../config/build-options.md#build-reportcompressedsize))
-- `build.cleanCssOptions` (Vite now uses esbuild for CSS minification)
-- `build.polyfillDynamicImport` (use [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) for browsers without dynamic import support)
-- `optimizeDeps.keepNames` (switch to [`optimizeDeps.esbuildOptions.keepNames`](../config/dep-optimization-options.md#optimizedeps-esbuildoptions))
+- `alias` (troque para [`resolve.alias`](../config/shared-options.md#resolve-alias))
+- `dedupe` (troque para [`resolve.dedupe`](../config/shared-options.md#resolve-dedupe))
+- `build.base` (troque para [`base`](../config/shared-options.md#base))
+- `build.brotliSize` (troque para [`build.reportCompressedSize`](../config/build-options.md#build-reportcompressedsize))
+- `build.cleanCssOptions` (Agora a Vite utiliza a esbuild para minificação de CSS)
+- `build.polyfillDynamicImport` (utilize o [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) para navegadores sem suporte a importação dinâmica)
+- `optimizeDeps.keepNames` (troque para [`optimizeDeps.esbuildOptions.keepNames`](../config/dep-optimization-options.md#optimizedeps-esbuildoptions))
 
-## Architecture Changes and Legacy Options
+## Mudanças de Arquitetura e Opções Legadas
 
-This section describes the biggest architecture changes in Vite v3. To allow projects to migrate from v2 in case of a compat issue, legacy options have been added to revert to the Vite v2 strategies.
+Esta secção descreve as maiores mudanças de arquitetura na Vite v3. Para permitir os projetos migrem da v2 em caso de problema de compatibilidade, opções legadas que tem sido adicionadas para regressar para as estratégias da Vite v2.
 
-### Dev Server Changes
+### Mudanças de Servidor de Desenvolvimento
 
-Vite's default dev server port is now 5173. You can use [`server.port`](../config/server-options.md#server-port) to set it to 3000.
+A porta do servidor de desenvolvimento padrão da Vita agora é 5173. Tu podes utilizar a [`server.port`](../config/server-options.md#server-port) para defini-la para 3000.
 
-Vite's default dev server host is now `localhost`. In Vite v2, Vite was listening to `127.0.0.1` by default. Node.js under v17 normally resolves `localhost` to `127.0.0.1`, so for those versions, the host won't change. For Node.js 17+, you can use [`server.host`](../config/server-options.md#server-host) to set it to `127.0.0.1` to keep the same host as Vite v2.
+O hospedeiro do servidor de desenvolvimento padrão da Vite agora é `localhost`. Na Vite v2, a Vite estava ouvindo a `127.0.0.1` por padrão. A Node.js abaixo da v17 normalmente resolve `localhost` para `127.0.0.1`, assim para aquelas versões, o hospedeiro não mudará. Para Node.js 17+, podes utilizar a [`server.host`](../config/server-options.md#server-host) para defini-lo para `127.0.0.1` para preservar o mesmo hospedeiro em acordo com a Vite v2.
 
-Note that Vite v3 now prints the correct host. This means Vite may print `127.0.0.1` as the listening host when `localhost` is used. You can set [`dns.setDefaultResultOrder('verbatim')`](https://nodejs.org/api/dns.html#dns_dns_setdefaultresultorder_order) to prevent this. See [`server.host`](../config/server-options.md#server-host) for more details.
+Nota que a Vite v3 agora imprime o hospedeiro correto. Isto significa que a Vite pode imprimir `127.0.0.1` como hospedeiro de escuta quando `localhost` é utilizado. Tu podes definir [`dns.setDefaultResultOrder('verbatim')`](https://nodejs.org/api/dns.html#dns_dns_setdefaultresultorder_order) para impedir isto. Consulte [`server.host`](../config/server-options.md#server-host) para mais detalhes.
 
-### SSR Changes
+### Mudanças da SSR
 
-Vite v3 uses ESM for the SSR build by default. When using ESM, the [SSR externalization heuristics](https://vitejs.dev/guide/ssr.html#ssr-externals) are no longer needed. By default, all dependencies are externalized. You can use [`ssr.noExternal`](../config/ssr-options.md#ssr-noexternal) to control what dependencies to include in the SSR bundle.
+A Vite v3 utiliza o Módulo de ECMAScript para a construção da SSR por padrão. Quando estiveres utilizando o Módulo de ECMAScript, as [heurísticas de exposição da SSR](https://vitejs.dev/guide/ssr.html#ssr-externals) já não são necessárias. Por padrão, todas as dependências são expostas. Tu podes utilizar [`ssr.noExternal`](../config/ssr-options.md#ssr-noexternal) para controlar quais dependências para incluir no pacote da SSR.
 
-If using ESM for SSR isn't possible in your project, you can set `legacy.buildSsrCjsExternalHeuristics` to generate a CJS bundle using the same externalization strategy of Vite v2.
+Se a utilização do Módulo de ECMAScript para Interpretação no Lado do Servidor não for possível no teu projeto, podes definir `legacy.buildSsrCjsExternalHeuristics` para gerar um pacote de CJS utilizando a mesma estratégia de exposição da Vite v2.
 
-Also [`build.rollupOptions.output.inlineDynamicImports`](https://rollupjs.org/guide/en/#outputinlinedynamicimports) now defaults to `false` when `ssr.target` is `'node'`. `inlineDynamicImports` changes execution order and bundling to a single file is not needed for node builds.
+Além disto a [`build.rollupOptions.output.inlineDynamicImports`](https://rollupjs.org/guide/en/#outputinlinedynamicimports) agora predefine para `false` quando `ssr.target` for `'node'`. A `inlineDynamicImports` muda a ordem de execução e empacotamento para um único ficheiro não é necessário para construções de node.
 
-## General Changes
+## Mudanças Gerais
 
-- JS file extensions in SSR and lib mode now use a valid extension (`js`, `mjs`, or `cjs`) for output JS entries and chunks based on their format and the package type.
-- Terser is now an optional dependency. If you are using `build.minify: 'terser'`, you need to install it.
+- Extensões de ficheiro de JS na SSR e no modo de biblioteca agora utilizam uma extensão válida (`js`, `mjs`, ou `cjs`) para as entradas de JS de saída e pedaços baseados no seu formato e no tipo de pacote.
+- A "Terser" é agora uma dependência opcional. Se estiveres utilizando `build.minify: 'terser'`, precisas instalá-lo.
+
   ```shell
   npm add -D terser
   ```
 
 ### `import.meta.glob`
 
-- [Raw `import.meta.glob`](features.md#glob-import-as) switched from `{ assert: { type: 'raw' }}` to `{ as: 'raw' }`
-- Keys of `import.meta.glob` are now relative to the current module.
+- [`import.meta.glob` pura](features.md#glob-importa-como) mudada de `{ assert: { type: 'raw' }}` para `{ as: 'raw' }`
+- As chaves de `import.meta.glob` são agora relativas ao módulo atual.
 
   ```diff
   // file: /foo/index.js
   const modules = import.meta.glob('../foo/*.js')
 
-  // transformed:
+  // transformado:
   const modules = {
   -  '../foo/bar.js': () => {}
   +  './bar.js': () => {}
   }
   ```
 
-- When using an alias with `import.meta.glob`, the keys are always absolute.
-- `import.meta.globEager` is now deprecated. Use `import.meta.glob('*', { eager: true })` instead.
+- Quando estiveres utilizando um pseudónimo com `import.meta.glob`, as chaves são sempre absolutas.
+- O `import.meta.globEager` está agora depreciado. Utilize `import.meta.glob('*', { eager: true })` no lugar dele.
 
-### WebAssembly Support
+### Suporte ao WebAssembly
 
-`import init from 'example.wasm'` syntax is dropped to prevent future collision with ["ESM integration for Wasm"](https://github.com/WebAssembly/esm-integration).
-You can use `?init` which is similar to the previous behavior.
+A sintaxe `import init from 'example.wasm'` está abandonada para evitar colisão futura com a ["Integração de Módulo de ECMAScript para Wasm"](https://github.com/WebAssembly/esm-integration).
+Tu podes utilizar `?init` o qual é semelhante ao comportamento anterior.
 
 ```diff
 -import init from 'example.wasm'
@@ -89,10 +90,10 @@ You can use `?init` which is similar to the previous behavior.
 })
 ```
 
-### Automatic https Certificate Generation
+### Geração de Certificado HTTPS Automática
 
-A valid certificate is needed when using `https`. In Vite v2, if no certificate was configured, a self-signed certificate was automatically created and cached.
-Since Vite v3, we recommend manually creating your certificates. If you still want to use the automatic generation from v2, this feature can be enabled back by adding [@vitejs/plugin-basic-ssl](https://github.com/vitejs/vite-plugin-basic-ssl) to the project plugins.
+Um certificado válido é necessário quando estiveres utilizando `https`. Na Vite v2, se nenhum certificado foi configurado, um certificado auto-assinado era automaticamente criado e cacheado.
+Desde a Vite v3, recomendados a criação dos teus certificados manualmente. Se ainda quiseres utilizar a geração automática da v2, esta funcionalidade pode ser ativa de volta adicionando [@vitejs/plugin-basic-ssl](https://github.com/vitejs/vite-plugin-basic-ssl) às extensões do projeto.
 
 ```js
 import basicSsl from '@vitejs/plugin-basic-ssl'
@@ -104,44 +105,43 @@ export default {
 
 ## Experimental
 
-### Using esbuild deps optimization at build time
+### Utilizando a otimização de dependências de esbuild em tempo de construção
 
-In v3, Vite allows the use of esbuild to optimize dependencies during build time. If enabled, it removes one of the most significant differences between dev and prod present in v2. [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) is no longer needed in this case since esbuild converts CJS-only dependencies to ESM.
+Na v3, a Vite permite o uso do esbuild para otimizar dependências durante o tempo de construção. Se ativada, ela remove uma das mais significantes diferenças entre o desenvolvimento e produção presentes na v2. O [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) não é mais necessário neste caso já que a esbuild converte apenas dependências de CJS para ESM.
 
-If you want to try this build strategy, you can use `optimizeDeps.disabled: false` (the default in v3 is `disabled: 'build'`). `@rollup/plugin-commonjs`
-can be removed by passing `build.commonjsOptions: { include: [] }`
+Se quiseres experimentar este estratégia de construção, podes utilizar `optimizeDeps.disabled: false` (o padrão na v3 é `disabled: 'build'`). O `@rollup/plugin-commonjs` pode ser removido passando `build.commonjsOptions: { include: [] }`.
 
-## Advanced
+## Avançado
 
-There are some changes which only affect plugin/tool creators.
+Existem algumas mudanças que só afetam os criadores de extensão ou criadores de ferramenta.
 
 - [[#5868] refactor: remove deprecated api for 3.0](https://github.com/vitejs/vite/pull/5868)
-  - `printHttpServerUrls` is removed
-  - `server.app`, `server.transformWithEsbuild` are removed
-  - `import.meta.hot.acceptDeps` is removed
+  - `printHttpServerUrls` está removida
+  - `server.app`, `server.transformWithEsbuild` estão removidas
+  - `import.meta.hot.acceptDeps` está removida
 - [[#6901] fix: sequential injection of tags in transformIndexHtml](https://github.com/vitejs/vite/pull/6901)
-  - `transformIndexHtml` now gets the correct content modified by earlier plugins, so the order of the injected tags now works as expected.
+  - `transformIndexHtml` agora recebe o conteúdo correto modificado pelas extensões anteriores, assim a ordem dos marcadores injetados agora funciona como esperado.
 - [[#7995] chore: do not fixStacktrace](https://github.com/vitejs/vite/pull/7995)
-  - `ssrLoadModule`'s `fixStacktrace` option's default is now `false`
+  - O valor predefinido da opção `fixStacktrace` da `ssrLoadModule` agora é `false`
 - [[#8178] feat!: migrate to ESM](https://github.com/vitejs/vite/pull/8178)
-  - `formatPostcssSourceMap` is now async
-  - `resolvePackageEntry`, `resolvePackageData` are no longer available from CJS build (dynamic import is needed to use in CJS)
+  - `formatPostcssSourceMap` agora é assíncrono
+  - `resolvePackageEntry`, `resolvePackageData` não estão mais disponíveis a partir da construção de CJS (a importação dinâmica é necessária para utilizar na CJS)
 - [[#8626] refactor: type client maps](https://github.com/vitejs/vite/pull/8626)
-  - Type of callback of `import.meta.hot.accept` is now stricter. It is now `(mod: (Record<string, any> & { [Symbol.toStringTag]: 'Module' }) | undefined) => void` (was `(mod: any) => void`).
+  - O tipo da resposta do `import.meta.hot.accept` agora é estrito. Ele agora é `(mod: (Record<string, any> & { [Symbol.toStringTag]: 'Module' }) | undefined) => void` (foi `(mod: any) => void`).
 
-Also there are other breaking changes which only affect few users.
+Além disto existem outras mudanças de quebras de compatibilidade as quais apenas afetam poucos utilizadores.
 
 - [[#5018] feat: enable `generatedCode: 'es2015'` for rollup build](https://github.com/vitejs/vite/pull/5018)
-  - Transpile to ES5 is now necessary even if the user code only includes ES5.
+  - Tradução do código para ES5 agora é necessário mesmo se o código do utilizador apenas incluir ES5.
 - [[#7877] fix: vite client types](https://github.com/vitejs/vite/pull/7877)
-  - `/// <reference lib="dom" />` is removed from `vite/client.d.ts`. `{ "lib": ["dom"] }` or `{ "lib": ["webworker"] }` is necessary in `tsconfig.json`.
+  - `/// <reference lib="dom" />` está removida do `vite/client.d.ts`. `{ "lib": ["dom"] }` ou `{ "lib": ["webworker"] }` é necessária no `tsconfig.json`.
 - [[#8090] feat: preserve process env vars in lib build](https://github.com/vitejs/vite/pull/8090)
-  - `process.env.*` is now preserved in library mode
+  - `process.env.*` agora é preservado no modo de biblioteca
 - [[#8280] feat: non-blocking esbuild optimization at build time](https://github.com/vitejs/vite/pull/8280)
-  - `server.force` option was removed in favor of `optimizeDeps.force` option.
+  - A opção `server.force` foi removida em favor da opção `optimizeDeps.force`.
 - [[#8550] fix: dont handle sigterm in middleware mode](https://github.com/vitejs/vite/pull/8550)
-  - When running in middleware mode, Vite no longer kills process on `SIGTERM`.
+  - Quando estiveres executando no modo de intermediário, a Vite não mais mata o processo no `SIGTERM`.
 
-## Migration from v1
+## Migração da v1
 
-Check the [Migration from v1 Guide](https://v2.vitejs.dev/guide/migration.html) in the Vite v2 docs first to see the needed changes to port your app to Vite v2, and then proceed with the changes on this page.
+Consulte o [Guia de Migração da v1](https://v2.vitejs.dev/guide/migration.html) na documentação da Vite v2 primeiro para ver as mudanças necessárias para passar a tua aplicação para a Vite v2, e então prosseguir com as mudanças nesta página.
