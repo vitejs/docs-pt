@@ -6,7 +6,7 @@
 
 ## Visão de Conjunto
 
-Vite (palavra Francesa para "rápido", pronunciado `/vit/`<button style="border:none;padding:3px;border-radius:4px;vertical-align:bottom" id="play-vite-audio" onclick="document.getElementById('vite-audio').play();"><svg style="height:2em;width:2em"><use href="/voice.svg#voice" /></svg></button>, como "veet") é uma ferramenta de construção que se destina a oferecer uma experiência de desenvolvimento mais rápida e leve para projetos de web modernos. Ela consiste em tuas partes principais:
+Vite (palavra Francesa para "rápido", pronunciado `/vit/`<button style="border:none;padding:3px;border-radius:4px;vertical-align:bottom" id="play-vite-audio" onclick="document.getElementById('vite-audio').play();"><svg style="height:2em;width:2em"><use href="/voice.svg#voice" /></svg></button>, como "veet") é uma ferramenta de construção que se destina a oferecer uma experiência de desenvolvimento mais rápida e leve para projetos de web modernos. Ela consiste em duas partes principais:
 
 - Um servidor de desenvolvimento que oferece [melhorias de funcionalidade ricas](./features) sobre [módulos de ECMAScript nativo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), por exemplo [Substituição de Módulo Instantânea (HMR, sigla em Inglês)](./features#substituição-de-módulo-instantânea) extremamente rápida.
 
