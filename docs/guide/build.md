@@ -1,8 +1,8 @@
-# Construindo para Produção
+# Construindo para Produção {#building-for-production}
 
 Quando for o momento de desdobrar a tua aplicação para produção, execute simplesmente o comando `vite build`. Por padrão, ele utiliza `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequada para ser servido sobre um serviço de hospedagem estática. Consulte o [Desdobrando um Sítio Estático](./static-deploy) por guias a respeito dos serviços populares.
 
-## Compatibilidade de Navegador
+## Compatibilidade de Navegador {#browser-compatibility}
 
 O pacote de produção presume suporte para JavaScript moderno. Por padrão, a Vite mira os navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
 
@@ -17,7 +17,7 @@ Nota que por padrão, a Vite apenas manipula transformações de sintaxe e **nã
 
 Os navegadores legados podem ser suportados através [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará automaticamente pedaços legados e correspondentes aos "polyfills" da funcionalidade da linguagem de ECMAScript. Os pedaços legados são condicionalmente carregados apenas nos navegadores que não têm suporte nativo ao Módulo de ECMAScript.
 
-## Caminho de Base Pública
+## Caminho de Base Pública {#public-base-path}
 
 - Relacionado ao: [Manipulação de Recurso](./assets)
 
@@ -29,7 +29,7 @@ A exceção está quando precisares concatenar dinamicamente as URLs. Neste caso
 
 Para controlo de caminho de base avançado, consulte [Opções de Base Avançada](#opções-de-base-avançada)
 
-## Personalizando a Construção
+## Personalizando a Construção {#customizing-the-build}
 
 A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options.md). Especificamente, podes diretamente ajustar as [Opções de Rollup](https://rollupjs.org/guide/en/#big-list-of-options) subjacentes através da `build.rollupOptions`:
 
@@ -46,7 +46,7 @@ export default defineConfig({
 
 Por exemplo, podes especificar várias saídas de Rollup com extensões que apenas são aplicadas durante a construção.
 
-## Estratégia de Fatiamento
+## Estratégia de Fatiamento {#chunking-strategy}
 
 Tu podes configurar como os pedaços são separados utilizando a `build.rollupOptions.output.manualChunks` (consulte a [documentação da Rollup](https://rollupjs.org/guide/en/#outputmanualchunks)). Até a Vite 2.8, a estratégia de fatiamento padrão dividia os pedaços em `index` e `vendor`. É uma boa estratégia para algumas Aplicações de Página Única, mas é difícil fornecer uma solução geral para todos casos de uso alvos da Vite. Desde a Vite 2.9, `manualChunks` já não modificado por padrão. Tu podes continuar a utilizar a estratégia de Separação Ambulante de Pedaço adicionando a `splitVendorChunkPlugin` no teu ficheiro de configuração:
 
@@ -60,7 +60,7 @@ export default defineConfig({
 
 Esta estratégia também é fornecida como uma fábrica `splitVendorChunk({ cache: SplitVendorChunkCache })`, neste caso a composição com lógica personalizada se faz necessária. A `cache.reset()` precisa ser chamada no `buildStart` para o modo de observação da construção para funcionar corretamente neste caso.
 
-## Reconstrução Sobre Mudanças de Ficheiros
+## Reconstrução Sobre Mudanças de Ficheiros {#rebuild-on-files-changes}
 
 Tu podes ativar o observador de Rollup com `vite build --watch`. Ou, podes diretamente ajustar a [`WatcherOptions`](https://rollupjs.org/guide/en/#watch-options) subjacente através da `build.watch`:
 
@@ -77,7 +77,7 @@ export default defineConfig({
 
 Com a bandeira `--watch` ativada, mudanças para a `vite.config.js`, bem como para quaisquer ficheiros à serem empacotados, acionarão uma reconstrução.
 
-## Aplicação de Várias Páginas
+## Aplicação de Várias Páginas {#multi-page-app}
 
 Suponha que tens a seguinte estrutura de código-fonte:
 
@@ -114,7 +114,7 @@ export default defineConfig({
 
 Se especificares uma raiz diferente, lembra-te de que `__dirname` ainda será a pasta do teu ficheiro `vite.config.js` quando estiveres resolvendo os caminhos de entrada. Portanto, precisarás adicionar a tua entrada `root` aos argumentos para a `resolve`.
 
-## Modo de Biblioteca
+## Modo de Biblioteca {#library-mode}
 
 Quando estiveres desenvolvendo uma biblioteca orientada a navegador, estás provavelmente gastando a maior parte do tempo sobre a página de teste ou demonstração que importa a tua biblioteca real. Com a Vite, podes utilizar o teu `index.html` para aquele propósito de obter a agradável experiência de programação.
 
@@ -217,7 +217,7 @@ Se o `package.json` não conter a `"type": "module"`, a Vite gerará extensões 
 No modo de biblioteca, todas as utilizações de `import.meta.env.*` são substituídas estaticamente quando estiveres construindo para produção. No entanto, as utilizações de `process.env.*` não são, para que os consumidores da tua biblioteca possam mudá-la dinamicamente. Se isto for indesejável, podes utilizar a `define: { 'process.env.`<wbr>`NODE_ENV': '"production"' }` por exemplo para substituí-las estaticamente.
 :::
 
-## Opções de Base Avançada
+## Opções de Base Avançada {#advanced-base-options}
 
 :::warning Aviso
 Esta funcionalidade é experimental, a API pode mudar num lançamento menor futuro sem seguir o padrão de versionamento semântico ("semver", sigla em Inglês). Por favor sempre prenda a versão da Vite à uma atualização menor quando estiveres utilizando-a.
