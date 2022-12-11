@@ -1,9 +1,9 @@
-# Manipulação de Recurso Estático
+# Manipulação de Recurso Estático {#static-asset-handling}
 
 - Relacionado ao: [Caminho de Base Pública](./build#public-base-path)
 - Relacionado a: [opção de configuração `assetsInclude`](/config/shared-options.md#assetsinclude)
 
-## Importando o Recurso como URL
+## Importando o Recurso como URL {#importing-asset-as-url}
 
 A importação de um recurso estático retornará a URL pública resolvida quando ele é servido:
 
@@ -28,7 +28,7 @@ O comportamento é semelhante ao `file-loader` do webpack. A diferença é que a
 
 - Os seguradores de lugar do Armazenamento de Ficheiros Grandes de Git (Git LFS) são excluídos automaticamente do embutido porque eles não contém o conteúdo do ficheiro que eles representam. Para receber o embutido, certifica-te de descarregar os conteúdos do ficheiro através do Armazenamento de Ficheiros Grandes de Git (Git LFS) antes da construção.
 
-### Importações de URL Explicita
+### Importações de URL Explicita {#explicit-url-imports}
 
 Os recursos que não estão incluídos na lista interna ou na `assetsInclude`, podem ser explicitamente importados como uma URL utilizando o sufixo `?url`. Isto é útil, por exemplo, para importar os [Houdini Paint Worklets](https://houdini.how/usage).
 
@@ -37,7 +37,7 @@ import workletURL from 'extra-scalloped-border/worklet.js?url'
 CSS.paintWorklet.addModule(workletURL)
 ```
 
-### Importando o Recurso como Sequência de Caracteres
+### Importando o Recurso como Sequência de Caracteres {#importing-asset-as-string}
 
 Os recursos podem ser importados como sequências de caracteres utilizando o sufixo `?raw`.
 
@@ -45,7 +45,7 @@ Os recursos podem ser importados como sequências de caracteres utilizando o suf
 import shaderString from './shader.glsl?raw'
 ```
 
-### Importando o Programa como um Operário
+### Importando o Programa como um Operário {#importing-script-as-a-worker}
 
 Os programas (ou scripts se preferir) podem ser importados como operários da web com o sufixo `?worker` ou `?sharedworker`.
 
@@ -68,7 +68,7 @@ import InlineWorker from './shader.js?worker&inline'
 
 Consulte [secção de Operário de Web](./features.md#operários-da-web) para mais detalhes.
 
-## O Diretório `public`
+## O Diretório `public` {#the-public-directory}
 
 Se tiveres recursos que:
 
@@ -85,7 +85,7 @@ Nota que:
 - Tu deves sempre faz referência aos recursos de `public` utilizando o caminho absoluto de raiz - por exemplo, `public/icon.png` deve ser referenciado no código-fonte como `/icon.png`.
 - Os recursos no `public` não podem ser importados a partir da JavaScript.
 
-## new URL(url, import.meta.url)
+## new URL(url, import.meta.url) {#new-url}
 
 A [`import.meta.url`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta) é uma funcionalidade de Módulo de ECMAScript nativo que expõe a URL do módulo atual. Ao combiná-la com o [construtor de URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) nativo, podemos obter a URL resolvida completa de um recurso estático utilizando o caminho relativo a partir de um módulo de JavaScript:
 
