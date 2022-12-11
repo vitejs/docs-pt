@@ -1,6 +1,6 @@
-# API da HMR
+# API da HMR {#hmr-api}
 
-:::tip Nota
+:::tip NOTA
 HMR é a sigla para o termo Hot Module Replacement em Inglês, que traduz-se para Substituição de Módulo Instantânea em Português.
 
 Esta é a API da HMR do cliente. Para a manipulação da HMR nas extensões, consulte a [handleHotUpdate](./api-plugin#handlehotupdate).
