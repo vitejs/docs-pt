@@ -1,4 +1,4 @@
-# API de JavaScript
+# API de JavaScript {#javascript-api}
 
 As APIs de JavaScript da Vite são completamente tipadas, e é recomendado utilizar a TypeScript ou ativar a verificação de tipo de JavaScript no Visual Studio Code para influenciar o sensor inteligente e a validação.
 
