@@ -1,10 +1,10 @@
-# Resolução de Problemas
+# Resolução de Problemas {#troubleshooting}
 
 Consulte também o [guia de resolução de problemas da Rollup](https://rollupjs.org/guide/en/#troubleshooting) para obter mais informações.
 
 Se as sugestões neste documento não funcionarem, tente publicar as questões nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) ou no canal de `#help` da [Discord do País de Vite (Vite Land)](https://chat.vitejs.dev).
 
-## Interface de Linha de Comando
+## Interface de Linha de Comando {#cli}
 
 ### `Error: Cannot find module 'C:\foo\bar&baz\vite\bin\vite.js'`
 
@@ -15,9 +15,9 @@ Tu precisarás ou de:
 - Mudar para um outro gestor de pacote (por exemplo, `pnpm`, `yarn`)
 - Remover o `&` do caminho do teu projeto
 
-## Servidor de Desenvolvimento
+## Servidor de Desenvolvimento {#dev-server}
 
-### Requisições são bloqueada para sempre
+### Requisições são Bloqueada para Sempre {#requests-are-stalled-forever}
 
 Se estiveres utilizando Linux, limites de descritor de ficheiro e limites de `inotify` podem estar causando o problema. Já que a Vite não empacota  a maior parte dos ficheiros, os navegadores podem requisitar muitos ficheiros os quais requerem muitos descritores de ficheiro, ultrapassando o limite.
 
@@ -44,7 +44,7 @@ Para resolver isto:
   $ sudo sysctl fs.inotify.max_user_watches=524288
   ```
 
-### 431 Campos do Cabeçalho da Requisição Muito Grandes
+### 431 Campos do Cabeçalho da Requisição Muito Grandes {#431-request-header-fields-too-large}
 
 Quando o servidor ou servidor de websocket recebe um cabeçalho de HTTP grande, a requisição será largada e o seguinte aviso será exibido.
 
@@ -56,9 +56,9 @@ Isto porque a Node.js limita o tamanho do cabeçalho da requisição para mitiga
 
 Para evitar isto, tente reduzir o tamanho do cabeçalho da tua requisição. Por exemplo, se o cookie for longo, elimine-o. Ou podes utilizar a [`--max-http-header-size`](https://nodejs.org/api/cli.html#--max-http-header-sizesize) para mudar o tamanho máximo do cabeçalho.
 
-## Substituição de Módulo Instantânea ou HMR em Inglês
+## Substituição de Módulo Instantânea {#hmr}
 
-### A Vite deteta uma mudança de ficheiro mas a HMR não está funcionando
+### A Vite Deteta uma Mudança de Ficheiro mas a HMR não está a Funcionar {#vite-detects-a-file-change-but-the-hmr-is-not-working}
 
 Tu talvez estejas importando um ficheiro com uma caixa diferente. Por exemplo, `src/foo.js` existe e `src/bar.js` contém:
 
@@ -68,19 +68,19 @@ import './Foo.js' // deveria ser './foo.js'
 
 Problema relacionado: [#964](https://github.com/vitejs/vite/issues/964)
 
-### A Vite não deteta uma mudança de ficheiro
+### A Vite não Deteta uma Mudança de Ficheiro {#vite-does-not-detect-a-file-change} 
 
 Se estiveres executando a Vite com o WSL2, a Vite não consegue observar mudanças de ficheiro em algumas condições. Consulte a [opção `server.watch`](/config/server-options.md#server-watch).
 
-### Um recarregamento completo acontece no lugar da HMR
+### Um Recarregamento Completo Acontece no Lugar da HMR {#a-full-reload-happens-instead-of-hmr}
 
 Se a HMR não for manipulada pela Vite ou uma extensão, um recarregamento completo acontecerá.
 
 Além disto se houver um laço de dependência, um recarregamento completo acontecerá. Para resolver isto, tente a remoção do laço.
 
-## Construção
+## Construção {#build}
 
-### O ficheiro construído não funciona por causo do erro de CORS
+### O Ficheiro Construído não Funciona por Causa do Erro de CORS {#built-file-does-not-work-because-of-cors-error}
 
 Se o ficheiro HTML de saída foi aberto com o protocolo `file`, os programas (ou scripts se preferires) não executarão com o seguinte erro.
 
@@ -96,9 +96,9 @@ Consulte o [Motivo: Requisição de CORS não é HTTP - HTTP | MDN](https://deve
 
 Tu precisarás acessar o ficheiro com o protocolo de `http`. A maneira mais fácil de alcançar isto é executar o `npx vite preview`.
 
-## Outros
+## Outros {#others}
 
-### Ocorre Erro de Sintaxe / Erro de Tipo
+### Ocorre Erro de Sintaxe / Erro de Tipo {#syntax-error-type-error-happens}
 
 A Vite não consegui manipular e não suporta o código que só executa no modo não restrito (modo desleixado). Isto porque a Vite utiliza Módulo de ECMAScript e sempre é [modo restrito](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) dentro do Módulo de ECMAScript.
 
