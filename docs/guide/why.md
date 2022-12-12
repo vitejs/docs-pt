@@ -1,6 +1,6 @@
-# Porquê Vite
+# Porquê Vite {#why-vite}
 
-## Os Problemas
+## Os Problemas {#the-problems}
 
 Antes dos módulos de ECMAScript estarem disponíveis nos navegadores, os programadores não tinham nenhum mecanismo nativo para produção de código de JavaScript de um maneira que pudessem ser os códigos separados em módulos. É por isto que estamos todos familiarizados com o conceito de "empacotamento": utilizando ferramentas que rastreiam, processam e concatenam os nossos módulos de origem em ficheiros que possam ser executados no navegador.
 
@@ -10,7 +10,7 @@ No entanto, a medida que construimos aplicações mais e mais ambiciosas, a quan
 
 A Vite tem por objetivo abordar estes problemas influenciando novos avanços no ecossistema: a disponibilidade dos módulos de ECMAScript nativo no navegador, e o aumento de ferramentas de JavaScript escritas em linguagens que compilam para nativo.
 
-### Início de Servidor Lento
+### Início de Servidor Lento {#slow-server-start}
 
 Quando inicializares o servidor de desenvolvimento, uma configuração de construção baseada no empacotador tem que rastrear e construir incansavelmente a tua aplicação inteira antes dela poder ser servida.
 
@@ -31,7 +31,7 @@ import esmSvg from '../images/esm.svg?raw'
 <svg-image :svg="bundlerSvg" />
 <svg-image :svg="esmSvg" />
 
-### Atualizações Lentas
+### Atualizações Lentas {#slow-updates}
 
 Quando um ficheiro é editado em uma configuração de construção baseada no empacotador, é ineficiente reconstruir o pacote inteiro por razões óbvias: a velocidade de atualização degradará linearmente com o tamanho da aplicação.
 
@@ -43,16 +43,16 @@ A Vite também influencia os cabeçalhos de HTTP para acelerar os recarregamento
 
 Uma vez que experimentas o quão rápida a Vite é, duvidamos muito que estejas disposto a suportar o desenvolvimento empacotado novamente.
 
-## Porquê Empacotar para Produção
+## Porquê Empacotar para Produção {#why-bundle-for-production}
 
 Embora o Módulo de ECMAScript nativo esteja largamente suportado, entregar Módulo de ECMAScript desempacotado em produção ainda é ineficiente (mesmo com a HTTP/2) por causa das viagens de ida e volta na rede adicionais causadas pelas importações encaixadas. Para receber o desempenho de carregamento ideal em produção, ainda é melhor empacotar o teu código com agitação de árvore, carregamento preguiçoso e separação de pedaço comum (para cacheamento melhor).
 
 Garantir resultado ideal e consistência comportamental entre o servidor de desenvolvimento e a construção de produção não é fácil. Isto porque a Vite entrega com um [comando de construção](./build) pré-configurado que realiza várias [otimizações de desempenho](./features#otimizações-de-construção) fora da caixa.
 
-## Porquê Não Empacotar com a esbuild?
+## Porquê Não Empacotar com a esbuild? {#why-not-bundle-with-esbuild}
 
 Embora a `esbuild` é extremamente rápida e já é um empacotador muito capaz para bibliotecas, algumas das funcionalidades importantes necessárias para o empacotamento de _aplicações_ ainda estão a funcionar em progresso - em particular a separação de código e manipulação de CSS. Por enquanto, a Rollup é mais madura e flexível nestes aspetos. Com isto dito, não descartamos a possibilidade da utilização de `esbuild` para construções de produção quando ele estabilizar estas funcionalidades no futuro.
 
-## Em quê a Vite é diferente de X?
+## Em quê a Vite é diferente de X? {#how-is-vite-different-from-x}
 
 Tu podes consultar a secção de [Comparações](./comparisons) para mais detalhes a respeito de como a Vite difere de outras ferramentas semelhantes.
