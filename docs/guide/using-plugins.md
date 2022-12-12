@@ -1,8 +1,8 @@
-# Utilizando Extensões
+# Utilizando Extensões {#using-plugins}
 
 A Vite pode ser estendida com a utilização de extensões, as quais são baseadas na bem desenhada interface de extensão da Rollup com algumas opções adicionais especificas de Vite. Isto significa que os utilizadores de Vite podem confiar no ecossistema maduro de extensões de Rollup, ao passo que são capazes de estender o servidor de desenvolvimento e a funcionalidade de interpretação no lado do servidor (SSR) conforme necessário.
 
-## Adicionando uma Extensão
+## Adicionando uma Extensão {#adding-a-plugin}
 
 Para utilizar uma extensão, ela precisa ser adicionada ao `devDependencies` do projeto e incluída no arranjo de `plugins` no ficheiro de configuração `vite.config.js`. Por exemplo, para fornecer suporte para navegadores legados, o [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial pode ser utilizado:
 
@@ -28,7 +28,7 @@ Os `plugins` também aceita programações incluindo várias extensões como um 
 
 As extensões falsas (ou "falsy") serão ignoradas, as quais podem ser utilizadas para ativar e desativar facilmente as extensões.
 
-## Encontrando Extensões
+## Encontrando Extensões {#finding-plugins}
 
 :::tip NOTA
 A Vite tem por objetivo fornecer suporte fora da caixa para padrões de desenvolvimento de web comuns. Antes de procurares por uma extensão compatível com a com a Vite ou com a Rollup, consulte o [Guia de Funcionalidades](../guide/features.md). Muitos casos onde uma extensão seria necessária em um projeto de Rollup já são cobridas pela Vite.
@@ -38,7 +38,7 @@ Consulta a [secção de Extensões](../plugins/) para obter informações a resp
 
 Tu também podes encontrar extensões que sigam as [convenções recomendadas](./api-plugin.md#conventions) utilizando um comando [`npm search` para `vite-plugin`](https://www.npmjs.com/search?q=vite-plugin&ranking=popularity) para extensões de Vite ou um [`npm search` para `rollup-plugin`](https://www.npmjs.com/search?q=rollup-plugin&ranking=popularity) para extensões de Rollup.
 
-## Forçando a Ordem de Extensão
+## Forçando a Ordem de Extensão {#enforcing-plugin-ordering}
 
 Para compatibilidade com algumas extensões de Rollup, talvez seja necessário forçar a ordem da extensão ou apenas aplicar no momento da construção. Isto deve ser um detalhe de implementação para extensões de Vite. Tu podes forçar a posição de uma extensão com o modificador `enforce`:
 
@@ -63,7 +63,7 @@ export default defineConfig({
 
 Consulte o [Guia da API de Extensões](./api-plugin.md#ordenamento-de-extensões) para obter informações detalhadas, e esteja atento ao rótulo `enforce` e instruções de utilização para as extensões populares na listagem de compatibilidade de [Extensões de Rollup de Vite](https://vite-rollup-plugins.patak.dev).
 
-## Aplicação Condicional
+## Aplicação Condicional {#conditional-application}
 
 Por padrão, as extensões são invocadas para ambos servir (`serve`) e construir (`build`). Nos casos onde uma extensão precisa ser condicionalmente aplicada apenas durante o servir (`serve`) ou construir (`build`), utilize a propriedade `apply` para os invocar apenas durante `'build'` ou `'serve'`:
 
@@ -82,6 +82,6 @@ export default defineConfig({
 })
 ```
 
-## Construindo Extensões
+## Construindo Extensões {#building-plugins}
 
 Consulte o [Guia da API de Extensões](./api-plugin.md) para obter a documentação a respeito da criação de extensões.
