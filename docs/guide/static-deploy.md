@@ -1,4 +1,4 @@
-# Desdobrando um Sítio Estático
+# Desdobrando um Sítio Estático {#deploying-a-static-site}
 
 Os seguintes guias são baseados em algumas suposições partilhadas:
 
@@ -21,7 +21,7 @@ Os seguintes guias são baseados em algumas suposições partilhadas:
 Estes guias fornecem instruções para realização de um desdobramento estático do teu sítio de Vite. A Vite também suporta a Interpretação no Lado do Servidor (SSR, sigla em Inglês). A SSR refere-se as abstrações de front-end que suportam a execução da mesma aplicação em Node.js, pré-interpretando-a para HTML, e finalmente hidratando-a no cliente. Consulte o [Guia da SSR](./ssr) para aprender a respeito desta funcionalidade. Por outro lado, se estiveres procurando pela integração com abstrações de lado do servidor tradicionais, consulte o [Guia da Integração de Backend](./backend-integration).
 :::
 
-## Construindo a Aplicação
+## Construindo a Aplicação {#building-the-app}
 
 Tu podes executar o comando `npm run build` para construir a aplicação.
 
@@ -31,7 +31,7 @@ $ npm run build
 
 Por padrão, a saída da construção será colocada no `dist`. Tu podes desdobrar esta pasta `dist` para quaisquer plataformas de tua preferência.
 
-### Testando a Aplicação Localmente
+### Testando a Aplicação Localmente {#testing-the-app-locally}
 
 Um vez que construiste a aplicação, podes testá-la localmente executando o comando `npm run preview`.
 
@@ -54,7 +54,7 @@ Tu podes configurar a porta do servidor passando a bandeira `--port` como um arg
 
 Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 
-## GitHub Pages
+## GitHub Pages  {#github-pages}
 
 1. Defina a `base` correta no `vite.config.js`.
 
@@ -100,7 +100,7 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 Tu também podes executar o programa acima na tua configuração do CI para ativar o desdobramento automático em cada empurrão.
 :::
 
-## GitLab Pages e GitLab CI
+## GitLab Pages e GitLab CI {#gitlab-pages-and-gitlab-ci}
 
 2. Defina a `base` correta no `vite.config.js`.
 
@@ -132,9 +132,9 @@ Tu também podes executar o programa acima na tua configuração do CI para ativ
        - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
    ```
 
-## Netlify
+## Netlify {#netlify}
 
-### Netlify CLI
+### Netlify CLI {#netlify-cli}
 
 1. Instale a [Linha de Comando da Netlify](https://cli.netlify.com/).
 2. Cria um novo sítio utilizando o `ntl init`.
@@ -158,7 +158,7 @@ A Linha de Comando da Netlify partilhará contigo uma URL de pré-visualização
 $ ntl deploy --prod
 ```
 
-### Netlify com Git
+### Netlify com Git {#netlify-with-git}
 
 1. Empurre o teu código para um repositório de git (GitHub, GitLab, BitBucket, Azure DevOps).
 2. [Importe o projeto](https://app.netlify.com/start) para a Netlify.
@@ -168,9 +168,9 @@ $ ntl deploy --prod
 
 Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://docs.netlify.com/site-deploys/deploy-previews/), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://docs.netlify.com/site-deploys/overview/#definitions).
 
-## Vercel
+## Vercel {#vercel}
 
-### Vercel CLI
+### Vercel CLI {#vercel-cli}
 
 1. Instale a [Linha de Comando da Vercel](https://vercel.com/cli) e execute `vercel` para desdobrar.
 2. A Vercel detetará que estás utilizando a Vite e ativará as definições corretas para o teu desdobramento.
@@ -184,7 +184,7 @@ Vercel CLI
 - To deploy, `cd vite` and run `vercel`.
 ```
 
-### Vercel com Git
+### Vercel com Git {#vercel-for-git}
 
 1. Empurre o teu código para o teu repositório de git (GitHub, GitLab, Bitbucket).
 2. [Importe o teu projeto de Vite](https://vercel.com/new) para a Vercel.
@@ -195,9 +195,9 @@ Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequ
 
 Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concepts/git) da Vercel.
 
-## Cloudflare Pages
+## Cloudflare Pages {#cloudflare-pages}
 
-### Cloudflare Pages via Wrangler
+### Cloudflare Pages através de Wrangler {#cloudflare-pages-via-wrangler}
 
 1. Instale a [Linha de Comando Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
 2. Autentica a Wrangler com a tua conta da Cloudflare utilizando `wrangler login`.
@@ -221,7 +221,7 @@ $ npx wrangler pages publish dist
 
 Após os teus recursos serem carregados, a Wrangler dar-te-á uma URL de pré-visualização para inspecionar o teu sítio. Quando entrares no painel de controlo da Cloudflare Pages, verás o teu novo projeto.
 
-### Cloudflare Pages com Git
+### Cloudflare Pages com Git {#cloudflare-pages-with-git}
 
 1. Empurre o teu código para o teu repositório (GitHub, GitLab).
 2. Entre no painel de controlo da Cloudflare e selecione a tua conta em **Account Home (Casa da Conta)** > **Pages (Páginas)**.
@@ -235,7 +235,7 @@ Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequ
 
 Tu também podes adicionar domínios personalizados e manipular as definições da construção personalizada na Pages. Aprenda mais a respeito da [Integração de Git da Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/#manage-your-site).
 
-## Google Firebase
+## Google Firebase {#google-firebase}
 
 1. Certifica-te de que tens a [firebase-tools](https://www.npmjs.com/package/firebase-tools) instalada.
 
@@ -270,7 +270,7 @@ Tu também podes adicionar domínios personalizados e manipular as definições 
 
 3. Após executares `npm run build`, desdobre utilizando o comando `firebase deploy`.
 
-## Surge
+## Surge {#surge}
 
 1. Primeiro instale a [surge](https://www.npmjs.com/package/surge), se já não a tiveres instalada.
 
@@ -280,7 +280,7 @@ Tu também podes adicionar domínios personalizados e manipular as definições 
 
 Tu também podes desdobrar para um [domínio personalizado](http://surge.sh/help/adding-a-custom-domain) adicionado `surge dist yourdomain.com`.
 
-## Azure Static Web Apps
+## Azure Static Web Apps {#azure-static-web-apps}
 
 Tu podes desdobrar rapidamente a tua aplicação de Vite com o serviço de [Aplicações de Web Estáticas](https://aka.ms/staticwebapps) da Microsoft Azure. Tu precisas:
 
@@ -294,7 +294,7 @@ Siga o assistente ("wizard" ou "feiticeiro" se preferires) iniciado pela extens�
 
 A ação trabalhará para desdobrar a tua aplicação (observe o seu progresso na aba Ações (Actions, em Inglês) do teu repositório) e, quando terminada com sucesso, podes visualizar a tua aplicação no endereço fornecido na janela de progresso da extensão clicando no botão 'Olhar o Sítio (Browse Website, em Inglês)' que aparece quando a ação de GitHub executa.
 
-## Render
+## Render {#render}
 
 Tu podes desdobrar a tua aplicação de Vite como um Sítio Estático na [Render](https://render.com/).
 
