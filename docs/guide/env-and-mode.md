@@ -1,6 +1,6 @@
-# Variáveis de Ambiente e Modos
+# Variáveis de Ambiente e Modos {#env-variables-and-modes}
 
-## Variáveis de Ambiente
+## Variáveis de Ambiente {#env-variables}
 
 A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`**. Algumas variáveis embutidas estão disponíveis em todos os casos:
 
@@ -14,7 +14,7 @@ A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`
 
 - **`import.meta.env.SSR`**: {booleano} se a aplicação estiver executando no [servidor](./ssr.md#lógica-condicional).
 
-### Substituição de Produção
+### Substituição de Produção {#production-replacement}
 
 Durante a produção, estas variáveis de ambiente são **substituídas estaticamente**. É portanto necessário sempre fazer referência a elas utilizando a sequência de caracteres estático completa. Por exemplo, chave de acesso dinâmico como `import.meta.env[key]` não funcionarão.
 
@@ -24,7 +24,7 @@ Isto também substituirá estas sequências de caracteres que aparecem nas sequ�
 
 - Para os modelos de marcação de Vue ou outro HTML que é compilado para sequências de caracteres de JavaScript, podes utilizar o [marcador `<wbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr), por exemplo `import.meta.<wbr>env.MODE`.
 
-## Os Ficheiros `.env`
+## Os Ficheiros `.env` {#env-files}
 
 A Vite utiliza o pacote [dotenv](https://github.com/motdotla/dotenv) para carregar variáveis de ambiente adicionais a partir dos seguintes ficheiros no teu [diretório de ambiente](/config/shared-options.md#envdir):
 
@@ -69,7 +69,7 @@ Se quiseres personalizar o prefixo das variáveis de ambiente consulte a opção
 - Já que quaisquer variáveis exposta para o teu código-fonte de Vite terminará no teu pacote de cliente, as variáveis `VITE_*` _não_ devem conter quaisquer informações sensíveis.
 :::
 
-### Sensor Inteligente para TypeScript
+### Sensor Inteligente para TypeScript {#intellisense-for-typescript}
 
 Por padrão, a Vite fornece definições de tipo para `import.meta.env` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Embora podes definir mais variáveis de ambiente personalizadas nos ficheiros `.env.[mode]`, podes querer receber o Sensor Inteligente de TypeScript para as variáveis de ambiente definidas para o utilizador que são prefixadas com `VITE_`.
 
@@ -96,7 +96,7 @@ Se o teu código depender dos tipos dos ambientes do navegador tais como [DOM](h
 }
 ```
 
-## Modos
+## Modos {#modes}
 
 Por padrão, o servidor de desenvolvimento (comando `dev`) executa no modo de `development (desenvolvimento)` e o comando `build` executa no modo de `production (produção)`. 
 
