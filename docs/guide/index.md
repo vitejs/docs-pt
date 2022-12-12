@@ -1,10 +1,10 @@
-# Começar
+# Começar {#getting-started}
 
 <audio id="vite-audio">
   <source src="/vite.mp3" type="audio/mpeg">
 </audio>
 
-## Visão de Conjunto
+## Visão de Conjunto {#overview}
 
 Vite (palavra Francesa para "rápido", pronunciado `/vit/`<button style="border:none;padding:3px;border-radius:4px;vertical-align:bottom" id="play-vite-audio" onclick="document.getElementById('vite-audio').play();"><svg style="height:2em;width:2em"><use href="/voice.svg#voice" /></svg></button>, como "veet") é uma ferramenta de construção que se destina a oferecer uma experiência de desenvolvimento mais rápida e leve para projetos de web modernos. Ela consiste em duas partes principais:
 
@@ -16,11 +16,11 @@ A Vite é opiniosa e vem com padrões sensíveis fora da caixa, mas também é a
 
 Tu podes aprender mais a respeito do fundamento lógico por trás do projeto na secção [Porquê Vite](./why).
 
-## Suporte de Navegador
+## Suporte de Navegador {#browser-support}
 
 O construção padrão mira navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de módulos de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). Os navegadores legado podem ser suportados através do [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial - consulte a secção [Construindo para Produção](./build) para mais detalhes.
 
-## Experimentando a Vite Online
+## Experimentando a Vite Online {#trying-vite-online}
 
 Tu podes experimentar a Vite online na [StackBlitz](https://vite.new/). Ele executa a configuração de construção baseada em Vite diretamente no navegador, assim ela é quase idêntica a configuração local mas não exige a instalação de nada na tua máquina. Tu podes navegar para `vite.new/{template}` para selecionar qual abstração utilizar.
 
@@ -35,7 +35,7 @@ As pré-configurações de modelo suportadas são:
 |     [lit](https://vite.new/lit)     |     [lit-ts](https://vite.new/lit-ts)     |
 |  [svelte](https://vite.new/svelte)  |  [svelte-ts](https://vite.new/svelte-ts)  |
 
-## Estruturando o Teu Primeiro Projeto de Vite
+## Estruturando o Teu Primeiro Projeto de Vite {#scaffolding-your-first-vite-project}
 
 :::tip Nota de Compatibilidade
 A Vite requer a versão 14.18+, 16+ da [Node.js](https://nodejs.org/en/). No entanto, alguns modelos exigem uma versão ainda superior da Node.js para funcionarem, atualize caso o teu gestor de pacote alertar acerca disto.
@@ -79,7 +79,7 @@ pnpm create vite my-vue-app --template vue
 
 Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`.
 
-## Modelos da Comunidade
+## Modelos da Comunidade {#community-templates}
 
 A `create-vite` é uma ferramenta para iniciar um projeto rapidamente a partir de um modelo básico para abstrações populares. Consulte a Awesome Vite para [modelos mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluam outras ferramentas ou miram abstrações diferentes. Tu podes utilizar uma ferramenta como [degit](https://github.com/Rich-Harris/degit) para gerar o teu projeto com um dos modelos.
 
@@ -97,7 +97,7 @@ Se o projeto utiliza `main` como ramo padrão, sufixe o repositório do projeto 
 npx degit user/project#main my-project
 ```
 
-## `index.html` e a Raiz do Projeto
+## `index.html` e a Raiz do Projeto {#index-html-and-project-root}
 
 Uma coisa que podes ter notado é que em um projeto de Vite, `index.html` é a frente e a central no lugar de ser escondido dentro de `public`. Isto é intencional: durante o desenvolvimento a Vite é um servidor, e `index.html` é o ponto de entrada para a tua aplicação.
 
@@ -107,11 +107,11 @@ Semelhante aos servidores de HTTP estáticos, a Vite tem o conceito de um "diret
 
 A Vite também suporta [aplicações de várias páginas](./build#aplicação-de-várias-páginas) com vários pontos de entrada `.html`.
 
-#### Especificando Raiz Alternativa
+#### Especificando Raiz Alternativa {#specifying-alternative-root}
 
 A execução de `vite` inicia o servidor de desenvolvimento utilizando o diretório de trabalho atual como raiz. Tu podes especificar uma raiz alternativa com `vite serve some/sub/dir`.
 
-## Interface de Linha de Comando
+## Interface de Linha de Comando {#command-line-interface}
 
 Em um projeto onde a Vite for instalada, podes utilizar o binário de `vite` nos teus programas (ou scripts em Inglês) de npm, ou executar ela diretamente com `npx vite`. Cá estão os programas de npm padrão dentro de um projeto de Vite estruturado:
 
@@ -128,7 +128,7 @@ Em um projeto onde a Vite for instalada, podes utilizar o binário de `vite` nos
 
 Tu podes especificar opções de linha de comando adicionar como `--port` ou `--https`. Para teres uma lista completa de opções de linha de comando, execute `npx vite --help` no teu projeto.
 
-## Utilizando Consolidações Não Lançadas
+## Utilizando Consolidações Não Lançadas {#using-unreleased-commits}
 
 Se conseguires esperar por uma novo lançamento para testar as funcionalidades mais recentes, precisarás clonar o [repositório de vite](https://github.com/vitejs/vite) para a tua máquina e então construir e ligá-la tu mesmo ([pnpm](https://pnpm.io/) é necessário):
 
@@ -143,6 +143,6 @@ pnpm link --global # tu podes utilizar o teu gestor de pacote preferido para est
 
 Então siga para o teu projeto baseado na Vite e execute `pnpm link --global vite` (ou o gestor de pacote que utilizaste para ligar a `vite` globalmente). Agora reinicie o servidor de desenvolvimento para viajares nos limites!
 
-## Comunidade
+## Comunidade {#community}
 
 Se tiveres questões ou precisas de ajuda, chame a comunidade na [Discord](https://chat.vitejs.dev) e nas [Discussões de GitHub](https://github.com/vitejs/vite/discussions).
