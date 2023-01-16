@@ -1,8 +1,8 @@
-# Opções de Otimização de Dependência
+# Opções de Otimização de Dependência {#dep-optimization-options}
 
 - **Relacionado ao:** [Pré-Empacotamento de Dependência](/guide/dep-pre-bundling)
 
-## optimizeDeps.entries
+## optimizeDeps.entries {#optimizedeps-entries}
 
 - **Tipo:** `string | string[]`
 
@@ -10,7 +10,7 @@ Por padrão, a Vite rastreará todos os teus ficheiros `.html` para detetar depe
 
 Se nenhum destes adequado as tuas necessidades, podes especificar entradas personalizadas utilizando esta opção - o valor deve ser um [padrão `fast-glob`](https://github.com/mrmlnc/fast-glob#basic-syntax) ou um arranjo de padrões que são relativos da raiz do projeto de Vite. Isto sobrescreverá as inferências de entradas padrão. Apenas as pastas `node_modules` e `build.outDir` serão ignoradas por padrão quando a `optimizeDeps.entries` for explicitamente definidas. Se outras pastas precisarem ser ignoradas, podes utilizar um padrão de ignorar como parte da lista de entradas, marcado com um `!` inicial.
 
-## optimizeDeps.exclude
+## optimizeDeps.exclude {#optimizedeps-exclude}
 
 - **Tipo:** `string[]`
 
@@ -29,13 +29,13 @@ export default defineConfig({
 
 :::
 
-## optimizeDeps.include
+## optimizeDeps.include {#optimizedeps-include}
 
 - **Tipo:** `string[]`
 
 Por padrão, pacotes ligados não os que estão dentro do `node_modules` não são pré-empacotados. Utilize esta opção para forçar com que um pacote ligado seja pré-empacotado.
 
-## optimizeDeps.esbuildOptions
+## optimizeDeps.esbuildOptions {#optimizedeps-esbuildoptions}
 
 - **Tipo:** [`EsbuildBuildOptions`](https://esbuild.github.io/api/#simple-options)
 
@@ -46,7 +46,7 @@ Certas opções são omitidas visto que a mudança delas não seria compatível 
 - `external` também é omitida, utilize a opção `optimizeDeps.exclude` da Vite
 - `plugins` são combinadas com a extensão de dependência da Vite
 
-## optimizeDeps.force
+## optimizeDeps.force {#optimizedeps-force}
 
 - **Tipo:** `boolean`
 
