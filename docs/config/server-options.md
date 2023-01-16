@@ -1,6 +1,6 @@
-# Opções de Servidor
+# Opções do Servidor {#server-options}
 
-## server.host
+## server.host {#server-host}
 
 - **Tipo:** `string | boolean`
 - **Predefinido como:** `'localhost'`
@@ -34,20 +34,20 @@ O segundo caso é quando os hospedeiros do cartão selvagem (ou "wildcard") (por
 
 :::
 
-## server.port
+## server.port {#server-port}
 
 - **Tipo:** `number`
 - **Predefinido como:** `5173`
 
 Especifica a porta do servidor. Nota que se a porta estiver já sendo utilizada, a Vite tentará automaticamente a próxima porta disponível então esta pode não ser a porta real que o servidor termina ouvindo.
 
-## server.strictPort
+## server.strictPort {#server-strictPort}
 
 - **Tipo:** `boolean`
 
 Defina para `true` para sair se a porta já estiver em uso, ao invés de tentar a próxima porta disponível automaticamente.
 
-## server.https
+## server.https {#server-https}
 
 - **Tipo:** `boolean | https.ServerOptions`
 
@@ -57,7 +57,7 @@ O valor também pode ser um [objeto de opções](https://nodejs.org/api/https.ht
 
 Um certificado válido é necessário. Para uma configuração básica, podes adicionar [@vitejs/plugin-basic-ssl](https://github.com/vitejs/vite-plugin-basic-ssl) às extensões do projeto, o que automaticamente criará e cacheará um certificado auto-assinado. Mas nós recomendamos a criação do teu próprio certificado.
 
-## server.open
+## server.open {#server-open}
 
 - **Tipo:** `boolean | string`
 
@@ -73,7 +73,7 @@ export default defineConfig({
 })
 ```
 
-## server.proxy
+## server.proxy {#server-proxy}
 
 - **Tipo:** `Record<string, string | ProxyOptions>`
 
@@ -121,19 +121,19 @@ export default defineConfig({
 })
 ```
 
-## server.cors
+## server.cors {#server-cors}
 
 - **Tipo:** `boolean | CorsOptions`
 
 Configura o CORS para o servidor de desenvolvimento. Isto é ativado por padrão e permite qualquer origem. Passa um [objeto de opções](https://github.com/expressjs/cors) para aperfeiçoar o comportamento ou `false` para desativar.
 
-## server.headers
+## server.headers {#server-headers}
 
 - **Tipo:** `OutgoingHttpHeaders`
 
 Especifica os cabeçalhos da resposta do servidor.
 
-## server.hmr
+## server.hmr {#server-hmr}
 
 - **Tipo:** `boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean, clientPort?: number, server?: Server }`
 
@@ -164,7 +164,7 @@ O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. 
 
 :::
 
-## server.watch
+## server.watch {#server-watch}
 
 - **Tipo:** `object`
 
@@ -200,7 +200,7 @@ Para corrigir isto, poderias tanto:
 
 :::
 
-## server.middlewareMode
+## server.middlewareMode {#server-middlewareMode}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
@@ -237,20 +237,20 @@ async function createServer() {
 createServer()
 ```
 
-## server.base
+## server.base {#server-base}
 
 - **Tipo:** `string | undefined`
 
 Adiciona no principio esta pasta às requisições, para utilizar quando estiver delegando a Vite como uma subpasta. Deve começar e terminar com o carácter `/`.
 
-## server.fs.strict
+## server.fs.strict {#server-fs-strict}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `true` (ativado por padrão desde a Vite 2.7)
 
 Restringe o serviço de ficheiros fora da raiz do espaço de trabalho.
 
-## server.fs.allow
+## server.fs.allow {#server-fs-allow}
 
 - **Tipo:** `string[]`
 
@@ -295,14 +295,14 @@ export default defineConfig({
 })
 ```
 
-## server.fs.deny
+## server.fs.deny {#server-fs-deny}
 
 - **Tipo:** `string[]`
 - **Predefinido como:** `['.env', '.env.*', '*.{pem,crt}']`
 
 Lista de bloqueio para ficheiros sensíveis sendo restringidos de serem servidos pelo servidor de desenvolvimento da Vite. Isto terá uma prioridade superior a [`server.fs.allow`](#server-fs-allow). [Os padrões picomatch](https://github.com/micromatch/picomatch#globbing-features) são suportados.
 
-## server.origin
+## server.origin {#server-origin}
 
 - **Tipo:** `string`
 
