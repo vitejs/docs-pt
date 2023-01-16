@@ -11,7 +11,7 @@ const commitRef = process.env.COMMIT_REF?.slice(0, 8) || 'dev'
 
 const deployType = (() => {
   switch (deployURL) {
-    case 'https://main--vite-docs-main.netlify.app':
+    case 'https://vite-docs-pt.netlify.app':
       return 'main'
     case '':
       return 'local'
@@ -19,6 +19,7 @@ const deployType = (() => {
       return 'release'
   }
 })()
+
 const additionalTitle = ((): string => {
   switch (deployType) {
     case 'main':
@@ -29,14 +30,19 @@ const additionalTitle = ((): string => {
       return ''
   }
 })()
+
 const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
   switch (deployType) {
     case 'main':
     case 'local':
       return [
         {
-          text: 'Documentação da Vite 3 (Lançamento)',
+          text: 'Documentação da Vite 4 (Lançamento)',
           link: 'https://vitejs.dev'
+        },
+        {
+          text: 'Documentação da Vite 3',
+          link: 'https://v3.vitejs.dev'
         },
         {
           text: 'Documentação da Vite 2',
@@ -45,6 +51,10 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
       ]
     case 'release':
       return [
+        {
+          text: 'Documentação da Vite 3',
+          link: 'https://v3.vitejs.dev'
+        },
         {
           text: 'Documentação da Vite 2',
           link: 'https://v2.vitejs.dev'
@@ -66,7 +76,15 @@ export default defineConfig({
     ['meta', { property: 'og:description', content: ogDescription }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
     ['meta', { name: 'twitter:site', content: '@vite_js' }],
-    ['meta', { name: 'theme-color', content: '#646cff' }]
+    ['meta', { name: 'theme-color', content: '#646cff' }],
+    [
+      'script', {
+        src: 'https://cdn.usefathom.com/script.js',
+        'data-site': 'CBDFBSLI',
+        'data-spa': 'auto',
+        defer: ''
+      }
+    ]
   ],
 
   vue: {
@@ -92,7 +110,7 @@ export default defineConfig({
       apiKey: 'deaab78bcdfe96b599497d25acc6460e',
       indexName: 'vitejs',
       searchParameters: {
-        facetFilters: ['tags:pt']
+        facetFilters: ['tags:en']
       }
     },
 
@@ -131,7 +149,7 @@ export default defineConfig({
                 link: 'https://twitter.com/vite_js'
               },
               {
-                text: 'Conversa de Discord',
+                text: 'Conversas na Discord',
                 link: 'https://chat.vitejs.dev'
               },
               {
@@ -139,7 +157,7 @@ export default defineConfig({
                 link: 'https://github.com/vitejs/awesome-vite'
               },
               {
-                text: 'Comunidade da DEV',
+                text: 'Comunidade na DEV',
                 link: 'https://dev.to/t/vite'
               },
               {
@@ -176,6 +194,10 @@ export default defineConfig({
             {
               text: 'Funcionalidades',
               link: '/guide/features'
+            },
+            {
+              text: 'Interface de Linha de Comando',
+              link: '/guide/cli'
             },
             {
               text: 'Utilizando Extensões',
@@ -218,7 +240,7 @@ export default defineConfig({
               link: '/guide/troubleshooting'
             },
             {
-              text: 'Migração da v2',
+              text: 'Migração a partir da v3',
               link: '/guide/migration'
             }
           ]
