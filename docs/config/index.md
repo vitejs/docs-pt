@@ -2,7 +2,7 @@
 title: Configurando a Vite
 ---
 
-# Configurando a Vite
+# Configurando a Vite {#configuring-vite}
 
 Quando estiveres executando a `vite` a partir da linha de comando, a Vite tentará automaticamente resolver um ficheiro de configuração nomeado como `vite.config.js` dentro da [raiz do projeto](/guide/#index-html-e-a-raiz-do-projeto).
 
@@ -23,7 +23,7 @@ Tu também podes explicitamente especificar um ficheiro de configuração para u
 vite --config my-config.js
 ```
 
-## Configurar o Sensor Inteligente
+## Configurar o Sensor Inteligente {#config-intellisense}
 
 Visto que a Vite disponibiliza tipagens de TypeScript, podes influenciar o sensor inteligente da tua IDE com as sugestões de tipo da `jsdoc`:
 
@@ -46,7 +46,7 @@ export default defineConfig({
 
 A Vite também suporta de maneira direta os ficheiros de configuração de TypeScript. Tu também podes utilizar `vite.config.ts` com o auxiliar `defineConfig`.
 
-## Configuração Condicional
+## Configuração Condicional {#conditional-config}
 
 Se a configuração precisar determinar condicionalmente opções baseada no comando (`dev`, `serve` ou `build`), no [modo](/guide/env-and-mode) sendo utilizado, ou se for uma construção de SSR (`ssrBuild`), ela pode de preferência exportar uma função:
 
@@ -69,7 +69,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
 
 A `ssrBuild` é experimental. Ela só está disponível durante a construção ao invés de uma bandeira `ssr` mais geral porque, durante o desenvolvimento, a configuração é partilhada pelo único servidor manipulando as requisições SSR e as que não são SSR. O valor poderia ser `undefined` para as ferramentas que não têm comandos separados para a construção de navegador e SSR, assim utiliza comparação explicita contra `true` e `false`.
 
-## Configuração Assíncrona
+## Configuração Assíncrona {#async-config}
 
 Se a configuração precisa chamar função assíncrona, ela pode exportar uma função assíncrona:
 
@@ -82,7 +82,7 @@ export default defineConfig(async ({ command, mode }) => {
 })
 ```
 
-## Variáveis de Ambiente
+## Variáveis de Ambiente {#environment-variables}
 
 As variáveis de ambiente podem ser obtidas a partir de `process.env` como de costume.
 
