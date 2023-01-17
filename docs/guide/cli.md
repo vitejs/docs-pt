@@ -84,43 +84,43 @@ vite optimize [root]
 
 #### Opções {#vite-optimize-options}
 
-| Options                  | Descriptions                                                      |
+| Opções                   | Descrições                                                        |
 | ------------------------ | ----------------------------------------------------------------- |
-| `--force`                | Force the optimizer to ignore the cache and re-bundle (`boolean`) |
-| `-c, --config <file>`    | Use specified config file (`string`)                              |
-| `--base <path>`          | Public base path (predefinido: `/`) (`string`)                        |
-| `-l, --logLevel <level>` | Info \| warn \| error \| silent (`string`)                        |
-| `--clearScreen`          | Allow/disable clear screen when logging (`boolean`)               |
-| `-d, --debug [feat]`     | Show debug logs (`string \| boolean`)                             |
-| `-f, --filter <filter>`  | Filter debug logs (`string`)                                      |
-| `-m, --mode <mode>`      | Set env mode (`string`)                                           |
-| `-h, --help`             | Display available CLI options                                     |
+| `--force`                | Forçar o otimizador a ignorar o cache e re-empacotar  (`boolean`) |
+| `-c, --config <file>`    | Usar o ficheiro de configuração especificado  (`string`)          |
+| `--base <path>`          | Caminho de base pública (predefinido: `/`) (`string`)             |
+| `-l, --logLevel <level>` | Informação \| aviso \| erro \| silencioso (`string`)              |
+| `--clearScreen`          | Permitir/desativar a limpeza da tela quando estiver a fazer o registo em diário (`boolean`)               |
+| `-d, --debug [feat]`     | Exibir os registos da depuração (`string \| boolean`)                             |
+| `-f, --filter <filter>`  | Filtrar os registos da depuração (`string`)                                      |
+| `-m, --mode <mode>`      | Definir o modo do ambiente (`string`)                                           |
+| `-h, --help`             | Exibir as opções disponíveis na Interface da Linha de Comando                                     |
 
-### `vite preview`
+### `vite preview` {#vite-preview}
 
-Locally preview production build.
+Pré-visualiza localmente a construção de produção.
 
-#### Usage
+#### Uso {#vite-preview-usage}
 
 ```bash
 vite preview [root]
 ```
 
-#### Options
+#### Opções {#vite-preview-options}
 
-| Options                  | Descriptions                                         |
+| Opções                   | Descrições                                           |
 | ------------------------ | ---------------------------------------------------- |
-| `--host [host]`          | Specify hostname (`string`)                          |
-| `--port <port>`          | Specify port (`number`)                              |
-| `--strictPort`           | Exit if specified port is already in use (`boolean`) |
-| `--https`                | Use TLS + HTTP/2 (`boolean`)                         |
-| `--open [path]`          | Open browser on startup (`boolean \| string`)        |
-| `--outDir <dir>`         | Output directory (predefinido: `dist`)(`string`)         |
-| `-c, --config <file>`    | Use specified config file (`string`)                 |
-| `--base <path>`          | Public base path (predefinido: `/`) (`string`)           |
-| `-l, --logLevel <level>` | Info \| warn \| error \| silent (`string`)           |
-| `--clearScreen`          | Allow/disable clear screen when logging (`boolean`)  |
-| `-d, --debug [feat]`     | Show debug logs (`string \| boolean`)                |
-| `-f, --filter <filter>`  | Filter debug logs (`string`)                         |
-| `-m, --mode <mode>`      | Set env mode (`string`)                              |
-| `-h, --help`             | Display available CLI options                        |
+| `--host [host]`          | Especificar o nome do hospedeiro (`string`)                          |
+| `--port <port>`          | Especificar a porta (`number`)                              |
+| `--strictPort`           | Sair se a porta especificada já estiver em uso (`boolean`) |
+| `--https`                | Usar o TLS + HTTP/2 (`boolean`)                         |
+| `--open [path]`          | Abrir o navegador na inicialização (`boolean \| string`)        |
+| `--outDir <dir>`         | Diretório de saída (predefinido: `dist`)(`string`)         |
+| `-c, --config <file>`    | Usar o ficheiro de configuração especificado (`string`)                 |
+| `--base <path>`          | Caminho de base pública (predefinido: `/`) (`string`)           |
+| `-l, --logLevel <level>` | Informação \| aviso \| erro \| silencioso (`string`)           |
+| `--clearScreen`          | Permitir/desativar a limpeza da tela quando estiver a fazer o registo em diário (`boolean`)  |
+| `-d, --debug [feat]`     | Exibir os registos da depuração (`string \| boolean`)                |
+| `-f, --filter <filter>`  | Filtrar os registos da depuração (`string`)                         |
+| `-m, --mode <mode>`      | Definir o modo do ambiente (`string`)                              |
+| `-h, --help`             | Exibir as opções disponíveis na Interface da Linha de Comando                        |
