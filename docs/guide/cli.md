@@ -1,94 +1,94 @@
-# Command Line Interface
+# Interface da Linha de Comando {#command-line-interface}
 
-## Dev server
+## Servidor de Desenvolvimento {#dev-server}
 
-### `vite`
+### `vite` {#vite}
 
-Start Vite dev server in the current directory. Will enter the watch mode in development environment and run mode in CI automatically.
+Inicia o servidor de desenvolvimento da Vite no diretório atual. Introduzirá o modo de observação no ambiente de desenvolvimento e executará o modo na Integração Continua (CI, sigla em Inglês) automaticamente.
 
-#### Usage
+#### Uso {#vite-usage}
 
 ```bash
 vite [root]
 ```
 
-#### Options
+#### Opções {#vite-options}
 
-| Options                  |                                                                   |
+| Opções                   | Descrições                                                        |
 | ------------------------ | ----------------------------------------------------------------- |
-| `--host [host]`          | Specify hostname (`string`)                                       |
-| `--port <port>`          | Specify port (`number`)                                           |
-| `--https`                | Use TLS + HTTP/2 (`boolean`)                                      |
-| `--open [path]`          | Open browser on startup (`boolean \| string`)                     |
-| `--cors`                 | Enable CORS (`boolean`)                                           |
-| `--strictPort`           | Exit if specified port is already in use (`boolean`)              |
-| `--force`                | Force the optimizer to ignore the cache and re-bundle (`boolean`) |
-| `-c, --config <file>`    | Use specified config file (`string`)                              |
-| `--base <path>`          | Public base path (default: `/`) (`string`)                        |
-| `-l, --logLevel <level>` | Info \| warn \| error \| silent (`string`)                        |
-| `--clearScreen`          | Allow/disable clear screen when logging (`boolean`)               |
-| `-d, --debug [feat]`     | Show debug logs (`string \| boolean`)                             |
-| `-f, --filter <filter>`  | Filter debug logs (`string`)                                      |
-| `-m, --mode <mode>`      | Set env mode (`string`)                                           |
-| `-h, --help`             | Display available CLI options                                     |
-| `-v, --version`          | Display version number                                            |
+| `--host [host]`          | Especificar o nome do hospedeiro (`string`)                       |
+| `--port <port>`          | Especificar a porta (`number`)                                    |
+| `--https`                | Usar o TLS + HTTP/2 (`boolean`)                                   |
+| `--open [path]`          | Abrir o navegador na inicialização (`boolean \| string`)          |
+| `--cors`                 | Ativar o CORS (`boolean`)                                         |
+| `--strictPort`           | Sair se a porta especificada já estiver em uso (`boolean`)        |
+| `--force`                | Forçar o otimizador a ignorar o cache e re-empacotar (`boolean`)  |
+| `-c, --config <file>`    | Usar o ficheiro de configuração especificado (`string`)           |
+| `--base <path>`          | Caminho de base pública (default: `/`) (`string`)                 |
+| `-l, --logLevel <level>` | Informação \| aviso \| erro \| silencioso (`string`)              |
+| `--clearScreen`          | Permitir/desativar a limpeza da tela quando estiver a fazer o registo em diário (`boolean`)               |
+| `-d, --debug [feat]`     | Exibir os registos da depuração (`string \| boolean`)             |
+| `-f, --filter <filter>`  | Filtrar os registos da depuração (`string`)                       |
+| `-m, --mode <mode>`      | Definir o modo do ambiente (`string`)                            |
+| `-h, --help`             | Exibir as opções disponíveis na Interface da Linha de Comando     |
+| `-v, --version`          | Exibir o número da versão                                         |
 
-## Build
+## Construção {#build}
 
-### `vite build`
+### `vite build` {#vite-build}
 
-Build for production.
+Constrói a aplicação para produção.
 
-#### Usage
+#### Uso {#vite-build-usage}
 
 ```bash
 vite build [root]
 ```
 
-#### Options
+#### Opções {#vite-build-options}
 
-| Options                        |                                                                                                                     |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
-| `--target <target>`            | Transpile target (default: `"modules"`) (`string`)                                                                  |
-| `--outDir <dir>`               | Output directory (default: `dist`) (`string`)                                                                       |
-| `--assetsDir <dir>`            | Directory under outDir to place assets in (default: `"assets"`) (`string`)                                          |
-| `--assetsInlineLimit <number>` | Static asset base64 inline threshold in bytes (default: `4096`) (`number`)                                          |
-| `--ssr [entry]`                | Build specified entry for server-side rendering (`string`)                                                          |
-| `--sourcemap`                  | Output source maps for build (default: `false`) (`boolean`)                                                         |
-| `--minify [minifier]`          | Enable/disable minification, or specify minifier to use (default: `"esbuild"`) (`boolean \| "terser" \| "esbuild"`) |
-| `--manifest [name]`            | Emit build manifest json (`boolean \| string`)                                                                      |
-| `--ssrManifest [name]`         | Emit ssr manifest json (`boolean \| string`)                                                                        |
-| `--force`                      | Force the optimizer to ignore the cache and re-bundle (experimental)(`boolean`)                                     |
-| `--emptyOutDir`                | Force empty outDir when it's outside of root (`boolean`)                                                            |
-| `-w, --watch`                  | Rebuilds when modules have changed on disk (`boolean`)                                                              |
-| `-c, --config <file>`          | Use specified config file (`string`)                                                                                |
-| `--base <path>`                | Public base path (default: `/`) (`string`)                                                                          |
-| `-l, --logLevel <level>`       | Info \| warn \| error \| silent (`string`)                                                                          |
-| `--clearScreen`                | Allow/disable clear screen when logging (`boolean`)                                                                 |
-| `-d, --debug [feat]`           | Show debug logs (`string \| boolean`)                                                                               |
-| `-f, --filter <filter>`        | Filter debug logs (`string`)                                                                                        |
-| `-m, --mode <mode>`            | Set env mode (`string`)                                                                                             |
-| `-h, --help`                   | Display available CLI options                                                                                       |
+| Opções                         | Descrições                                                          |
+| ------------------------------ | ------------------------------------------------------------------- |
+| `--target <target>`            | Transformar o código do alvo (predefinido: `"modules"`) (`string`)      |
+| `--outDir <dir>`               | Diretório de saída (predefinido: `dist`) (`string`)                     |
+| `--assetsDir <dir>`            | Diretório sob `outDir` para colocar os recursos (predefinido: `"assets"`) (`string`) |
+| `--assetsInlineLimit <number>` | Entrada do recurso estático de base64 incorporado em bytes (predefinido: `4096`) (`number`) |
+| `--ssr [entry]`                | Construir a entrada especificada para interpretação no lado do servidor (`string`)          |
+| `--sourcemap`                  | Produzir os mapas do código-fonte para construção (predefinido: `false`) (`boolean`)         |
+| `--minify [minifier]`          | Ativar/desativar a minificação, ou especificar o minificador a usar (predefinido: `"esbuild"`) (`boolean \| "terser" \| "esbuild"`) |
+| `--manifest [name]`            | Emitir o JSON do manifesto da construção (`boolean \| string`)      |
+| `--ssrManifest [name]`         | Emitir o JSON do manifesto da interpretação no lado do servidor (`boolean \| string`)                        |
+| `--force`                      | Forçar o otimizador a ignorar o cache e re-empacotar (experimental)(`boolean`) |
+| `--emptyOutDir`                | Forçar a limpeza do `outDir` quando estiver fora da raiz (`boolean`)            |
+| `-w, --watch`                  | Reconstruir quando os módulos tiver sido modificado no disco (`boolean`) |
+| `-c, --config <file>`          | Usar o ficheiro de configuração especificado (`string`)             |
+| `--base <path>`                | Caminho de base pública (predefinido: `/`) (`string`)               |
+| `-l, --logLevel <level>`       | Informação \| aviso \| erro \| silencioso (`string`)                |
+| `--clearScreen`                | Permitir/desativar a limpeza da tela quando estiver a fazer o registo em diário (`boolean`)                 |
+| `-d, --debug [feat]`           | Exibir os registos da depuração (`string \| boolean`)               |
+| `-f, --filter <filter>`        | Filtrar os registos da depuração (`string`)                         |
+| `-m, --mode <mode>`            | Definir o modo do ambiente (`string`)                               |
+| `-h, --help`                   | Exibir as opções disponíveis na Interface da Linha de Comando       |
 
-## Others
+## Outros {#others}
 
-### `vite optimize`
+### `vite optimize` {#vite-optimize}
 
-Pre-bundle dependencies.
+Pré-empacota as dependências.
 
-#### Usage
+#### Uso {#vite-optimize-usage}
 
 ```bash
 vite optimize [root]
 ```
 
-#### Options
+#### Opções {#vite-optimize-options}
 
-| Options                  |                                                                   |
+| Options                  | Descriptions                                                      |
 | ------------------------ | ----------------------------------------------------------------- |
 | `--force`                | Force the optimizer to ignore the cache and re-bundle (`boolean`) |
 | `-c, --config <file>`    | Use specified config file (`string`)                              |
-| `--base <path>`          | Public base path (default: `/`) (`string`)                        |
+| `--base <path>`          | Public base path (predefinido: `/`) (`string`)                        |
 | `-l, --logLevel <level>` | Info \| warn \| error \| silent (`string`)                        |
 | `--clearScreen`          | Allow/disable clear screen when logging (`boolean`)               |
 | `-d, --debug [feat]`     | Show debug logs (`string \| boolean`)                             |
@@ -108,16 +108,16 @@ vite preview [root]
 
 #### Options
 
-| Options                  |                                                      |
+| Options                  | Descriptions                                         |
 | ------------------------ | ---------------------------------------------------- |
 | `--host [host]`          | Specify hostname (`string`)                          |
 | `--port <port>`          | Specify port (`number`)                              |
 | `--strictPort`           | Exit if specified port is already in use (`boolean`) |
 | `--https`                | Use TLS + HTTP/2 (`boolean`)                         |
 | `--open [path]`          | Open browser on startup (`boolean \| string`)        |
-| `--outDir <dir>`         | Output directory (default: `dist`)(`string`)         |
+| `--outDir <dir>`         | Output directory (predefinido: `dist`)(`string`)         |
 | `-c, --config <file>`    | Use specified config file (`string`)                 |
-| `--base <path>`          | Public base path (default: `/`) (`string`)           |
+| `--base <path>`          | Public base path (predefinido: `/`) (`string`)           |
 | `-l, --logLevel <level>` | Info \| warn \| error \| silent (`string`)           |
 | `--clearScreen`          | Allow/disable clear screen when logging (`boolean`)  |
 | `-d, --debug [feat]`     | Show debug logs (`string \| boolean`)                |
