@@ -196,7 +196,7 @@ export default defineConfig({
               link: '/guide/features'
             },
             {
-              text: 'Interface de Linha de Comando',
+              text: 'Interface da Linha de Comando',
               link: '/guide/cli'
             },
             {
