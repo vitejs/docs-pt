@@ -145,7 +145,7 @@ test('?raw import', async () => {
 
 ## Nota sobre as Dependências de Teste {#note-on-test-dependencies}
 
-Em muitos casos de teste precisamos simular dependências com o uso dos protocólos `link:` e `file:`. O `pnpm` trata o `link` como ligações simbólicas e `file:` como ligações que não são simbólicas. Para testar as dependências como se elas fossem copiadas para `node_modules`, use o protocolo `file:`, em outros casos deves usar o protocolo `link:`.
+Em muitos casos de teste precisamos simular dependências com o uso dos protocolos `link:` e `file:`. O `pnpm` trata o `link` como ligações simbólicas e `file:` como ligações que não são simbólicas. Para testar as dependências como se elas fossem copiadas para `node_modules`, use o protocolo `file:`, em outros casos deves usar o protocolo `link:`.
 
 ## Relatório da Depuração {#debug-logging}
 
@@ -163,10 +163,10 @@ Tu podes definir a variável de ambiente `DEBUG` para ligar os relatórios da de
 - Se estiveres a corrigir um problema:
 
   - Se estiveres a resolver um problema especial, adicione `(fix #xxxx[,#xxxx])` (#xxxx é o identificador do problema) no título do teu pedido de atualização de repositório para um melhor relatório de lançamento, por exemplo `fix: update entities encoding/decoding (fix #3899)`.
-  - Forneça uma descrição detalhada do problema no pedido de atualização de repositório (PR, sigla em Inglês). Demostração ao vivo de preferência.
+  - Forneça uma descrição detalhada do problema no pedido de atualização de repositório (PR, sigla em Inglês). Demonstração ao vivo de preferência.
   - Adicione cobertura de teste apropriada se aplicável.
 
-- Está bem ter várias pequenas consolidações (commits, em Inglês) na medida que trabalhas sobre o pedido de atualização de repositório - a GitHub pode espremé-las automaticamente antes da combinação.
+- Está bem ter várias pequenas consolidações (commits, em Inglês) na medida que trabalhas sobre o pedido de atualização de repositório - a GitHub pode espremê-las automaticamente antes da combinação.
 
 - Certifica-te de que os testes passam!
 
@@ -176,7 +176,7 @@ Tu podes definir a variável de ambiente `DEBUG` para ligar os relatórios da de
 
 ## Diretrizes de Manutenção {#maintenance-guidelines}
 
-> A seção seguinte é na sua maioria para os preservadores que tem acesso de consolidação, mas a sua leitura é útil para o caso de quereres fazer contribuições não trivíais para a base de código.
+> A seção seguinte é na sua maioria para os preservadores que tem acesso de consolidação, mas a sua leitura é útil para o caso de quereres fazer contribuições não triviais para a base de código.
 
 ### Fluxo de Triagem de Problema {#issue-triaging-workflow}
 
@@ -196,7 +196,7 @@ Tu podes definir a variável de ambiente `DEBUG` para ligar os relatórios da de
 
 A Vite tem por objetivo ser leve, e isto inclue estar ciente do número de dependências de `npm` e do tamanho delas.
 
-Nós usamos a `rollup` para pré-empacotar a maior parte das dependências antes da publicação! Portanto a maior parte das dependências, até as usadas no código da `src`, devem ser adicionadas sob a `devDependencies` por padrão. Isto também cria um número de restrições que precisamos estar ciantes deles na base de código:
+Nós usamos a `rollup` para pré-empacotar a maior parte das dependências antes da publicação! Portanto a maior parte das dependências, até as usadas no código da `src`, devem ser adicionadas sob a `devDependencies` por padrão. Isto também cria um número de restrições que precisamos estar cientes deles na base de código:
 
 ### Utilização da `require()` {#usage-of-require}
 
@@ -218,7 +218,7 @@ Evite dependências que têm amplas dependências transitivas que resultam em ta
 
 A Vite tem por objetivo ser completamente usável como dependência em um projeto de TypeScript (por exemplo, ela deve fornecer as tipagens apropriadas para VitePress), e também no `vite.config.ts`. Isto significa que tecnicamente uma dependência cujos tipos que são expostos precisam fazer parte das `dependencies` ao invés das `devDependencies`. No entanto, isto quem dizer que não seremos capazes de empacota-lá.
 
-Para dar a volta a isto, embutiremos alguns tipos destas dependências no `packages/vite/src/dep-types`. Desta maneira podemos continuar a expôr a tipagem exceto empacotar o código-fonte da dependência.
+Para dar a volta a isto, embutiremos alguns tipos destas dependências no `packages/vite/src/dep-types`. Desta maneira podemos continuar a expor a tipagem exceto empacotar o código-fonte da dependência.
 
 Use `pnpm run check-dist-types` para verificar se os tipos empacotados não dependem de tipos nas `devDependencies`. Se estiveres a adicionar as `dependencies`, certifica-te de configurar `tsconfig.check.json`.
 
@@ -233,9 +233,9 @@ Nós já temos muitas opções de configuração, e devemos evitar a correção 
 
 ## Contribuição com a tradução da documentação {#docs-translation-contribution}
 
-Se gostarias de começar uma tradução no teu idioma, és convidado a contribuir! Faça a gentileza de juntar-te ao [canal `#translations` na Vite Land](https://chat.vitejs.dev) para discutir e coordernar com os outros.
+Se gostarias de começar uma tradução no teu idioma, és convidado a contribuir! Faça a gentileza de juntar-te ao [canal `#translations` na Vite Land](https://chat.vitejs.dev) para discutir e coordenar com os outros.
 
-A documentação em Inglês está fixada no reposiótio principal da Vite, para permitir os colaboradores trabalharem sobre a documentação, testes e implementação na mesma PR. As traduções são feitas copiando o repositório principal.
+A documentação em Inglês está fixada no repositório principal da Vite, para permitir os colaboradores trabalharem sobre a documentação, testes e implementação na mesma PR. As traduções são feitas copiando o repositório principal.
 
 ### Como começar um repositório de tradução {#how-to-start-a-translation-repo}
 
@@ -250,7 +250,7 @@ A documentação em Inglês está fixada no reposiótio principal da Vite, para 
 
    - Durante este estágio, podes estar a traduzir os documentos e sincronizar as atualizações ao mesmo tempo, mas não se preocupe com isto, é muito comum na contribuição com a tradução.
 
-4. Envie as tuas consolidações para o teu repositório da GitHub. Tu podes configurar também uma previsualização da Netlify.
+4. Envie as tuas consolidações para o teu repositório da GitHub. Tu podes configurar também uma pré-visualização da Netlify.
 5. Use a ferramenta [Ryu-cho](https://github.com/vuejs-translations/ryu-cho) para configurar uma Ação de GitHub, rastreie automaticamente a atualização da documentação em Inglês depois.
 
-Nós recomendamos conversar com os outros na Vite Land assim encontras mais colaboradores para o teu idioma para partilhar o trabalho de manuntenção. Uma vez feita a tradução, comunique-a para equipa da Vite assim o repositório será movido para organização `vitejs` oficial na GitHub.
+Nós recomendamos conversar com os outros na Vite Land assim encontras mais colaboradores para o teu idioma para partilhar o trabalho de manutenção. Uma vez feita a tradução, comunique-a para equipa da Vite assim o repositório será movido para organização `vitejs` oficial na GitHub.
