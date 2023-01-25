@@ -18,77 +18,7 @@ const sponsors = computed(() => {
 </script>
 
 <template>
-  <a class="viteconf" href="https://viteconf.org" target="_blank">
-    <img width="22" height="22" src="/viteconf.svg" />
-    <span>
-      <p class="extra-info">Conferência Online Gratuita</p>
-      <p class="heading">ViteConf - 11 de Outubro</p>
-      <p class="extra-info">Adquira o teu bilhete agora!</p>
-    </span>
-  </a>
   <VPDocAsideSponsors v-if="data" :data="sponsors" />
 </template>
 
-<style>
-.viteconf {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  border-radius: 14px;
-  padding-left: 2.5rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  position: relative;
-  font-size: 1rem;
-  font-weight: 700;
-  line-height: 1.1rem;
-  filter: grayscale(100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  background-color: var(--vp-c-bg-alt);
-  border: 2px solid var(--vp-c-bg-alt);
-  transition: border-color 0.5s;
-}
-.viteconf:hover {
-  filter: grayscale(0%);
-  border: 2px solid var(--vp-c-brand-light);
-}
-.viteconf img {
-  position: absolute;
-  left: 1.2rem;
-  transition: transform 0.5s;
-}
-.viteconf:hover img {
-  transform: scale(1.75);
-}
-
-.viteconf .heading {
-  padding-left: 0.4rem;
-  transition: transform 0.2s;
-}
-
-.viteconf:hover .heading {
-  background-image: linear-gradient(
-    120deg,
-    #bd34fe 16%,
-    var(--vp-c-brand-light),
-    var(--vp-c-brand-light)
-  );
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transform: translate3d(0.4rem, 0, 0);
-}
-
-.viteconf .extra-info {
-  color: var(--vp-c-text-1);
-  opacity: 0;
-  font-size: 0.7rem;
-  padding-left: 0.4rem;
-  transition: opacity 0.5s;
-}
-.viteconf:hover .extra-info {
-  opacity: 0.9;
-}
-</style>
+<style></style>
