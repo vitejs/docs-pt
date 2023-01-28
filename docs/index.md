@@ -7,7 +7,7 @@ titleTemplate: Ferramental de Frontend de Nova Geração
 hero:
   name: Vite
   text: Ferramental de Frontend de Nova Geração
-  tagline: Prepara-te para um ambiente de desenvolvimento que pode finalmente atualizar-se contigo.
+  tagline: Prepara-te para um ambiente de programação que acompanhar-te-á no desenvolvimento das tuas aplicações.
   image:
     src: /logo-with-shadow.png
     alt: Vite
