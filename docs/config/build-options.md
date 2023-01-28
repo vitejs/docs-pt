@@ -4,9 +4,9 @@
 
 - **Tipo:** `string | string[]`
 - **Predefinido como:** `'modules'`
-- **Relacionado ao:** [Compatibilidade de Navegador](/guide/build#compatibilidade-de-navegador)
+- **Relacionado ao:** [Compatibilidade de Navegador](/guide/build#browser-compatibility)
 
-Alvo da compatibilidade de navegador para o pacote final. O valor padrão é um valor especial de Vite, `'modules'`, que aponta navegadores com [Módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e suporte ao [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta).
+Alvo da compatibilidade de navegador para o pacote final. O valor padrão é um valor especial de Vite, `'modules'`, que aponta navegadores com [Módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e suporte ao [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). A Vite substituirá `'modules'` por `['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14']`
 
 Um outro valor especial é `'esnext'` - que presume o suporte de importações dinâmicas nativa e traduzirá o código o menos possível:
 
