@@ -28,6 +28,8 @@ O comportamento é semelhante ao `file-loader` do webpack. A diferença é que a
 
 - Os seguradores de lugar do Armazenamento de Ficheiros Grandes de Git (Git LFS) são excluídos automaticamente do embutido porque eles não contém o conteúdo do ficheiro que eles representam. Para receber o embutido, certifica-te de descarregar os conteúdos do ficheiro através do Armazenamento de Ficheiros Grandes de Git (Git LFS) antes da construção.
 
+- TypeScript, por padrão, não reconhece as importações de recursos estáticos como módulos válidos. Para corrigir isto, inclua [`vite/client`](./features#client-types).
+
 ### Importações de URL Explicita {#explicit-url-imports}
 
 Os recursos que não estão incluídos na lista interna ou na `assetsInclude`, podem ser explicitamente importados como uma URL utilizando o sufixo `?url`. Isto é útil, por exemplo, para importar os [Houdini Paint Worklets](https://houdini.how/usage).
