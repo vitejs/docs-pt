@@ -44,6 +44,24 @@ Para resolver isto:
   $ sudo sysctl fs.inotify.max_user_watches=524288
   ```
 
+### Requisições de Rede Impedem o Carregamento
+
+Quando estiveres a usar um certificado de SSL auto-assinado, o Chrome ignora todas diretivas do armazenamento de recurso de consulta imediata (aka, caching) e recarrega o conteúdo. A Vite depende das diretivas de armazenamento de recurso de consulta imediata.
+
+Para resolver o problema use um certificado de SSL de confiança.
+
+Consulte: [Cache problems](https://helpx.adobe.com/mt/experience-manager/kb/cache-problems-on-chrome-with-SSL-certificate-errors.html), [Chrome issue](https://bugs.chromium.org/p/chromium/issues/detail?id=110649#c8)
+
+#### macOS
+
+Tu podes instalar um certificado de confiança através da Interface da Linha de Comando com este comando:
+
+```sh
+security add-trusted-cert -d -r trustRoot -k ~/Library/Keychains/login.keychain-db your-cert.cer
+```
+
+Ou, importando-o pela aplicação Keychain Access e atualizando a confiança do teu certificado para "Always Trust."
+
 ### 431 Campos do Cabeçalho da Requisição Muito Grandes {#431-request-header-fields-too-large}
 
 Quando o servidor ou servidor de websocket recebe um cabeçalho de HTTP grande, a requisição será largada e o seguinte aviso será exibido.
@@ -68,7 +86,7 @@ import './Foo.js' // deveria ser './foo.js'
 
 Problema relacionado: [#964](https://github.com/vitejs/vite/issues/964)
 
-### A Vite não Deteta uma Mudança de Ficheiro {#vite-does-not-detect-a-file-change} 
+### A Vite não Deteta uma Mudança de Ficheiro {#vite-does-not-detect-a-file-change}
 
 Se estiveres executando a Vite com o WSL2, a Vite não consegue observar mudanças de ficheiro em algumas condições. Consulte a [opção `server.watch`](/config/server-options.md#server-watch).
 
