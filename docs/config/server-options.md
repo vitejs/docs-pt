@@ -61,7 +61,9 @@ Um certificado válido é necessário. Para uma configuração básica, podes ad
 
 - **Tipo:** `boolean | string`
 
-Abre automaticamente a aplicação no navegador sobre o início do servidor. Quando o valor é uma sequência de caracteres, ele será utilizado como nome do caminho da URL. Se quiseres abrir o servidor em um navegador especifico que gostas, podes definir a `process.env.BROWSER` (por exemplo, `firefox`). Consulte [o pacote `open`](https://github.com/sindresorhus/open#app) para mais detalhes.
+Abre automaticamente a aplicação no navegador sobre o início do servidor. Quando o valor é uma sequência de caracteres, ele será utilizado como nome do caminho da URL. Se quiseres abrir o servidor em um navegador especifico que gostas, podes definir a `process.env.BROWSER` (por exemplo, `firefox`). Tu também podes definir `process.env.BROWSER_ARGS` para passar argumentos adicionais (por exemplo, `--incognito`).
+
+`BROWSER` e `BROWSER_ARGS` também são variáveis de ambiente especiais que podes definir no ficheiro `.env` para configurá-lo. Consulte [o pacote `open`](https://github.com/sindresorhus/open#app) para mais detalhes.
 
 **Exemplo:**
 
