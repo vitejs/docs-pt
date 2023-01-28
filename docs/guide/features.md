@@ -30,11 +30,21 @@ Nota que não precisas de manualmente definir estes - quando [criares uma aplica
 
 A Vite suporta a importação de ficheiros `.ts` fora da caixa.
 
-A Vite apenas realiza a tradução de código sobre os ficheiros `.ts` e **NÃO** realiza a verificação de tipo. Ela presume que a verificação de tipo está sendo cuidada pela tua IDE e processo de construção (podes executar `tsc --noEmit` no programa de construção ou instalar `vue-tsc` e executar `vue-tsc --noEmit` para também verificar os tipos dos teus ficheiros `*.vue`).
+### Tradução de Código Apenas {#transpile-only}
 
-A Vite utiliza a [esbuild](https://github.com/evanw/esbuild) para traduzir o código de TypeScript para JavaScript o qual é 20~30x mais rápido do que o `tsc` puro, as atualizações de HMR podem refletir no navegador em menos de 50ms.
+Nota que a Vite apenas realiza a tradução de código sobre os ficheiros `.ts` e **NÃO** realiza a verificação de tipo. Ela presume que a verificação de tipo está sendo cuidada pela tua IDE e processo de construção.
 
-Utilize a sintaxe de [Importações e Exportações de Tipo Apenas](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export) para evitar potenciais problemas tal como importações de tipo apenas sendo incorretamente empacotada, por exemplo:
+A razão da Vite não realizar a verificação de tipo como parte do processo de transformação é porque estes dois trabalhos funcionam fundamentalmente de maneiras diferentes. A tradução de código pode funcionar sobre uma base por ficheiro e alinha perfeitamente com modelo de compilação sobre demanda da Vite. Em comparação, a verificação de tipo requer conhecimento do grafo do módulo inteiro. Calçar a verificação de tipo em uma conduta de transformação da Vite inevitavelmente comprometerá os benefícios de velocidade da Vite.
+
+O trabalho da Vite é receber os módulos do teu código-fonte em uma forma que possa executar no navegador o mais rápido possível. Para este fim, recomendamos separar as verificações de analises estáticas da conduta de transformação da Vite. Este princípio aplica-se aos outros verificadores de analises estáticas tais como ESLint.
+
+- Para as construções de produção, podes executar `tsc --noEmit` em adição ao comando de construção `build` da Vite.
+
+- Durante o desenvolvimento, se precisares de mais do que as sugestões da IDE, recomendamos executar `tsc --noEmit --watch` em um processo separado, ou usar [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker) se preferires ter erros de tipo diretamente reportados no navegador.
+
+A Vite usa a [esbuild](https://github.com/evanw/esbuild) para traduzir o código de TypeScript para JavaScript o qual é 20~30x mais rápido do que o `tsc` puro, as atualizações de HMR podem refletir no navegador em menos de 50ms.
+
+Use a sintaxe de [Importações e Exportações de Tipo Apenas](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export) para evitar potenciais problemas tal como importações de tipo apenas sendo incorretamente empacotada, por exemplo:
 
 ```ts
 import type { T } from 'only/types'
@@ -262,7 +272,6 @@ import Worker from './worker.js?worker'
 ```
 
 ```js
-
 // Os Operários de Web embutidos como sequências de caracteres
 // de base64 em tempo de execução
 import InlineWorker from './worker.js?worker&inline'
