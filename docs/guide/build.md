@@ -31,14 +31,14 @@ Para controlo de caminho de base avançado, consulte [Opções de Base Avançada
 
 ## Personalizando a Construção {#customizing-the-build}
 
-A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options.md). Especificamente, podes diretamente ajustar as [Opções de Rollup](https://rollupjs.org/guide/en/#big-list-of-options) subjacentes através da `build.rollupOptions`:
+A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options.md). Especificamente, podes diretamente ajustar as [Opções de Rollup](https://rollupjs.org/configuration-options/) subjacentes através da `build.rollupOptions`:
 
 ```js
 // vite.config.js
 export default defineConfig({
   build: {
     rollupOptions: {
-      // https://rollupjs.org/guide/en/#big-list-of-options
+      // https://rollupjs.org/configuration-options/
     }
   }
 })
@@ -48,7 +48,7 @@ Por exemplo, podes especificar várias saídas de Rollup com extensões que apen
 
 ## Estratégia de Fatiamento {#chunking-strategy}
 
-Tu podes configurar como os pedaços são separados utilizando a `build.rollupOptions.output.manualChunks` (consulte a [documentação da Rollup](https://rollupjs.org/guide/en/#outputmanualchunks)). Até a Vite 2.8, a estratégia de fatiamento padrão dividia os pedaços em `index` e `vendor`. É uma boa estratégia para algumas Aplicações de Página Única, mas é difícil fornecer uma solução geral para todos casos de uso alvos da Vite. Desde a Vite 2.9, `manualChunks` já não modificado por padrão. Tu podes continuar a utilizar a estratégia de Separação Ambulante de Pedaço adicionando a `splitVendorChunkPlugin` no teu ficheiro de configuração:
+Tu podes configurar como os pedaços são separados utilizando a `build.rollupOptions.output.manualChunks` (consulte a [documentação da Rollup](https://rollupjs.org/configuration-options/#output-manualchunks)). Até a Vite 2.8, a estratégia de fatiamento padrão dividia os pedaços em `index` e `vendor`. É uma boa estratégia para algumas Aplicações de Página Única, mas é difícil fornecer uma solução geral para todos casos de uso alvos da Vite. Desde a Vite 2.9, `manualChunks` já não modificado por padrão. Tu podes continuar a utilizar a estratégia de Separação Ambulante de Pedaço adicionando a `splitVendorChunkPlugin` no teu ficheiro de configuração:
 
 ```js
 // vite.config.js
@@ -62,14 +62,14 @@ Esta estratégia também é fornecida como uma fábrica `splitVendorChunk({ cach
 
 ## Reconstrução Sobre Mudanças de Ficheiros {#rebuild-on-files-changes}
 
-Tu podes ativar o observador de Rollup com `vite build --watch`. Ou, podes diretamente ajustar a [`WatcherOptions`](https://rollupjs.org/guide/en/#watch-options) subjacente através da `build.watch`:
+Tu podes ativar o observador de Rollup com `vite build --watch`. Ou, podes diretamente ajustar a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
 
 ```js
 // vite.config.js
 export default defineConfig({
   build: {
     watch: {
-      // https://rollupjs.org/guide/en/#watch-options
+      // https://rollupjs.org/configuration-options/#watch
     }
   }
 })

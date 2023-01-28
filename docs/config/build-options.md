@@ -126,9 +126,9 @@ Gera os mapas da fonte de produção. Se for `true`, um ficheiro de mapa de font
 
 ## build.rollupOptions {#build-rollupoptions}
 
-- **Tipo:** [`RollupOptions`](https://rollupjs.org/guide/en/#big-list-of-options)
+- **Tipo:** [`RollupOptions`](https://rollupjs.org/configuration-options/)
 
-Personaliza diretamente o pacote de Rollup subjacente. Isto é o mesmo que as opções que podem ser exportadas a partir de um ficheiro de configuração de Rollup e serão combinados com as opções internas da Vite. Consulte a [documentação das opções de Rollup](https://rollupjs.org/guide/en/#big-list-of-options) para mais detalhes.
+Personaliza diretamente o pacote de Rollup subjacente. Isto é o mesmo que as opções que podem ser exportadas a partir de um ficheiro de configuração de Rollup e serão combinados com as opções internas da Vite. Consulte a [documentação das opções de Rollup](https://rollupjs.org/configuration-options/) para mais detalhes.
 
 ## build.commonjsOptions {#build-commonjsoptions}
 
@@ -225,7 +225,7 @@ Limite para avisos do tamanho do pedaço (em kbs).
 
 ## build.watch {#build-watch}
 
-- **Tipo:** [`WatcherOptions`](https://rollupjs.org/guide/en/#watch-options)`| null`
+- **Tipo:** [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch)`| null`
 - **Predefinido como:** `null`
 
 Defina para `{}` para ativar o observador de Rollup. Isto é na maior parte das vezes usado nos casos que envolve extensões de apenas construção ou processos de integrações.

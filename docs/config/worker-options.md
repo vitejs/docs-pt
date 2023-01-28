@@ -17,6 +17,6 @@ As extensões de Vite que se aplicam ao pacote do operário. Nota que [`config.p
 
 ## worker.rollupOptions {#worker-rollupoptions}
 
-- **Tipo:** [`RollupOptions`](https://rollupjs.org/guide/en/#big-list-of-options)
+- **Tipo:** [`RollupOptions`](https://rollupjs.org/configuration-options/)
 
 Opções de Rollup para construir o pacote do operário.

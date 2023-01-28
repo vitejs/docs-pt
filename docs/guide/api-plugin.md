@@ -2,7 +2,7 @@
 
 As extensões de Vite estendem a bem desenha interface de extensão da Rollup com algumas opções adicionais específicas da Vite. Como resultado, podes escrever uma extensão de Vite uma vez e tê-la a funcionar para ambos desenvolvimento e construção.
 
-**É recomendado passar primeiro pela [documentação de extensão da Rollup](https://rollupjs.org/guide/en/#plugin-development) antes de ler as seções abaixo.**
+**É recomendado passar primeiro pela [documentação de extensão da Rollup](https://rollupjs.org/plugin-development/) antes de ler as seções abaixo.**
 
 ## Produzindo uma Extensão {#authoring-a-plugin}
 
@@ -17,7 +17,7 @@ Quando estiveres a aprender, depurar, ou escrever extensões, sugerimos incluir 
 
 ## Convenções {#conventions}
 
-Se a extensão não usar gatilhos específicos da Vite e pode ser implementada como uma [extensão compatível com a Rollup](#rollup-plugin-compatibility), então é recomendado usar as [convenções de nomeação de extensão da Rollup](https://rollupjs.org/guide/en/#conventions).
+Se a extensão não usar gatilhos específicos da Vite e pode ser implementada como uma [extensão compatível com a Rollup](#rollup-plugin-compatibility), então é recomendado usar as [convenções de nomeação de extensão da Rollup](https://rollupjs.org/plugin-development/#conventions).
 
 - As extensões de Rollup devem ter um nome claro com o prefixo `rollup-plugin-`.
 - Incluir as palavras-chaves `rollup-plugin` e `vite-plugin` no `package.json`.
@@ -146,27 +146,27 @@ Nota que os módulos diretamente derivados de um ficheiro real, como no caso de 
 
 ## Gatilhos Universais {#universal-hooks}
 
-Durante o desenvolvimento, o servidor de desenvolvimento da Vite cria um contentor de extensão que invocam os [Gatilhos da Construção de Rollup](https://rollupjs.org/guide/en/#build-hooks) da mesma maneira que a Rollup faz.
+Durante o desenvolvimento, o servidor de desenvolvimento da Vite cria um contentor de extensão que invocam os [Gatilhos da Construção de Rollup](https://rollupjs.org/plugin-development/#build-hooks) da mesma maneira que a Rollup faz.
 
 Os seguintes gatilhos são chamados um vez sobre a inicialização do servidor:
 
-- [`options`](https://rollupjs.org/guide/en/#options)
-- [`buildStart`](https://rollupjs.org/guide/en/#buildstart)
+- [`options`](https://rollupjs.org/plugin-development/#options)
+- [`buildStart`](https://rollupjs.org/plugin-development/#buildstart)
 
 Os seguintes gatilhos são chamados em cada requisição de módulo externa:
 
-- [`resolveId`](https://rollupjs.org/guide/en/#resolveid)
-- [`load`](https://rollupjs.org/guide/en/#load)
-- [`transform`](https://rollupjs.org/guide/en/#transform)
+- [`resolveId`](https://rollupjs.org/plugin-development/#resolveid)
+- [`load`](https://rollupjs.org/plugin-development/#load)
+- [`transform`](https://rollupjs.org/plugin-development/#transform)
 
 Os seguintes gatilhos são chamados quando o servidor é fechado:
 
-- [`buildEnd`](https://rollupjs.org/guide/en/#buildend)
-- [`closeBundle`](https://rollupjs.org/guide/en/#closebundle)
+- [`buildEnd`](https://rollupjs.org/plugin-development/#buildend)
+- [`closeBundle`](https://rollupjs.org/plugin-development/#closebundle)
 
-Nota que o gatilho [`moduleParsed`](https://rollupjs.org/guide/en/#moduleparsed) **não** é chamado durante o desenvolvimento, porque a Vite evita completamente as analises de AST para obter melhor desempenho.
+Nota que o gatilho [`moduleParsed`](https://rollupjs.org/plugin-development/#moduleparsed) **não** é chamado durante o desenvolvimento, porque a Vite evita completamente as analises de AST para obter melhor desempenho.
 
-Os [Gatilhos da Geração da Saída](https://rollupjs.org/guide/en/#output-generation-hooks) (exceto `closeBundle`) **não** são chamadas durante o desenvolvimento, Tu podes pensar do servidor de desenvolvimento da Vite como apenas chamando o `rollup.rollup()` sem chamar o `bundle.generate()`.
+Os [Gatilhos da Geração da Saída](https://rollupjs.org/plugin-development/#output-generation-hooks) (exceto `closeBundle`) **não** são chamadas durante o desenvolvimento, Tu podes pensar do servidor de desenvolvimento da Vite como apenas chamando o `rollup.rollup()` sem chamar o `bundle.generate()`.
 
 ## Gatilhos Específicos de Vite {#vite-specific-hooks}
 
