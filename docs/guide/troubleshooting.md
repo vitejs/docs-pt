@@ -44,7 +44,8 @@ Para resolver isto:
   $ sudo sysctl fs.inotify.max_user_watches=524288
   ```
 
-### Requisições de Rede Impedem o Carregamento
+### Requisições de Rede Impedem o Carregamento {#network-requests-stop-loading
+}
 
 Quando estiveres a usar um certificado de SSL auto-assinado, o Chrome ignora todas diretivas do armazenamento de recurso de consulta imediata (aka, caching) e recarrega o conteúdo. A Vite depende das diretivas de armazenamento de recurso de consulta imediata.
 
@@ -52,7 +53,7 @@ Para resolver o problema use um certificado de SSL de confiança.
 
 Consulte: [Cache problems](https://helpx.adobe.com/mt/experience-manager/kb/cache-problems-on-chrome-with-SSL-certificate-errors.html), [Chrome issue](https://bugs.chromium.org/p/chromium/issues/detail?id=110649#c8)
 
-#### macOS
+#### macOS {#macos}
 
 Tu podes instalar um certificado de confiança através da Interface da Linha de Comando com este comando:
 
@@ -95,6 +96,10 @@ Se estiveres executando a Vite com o WSL2, a Vite não consegue observar mudanç
 Se a HMR não for manipulada pela Vite ou uma extensão, um recarregamento completo acontecerá.
 
 Além disto se houver um laço de dependência, um recarregamento completo acontecerá. Para resolver isto, tente a remoção do laço.
+
+### Alto Número de Atualizações de HMR na Consola {high-number-of-hmr-updates-in-console}
+
+Isto pode ser causado por uma dependência circular. Para resolver isto, tente quebrar o laço.
 
 ## Construção {#build}
 
