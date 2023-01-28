@@ -1,5 +1,7 @@
 # Opções do Operário {#worker-options}
 
+Opções relacionadas aos Operários da Web (Web Workers, em Inglês).
+
 ## worker.format {#worker-format}
 
 - **Tipo:** `'es' | 'iife'`
