@@ -21,7 +21,7 @@ Nota que a construção falhará se o código conter funcionalidades que não po
 ## build.modulePreload {#build-modulepreload}
 
 - **Tipo:** `boolean | { polyfill?: boolean, resolveDependencies?: ResolveModulePreloadDependenciesFn }`
-- **Predefinido como:** `true`
+- **Predefinido como:** `{ polyfill: true }`
 
 Por padrão, um ["polyfill" de pré-carregamento de módulo](https://guybedford.com/es-module-preloading-integrity#modulepreload-polyfill) é automaticamente injetado. O "polyfill" é injetado automaticamente no módulo de delegação de cada entrada `index.html`. Se a construção for configurada para usar uma entrada personalizada de não HTML através de `build.rollupOptions.input`, então é necessário importar manualmente o "polyfill" na tua entrada personalizada:
 
@@ -169,7 +169,7 @@ Quando definido para `true`, a construção também gerará um manifesto de SSR 
 ## build.ssr {#build-ssr}
 
 - **Tipo:** `boolean | string`
-- **Predefinido como:** `undefined`
+- **Predefinido como:** `false`
 - **Relacionado ao:** [Server-Side Rendering](/guide/ssr)
 
 Produz a construção orientada pela SSR. O valor pode ser uma sequência de caracteres para diretamente especificar a entrada da SSR, ou `true`, o qual exige a especificação da entrada de SSR através de `rollupOptions.input`.
