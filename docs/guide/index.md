@@ -77,7 +77,7 @@ yarn create vite my-vue-app --template vue
 pnpm create vite my-vue-app --template vue
 ```
 
-Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`.
+Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`.
 
 ## Modelos da Comunidade {#community-templates}
 
