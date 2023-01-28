@@ -16,6 +16,10 @@ Consulte [Utilizando Extensões](../guide/using-plugins) para obter informaçõe
 
 - Fornece suporte a JSX de Vue 3 (através da [opção `transform` de Babel dedicada](https://github.com/vuejs/jsx-next)).
 
+### [@vitejs/plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
+
+- Fornece suporta aos Componentes de Ficheiro Único da Vue 2.
+
 ### [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)
 
 - Usa a esbuild e Babel, alcançando HMR rápida com uma pegada de pacote pequena e a flexibilidade de ser capaz de usar a conduta de transformação da Babel.
