@@ -108,6 +108,37 @@ export const core = [
     sponsor: 'https://github.com/sponsors/sapphi-red'
   },
   {
+    avatar: 'https://github.com/sodatea.png',
+    name: 'Haoqun Jiang',
+    title: 'Programador',
+    org: 'Vue.js',
+    orgLink: 'https://vuejs.org/',
+    desc: 'Membro da equipa principal da Vite/Vite. Programador de código-aberto em tempo integral.',
+    links: [
+      { icon: 'github', link: 'https://github.com/sodatea' },
+      { icon: 'twitter', link: 'https://twitter.com/haoqunjiang' },
+    ],
+    sponsor: 'https://github.com/sponsors/sodatea',
+  },
+  {
+    avatar: 'https://github.com/ArnaudBarre.png',
+    name: 'Arnaud Barré',
+    title: 'Programador de Frontend',
+    desc: 'Apaixonado por ferramental em volta da TypeScript e React.',
+    links: [{ icon: 'github', link: 'https://github.com/ArnaudBarre' }],
+    sponsor: 'https://github.com/sponsors/ArnaudBarre',
+  },
+  {
+    avatar: 'https://github.com/dominikg.png',
+    name: 'Dominik G.',
+    title: 'Especialista em CI Residente',
+    desc: 'Membro da Equipa da Vite e Svelte',
+    links: [{ icon: 'github', link: 'https://github.com/dominikg' }],
+  },
+]
+
+export const emeriti = [
+  {
     avatar: 'https://github.com/ygj6.png',
     name: 'ygj6',
     title: 'Programador',
@@ -127,10 +158,7 @@ export const core = [
       { icon: 'github', link: 'https://github.com/Niputi' },
       { icon: 'twitter', link: 'https://twitter.com/Niputi_' }
     ]
-  }
-]
-
-export const emeriti = [
+  },
   {
     avatar: 'https://github.com/underfin.png',
     name: 'underfin',
