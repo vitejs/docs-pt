@@ -171,7 +171,7 @@ No futuro, o valor padrão do `resolve.mainFields` será `['browser', 'module', 
 ## resolve.extensions {#resolve-extensions}
 
 - **Tipo:** `string[]`
-- **Predefinido como:** `['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json']`
+- **Predefinido como:** `['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']`
 
 Lista de extensões de ficheiros para experimentar às importações que omitem as extensões. Nota que **NÃO** recomendado omitir as extensões para tipos de importações personalizadas (por exemplo, `.vue`) já que isto pode interferir com a IDE e o suporte de tipo.
 
