@@ -18,7 +18,11 @@ Consulte [Utilizando Extensões](../guide/using-plugins) para obter informaçõe
 
 ### [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)
 
-- Fornece suporte para o tudo em um de React.
+- Usa a esbuild e Babel, alcançando HMR rápida com uma pegada de pacote pequena e a flexibilidade de ser capaz de usar a conduta de transformação da Babel.
+
+### [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
+
+- Usa esbuild durante a construção, porém substitui a Babel com SWC durante o desenvolvimento. Para projetos grandes não exige extensões de React não-padronizadas, inicio refrigerado e Substituição de Módulo Instantânea (HMR, sigla em Inglês) pode ser significativamente mais rápido.
 
 ### [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)
 
