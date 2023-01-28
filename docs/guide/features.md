@@ -57,7 +57,7 @@ No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs
 
 #### `useDefineForClassFields`
 
-Começando a partir da Vite 2.5.0, o valor padrão será `true` se o alvo de TypeScript for `ESNext`. É consistente com o [comportamento da `tsc` 4.3.2 e adiante](https://github.com/microsoft/TypeScript/pull/42663). É também o comportamento de tempo de execução da ECMASCript padrão.
+A partir da Vite 2.5.0, o valor padrão será `true` se o alvo de TypeScript for `ESNext` ou `ES2022` ou mais recente. É consistente com o [comportamento da `tsc` 4.3.2 e adiante](https://github.com/microsoft/TypeScript/pull/42663). É também o comportamento de tempo de execução da ECMASCript padrão.
 
 Mas pode ser contra-intuitivo para aqueles chegando de outras linguagens de programação ou versões antigas da TypeScript.
 Tu podes ler mais a respeito da transição nas [notas de lançamento da TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#the-usedefineforclassfields-flag-and-the-declare-property-modifier).
@@ -222,7 +222,7 @@ Se estiveres a utilizar componentes de ficheiro único de Vue, este também ativ
 
 A Vite melhora a resolução de `@import` para a Sass e Less para que os pseudónimos de Vite sejam também respeitados. Além disto, referências de `url()` relativa dentro de ficheiros Sass ou Less importados que estão em diretórios diferentes do ficheiro de raiz são também rebaseados automaticamente para garantir a correção.
 
-Os pseudónimo de `@import` e o rebaseamento de `url` não são suportados para Styles por causa das restrições da sua API. 
+Os pseudónimo de `@import` e o rebaseamento de `url` não são suportados para Styles por causa das restrições da sua API.
 
 Tu podes também utilizar os módulos de CSS combinados com os pré-processadores ao adicionar `.module` antes da extensão do ficheiro, por exemplo `style.module.scss`.
 
@@ -263,7 +263,7 @@ import Worker from './worker.js?worker'
 
 ```js
 
-// Os Operários de Web embutidos como sequências de caracteres 
+// Os Operários de Web embutidos como sequências de caracteres
 // de base64 em tempo de execução
 import InlineWorker from './worker.js?worker&inline'
 ```
