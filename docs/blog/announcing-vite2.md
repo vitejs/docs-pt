@@ -2,19 +2,19 @@
 sidebar: false
 ---
 
-# Announcing Vite 2.0
+# Anunciando a Vite 2.0 {#announcing-vite-2}
 
 <p style="text-align:center">
   <img src="/logo.svg" style="height:200px">
 </p>
 
-Today we are excited to announce the official release of Vite 2.0!
+Hoje estamos entusiasmados em anunciar o lançamento oficial da Vite 2.0!
 
-Vite (French word for "fast", pronounced `/vit/`) is a new kind of build tool for frontend web development. Think a pre-configured dev server + bundler combo, but leaner and faster. It leverages browser's [native ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) support and tools written in compile-to-native languages like [esbuild](https://esbuild.github.io/) to deliver a snappy and modern development experience.
+Vite (palavra Francesa para "rápido", pronunciado `/vit/`, como "veet") é um novo tipo de ferramenta para o desenvolvimento web do frontend. Pense na combinação de um servidor de desenvolvimento pré-configurado + empacotador, mas mais magro e mais rápido. Ela influencia o suporte de [módulos de ECMAScript nativo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) do navegador e ferramentas escritas em linguagens que compilam para nativo como [esbuild](https://esbuild.github.io/) para entregar uma experiência de programação moderna e elegante.
 
-To get a sense of how fast Vite is, check out [this video comparison](https://twitter.com/amasad/status/1355379680275128321) of booting up a React application on Repl.it using Vite vs. `create-react-app` (CRA).
+Para ter ideia do quanto a Vite é rápida, consulte [esta comparação em vídeo](https://twitter.com/amasad/status/1355379680275128321) da inicialização de uma aplicação de React na Repl.it usando Vite versus a `create-react-app` (CRA).
 
-If you've never heard of Vite before and would love to learn more about it, check out [the rationale behind the project](https://vitejs.dev/guide/why.html). If you are interested in how Vite differs from other similar tools, check out the [comparisons](https://vitejs.dev/guide/comparisons.html).
+Se já ouviste falar da Vite antes e gostarias de aprender mais sobre ela, consulte [o fundamento lógico por trás do projeto](https://vitejs.dev/guide/why.html). Se estiveres interessado em como a Vite se difere de outras ferramentas similares, consulte as [comparações](https://vitejs.dev/guide/comparisons.html).
 
 ## What's New in 2.0
 
