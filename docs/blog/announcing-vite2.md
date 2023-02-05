@@ -20,11 +20,11 @@ Se já ouviste falar da Vite antes e gostarias de aprender mais sobre ela, consu
 
 Desde que decidimos refatorar completamente o interior antes da 1.0 sair da RC, esta é de fato o primeiro lançamento estável da Vite. Dito isto, a Vite 2.0 trás consigo muitas consideráveis melhorias sobre a anterior encarnação:
 
-### Framework Agnostic Core
+### Núcleo Agnóstico de Abstração {#framework-agnostic-core}
 
-The original idea of Vite started as a [hacky prototype that serves Vue single-file components over native ESM](https://github.com/vuejs/vue-dev-server). Vite 1 was a continuation of that idea with HMR implemented on top.
+A ideia original da Vite começou como um [protótipo experimental que serve componentes de Vue de ficheiro único sobre o módulo de ECMAScript nativo](https://github.com/vuejs/vue-dev-server). A Vite 1 foi uma continuação daquela ideia com um HMR implementado por cima.
 
-Vite 2.0 takes what we learned along the way and is redesigned from scratch with a more robust internal architecture. It is now completely framework agnostic, and all framework-specific support is delegated to plugins. There are now [official templates for Vue, React, Preact, Lit Element](https://github.com/vitejs/vite/tree/main/packages/create-vite), and ongoing community efforts for Svelte integration.
+A Vite 2.0 junta o que aprendemos ao longo do caminho e é redesenhada desde o zero com uma arquitetura interna mais robusta. Agora ela é complemente agnóstica de abstração, e todo suporte específico de abstração é delegado às extensões. Agora existem [modelos de projetos oficiais para Vue, React, Preact, Lit](https://github.com/vitejs/vite/tree/main/packages/create-vite), e esforços em andamento para a integração da Svelte.
 
 ### New Plugin Format and API
 
