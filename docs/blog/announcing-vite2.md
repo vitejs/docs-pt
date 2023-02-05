@@ -16,9 +16,9 @@ Para ter ideia do quanto a Vite é rápida, consulte [esta comparação em víde
 
 Se já ouviste falar da Vite antes e gostarias de aprender mais sobre ela, consulte [o fundamento lógico por trás do projeto](https://vitejs.dev/guide/why.html). Se estiveres interessado em como a Vite se difere de outras ferramentas similares, consulte as [comparações](https://vitejs.dev/guide/comparisons.html).
 
-## What's New in 2.0
+## O Que Existe de Novo na 2.0 {#whats-new-in-2.0}
 
-Since we decided to completely refactor the internals before 1.0 got out of RC, this is in fact the first stable release of Vite. That said, Vite 2.0 brings about many big improvements over its previous incarnation:
+Desde que decidimos refatorar completamente o interior antes da 1.0 sair da RC, esta é de fato o primeiro lançamento estável da Vite. Dito isto, a Vite 2.0 trás consigo muitas consideráveis melhorias sobre a anterior encarnação:
 
 ### Framework Agnostic Core
 
