@@ -26,11 +26,11 @@ A ideia original da Vite começou como um [protótipo experimental que serve com
 
 A Vite 2.0 junta o que aprendemos ao longo do caminho e é redesenhada desde o zero com uma arquitetura interna mais robusta. Agora ela é complemente agnóstica de abstração, e todo suporte específico de abstração é delegado às extensões. Agora existem [modelos de projetos oficiais para Vue, React, Preact, Lit](https://github.com/vitejs/vite/tree/main/packages/create-vite), e esforços em andamento para a integração da Svelte.
 
-### New Plugin Format and API
+### Novo Formato de Extensão e API {#new-plugin-format-and-api}
 
-Inspired by [WMR](https://github.com/preactjs/wmr), the new plugin system extends Rollup's plugin interface and is [compatible with many Rollup plugins](https://vite-rollup-plugins.patak.dev/) out of the box. Plugins can use Rollup-compatible hooks, with additional Vite-specific hooks and properties to adjust Vite-only behavior (e.g. differentiating dev vs. build or custom handling of HMR).
+Inspirada pela [WMR](https://github.com/preactjs/wmr), o novo sistema de extensão estende a interface de extensão da Rollup e é [compatível com muitas extensões de Rollup](https://vite-rollup-plugins.patak.dev/) fora da caixa. As extensões podem usar gatilhos compatíveis com a Rollup, com gatilhos específicos de Vite adicionais e propriedades para ajustar apenas o comportamento da Vite (por exemplo, a diferenciação entre o desenvolvimento e construção ou a manipulação personalizada da HMR).
 
-The [programmatic API](https://vitejs.dev/guide/api-javascript.html) has also been greatly improved to facilitate higher level tools / frameworks built on top of Vite.
+A [API programática](https://vitejs.dev/guide/api-javascript.html) também tem sido grandemente aprimorada para facilitar ferramentas ou abstrações de mais alto nível construídas sobre a Vite.
 
 ### esbuild Powered Dep Pre-Bundling
 
