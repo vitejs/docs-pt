@@ -149,7 +149,7 @@ export default defineConfig({
                 link: 'https://twitter.com/vite_js'
               },
               {
-                text: 'Conversas na Discord',
+                text: 'Conversas da Discord',
                 link: 'https://chat.vitejs.dev'
               },
               {
@@ -216,7 +216,7 @@ export default defineConfig({
               link: '/guide/build'
             },
             {
-              text: 'Desdobrando um Sítio Estático',
+              text: 'Implementando em Produção',
               link: '/guide/static-deploy'
             },
             {
@@ -240,7 +240,7 @@ export default defineConfig({
               link: '/guide/troubleshooting'
             },
             {
-              text: 'Migração a partir da v3',
+              text: 'Migrar da Versão 3',
               link: '/guide/migration'
             }
           ]
