@@ -44,11 +44,11 @@ A Vite trata a CSS como cidadão de primeira classe do gráfico de módulo e sup
 - **Rebaseamento da URL**: os caminhos de `url()` são automaticamente rebaseados independentemente de onde o ficheiro é importado.
 - **Separação de código de CSS**: um pedaço de JavaScript da separação de código também emite um ficheiro de CSS correspondente, o qual é carregado automaticamente em paralelo com o pedaço de JavaScript quando requisitado.
 
-### Server-Side Rendering (SSR) Support
+### Suporte a Interpretação no Lado do Servidor (SSR) {#server-side-rendering-support}
 
-Vite 2.0 ships with [experimental SSR support](https://vitejs.dev/guide/ssr.html). Vite provides APIs to efficiently load and update ESM-based source code in Node.js during development (almost like server-side HMR), and automatically externalizes CommonJS-compatible dependencies to improve development and SSR build speed. The production server can be completely decoupled from Vite, and the same setup can be easily adapted to perform pre-rendering / SSG.
+A Vite 2.0 vem com o [suporte experimental a SSR](https://vitejs.dev/guide/ssr.html). A Vite fornece APIs para carregar e atualizar eficientemente código-fonte baseado em módulo de ECMAScript (ESM) na Node.js durante o desenvolvimento (quase como HMR do lado do servidor), e expõe automaticamente as dependências compatíveis com a CommonJS para melhorar o desenvolvimento e a velocidade da construção da SSR. O servidor de produção pode ser completamente separado da Vite, e a mesma configuração pode ser facilmente adaptada para realizar a pré-interpretação / SSG.
 
-Vite SSR is provided as a low-level feature and we are expecting to see higher level frameworks leveraging it under the hood.
+A SSR de Vite é fornecida como uma funcionalidade de baixo nível e nós estamos a espera de ver abstrações de alto nível influenciando-a nos bastidores.
 
 ### Opt-in Legacy Browser Support
 
