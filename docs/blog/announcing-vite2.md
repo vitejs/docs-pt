@@ -36,13 +36,13 @@ A [API programática](https://vitejs.dev/guide/api-javascript.html) também tem 
 
 Já que a Vite é um servidor de desenvolvimento de módulo de ECMAScript nativo, ela pré-empacota as dependências para reduzir o número de requisições do navegador e lida com a conversão de CommonJS para ESM. Anteriormente a Vite fazia isto usando a Rollup, e agora na versão 2.0 usa a `esbuild` o que resulta num pré-empacotamento de dependência 10 à 100 vezes mais rápido. Como referência, iniciar completamente uma aplicação de teste com dependências pesadas como a React Material UI anteriormente levava 28 segundos em um MackBook Pro alimentado pelo processador M1 e agora leva mais ou menos 1.5 segundos. Espere melhorias similares se estiveres a mudar de uma configuração baseada em um empacotador tradicional.
 
-### First-class CSS Support
+### Suporte de CSS de Primeira Classe {#first-class-css-support}
 
-Vite treats CSS as a first-class citizen of the module graph and supports the following out of the box:
+A Vite trata a CSS como cidadão de primeira classe do gráfico de módulo e suporta fora da caixa os seguintes:
 
-- **Resolver enhancement**: `@import` and `url()` paths in CSS are enhanced with Vite's resolver to respect aliases and npm dependencies.
-- **URL rebasing**: `url()` paths are automatically rebased regardless of where the file is imported from.
-- **CSS code splitting**: a code-split JS chunk also emits a corresponding CSS file, which is automatically loaded in parallel with the JS chunk when requested.
+- **Otimização do Resolvedor**: Os caminhos de `@import` e `url()` na CSS são otimizados com resolvedor da Vite para respeitas os pseudónimos e dependências do npm.
+- **Rebaseamento da URL**: os caminhos de `url()` são automaticamente rebaseados independentemente de onde o ficheiro é importado.
+- **Separação de código de CSS**: um pedaço de JavaScript da separação de código também emite um ficheiro de CSS correspondente, o qual é carregado automaticamente em paralelo com o pedaço de JavaScript quando requisitado.
 
 ### Server-Side Rendering (SSR) Support
 
