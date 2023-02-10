@@ -54,12 +54,12 @@ A SSR de Vite é fornecida como uma funcionalidade de baixo nível e nós estamo
 
 A Vite escolhe como alvo navegadores modernos com suporte ao módulo de ECMAScript nativo por padrão, mas também podes optar suportar navegadores legados através do [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial. A extensão gera automaticamente dois pacotes, um moderno e outro legado, e entrega o pacote correto baseado na deteção de funcionalidade de navegador, garantido o código mais eficiente nos navegadores modernos que os suportam.
 
-## Give it a Try!
+## Experimentar! {#give-it-a-try}
 
-That was a lot of features, but getting started with Vite is simple! You can spin up a Vite-powered app literally in a minute, starting with the following command (make sure you have Node.js >=12):
+Foi muitas funcionalidades, mas começar com a Vite é simples! Tu podes configurar uma aplicação alimentada pela Vite literalmente em um minuto, começando com o seguinte comando (certifica-te que tens uma versão igual ou superior a 12 da Node.js instalada):
 
 ```bash
 npm init @vitejs/app
 ```
 
-Then, check out [the guide](https://vitejs.dev/guide/) to see what Vite provides out of the box. You can also check out the source code on [GitHub](https://github.com/vitejs/vite), follow updates on [Twitter](https://twitter.com/vite_js), or join discussions with other Vite users on our [Discord chat server](http://chat.vitejs.dev/).
+Depois, consulte [o guia](https://vitejs.dev/guide/) para veres o que a Vite fornece fora da caixa. Tu podes também consultar o código-fonte na [GitHub](https://github.com/vitejs/vite), seguir as atualizações na [Twitter](https://twitter.com/vite_js), ou juntares-te em discussões com outros utilizadores de Vite no nosso [servidor de conversa da Discord](http://chat.vitejs.dev/).
