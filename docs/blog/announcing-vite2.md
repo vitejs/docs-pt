@@ -32,9 +32,9 @@ Inspirada pela [WMR](https://github.com/preactjs/wmr), o novo sistema de extens�
 
 A [API programática](https://vitejs.dev/guide/api-javascript.html) também tem sido grandemente aprimorada para facilitar ferramentas ou abstrações de mais alto nível construídas sobre a Vite.
 
-### esbuild Powered Dep Pre-Bundling
+### Pré-Empacotamento de Dependência Alimentado pela esbuild {#esbuild-powered-dep-pre-bundling}
 
-Since Vite is a native ESM dev server, it pre-bundles dependencies to reduce the number browser requests and handle CommonJS to ESM conversion. Previously Vite did this using Rollup, and in 2.0 it now uses `esbuild` which results in 10-100x faster dependency pre-bundling. As a reference, cold-booting a test app with heavy dependencies like React Material UI previously took 28 seconds on an M1-powered MacBook Pro and now takes ~1.5 seconds. Expect similar improvements if you are switching from a traditional bundler based setup.
+Já que a Vite é um servidor de desenvolvimento de módulo de ECMAScript nativo, ela pré-empacota as dependências para reduzir o número de requisições do navegador e lida com a conversão de CommonJS para ESM. Anteriormente a Vite fazia isto usando a Rollup, e agora na versão 2.0 usa a `esbuild` o que resulta num pré-empacotamento de dependência 10 à 100 vezes mais rápido. Como referência, iniciar completamente uma aplicação de teste com dependências pesadas como a React Material UI anteriormente levava 28 segundos em um MackBook Pro alimentado pelo processador M1 e agora leva mais ou menos 1.5 segundos. Espere melhorias similares se estiveres a mudar de uma configuração baseada em um empacotador tradicional.
 
 ### First-class CSS Support
 
