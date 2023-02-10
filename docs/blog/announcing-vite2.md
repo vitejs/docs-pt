@@ -50,9 +50,9 @@ A Vite 2.0 vem com o [suporte experimental a SSR](https://vitejs.dev/guide/ssr.h
 
 A SSR de Vite é fornecida como uma funcionalidade de baixo nível e nós estamos a espera de ver abstrações de alto nível influenciando-a nos bastidores.
 
-### Opt-in Legacy Browser Support
+### Participar no Suporte de Navegador Legado {#opt-in-legacy-browser-support}
 
-Vite targets modern browsers with native ESM support by default, but you can also opt-in to support legacy browsers via the official [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy). The plugin automatically generates dual modern/legacy bundles, and delivers the right bundle based on browser feature detection, ensuring more efficient code in modern browsers that support them.
+A Vite escolhe como alvo navegadores modernos com suporte ao módulo de ECMAScript nativo por padrão, mas também podes optar suportar navegadores legados através do [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial. A extensão gera automaticamente dois pacotes, um moderno e outro legado, e entrega o pacote correto baseado na deteção de funcionalidade de navegador, garantido o código mais eficiente nos navegadores modernos que os suportam.
 
 ## Give it a Try!
 
