@@ -6,7 +6,7 @@ head:
       content: website
   - - meta
     - property: og:title
-      content: Announcing Vite 3
+      content: Anunciando a Vite 3
   - - meta
     - property: og:image
       content: https://vitejs.dev/og-image-announcing-vite3.png
@@ -15,7 +15,7 @@ head:
       content: https://vitejs.dev/blog/announcing-vite3
   - - meta
     - property: og:description
-      content: Vite 3 Release Announcement
+      content: Anúncio de Lançamento da Vite 3
   - - meta
     - name: twitter:card
       content: summary_large_image
