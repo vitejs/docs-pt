@@ -52,9 +52,9 @@ Agora também existe uma tradução Espanhola oficial, que tem sido adicionada �
 - [日本語](https://ja.vitejs.dev/)
 - [Español](https://es.vitejs.dev/)
 
-## Create Vite Starter Templates
+## Criar Modelos de Partida da Vite {#create-vite-starter-templates}
 
-[create-vite](/guide/#trying-vite-online) templates have been a great tool to quickly test Vite with your favorite framework. In Vite 3, all of the templates got a new theme in line with the new docs. Open them online and start playing with Vite 3 now:
+Os modelos de partida de projeto da [create-vite](/guide/#trying-vite-online) têm sido uma excelente ferramenta para testar rapidamente a Vite com a tua abstração favorita. Na Vite 3, todos os modelos de projeto receberam um novo tema embutido de acordo com a nova documentação. Abra-os online e comece agora a brincar com a Vite 3:
 
 <div class="stackblitz-links">
 <a target="_blank" href="https://vite.new"><img width="75" height="75" src="../images/vite.svg" alt="Vite logo"></a>
@@ -94,7 +94,7 @@ Agora também existe uma tradução Espanhola oficial, que tem sido adicionada �
 }
 </style>
 
-The theme is now shared by all templates. This should help better convey the scope for these starters as minimal templates to get started with Vite. For more complete solutions including linting, testing setup, and other features, there are official Vite-powered templates for some frameworks like [create-vue](https://github.com/vuejs/create-vue) and [create-svelte](https://github.com/sveltejs/kit). There is a community-maintained list of templates at [Awesome Vite](https://github.com/vitejs/awesome-vite#templates).
+O tema agora é partilhado por todos os modelos de projeto. Isto deve ajudar a expressar melhor as possibilidades destes pontos de partida como modelos minimalistas de projeto para começar com a Vite. Para soluções mais completas incluindo impressões sobre a qualidade do código, configuração de testes e outras funcionalidades, existem modelos de projetos oficiais alimentados pela Vite para algumas abstrações como [create-vue](https://github.com/vuejs/create-vue) e [create-svelte](https://github.com/sveltejs/kit). Existe uma lista mantida pela comunidade com modelos de projetos na [Awesome Vite](https://github.com/vitejs/awesome-vite#templates).
 
 ## Dev Improvements
 
