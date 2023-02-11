@@ -21,7 +21,7 @@ head:
       content: summary_large_image
 ---
 
-# A Vite 3.0 está publicada! {#vite-3-is-out}
+# A Vite 3.0 está Publicada! {#vite-3-is-out}
 
 Em Fevereiro do ano passado, [Evan You](https://twitter.com/youyuxi) lançou a Vite 2. Desde então, sua adoção não tem parado de crescer, alcançando mais de 1 milhão de descarregamentos de npm por semana. Um ecossistema em crescimento desordenado formado rapidamente depois do lançamento. A Vite está alimentando uma renovada corrida de inovação nas abstrações de Web. A [Nuxt 3](https://v3.nuxtjs.org/) usa a Vite por padrão. A [SvelteKit](https://kit.svelte.dev/), [Astro](https://astro.build/), [Hydrogen](https://hydrogen.shopify.dev/), e a [SolidStart](https://docs.solidjs.com/start) são todas construídas com a Vite. A [Lavavel decidiu agora usar a Vite por padrão](https://laravel.com/docs/9.x/vite). A [Vite Ruby](https://vite-ruby.netlify.app/) revela como a Vite pode melhorar a experiência de programação da Rails. A [Vitest](https://vitest.dev) está a fazer grandes progressos como uma alternativa nativa de Vite para a Jest. Vite está por detrás das funcionalidades de testagem de componente da [Cypress](https://docs.cypress.io/guides/component-testing/writing-your-first-component-test) e [Playwright](https://playwright.dev/docs/test-components), a Storybook tem a [Vite como um construtor oficial](https://github.com/storybookjs/builder-vite). E [a lista continua](https://patak.dev/vite/ecosystem.html). Os responsáveis pela maioria destes projetos envolveram-se no melhoramento do próprio núcleo da Vite, trabalhando intimamente com a [equipa](https://vitejs.dev/team) da Vite e outros colaboradores.
 
@@ -36,17 +36,17 @@ Ligações rápidas:
 
 Se és recém-chegado na Vite, recomendamos a leitura do [Guia Porquê Vite](https://vitejs.dev/guide/why.html). Depois consulte [o Guia Começar](https://vitejs.dev/guide/) e o [Guia de Funcionalidades](https://vitejs.dev/guide/features) para veres o que a Vite fornece fora da caixa. Como de costume, as contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Mais de [600 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm ajudado a melhorar a Vite até aqui. Siga as atualizações na [Twitter](https://twitter.com/vite_js), ou junta-te as discussões com outros utilizadores da Vite no nosso [Servidor de Conversas da Discord](http://chat.vitejs.dev/).
 
-## New Documentation
+## A Nova Documentação {#new-documentation}
 
-Go to [vitejs.dev](https://vitejs.dev) to enjoy the new v3 docs. Vite is now using the new [VitePress](https://vitepress.vuejs.org) default theme, with a stunning dark mode between other features.
+Visite a [vitejs.dev](https://vitejs.dev) para apreciares a nova documentação da versão 3. A Vite agora está a usar a novo tema padrão da [VitePress](https://vitepress.vuejs.org), com um lindo modo escuro entre outras funcionalidades.
 
-[![Vite documentation frontpage](../images/v3-docs.png)](https://vitejs.dev)
+[![Primeira página da documentação da Vite](../images/v3-docs.png)](https://vitejs.dev)
 
-Several projects in the ecosystem have already migrated to it (see [Vitest](https://vitest.dev), [vite-plugin-pwa](https://vite-plugin-pwa.netlify.app/), and [VitePress](https://vitepress.vuejs.org/) itself).
+Vários projetos no ecossistema já migraram para ela (veja a [Vitest](https://vitest.dev), [vite-plugin-pwa](https://vite-plugin-pwa.netlify.app/), e a própria [VitePress](https://vitepress.vuejs.org/)).
 
-If you need to access the Vite 2 docs, they will remain online at [v2.vitejs.dev](https://v2.vitejs.dev). There is also a new [main.vitejs.dev](https://main.vitejs.dev) subdomain, where each commit to Vite’s main branch is auto deployed. This is useful when testing beta versions or contributing to the core’s development.
+Se precisares de acessar a documentação da Vite 2, ela continua online [v2.vitejs.dev](https://v2.vitejs.dev). Existe também um novo subdomínio [main.vitejs.dev](https://main.vitejs.dev), onde cada envio para o ramo principal da Vite é implementada em produção automaticamente. Isto é útil quando se está a testar versões beta ou contribuir para desenvolvimento do núcleo.
 
-There is also now an official Spanish translation, that has been added to the previous Chinese and Japanese translations:
+Agora também existe uma tradução Espanhola oficial, que tem sido adicionada às anteriores traduções Chinesa e Japonesa:
 
 - [简体中文](https://cn.vitejs.dev/)
 - [日本語](https://ja.vitejs.dev/)
