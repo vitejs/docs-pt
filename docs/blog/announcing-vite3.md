@@ -21,21 +21,20 @@ head:
       content: summary_large_image
 ---
 
-# Vite 3.0 is out!
+# A Vite 3.0 está publicada! {#vite-3-is-out}
 
-In February last year, [Evan You](https://twitter.com/youyuxi) released Vite 2. Since then, its adoption has grown non-stop, reaching more than 1 million npm downloads per week. A sprawling ecosystem rapidly formed after the release. Vite is powering a renewed innovation race in Web frameworks. [Nuxt 3](https://v3.nuxtjs.org/) uses Vite by default. [SvelteKit](https://kit.svelte.dev/), [Astro](https://astro.build/), [Hydrogen](https://hydrogen.shopify.dev/), and [SolidStart](https://docs.solidjs.com/start) are all built with Vite. [Laravel has now decided to use Vite by default](https://laravel.com/docs/9.x/vite). [Vite Ruby](https://vite-ruby.netlify.app/) shows how Vite can improve Rails DX. [Vitest](https://vitest.dev) is making strides as a Vite-native alternative to Jest. Vite is behind [Cypress](https://docs.cypress.io/guides/component-testing/writing-your-first-component-test) and [Playwright](https://playwright.dev/docs/test-components)'s new Component Testing features, Storybook has [Vite as an official builder](https://github.com/storybookjs/builder-vite). And [the list goes on](https://patak.dev/vite/ecosystem.html). Maintainers from most of these projects got involved in improving the Vite core itself, working closely with the Vite [team](https://vitejs.dev/team) and other contributors.
+Em Fevereiro do ano passado, [Evan You](https://twitter.com/youyuxi) lançou a Vite 2. Desde então, sua adoção não tem parado de crescer, alcançando mais de 1 milhão de descarregamentos de npm por semana. Um ecossistema em crescimento desordenado formado rapidamente depois do lançamento. A Vite está alimentando uma renovada corrida de inovação nas abstrações de Web. A [Nuxt 3](https://v3.nuxtjs.org/) usa a Vite por padrão. A [SvelteKit](https://kit.svelte.dev/), [Astro](https://astro.build/), [Hydrogen](https://hydrogen.shopify.dev/), e a [SolidStart](https://docs.solidjs.com/start) são todas construídas com a Vite. A [Lavavel decidiu agora usar a Vite por padrão](https://laravel.com/docs/9.x/vite). A [Vite Ruby](https://vite-ruby.netlify.app/) revela como a Vite pode melhorar a experiência de programação da Rails. A [Vitest](https://vitest.dev) está a fazer grandes progressos como uma alternativa nativa de Vite para a Jest. Vite está por detrás das funcionalidades de testagem de componente da [Cypress](https://docs.cypress.io/guides/component-testing/writing-your-first-component-test) e [Playwright](https://playwright.dev/docs/test-components), a Storybook tem a [Vite como um construtor oficial](https://github.com/storybookjs/builder-vite). E [a lista continua](https://patak.dev/vite/ecosystem.html). Os responsáveis pela maioria destes projetos envolveram-se no melhoramento do próprio núcleo da Vite, trabalhando intimamente com a [equipa](https://vitejs.dev/team) da Vite e outros colaboradores.
 
-![Vite 3 Announcement Cover Image](/og-image-announcing-vite3.png)
+![Imagem de Capa do Anúncio da Vite 3](/og-image-announcing-vite3.png)
 
-Today, 16 months from the v2 launch we are happy to announce the release of Vite 3. We decided to release a new Vite major at least every year to align with [Node.js's EOL](https://nodejs.org/en/about/releases/), and take the opportunity to review Vite's API regularly with a short migration path for projects in the ecosystem.
+Hoje, 16 meses desde o lançamento da versão 2 estamos felizes em anunciar o lançamento da Vite 3. Nós decidimos lançar uma nova versão principal de Vite ao menos todos os anos para alinhar com a [EOL da Node.js](https://nodejs.org/en/about/releases/), e ter a oportunidade de revisar a API da Vite regularmente com um curto caminho de migração para os projetos no ecossistema.
 
-Quick links:
+Ligações rápidas:
 
-- [Docs](/)
-- [Migration Guide](/guide/migration)
-- [Changelog](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#300-2022-07-13)
+- [Guia de Migração](/guide/migration)
+- [Relatório de Mudança](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#300-2022-07-13)
 
-If you are new to Vite, we recommend reading the [Why Vite Guide](https://vitejs.dev/guide/why.html). Then check out [the Getting Started](https://vitejs.dev/guide/) and [Features guide](https://vitejs.dev/guide/features) to see what Vite provides out of the box. As usual, contributions are welcome at [GitHub](https://github.com/vitejs/vite). More than [600 collaborators](https://github.com/vitejs/vite/graphs/contributors) have helped improve Vite so far. Follow the updates on [Twitter](https://twitter.com/vite_js), or join discussions with other Vite users on our [Discord chat server](http://chat.vitejs.dev/).
+Se és recém-chegado na Vite, recomendamos a leitura do [Guia Porquê Vite](https://vitejs.dev/guide/why.html). Depois consulte [o Guia Começar](https://vitejs.dev/guide/) e o [Guia de Funcionalidades](https://vitejs.dev/guide/features) para veres o que a Vite fornece fora da caixa. Como de costume, as contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Mais de [600 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm ajudado a melhorar a Vite até aqui. Siga as atualizações na [Twitter](https://twitter.com/vite_js), ou junta-te as discussões com outros utilizadores da Vite no nosso [Servidor de Conversas da Discord](http://chat.vitejs.dev/).
 
 ## New Documentation
 
