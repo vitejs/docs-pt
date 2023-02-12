@@ -96,9 +96,9 @@ Os modelos de partida de projeto da [create-vite](/guide/#trying-vite-online) t�
 
 O tema agora é partilhado por todos os modelos de projeto. Isto deve ajudar a expressar melhor as possibilidades destes pontos de partida como modelos minimalistas de projeto para começar com a Vite. Para soluções mais completas incluindo impressões sobre a qualidade do código, configuração de testes e outras funcionalidades, existem modelos de projetos oficiais alimentados pela Vite para algumas abstrações como [create-vue](https://github.com/vuejs/create-vue) e [create-svelte](https://github.com/sveltejs/kit). Existe uma lista mantida pela comunidade com modelos de projetos na [Awesome Vite](https://github.com/vitejs/awesome-vite#templates).
 
-## Dev Improvements
+## Melhorias de Desenvolvimento {#dev-improvements}
 
-### Vite CLI
+### Interface da Linha de Comando da Vite {#vite-cli}
 
 <pre style="background-color: var(--vp-code-block-bg);padding:2em;border-radius:8px;max-width:100%;overflow-x:auto;">
   <span style="color:lightgreen"><b>VITE</b></span> <span style="color:lightgreen">v3.0.0</span>  <span style="color:gray">ready in <b>320</b> ms</span>
@@ -107,7 +107,7 @@ O tema agora é partilhado por todos os modelos de projeto. Isto deve ajudar a e
   <span style="color:green"><b>➜</b></span>  <span style="color:gray"><b>Network</b>: use --host to expose</span>
 </pre>
 
-Apart from the CLI’s aesthetics improvements, you’ll notice that the default dev server port is now 5173 and the preview server listening at 4173. This change ensures Vite will avoid collisions with other tools.
+Para além dos aprimoramentos estéticos da Interface da Linha de Comando da Vite, notarás que a porta padrão do servidor de desenvolvimento agora é 5173 e o servidor de pré-visualização escuta na 4173. Esta mudança garante que a Vite evitará colisões com outras ferramentas.
 
 ### Improved WebSocket Connection Strategy
 
