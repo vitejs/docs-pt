@@ -109,9 +109,9 @@ O tema agora é partilhado por todos os modelos de projeto. Isto deve ajudar a e
 
 Para além dos aprimoramentos estéticos da Interface da Linha de Comando da Vite, notarás que a porta padrão do servidor de desenvolvimento agora é 5173 e o servidor de pré-visualização escuta na 4173. Esta mudança garante que a Vite evitará colisões com outras ferramentas.
 
-### Improved WebSocket Connection Strategy
+### Estratégia Conexão de WebSocket Aperfeiçoada {#improved-websocket-connection-strategy}
 
-One of the pain points of Vite 2 was configuring the server when running behind a proxy. Vite 3 changes the default connection scheme so it works out of the box in most scenarios. All these setups are now tested as part of the Vite Ecosystem CI through [`vite-setup-catalogue`](https://github.com/sapphi-red/vite-setup-catalogue).
+Uma dos pontos dolosos da Vite 2 era a configuração do servidor quando estivesse a executar por trás de uma delegação (ou "proxy" em Inglês). A Vite 3 muda o esquema de conexão padrão assim funciona fora da caixa na maioria dos cenários. Todas estas configurações agora são testas como parte da Integração Contínua do Ecossistema da Vite através da [`vite-setup-catalogue`](https://github.com/sapphi-red/vite-setup-catalogue).
 
 ### Cold Start Improvements
 
