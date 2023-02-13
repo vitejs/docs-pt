@@ -174,11 +174,11 @@ init().then((instance) => {
 
 Aprenda mais no [guia de WebAssembly](/guide/features.html#webassembly).
 
-## Build Improvements
+## Melhorias de Construção {#build-improvements}
 
-### ESM SSR Build by Default
+### Construção de SSR de ESM por Padrão {#esm-ssr-build-by-default}
 
-Most SSR frameworks in the ecosystem were already using ESM builds. So, Vite 3 makes ESM the default format for SSR builds. This allows us to streamline previous [SSR externalization heuristics](https://vitejs.dev/guide/ssr.html#ssr-externals), externalizing dependencies by default.
+A maior parte das abstrações de interpretação no lado do servidor no ecossistema já estavam a usar as construções de módulos de ECMAScript. Então, a Vite 3 torna o módulo de ECMASCript o formato padrão para as construções da interpretação no lado do servidor (SSR, sigla em Inglês). Isto permite-nos agilizar as anteriores [heurísticas de exposição da interpretação no lado do servidor](https://vitejs.dev/guide/ssr.html#ssr-externals), expondo dependências por padrão.
 
 ### Improved Relative Base Support
 
