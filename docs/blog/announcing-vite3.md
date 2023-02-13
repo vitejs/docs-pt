@@ -180,9 +180,9 @@ Aprenda mais no [guia de WebAssembly](/guide/features.html#webassembly).
 
 A maior parte das abstrações de interpretação no lado do servidor no ecossistema já estavam a usar as construções de módulos de ECMAScript. Então, a Vite 3 torna o módulo de ECMASCript o formato padrão para as construções da interpretação no lado do servidor (SSR, sigla em Inglês). Isto permite-nos agilizar as anteriores [heurísticas de exposição da interpretação no lado do servidor](https://vitejs.dev/guide/ssr.html#ssr-externals), expondo dependências por padrão.
 
-### Improved Relative Base Support
+### Suporte da Base Relativa Melhorado {#improved-relative-base-support}
 
-Vite 3 now properly supports relative base (using `base: ''`), allowing built assets to be deployed to different bases without re-building. This is useful when the base isn't known at build time, for example when deploying to content-addressable networks like [IPFS](https://ipfs.io/).
+Agora a Vite 3 suporta apropriadamente a base relativa (usando `base: ''`), permitindo que os recursos construídos sejam implementados em produção para diferentes bases sem reconstrução. Isto é útil quando a base não é conhecida no momento da construção, por exemplo quando estamos a implementando para redes de conteúdo endereçáveis como [IPFS](https://ipfs.io/).
 
 ## Experimental Features
 
