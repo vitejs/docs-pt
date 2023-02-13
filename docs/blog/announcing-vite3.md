@@ -160,9 +160,9 @@ As [Importações Incansáveis](/guide/features.html#glob-import) são agora pas
 import.meta.glob('./dir/*.js', { eager: true })
 ```
 
-### Aligning WASM Import with Future Standards
+### Alinhamento da Importação de WASM com Padrões Futuros {#aligning-wasm-import-with-future-standards}
 
-The WebAssembly import API has been revised to avoid collisions with future standards and to make it more flexible:
+A API de importação de WebAssembly tem sido revisada para evitar colisões com os padrões do futuro e para torná-la mais flexível:
 
 ```js
 import init from './example.wasm?init'
@@ -172,7 +172,7 @@ init().then((instance) => {
 })
 ```
 
-Learn more in the [WebAssembly guide](/guide/features.html#webassembly)
+Aprenda mais no [guia de WebAssembly](/guide/features.html#webassembly).
 
 ## Build Improvements
 
