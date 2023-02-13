@@ -184,11 +184,11 @@ A maior parte das abstrações de interpretação no lado do servidor no ecossis
 
 Agora a Vite 3 suporta apropriadamente a base relativa (usando `base: ''`), permitindo que os recursos construídos sejam implementados em produção para diferentes bases sem reconstrução. Isto é útil quando a base não é conhecida no momento da construção, por exemplo quando estamos a implementando para redes de conteúdo endereçáveis como [IPFS](https://ipfs.io/).
 
-## Experimental Features
+## Funcionalidades Experimentais {#experimental-features}
 
-### Built Asset Paths fine-grained Control (Experimental)
+### Controlo Afinado dos Caminhos dos Recursos Construídos (Experimental) {#built-asset-paths-fine-grained-control}
 
-There are other deploy scenarios where this isn't enough. For example, if the generated hashed assets need to be deployed to a different CDN from the public files, then finer-grained control is required over path generation at build time. Vite 3 provides an experimental API to modify the built file paths. Check [Build Advanced Base Options](/guide/build.html#advanced-base-options) for more information.
+Há outros cenários de implementação de produção onde não é suficiente. Por exemplo, se recursos de nomes baralhados gerados precisarem ser implementados em produção para uma rede de entrega de conteúdo (CDN, sigla em Inglês) diferente da dos ficheiros públicos, então o controlo afinado é exigido sobre a geração de caminho no momento da construção. A Vite fornece uma API experimental para modificar os caminhos do ficheiro construído. Consulte as [Opções de Base Avançada da Construção](/guide/build.html#advanced-base-options) para mais informações.
 
 ### Esbuild Deps Optimization at Build Time (Experimental)
 
