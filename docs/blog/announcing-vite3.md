@@ -200,17 +200,17 @@ Dado que a versão 3 da Rollup será publicada nos próximos meses, e estamos se
 
 Há suporte de optar pela [Aceitação Parcial da Substituição de Módulo Instantânea](https://github.com/vitejs/vite/pull/7324). Esta funcionalidade poderia desbloquear a Substituição de Módulo Instantânea (HMR, sigla em Inglês) afinada para componentes de abstração que exportam vários vínculos no mesmo módulo. Tu podes aprender mais [na discussão para esta proposta](https://github.com/vitejs/vite/discussions/7309).
 
-## Bundle Size Reduction
+## Redução do Tamanho do Pacote {#bundle-size-reduction}
 
-Vite cares about its publish and install footprint; a fast installation of a new app is a feature. Vite bundles most of its dependencies and tries to use modern lightweight alternatives where possible. Continuing with this ongoing goal, Vite 3 publish size is 30% smaller than v2.
+A Vite cuida sua pegada de publicação e instalação; uma instalação rápida de uma nova aplicação é uma funcionalidade. A Vite empacota a maior parte de suas dependências e tenta usar alternativas modernas leves onde possível. Continuando com este objetivo em curso, o tamanho de publicação da Vite é 30% menor do que a versão 2.
 
-|             | Publish Size | Install Size |
-| ----------- | :----------: | :----------: |
-| Vite 2.9.14 |    4.38MB    |    19.1MB    |
-| Vite 3.0.0  |    3.05MB    |    17.8MB    |
-| Reduction   |     -30%     |     -7%      |
+|             | Tamanho de Publicação | Tamanho de Instalação |
+| ----------- | :-------------------: | :-------------------: |
+| Vite 2.9.14 |         4.38MB        |         19.1MB        |
+| Vite 3.0.0  |         3.05MB        |         17.8MB        |
+| Reduction   |          -30%         |          -7%          |
 
-In part, this reduction was possible by making some dependencies that most users weren't needing optional. First, [Terser](https://github.com/terser/terser) is no longer installed by default. This dependency was no longer needed since we already made esbuild the default minifier for both JS and CSS in Vite 2. If you use `build.minify: 'terser'`, you'll need to install it (`npm add -D terser`). We also moved [node-forge](https://github.com/digitalbazaar/forge) out of the monorepo, implementing support for automatic https certificate generation as a new plugin: [`@vitejs/plugin-basic-ssl`](/guide/migration.html#automatic-https-certificate-generation). Since this feature only creates untrusted certificates that are not added to the local store, it didn't justify the added size.
+Em parte, esta redução foi possível tornando opcional algumas dependências que a maioria dos utilizadores não estavam a precisar. Primeiro, [Terser](https://github.com/terser/terser) já não é instalado por padrão. Esta dependência já não é necessária desde que tornamos a esbuild a minificadora padrão de ambos JavaScript e CSS na Vite 2. Se usas `build.minify: 'terser'`, precisarás de instalá-lo (`npm add -D terser`). Nós também movemos a [node-forge](https://github.com/digitalbazaar/forge) para fora do mono-repositório, implementando o suporte automático a geração de certificado de HTTPS como uma nova extensão: [`@vitejs/plugin-basic-ssl`](/guide/migration.html#automatic-https-certificate-generation). Já que esta funcionalidade apenas cria certificados não assegurados que não são adicionados ao armazenamento local, não justificava o tamanho adicionado.
 
 ## Bug Fixing
 
