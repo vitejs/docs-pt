@@ -126,35 +126,35 @@ Na Vite 2.9, ambos o examinador e otimizador eram executados no fundo. No melhor
 
 <img style="background-color: var(--vp-code-block-bg);padding:4%;border-radius:8px;" width="100%" height="auto" src="../images/vite-3-cold-start.svg" alt="Dois gráficos comparando estratégia de otimização da Vite 2.9 e Vite 3">
 
-### import.meta.glob
+### import.meta.glob {#import-meta-glob}
 
-`import.meta.glob` support was rewritten. Read about the new features in the [Glob Import Guide](/guide/features.html#glob-import):
+O suporte ao `import.meta.glob` foi reescrito. Leia sobre as novas funcionalidades no [Guia de Importação de Glob](/guide/features.html#glob-import):
 
-[Multiple Patterns](/guide/features.html#multiple-patterns) can be passed as an array
+Os [Padrões Diversificado](/guide/features.html#multiple-patterns) podem ser passados como um arranjo:
 
 ```js
 import.meta.glob(['./dir/*.js', './another/*.js'])
 ```
 
-[Negative Patterns](/guide/features.html#negative-patterns) are now supported (prefixed with `!`) to ignore some specific files
+Os [Padrões Negativos](/guide/features.html#negative-patterns) agora suportados (prefixados com `!`) para ignorar alguns ficheiros específicos:
 
 ```js
 import.meta.glob(['./dir/*.js', '!**/bar.js'])
 ```
 
-[Named Imports](/guide/features.html#named-imports) can be specified to improve tree-shaking
+As [Importações Nomeadas](/guide/features.html#named-imports) podem ser especificadas para melhorar a sacudidura de árvore:
 
 ```js
 import.meta.glob('./dir/*.js', { import: 'setup' })
 ```
 
-[Custom Queries](/guide/features.html#custom-queries) can be passed to attach metadata
+As [Consultas Personalizadas](/guide/features.html#custom-queries) podem ser passadas para atribuir meta-dados:
 
 ```js
 import.meta.glob('./dir/*.js', { query: { custom: 'data' } })
 ```
 
-[Eager Imports](/guide/features.html#glob-import) is now passed as a flag
+As [Importações Incansáveis](/guide/features.html#glob-import) são agora passadas de acordo com uma opção:
 
 ```js
 import.meta.glob('./dir/*.js', { eager: true })
