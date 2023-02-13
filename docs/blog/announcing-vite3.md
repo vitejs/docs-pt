@@ -196,9 +196,9 @@ Umas das principais diferenças entre o momento da construção e o de desenvolv
 
 Dado que a versão 3 da Rollup será publicada nos próximos meses, e estamos seguindo de perto com uma outra versão principal de Vite, decidimos tornar este modo opcional para reduzir o limite da versão 3 e dar a Vite e ao ecossistema mais tempo para trabalhar questões possíveis com a nova interoperabilidade de CJS durante o momento da construção. As abstrações podem alternar para usar a otimização de dependências da esbuild durante o momento da construção por padrão no seu ritmo antes da Vite 4.
 
-### HMR Partial Accept (Experimental)
+### Aceitação Parcial da Substituição de Módulo Instantânea (Experimental) {#hmr-partial-accept}
 
-There is opt-in support for [HMR Partial Accept](https://github.com/vitejs/vite/pull/7324). This feature could unlock finer-grained HMR for framework components that export several bindings in the same module. You can learn more at [the discussion for this proposal](https://github.com/vitejs/vite/discussions/7309).
+Há suporte de optar pela [Aceitação Parcial da Substituição de Módulo Instantânea](https://github.com/vitejs/vite/pull/7324). Esta funcionalidade poderia desbloquear a Substituição de Módulo Instantânea (HMR, sigla em Inglês) afinada para componentes de abstração que exportam vários vínculos no mesmo módulo. Tu podes aprender mais [na discussão para esta proposta](https://github.com/vitejs/vite/discussions/7309).
 
 ## Bundle Size Reduction
 
