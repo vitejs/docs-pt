@@ -220,14 +220,14 @@ Um maratona de triagem foi encabeçada pelos [@bluwyoo](https://twitter.com/bluw
 
 [![Gráfico das novas questões e pedidos de atualização do repositório na Vite](../images/v3-new-open-issues-and-PRs.png)](https://www.repotrends.com/vitejs/vite)
 
-## Compatibility Notes
+## Notas de Compatibilidade {#compatibility-notes}
 
-- Vite no longer supports Node.js 12 / 13 / 15, which reached its EOL. Node.js 14.18+ / 16+ is now required.
-- Vite is now published as ESM, with a CJS proxy to the ESM entry for compatibility.
-- The Modern Browser Baseline now targets browsers which support the [native ES Modules](https://caniuse.com/es6-module), [native ESM dynamic import](https://caniuse.com/es6-module-dynamic-import), and [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta) features.
-- JS file extensions in SSR and library mode now use a valid extension (`js`, `mjs`, or `cjs`) for output JS entries and chunks based on their format and the package type.
+- A Vite já não suporta as Node.js 12 / 13 / 15, as quais já alcançaram suas o fim de suas vidas. A Node.js 14.18+ / 16+ é agora obrigatória.
+- A Vite é agora publicada como ESM, com uma delegação de CJS para a entrada de ESM por compatibilidade.
+- A Base de Navegador Moderno agora aponta para navegadores que suportam os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importações dinâmica do Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e as funcionalidades de [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta).
+- As extensões de ficheiro de JavaScript no modo de SSR e biblioteca agora usam uma extensão válida (`js`, `mjs`, ou `cjs`) para as entradas de JavaScript de saída e pedaços baseados no seu formato e o no tipo do pacote.
 
-Learn more in the [Migration Guide](/guide/migration).
+Aprenda mais no [Guia de Migração](/guide/migration).
 
 ## Upgrades to Vite Core
 
