@@ -55,9 +55,9 @@ Tu podes também executar `pnpm create vite-extra` para ter acesso aos modelos d
 
 Nota que os modelos de projeto de ponto de partida da Vite estão destinados a serem usados como uma zona de experimentos para testar a Vite com diferentes abstrações. Quando estiveres a construir o teu próximo projeto, recomendamos consultar os pontos de partida recomendados por cada abstração. Algumas abstrações agora também redirecionam `create vite` para os seus pontos de partida (`create-vue` e `Nuxt 3` para a Vue, e `SvelteKit` para a Svelte).
 
-## New React plugin using SWC during development
+## Nova extensão de React usando a SWC durante o desenvolvimento {#new-react-plugin-using-swc-during-development}
 
-[SWC](https://swc.rs/) is now a mature replacement for [Babel](https://babeljs.io/), especially in the context of React projects. SWC's React Fast Refresh implementation is a lot faster than Babel, and for some projects, it is now a better alternative. From Vite 4, two plugins are available for React projects with different tradeoffs. We believe that both approaches are worth supporting at this point, and we'll continue to explore improvements to both plugins in the future.
+A [SWC](https://swc.rs/) é agora uma substituição madura para a [Babel](https://babeljs.io/), especialmente no contexto dos projetos de React. A implementação da Atualização Rápida de React da SWC é muito mais rápida do que a de Babel, e para alguns projetos, é agora uma alternativa melhor. A partir da Vite 4, duas extensões estão disponíveis para os projetos de React com diferentes compromissos. Nós acreditamos que ambas abordagens são dignas de serem suportadas, e continuaremos a explorar melhorias para ambas as extensões no futuro.
 
 ### @vitejs/plugin-react
 
