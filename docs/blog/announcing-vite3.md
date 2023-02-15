@@ -260,10 +260,10 @@ Nós queremos agradecer a todos que têm implementado funcionalidades, correçõ
 
 Nós também queremos agradecer aos indivíduos e empresas patrocinando a equipa da Vite, e as empresas investindo no desenvolvimento da Vite: alguns dos trabalhos do [@antfu7](https://twitter.com/antfu7) sobre a Vite e o ecossistema é parte do seu trabalho na [Nuxt Labs](https://nuxtlabs.com/), e a [StackBlitz](https://stackblitz.com/) contratou o [@patak_dev](https://twitter.com/patak_dev) para trabalhar em tempo integral na Vite.
 
-## What's Next
+## Qual é o Próximo Passo {#what-is-next}
 
-We'll take the following months to ensure a smooth transition for all the projects built on top of Vite. So the first minors will be focused on continuing our triaging efforts with a focus on newly opened issues.
+Levaremos os meses seguintes para garantir uma transição suave para todos os projetos construídos sobre a Vite. Então os primeiros esforços mínimos estarão concentrados em continuar a nossos trabalhos de triagem com um foco nas questões abertas recentemente.
 
-The Rollup team is [working on its next major](https://twitter.com/lukastaegert/status/1544186847399743488), to be released in the following months. Once the Rollup plugins ecosystem has time to update, we'll follow up with a new Vite major. This will give us another opportunity to introduce more significant changes this year, which we could take to stabilize some of the experimental features introduced in this release.
+A equipa da Rollup está a [trabalhar na sua próxima atualização principal](https://twitter.com/lukastaegert/status/1544186847399743488), para ser lançada nos próximos meses. Assim que o ecossistema de extensões de Rollup tiver tempo de atualizar, seguiremos com uma nova atualização principal. Isto dar-nos-á uma outra oportunidade de introduzir mudanças mais significativas este ano, o qual poderíamos encaminhar-nos para estabilizar algumas das funcionalidades experimentais introduzidas neste lançamento.
 
-If you are interested in helping improve Vite, the best way to get on board is to help with triaging issues. Join [our Discord](https://chat.vitejs.dev) and look for the `#contributing` channel. Or get involved in our `#docs`, `#help` others, or create plugins. We are just getting started. There are many open ideas to keep improving Vite's DX.
+Se estiveres interessando em ajudar a melhorar a Vite, a melhor maneira de subir a bordo é ajudar com a triagem de problemas. Junta-te a [nossa Discord](https://chat.vitejs.dev) e procure pelo canal `#contributing`. Ou envolva-te em nosso `#docs`, `#help` outros, ou criar extensões. Nós estamos apenas a começar. Existem muitas ideias abertas para continuar a melhorar a experiência de programação da Vite.
