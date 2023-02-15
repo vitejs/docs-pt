@@ -244,21 +244,21 @@ Enquanto trabalhávamos em direção a Vite 3, também melhoramos a experiência
 
 Nós trabalhamos bem de perto com os projetos no ecossistema para garantir que as abstrações alimentadas pela Vite estão prontas para a Vite 3. O [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci) permite-nos executar as CIs dos jogadores de destaque no ecossistema contra o ramo principal da Vite e receber relatórios oportunos antes da introdução de uma regressão. O lançamento de hoje em dia deve ser brevemente compatível com a maioria dos projetos usando a Vite.
 
-## Acknowledgments
+## Agradecimentos {#acknowledgments}
 
-Vite 3 is the result of the aggregate effort of members of the [Vite Team](/team) working together with ecosystem project maintainers and other collaborators to Vite core.
+A Vite 3 é o resultado do esforço agregado dos membros da [Equipa da Vite](/team) trabalhando em conjunto com os responsáveis do projeto do ecossistema e outros colaboradores do núcleo da Vite.
 
-We want to thank everyone that have implemented features, and fixes, given feedback, and have been involved in Vite 3:
+Nós queremos agradecer a todos que têm implementado funcionalidades, correções, dado reações, e têm se envolvido na Vite 3:
 
-- Vite team members [@youyuxi](https://twitter.com/youyuxi), [@patak_dev](https://twitter.com/patak_dev), [@antfu7](https://twitter.com/antfu7), [@bluwyoo](https://twitter.com/bluwyoo), [@sapphi_red](https://twitter.com/sapphi_red), [@haoqunjiang](https://twitter.com/haoqunjiang), [@poyoho](https://github.com/poyoho), [@Shini_92](https://twitter.com/Shini_92), and [@retropragma](https://twitter.com/retropragma).
-- [@benmccann](https://github.com/benmccann), [@danielcroe](https://twitter.com/danielcroe), [@brillout](https://twitter.com/brillout), [@sheremet_va](https://twitter.com/sheremet_va), [@userquin](https://twitter.com/userquin), [@enzoinnocenzi](https://twitter.com/enzoinnocenzi), [@maximomussini](https://twitter.com/maximomussini), [@IanVanSchooten](https://twitter.com/IanVanSchooten), the [Astro team](https://astro.build/), and all other maintainers of frameworks and plugins in the ecosystem in that helped shape v3.
-- [@dominikg](https://github.com/dominikg) for his work on vite-ecosystem-ci.
-- [@ZoltanKochan](https://twitter.com/ZoltanKochan) for his work on [pnpm](https://pnpm.io/), and for his responsiveness when we needed support with it.
-- [@rixo](https://github.com/rixo) for HMR Partial Accept support.
-- [@KiaKing85](https://twitter.com/KiaKing85) for getting the theme ready for the Vite 3 release, and [@\_brc_dd](https://twitter.com/_brc_dd) for working on the VitePress internals.
-- [@CodingWithCego](https://twitter.com/CodingWithCego) for the new Spanish translation, and [@ShenQingchuan](https://twitter.com/ShenQingchuan), [@hiro-lapis](https://github.com/hiro-lapis) and others in the Chinese and Japanese translations teams for keeping the translated docs up to date.
+- Os membros da Vite [@youyuxi](https://twitter.com/youyuxi), [@patak_dev](https://twitter.com/patak_dev), [@antfu7](https://twitter.com/antfu7), [@bluwyoo](https://twitter.com/bluwyoo), [@sapphi_red](https://twitter.com/sapphi_red), [@haoqunjiang](https://twitter.com/haoqunjiang), [@poyoho](https://github.com/poyoho), [@Shini_92](https://twitter.com/Shini_92), e [@retropragma](https://twitter.com/retropragma).
+- [@benmccann](https://github.com/benmccann), [@danielcroe](https://twitter.com/danielcroe), [@brillout](https://twitter.com/brillout), [@sheremet_va](https://twitter.com/sheremet_va), [@userquin](https://twitter.com/userquin), [@enzoinnocenzi](https://twitter.com/enzoinnocenzi), [@maximomussini](https://twitter.com/maximomussini), [@IanVanSchooten](https://twitter.com/IanVanSchooten), a [equipa da Astro](https://astro.build/), e todos os outros responsáveis de abstrações e extensões no ecossistema que ajudaram a moldar a versão 3.
+- [@dominikg](https://github.com/dominikg) pelo seu trabalho na `vite-ecosystem-ci`
+- [@dominikg](https://github.com/dominikg) pelo seu trabalho no [pnpm](https://pnpm.io/), e pela sua disponibilidade em responder quando precisávamos de suporte com ele.
+- [@rixo](https://github.com/rixo) pelo suporte da Aceitação Parcial da HMR.
+- [@KiaKing85](https://twitter.com/KiaKing85) por deixar o tema pronto para o lançamento da Vite 3, e [@\_brc_dd](https://twitter.com/_brc_dd) por trabalhar nos interiores da VitePress.
+- [@CodingWithCego](https://twitter.com/CodingWithCego) pela nova tradução Espanhola, e [@ShenQingchuan](https://twitter.com/ShenQingchuan), [@hiro-lapis](https://github.com/hiro-lapis) e outros dentro das equipas de traduções do Chinês e Japonês por manterem as documentações traduzidas atualizadas.
 
-We also want to thank individuals and companies sponsoring the Vite team, and companies investing in Vite development: some of [@antfu7](https://twitter.com/antfu7)'s work on Vite and the ecosystem is part of his job at [Nuxt Labs](https://nuxtlabs.com/), and [StackBlitz](https://stackblitz.com/) hired [@patak_dev](https://twitter.com/patak_dev) to work full time on Vite.
+Nós também queremos agradecer aos indivíduos e empresas patrocinando a equipa da Vite, e as empresas investindo no desenvolvimento da Vite: alguns dos trabalhos do [@antfu7](https://twitter.com/antfu7) sobre a Vite e o ecossistema é parte do seu trabalho na [Nuxt Labs](https://nuxtlabs.com/), e a [StackBlitz](https://stackblitz.com/) contratou o [@patak_dev](https://twitter.com/patak_dev) para trabalhar em tempo integral na Vite.
 
 ## What's Next
 
