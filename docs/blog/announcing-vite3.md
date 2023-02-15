@@ -229,16 +229,16 @@ Um maratona de triagem foi encabeçada pelos [@bluwyoo](https://twitter.com/bluw
 
 Aprenda mais no [Guia de Migração](/guide/migration).
 
-## Upgrades to Vite Core
+## Atualizações para o Núcleo da Vite {#upgrades-to-vite-core}
 
-While working towards Vite 3, we also improved the contributing experience for collaborators to [Vite Core](https://github.com/vitejs/vite).
+Enquanto trabalhávamos em direção a Vite 3, também melhoramos a experiência de contribuição para os colaboradores do [Núcleo da Vite](https://github.com/vitejs/vite).
 
-- Unit and E2E tests have been migrated to [Vitest](https://vitest.dev), providing a faster and more stable DX. This move also works as dog fooding for an important infrastructure project in the ecosystem.
-- VitePress build is now tested as part of CI.
-- Vite upgraded to [pnpm 7](https://pnpm.io/), following the rest of the ecosystem.
-- Playgrounds have been moved to [`/playgrounds`](https://github.com/vitejs/vite/tree/main/playground) out of packages directory.
-- The packages and playgrounds are now `"type": "module"`.
-- Plugins are now bundled using [unbuild](https://github.com/unjs/unbuild), and [plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) and [plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) were moved to TypeScript.
+- Os testes Unitários e E2E têm sido migrados para [Vitest](https://vitest.dev), fornecendo uma uma experiência de programação mais rápida e estável. Este movimento também funciona como alimentação de cão para um projeto de infraestrutura importante no ecossistema.
+- A construção da VitePress é agora testada como parte da CI.
+- A Vite atualizada para [pnpm 7](https://pnpm.io/), seguindo resto do ecossistema.
+- As Zonas de Experimentos tem sido movidas para [`/playgrounds`](https://github.com/vitejs/vite/tree/main/playground) fora do diretório dos pacotes.
+- Os pacotes e as zonas de experimentos são agora `"type": "module"`.
+- As extensões são agora empacotadas usando [unbuild](https://github.com/unjs/unbuild), e [plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) e [plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) foi movida para TypeScript.
 
 ## The Ecosystem is Ready for v3
 
