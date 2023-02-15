@@ -47,13 +47,13 @@ Documentação em outros idiomas:
 
 Se começaste a usar a Vite recentemente, sugerimos a leitura do [Guia do Porquê da Vite](https://vitejs.dev/guide/why.html) e consultar [o Começo](https://vitejs.dev/guide/) e [guia de Funcionalidades](https://vitejs.dev/guide/features). Se quiseres envolver-te, contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Quase [700 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm contribuído com a Vite. Siga as atualizações na [Twitter](https://twitter.com/vite_js) e [Mastodon](https://webtoo.ls/@vite), ou colabore com os outros na nossa [comunidade da Discord](http://chat.vitejs.dev/).
 
-## Start playing with Vite 4
+## Começar a brincar com a Vite 4 {#start-playing-with-vite-4}
 
-Use `pnpm create vite` to scaffold a Vite project with your preferred framework, or open a started template online to play with Vite 4 using [vite.new](https://vite.new).
+Use `pnpm create vite` para estruturar um projeto de Vite com a tua abstração preferida, ou abra um modelo de projeto de ponto de partida online para brincar com a Vite 4 usando a [vite.new](https://vite.new).
 
-You can also run `pnpm create vite-extra` to get access to templates from other frameworks and runtimes (Solid, Deno, SSR, and library starters). `create vite-extra` templates are also available when you run `create vite` under the `Others` option.
+Tu podes também executar `pnpm create vite-extra` para ter acesso aos modelos de projeto de outras abstrações e executores (Solid, Deno, SSR, e biblioteca para começar). Os modelos de projeto de `create vite-extra` também estão disponíveis quando executas `create vite` sob a opção `Others`.
 
-Note that Vite starter templates are intended to be used as a playground to test Vite with different frameworks. When building your next project, we recommend reaching out to the starters recommended by each framework. Some frameworks now redirect in `create vite` to their starters too (`create-vue` and `Nuxt 3` for Vue, and `SvelteKit` for Svelte).
+Nota que os modelos de projeto de ponto de partida da Vite estão destinados a serem usados como uma zona de experimentos para testar a Vite com diferentes abstrações. Quando estiveres a construir o teu próximo projeto, recomendamos consultar os pontos de partida recomendados por cada abstração. Algumas abstrações agora também redirecionam `create vite` para os seus pontos de partida (`create-vue` e `Nuxt 3` para a Vue, e `SvelteKit` para a Svelte).
 
 ## New React plugin using SWC during development
 
