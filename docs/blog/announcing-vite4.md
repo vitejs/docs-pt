@@ -63,9 +63,9 @@ A [SWC](https://swc.rs/) é agora uma substituição madura para a [Babel](https
 
 A [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) é uma extensão que usa a esbuild e a Babel, alcançando HMR rápida com uma pegada de pacote pequena e a flexibilidade de ser capaz de usar a conduta de transformação da Babel.
 
-### @vitejs/plugin-react-swc (new)
+### @vitejs/plugin-react-swc (new) {#vitejs-plugin-react-swc}
 
-[@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) is a new plugin that uses esbuild during build, but replaces Babel with SWC during development. For big projects that don't require non-standard React extensions, cold start and Hot Module Replacement (HMR) can be significantly faster.
+A [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) é a nova extensão que usa a esbuild durante a construção, mas substitui a Babel pela SWC durante o desenvolvimento. Para projetos grandes que não exigem extensões de React não padronizadas, inicialização fria e a Substituição de Módulo Instantânea (HMR, sigla em Inglês) podem ser significativamente mais rápidos.
 
 ## Browser Compatibility
 
