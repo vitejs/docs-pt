@@ -15,7 +15,7 @@ head:
       content: https://vitejs.dev/blog/announcing-vite3
   - - meta
     - property: og:description
-      content: Anúncio de Lançamento da Vite 3
+      content: Anúncio do Lançamento da Vite 3
   - - meta
     - name: twitter:card
       content: summary_large_image
