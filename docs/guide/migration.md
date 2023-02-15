@@ -1,4 +1,4 @@
-# Migração a partir da v3 {#migration-from-v3}
+# Migração da Versão 3 {#migration-from-v3}
 
 ## Rollup 3 {#rollup-3}
 
@@ -68,10 +68,10 @@ Também existe outras mudanças de quebra compatibilidade que apenas afetam algu
   - Consulte o PR para um explicação sobre esta mudança.
 - [[#10903] refactor(types)!: remove facade type files](https://github.com/vitejs/vite/pull/10903)
 
-## Migração a partir da v2 {#migration-from-v2}
+## Migração da Versão 2 {#migration-from-v2}
 
 Consulte primeiro o [Guia de Migração da Vite 2](https://v3.vitejs.dev/guide/migration.html) na documentação da Vite 3 para veres as mudanças necessárias para migrares a tua aplicação para Vite 3, e depois prosseguir com as mudanças nesta página.
 
-## Migração a partir da v1 {#migration-from-v1}
+## Migração da Versão 1 {#migration-from-v1}
 
 Consulte o [Guia de Migração da Vite 1](https://v2.vitejs.dev/guide/migration.html) na documentação da Vite v2 primeiro para ver as mudanças necessárias para passar a tua aplicação para a Vite v2, e então prosseguir com as mudanças nesta página.
