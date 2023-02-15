@@ -21,31 +21,31 @@ head:
       content: summary_large_image
 ---
 
-# Vite 4.0 is out!
+# A Vite 4 está Publicada!
 
-Vite 3 [was released](./announcing-vite3.md) five months ago. npm downloads per week have gone from 1 million to 2.5 million since then. The ecosystem has matured too, and continues to grow. In this year's [Jamstack Conf survey](https://twitter.com/vite_js/status/1589665610119585793), usage among the community jumped from 14% to 32% while keeping a high 9.7 satisfaction score. We saw the stable releases of [Astro 1.0](https://astro.build/), [Nuxt 3](https://v3.nuxtjs.org/), and other Vite-powered frameworks that are innovating and collaborating: [SvelteKit](https://kit.svelte.dev/), [Solid Start](https://www.solidjs.com/blog/introducing-solidstart), [Qwik City](https://qwik.builder.io/qwikcity/overview/). Storybook announced first-class support for Vite as one of its main features for [Storybook 7.0](https://storybook.js.org/blog/first-class-vite-support-in-storybook/). Deno now [supports Vite](https://www.youtube.com/watch?v=Zjojo9wdvmY). [Vitest](https://vitest.dev) adoption is exploding, it will soon represent half of Vite's npm downloads. Nx is also investing in the ecosystem, and [officially supports Vite](https://nx.dev/packages/vite).
+A Vite 3 [foi lançada](./announcing-vite3.md) a cinco meses atrás. Os descarregamentos do npm por semana foram de 1 milhão para 2.5 milhões desde então. O ecossistema também amadureceu, e contínua a crescer. No [levantamento da Jamstack Conf](https://twitter.com/vite_js/status/1589665610119585793) deste ano, o uso entre a comunidade saltou de 14% para 32% enquanto mantêm uma alta pontuação de satisfação de 9.7. Nós vimos os lançamentos estáveis da [Astro 1.0](https://astro.build/), [Nuxt 3](https://v3.nuxtjs.org/), e outras abstrações alimentadas pela Vite que estão a inovar e colaborar: [SvelteKit](https://kit.svelte.dev/), [Solid Start](https://www.solidjs.com/blog/introducing-solidstart), [Qwik City](https://qwik.builder.io/qwikcity/overview/). A Storybook anunciou o suporte de primeira classe para Vite como uma de suas principais funcionalidades para a [Storybook 7.0](https://storybook.js.org/blog/first-class-vite-support-in-storybook/). A Deno agora [suporta a Vite](https://www.youtube.com/watch?v=Zjojo9wdvmY). A adoção da [Vitest](https://vitest.dev) está explodindo, que representará em breve metade dos descarregamentos de npm da Vite. A Nx também está investindo no ecossistema, e [suporta oficialmente a Vite](https://nx.dev/packages/vite).
 
-[![Vite 4 Ecosystem](/ecosystem-vite4.png)](https://viteconf.org/2022/replay)
+[![Ecossistema da Vite 4](/ecosystem-vite4.png)](https://viteconf.org/2022/replay)
 
-As a showcase of the growth Vite and related projects have experienced, the Vite ecosystem gathered on October 11th at [ViteConf 2022](https://viteconf.org/2022/replay). We saw representatives from the main web framework and tools tell stories of innovation and collaboration. And in a symbolic move, the Rollup team choose that exact day to release [Rollup 3](https://rollupjs.org).
+De acordo com um mostruário do crescimento que a Vite e os projetos relacionados têm experimentado, o ecossistema da Vite reuniu em 11 Outubro na [ViteConf 2022](https://viteconf.org/2022/replay). Nós vimos representantes das principais abstrações e ferramentas de web a contarem histórias de inovação e colaboração. E em um movimento simbólico, a equipa da Rollup escolheu aquele exato dia para lançar a [Rollup 3](https://rollupjs.org).
 
-Today, the Vite [team](https://vitejs.dev/team) with the help of our ecosystem partners, is happy to announce the release of Vite 4, powered during build time by Rollup 3. We've worked with the ecosystem to ensure a smooth upgrade path for this new major. Vite is now using [Rollup 3](https://github.com/vitejs/vite/issues/9870), which allowed us to simplify Vite's internal asset handling and has many improvements. See the [Rollup 3 release notes here](https://github.com/rollup/rollup/releases/tag/v3.0.0).
+Hoje, a [equipa](https://vitejs.dev/team) da Vite com a ajuda dos nossos parceiros do ecossistema, tem o prazer em anunciar o lançamento da Vite 4, alimentada durante momento da construção pela Rollup 3. Temos trabalhado com o ecossistema para garantir um caminho de atualização suave para esta nova versão principal. A Vite agora está a usar a [Rollup 3](https://github.com/vitejs/vite/issues/9870), o que permitiu-nos simplificar a manipulação de recurso interno da Vite e tem muitas melhorias. Consulte as [notas de lançamento da Rollup 3](https://github.com/rollup/rollup/releases/tag/v3.0.0).
 
-![Vite 4 Announcement Cover Image](/og-image-announcing-vite4.png)
+![Imagem de Capa do Anúncio da Vite 4](/og-image-announcing-vite4.png)
 
-Quick links:
+Ligações rápidas:
 
-- [Docs](/)
-- [Migration Guide](/guide/migration)
-- [Changelog](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#400-2022-12-09)
+- [Documentação](/)
+- [Guia de Migração](/guide/migration)
+- [Relatório de Mudança](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#400-2022-12-09)
 
-Docs in other languages:
+Documentação em outros idiomas:
 
 - [简体中文](https://cn.vitejs.dev/)
 - [日本語](https://ja.vitejs.dev/)
 - [Español](https://es.vitejs.dev/)
 
-If you recently started using Vite, we suggest reading the [Why Vite Guide](https://vitejs.dev/guide/why.html) and checking out [the Getting Started](https://vitejs.dev/guide/) and [Features guide](https://vitejs.dev/guide/features). If you want to get involved, contributions are welcome at [GitHub](https://github.com/vitejs/vite). Almost [700 collaborators](https://github.com/vitejs/vite/graphs/contributors) have contributed to Vite. Follow the updates on [Twitter](https://twitter.com/vite_js) and [Mastodon](https://webtoo.ls/@vite), or join collaborate with others on our [Discord community](http://chat.vitejs.dev/).
+Se começaste a usar a Vite recentemente, sugerimos a leitura do [Guia do Porquê da Vite](https://vitejs.dev/guide/why.html) e consultar [o Começo](https://vitejs.dev/guide/) e [guia de Funcionalidades](https://vitejs.dev/guide/features). Se quiseres envolver-te, contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Quase [700 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm contribuído com a Vite. Siga as atualizações na [Twitter](https://twitter.com/vite_js) e [Mastodon](https://webtoo.ls/@vite), ou colabore com os outros na nossa [comunidade da Discord](http://chat.vitejs.dev/).
 
 ## Start playing with Vite 4
 
