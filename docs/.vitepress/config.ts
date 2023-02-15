@@ -240,7 +240,7 @@ export default defineConfig({
               link: '/guide/troubleshooting'
             },
             {
-              text: 'Migrar da Versão 3',
+              text: 'Guia de Migração da Versão 3',
               link: '/guide/migration'
             }
           ]
