@@ -240,9 +240,9 @@ Enquanto trabalhávamos em direção a Vite 3, também melhoramos a experiência
 - Os pacotes e as zonas de experimentos são agora `"type": "module"`.
 - As extensões são agora empacotadas usando [unbuild](https://github.com/unjs/unbuild), e [plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) e [plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) foi movida para TypeScript.
 
-## The Ecosystem is Ready for v3
+## O Ecossistema está Pronto para a Versão 3 {#the-ecosystem-is-ready-for-v3}
 
-We have worked closely with projects in the ecosystem to ensure that frameworks powered by Vite are ready for Vite 3. [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci) allows us to run the CI's from the leading players in the ecosystem against Vite's main branch and receive timely reports before introducing a regression. Today's release should soon be compatible with most projects using Vite.
+Nós trabalhamos bem de perto com os projetos no ecossistema para garantir que as abstrações alimentadas pela Vite estão prontas para a Vite 3. O [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci) permite-nos executar as CIs dos jogadores de destaque no ecossistema contra o ramo principal da Vite e receber relatórios oportunos antes da introdução de uma regressão. O lançamento de hoje em dia deve ser brevemente compatível com a maioria dos projetos usando a Vite.
 
 ## Acknowledgments
 
