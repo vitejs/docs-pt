@@ -59,9 +59,9 @@ Nota que os modelos de projeto de ponto de partida da Vite estão destinados a s
 
 A [SWC](https://swc.rs/) é agora uma substituição madura para a [Babel](https://babeljs.io/), especialmente no contexto dos projetos de React. A implementação da Atualização Rápida de React da SWC é muito mais rápida do que a de Babel, e para alguns projetos, é agora uma alternativa melhor. A partir da Vite 4, duas extensões estão disponíveis para os projetos de React com diferentes compromissos. Nós acreditamos que ambas abordagens são dignas de serem suportadas, e continuaremos a explorar melhorias para ambas as extensões no futuro.
 
-### @vitejs/plugin-react
+### @vitejs/plugin-react {#vitejs-plugin-react}
 
-[@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) is a plugin that uses esbuild and Babel, achieving fast HMR with a small package footprint and the flexibility of being able to use the Babel transform pipeline.
+A [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) é uma extensão que usa a esbuild e a Babel, alcançando HMR rápida com uma pegada de pacote pequena e a flexibilidade de ser capaz de usar a conduta de transformação da Babel.
 
 ### @vitejs/plugin-react-swc (new)
 
