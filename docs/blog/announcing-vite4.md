@@ -109,9 +109,9 @@ Para mais detalhes, consulta a [`dotenv`](https://github.com/motdotla/dotenv/blo
 
 A Vite cuida da sua pegada, para acelerar a instalação, especialmente no caso de uso de zonas de experimentos para documentação e reproduções. E uma vez mais, esta versão principal trás melhorias no tamanho do pacote da Vite. O tamanho da instalação da Vite 4 é 23% mais pequena comparada ao da Vite 3.2.5 (14.1 MB vs 18.3 MB).
 
-## Upgrades to Vite Core
+## Atualizações para Núcleo da Vite {#upgrades-to-vite-core}
 
-[Vite Core](https://github.com/vitejs/vite) and [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci) continue to evolve to provide a better experience to maintainers and collaborators and to ensure that Vite development scales to cope with the growth in the ecosystem.
+O [Núcleo da Vite](https://github.com/vitejs/vite) e a [vite-ecosystem-ci](https://github.com/vitejs/vite-ecosystem-ci) continuam a evoluir para fornecer uma experiência melhor para os responsáveis e colaboradores e garantir que desenvolvimento da Vite escale até lidar com o crescimento no ecossistema.
 
 ### Framework plugins out of core
 
