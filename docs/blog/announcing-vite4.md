@@ -105,9 +105,9 @@ Para mais detalhes, consulta a [`dotenv`](https://github.com/motdotla/dotenv/blo
 - Limpador da saída de registos de construção ([#10895](https://github.com/vitejs/vite/issues/10895)) e interruptor para `KB` para alinhar com as ferramentas de programação do navegador ([#10982](https://github.com/vitejs/vite/issues/10982))
 - Mensagens de erros melhoradas durante a SSR ([#11156](https://github.com/vitejs/vite/issues/11156))
 
-## Reduced Package Size
+## Tamanho de Pacote Reduzido {#reduced-package-size}
 
-Vite cares about its footprint, to speed up installation, especially in the use case of playgrounds for documentation and reproductions. And once more, this major brings improvements in Vite's package size. Vite 4 install size is 23% smaller compared to vite 3.2.5 (14.1 MB vs 18.3 MB).
+A Vite cuida da sua pegada, para acelerar a instalação, especialmente no caso de uso de zonas de experimentos para documentação e reproduções. E uma vez mais, esta versão principal trás melhorias no tamanho do pacote da Vite. O tamanho da instalação da Vite 4 é 23% mais pequena comparada ao da Vite 3.2.5 (14.1 MB vs 18.3 MB).
 
 ## Upgrades to Vite Core
 
