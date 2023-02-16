@@ -67,9 +67,9 @@ A [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react) é uma ext
 
 A [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) é a nova extensão que usa a esbuild durante a construção, mas substitui a Babel pela SWC durante o desenvolvimento. Para projetos grandes que não exigem extensões de React não padronizadas, inicialização fria e a Substituição de Módulo Instantânea (HMR, sigla em Inglês) podem ser significativamente mais rápidos.
 
-## Browser Compatibility
+## Compatibilidade do Navegador {#browser-compatibility}
 
-The modern browser build now targets `safari14` by default for wider ES2020 compatibility. This means that modern builds can now use [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) and that the [nullish coalescing operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) isn't transpiled anymore. If you need to support older browsers, you can add [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) as usual.
+A construção do navegador moderno agora aponta para `safari14` por padrão para compatibilidade de ES2020 mais ampla. Isto significa que as construções modernas podem agora usar [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) e que a [aglutinação de operador nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) já não é traduzida. Se precisas de suportar navegadores mais antigos, podes adicionar a [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) como de costume.
 
 ## Importing CSS as a String
 
