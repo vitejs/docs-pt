@@ -98,12 +98,12 @@ Agora a Vite usa `dotenv` 16 e `dotenv-expand` 9 (anteriormente usava `dotenv` 1
 
 Para mais detalhes, consulta a [`dotenv`](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) e a [`dotenv-expand` changelog](https://github.com/motdotla/dotenv-expand/blob/master/CHANGELOG.md).
 
-## Other Features
+## Outras Funcionalidades {#other-features}
 
-- CLI Shortcuts (press `h` during dev to see them all) ([#11228](https://github.com/vitejs/vite/pull/11228))
-- Support for patch-package when pre bundling dependencies ([#10286](https://github.com/vitejs/vite/issues/10286))
-- Cleaner build logs output ([#10895](https://github.com/vitejs/vite/issues/10895)) and switch to `kB` to align with browser dev tools ([#10982](https://github.com/vitejs/vite/issues/10982))
-- Improved error messages during SSR ([#11156](https://github.com/vitejs/vite/issues/11156))
+- Atalhos da Interface da Linha de Comando (pressione `h` durante o desenvolvimento para vê-los a todos) ([#11228](https://github.com/vitejs/vite/pull/11228))
+- Suporte para pacote de remendo quando estiveres a pré-empacotar as dependências ([#10286](https://github.com/vitejs/vite/issues/10286))
+- Limpador da saída de registos de construção ([#10895](https://github.com/vitejs/vite/issues/10895)) e interruptor para `KB` para alinhar com as ferramentas de programação do navegador ([#10982](https://github.com/vitejs/vite/issues/10982))
+- Mensagens de erros melhoradas durante a SSR ([#11156](https://github.com/vitejs/vite/issues/11156))
 
 ## Reduced Package Size
 
