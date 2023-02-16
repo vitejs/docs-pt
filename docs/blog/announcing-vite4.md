@@ -71,21 +71,21 @@ A [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) é
 
 A construção do navegador moderno agora aponta para `safari14` por padrão para compatibilidade de ES2020 mais ampla. Isto significa que as construções modernas podem agora usar [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) e que a [aglutinação de operador nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) já não é traduzida. Se precisas de suportar navegadores mais antigos, podes adicionar a [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) como de costume.
 
-## Importing CSS as a String
+## Importando CSS como uma Sequência de Caracteres {#importing-css-as-a-string}
 
-In Vite 3, importing the default export of a `.css` file could introduce a double loading of CSS.
+Na Vite 3, importar a exportação padrão de um ficheiro `.css` poderia introduzir um duplo carregamento de CSS.
 
 ```ts
 import cssString from './global.css'
 ```
 
-This double loading could occur since a `.css` file will be emitted and it's likely that the CSS string will also be used by the application code — for example, injected by the framework runtime. From Vite 4, the `.css` default export [has been deprecated](https://github.com/vitejs/vite/issues/11094). The `?inline` query suffix modifier needs to be used in this case, as that doesn't emit the imported `.css` styles.
+Este carregamento duplo poderia ocorrer já que um ficheiro `.css` será emitido e é provável que a sequência de caracteres de CSS será também usada pelo código da aplicação — por exemplo, injetado pela execução da abstração. Desde a Vite 4, a exportação padrão de `.css` [tem sido depreciada](https://github.com/vitejs/vite/issues/11094). O modificador de sufixo de consulta `?inline` precisa ser usado neste caso, já que este não emite os estilos de `.css` importados.
 
 ```ts
 import stuff from './global.css?inline'
 ```
 
-Learn more in the [Migration Guide](/guide/migration).
+Aprenda mais no [Guia de Migração](/guide/migration).
 
 ## Environment Variables
 
