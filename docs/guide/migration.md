@@ -8,7 +8,7 @@ A Rollup 3 é maioritariamente compatível com a Rollup 2. Se estiveres a usar [
 
 ## Mudança de Linhas de Bases de Navegador Moderno {#modern-browser-baseline-change}
 
-A construção de navegador moderno agora mira o `safari14` por padrão para compatibilidade de ES2020 mais extensa (movido do `safari13`). Isto significa que construções modernas podem agora usar [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) e que a [aglutinação de operador nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) já não é mais traduzido. Se precisares suportar navegadores antigos, podes adicionar o [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) como de costume.
+A construção de navegador moderno agora mira o `safari14` por padrão para compatibilidade de ES2020 mais extensa (movido do `safari13`). Isto significa que construções modernas podem agora usar [`BigInt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt) e que a [aglutinação de operador nulo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing) já não é mais traduzida. Se precisares suportar navegadores antigos, podes adicionar o [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) como de costume.
 
 ## Mudanças Gerais {#general-changes}
 
