@@ -87,16 +87,16 @@ import stuff from './global.css?inline'
 
 Aprenda mais no [Guia de Migração](/guide/migration).
 
-## Environment Variables
+## Variáveis de Ambiente {#environment-variables}
 
-Vite now uses `dotenv` 16 and `dotenv-expand` 9 (previously `dotenv` 14 and `dotenv-expand` 5). If you have a value including `#` or `` ` ``, you will need to wrap them with quotes.
+Agora a Vite usa `dotenv` 16 e `dotenv-expand` 9 (anteriormente usava `dotenv` 14 e `dotenv-expand` 5). Se tens um valor que inclui `#` ou `` ` ``, precisarás envolvê-los com aspas.
 
 ```diff
 -VITE_APP=ab#cd`ef
 +VITE_APP="ab#cd`ef"
 ```
 
-For more details, see the [`dotenv`](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) and [`dotenv-expand` changelog](https://github.com/motdotla/dotenv-expand/blob/master/CHANGELOG.md).
+Para mais detalhes, consulta a [`dotenv`](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) e a [`dotenv-expand` changelog](https://github.com/motdotla/dotenv-expand/blob/master/CHANGELOG.md).
 
 ## Other Features
 
