@@ -127,8 +127,8 @@ A Vite 4 não seria possível sem as incontáveis horas de trabalho dos colabora
 
 We're also thankful to individuals and companies sponsoring the Vite team, and companies investing directly in Vite's future: [@antfu7](https://twitter.com/antfu7)'s work on Vite and the ecosystem is part of his job at [Nuxt Labs](https://nuxtlabs.com/), [Astro](https://astro.build) is funding [@bluwyoo](https://twitter.com/bluwyoo)'s' Vite core work, and [StackBlitz](https://stackblitz.com/) hires [@patak_dev](https://twitter.com/patak_dev) to work full time on Vite.
 
-## Next steps
+## Próximos Passos {#next-steps}
 
-Our immediate focus would be on triaging newly opened issues to avoid disruption by possible regressions. If you would like to get involved and help us improve Vite, we suggest starting with issues triaging. Join [our Discord](https://chat.vitejs.dev) and reach out on the `#contributing` channel. Polish our `#docs` story, and `#help` others. We need to continue to build a helpful and welcoming community for the next wave of users, as Vite's adoption continues to grow.
+Nosso foco imediato estaria sobre a triagem das questões abertas recentemente para evitar a interrupção por possíveis regressões. Se gostarias de envolver-te e ajudar-nos a melhorar a Vite, sugerimos começar com a triagem de problemas. Junta-te à [nossa Discord](https://chat.vitejs.dev) e contacte-nos na canal `#contributing`. Polir a história da nossa `#docs`, e ajudar os outros no `#help`. Nós precisamos continuar a construir uma comunidade prestável e acolhedora para próxima onde de utilizadores, a medida que a adoção da Vite continua a crescer.
 
-There are a lot of open fronts to keep improving the DX of everyone that has chosen Vite to power their frameworks and develop their apps. Onwards!
+Existem muita frentes abertas para continuar a melhorar a Experiência de Programação de todos que escolheram a Vite para alimentar as suas abstrações e programar suas aplicações. Para diante!
