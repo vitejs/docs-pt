@@ -13,7 +13,7 @@ Formato de saída para pacote do operário.
 
 - **Tipo:** [`(Plugin | Plugin[])[]`](./shared-options#plugins)
 
-As extensões de Vite que se aplicam ao pacote do operário. Nota que [`config.plugins`](./shared-options#plugins) não se aplicam aos operários, deveria de preferência ser configurada aqui.
+As extensões de Vite que se aplicam ao pacote do operário. Nota que [`config.plugins`](./shared-options#plugins) apenas aplica-se aos operários em desenvolvimento, deve ser configurado aqui em vez de ser para a construção.
 
 ## worker.rollupOptions {#worker-rollupoptions}
 
