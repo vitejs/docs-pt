@@ -11,17 +11,40 @@ jobs:
     steps:
       - uses: vuejs-translations/ryu-cho@v1
         with:
+          # GitHub access token. Required.
           access-token: ${{ secrets.GITHUB_TOKEN }}
-          username: github-actions
-          email: "action@github.com"
 
+          # Git user name to use when making issues and PRs. Required.
+          username: vite/vitejs
+
+          # Git email address to use when making issues and PRs. Required.
+          email: "nazarepiedady@gmail.com"
+
+          # The url for the upstream repo. This is the repository that you
+          # set up Ryu-Cho. Required.
           # TODO: Replace this with your own repo URL
-          upstream-repo: https://github.com/tony19/vite-docs-template.git
+          upstream-repo: https://github.com/vitejs/docs-pt.git
+
+          # The branch for the upstream repo. Optional. Defaults to `main`.
           # TODO: Replace this with your own repo's branch name
           upstream-repo-branch: main
 
+          # The head repo to track. This is the repository you want to
+          # take a diff. Required.
           head-repo: https://github.com/vitejs/vite
+
+          # The branch for the head repo. Optional. Defaults to `main`.
           head-repo-branch: main
+
+          # The git commit sha of head repo to start tracking. Ryu-Cho will
+          # only track commit from this hash. Required.
           track-from: 344642ad630d8658308dbf707ed805cb04b49d58
+
+          # File path to track. In this example, Ryu-Cho will only track
+          # commits that modified files under `docs` folder. Optional.
           path-starts-with: docs/
+
+          # GitHub workflow name that runs Ryu-Cho. This is required since
+          # Ryu-Cho determines the last run by looking into last workflow
+          # run timestamp. Optional. Defaults to `ryu-cho`.
           workflow-name: ryu-cho
