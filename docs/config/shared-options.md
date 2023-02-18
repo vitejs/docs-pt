@@ -37,7 +37,7 @@ Consulte [Variáveis de Ambiente e Modos](/guide/env-and-mode) para mais detalhe
 
 Define as substituições de constante global. Entradas serão definidas como globais durante o desenvolvimento e substituídos estaticamente durante a construção.
 
-- Começando a partir da versão `2.0.0-beta.70`, os valores de sequência de caracteres serão usados como expressões cruas, assim se definir uma constante de sequência de caracteres, ela precisa ser explicitamente posta entre aspas (por exemplo com `JSON.stringify`).
+- Os valores da sequência de caracteres serão usados como expressões cruas, então se definires uma sequência de caracteres constante, **ela precisa ser explicitamente colocada entre aspas** (por exemplo com o `JSON.stringify`).
 
 - Para ser consistente com o [comportamento da esbuild](https://esbuild.github.io/api/#define), expressões devem tanto ser um objeto de JSON (`null`, `boolean`, `number`, `string`, `array`, ou `object`) ou um único identificador.
 
