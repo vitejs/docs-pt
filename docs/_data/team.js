@@ -131,7 +131,7 @@ export const core = [
   {
     avatar: 'https://github.com/dominikg.png',
     name: 'Dominik G.',
-    title: 'Especialista em CI Residente',
+    title: 'Residente Especialista em CI',
     desc: 'Membro da Equipa da Vite e Svelte',
     links: [{ icon: 'github', link: 'https://github.com/dominikg' }],
   },
