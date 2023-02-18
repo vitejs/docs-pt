@@ -4,7 +4,7 @@
 
 ### `vite` {#vite}
 
-Inicia o servidor de desenvolvimento da Vite no diretório atual. Introduzirá o modo de observação no ambiente de desenvolvimento e executará o modo na Integração Continua (CI, sigla em Inglês) automaticamente.
+Inicia o servidor de desenvolvimento da Vite no diretório atual.
 
 #### Uso {#vite-usage}
 
