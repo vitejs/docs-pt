@@ -55,7 +55,7 @@ export type { T }
 
 Alguns campos de configuração sob `compilerOptions` no `tsconfig.json` exige especial atenção.
 
-#### `isolatedModules`
+#### `isolatedModules` {#isolatedmodules}
 
 Deve ser definido para `true`.
 
