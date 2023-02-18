@@ -61,6 +61,7 @@ O valor também pode ser um [objeto de opções](https://nodejs.org/api/https.ht
 Abre automaticamente no navegador na início do servidor. Quando o valor for uma sequência de caracteres, será utilizada como o nome do caminho da URL. Se quiseres abrir o servidor em um navegador especifico de tua escolha, podes definir a variável de ambiente `process.env.BROWSER` para (por exemplo, `firefox`). Tu também podes definir `process.env.BROWSER_ARGS` para passar argumentos adicionais (por exemplo, `--incognito`).
 
 `BROWSER` e `BROWSER_ARGS` também são variáveis de ambiente especiais que podes definir no ficheiro `.env` para configurá-lo. Consulte [o pacote `open`](https://github.com/sindresorhus/open#app) para mais detalhes.
+
 ## preview.proxy {#preview-proxy}
 
 - **Tipo:** `Record<string, string | ProxyOptions>`
