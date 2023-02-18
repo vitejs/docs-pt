@@ -121,6 +121,18 @@ Tu precisarás acessar o ficheiro com o protocolo de `http`. A maneira mais fác
 
 ## Outros {#others}
 
+### Módulo Exposto para Compatibilidade de Navegador {#module-externalized-for-browser-compatibility}
+
+Quando usares um módulo de Node.js no navegador, a Vite produzirá o seguinte aviso.
+
+> Module "fs" has been externalized for browser compatibility. Cannot access "fs.readFile" in client code.
+
+> (Tradução) O módulo "fs" foi exposto para compatibilidade de navegador. Não podes acessar "fs.readFile" no código do cliente.
+
+Isto porque a Vite não faz automaticamente o "polyfill" de módulos da Node.js.
+
+Nós recomendamos evitar módulos de Node.js para o código do navegador para reduzir o tamanho do pacote, embora possas adicionar os "polyfill" manualmente. Se o módulo é importado a partir de uma biblioteca de terceiro (que destina-se a ser usada no navegador), é aconselhado reportar o problema para a respetiva biblioteca.
+
 ### Ocorre Erro de Sintaxe / Erro de Tipo {#syntax-error-type-error-happens}
 
 A Vite não consegui manipular e não suporta o código que só executa no modo não restrito (modo desleixado). Isto porque a Vite utiliza Módulo de ECMAScript e sempre é [modo restrito](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode) dentro do Módulo de ECMAScript.
