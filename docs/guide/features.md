@@ -114,16 +114,25 @@ Isto fornecerá os seguintes calçados de tipo:
 - Tipos para a [API de HMR](./api-hmr) sobre a `import.meta.hot`
 
 :::tip Dica
-Para sobrepor a tipagem padrão, declara-o antes da referência de três barras. Por exemplo, para tornar a importação padrão de `*.svg` um componente de React:
+Para sobrepor a tipagem padrão, adicione um ficheiro de declaração de tipo que contém os teus tipos. Então adicione a referência do tipo antes de `vite/client`.
 
-```ts
-declare module '*.svg' {
-  const content: React.FC<React.SVGProps<SVGElement>>
-  export default content
-}
+Por exemplo, para fazer a importação padrão de um componente `*.svg` de React:
 
-/// <reference types="vite/client" />
-```
+- `vite-env-override.d.ts` (o ficheiro que contém as tuas tipos):
+
+ ```ts
+  declare module '*.svg' {
+    const content: React.FC<React.SVGProps<SVGElement>>
+    export default content
+  }
+  ```
+
+- O ficheiro contendo a referência para `vite/client`:
+
+  ```ts
+  /// <reference types="./vite-env-override.d.ts" />
+  /// <reference types="vite/client" />
+  ```
 
 :::
 
