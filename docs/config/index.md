@@ -64,7 +64,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   }
 })
 ```
-  
+
 É importante notar que na API da Vite o valor de `command` é `serve` durante o desenvolvimento (na interface de linha de comando `vite`, `vite dev`, e `vite serve` são pseudónimos), e `build` quando estiveres construindo para produção (`vite build`).
 
 A `ssrBuild` é experimental. Ela só está disponível durante a construção ao invés de uma bandeira `ssr` mais geral porque, durante o desenvolvimento, a configuração é partilhada pelo único servidor manipulando as requisições SSR e as que não são SSR. O valor poderia ser `undefined` para as ferramentas que não têm comandos separados para a construção de navegador e SSR, assim utiliza comparação explicita contra `true` e `false`.
@@ -82,7 +82,7 @@ export default defineConfig(async ({ command, mode }) => {
 })
 ```
 
-## Variáveis de Ambiente {#environment-variables}
+## Usando Variáveis de Ambiente na Configuração {#using-environment-variables-in-config}
 
 As variáveis de ambiente podem ser obtidas a partir de `process.env` como de costume.
 
