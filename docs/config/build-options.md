@@ -169,7 +169,7 @@ Quando definido para `true`, a construção também gerará um manifesto de SSR 
 
 - **Tipo:** `boolean | string`
 - **Predefinido como:** `false`
-- **Relacionado ao:** [Server-Side Rendering](/guide/ssr)
+- **Relacionado ao:** [Interpretação no Lado do Servidor](/guide/ssr)
 
 Produz a construção orientada pela SSR. O valor pode ser uma sequência de caracteres para diretamente especificar a entrada da SSR, ou `true`, o qual exige a especificação da entrada de SSR através de `rollupOptions.input`.
 
