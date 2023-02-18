@@ -30,7 +30,7 @@ Este duplo carregamento poderia ocorrer já que um ficheiro `.css` será emitido
 import stuff from './global.css?inline'
 ```
 
-### Construções de Produção por Padrão
+### Construções de Produção por Padrão {#production-builds-by-default}
 
 O `vite build` agora sempre construirá para produção independentemente do `--mode` passado. Anteriormente, mudar o `mode` para outro que não seja `production` resultaria em uma construção de desenvolvimento. Se desejas continuar a construir para o desenvolvimento, podes definir `NODE_ENV=development` no ficheiro `.env.{mode}`.
 
@@ -49,7 +49,7 @@ A Vite agora usa `dotenv` 16 e `dotenv-expand` 9 (anteriormente `dotenv` 14 e `d
 
 Para mais detalhes, consulte o relatório de mudança da [`dotenv`](https://github.com/motdotla/dotenv/blob/master/CHANGELOG.md) e da [`dotenv-expand`](https://github.com/motdotla/dotenv-expand/blob/master/CHANGELOG.md).
 
-## Avançado {#advanced-vite-4}
+## Avançado {#advanced}
 
 Existe algumas mudanças que apenas afetam criadores de extensão e ferramenta.
 
