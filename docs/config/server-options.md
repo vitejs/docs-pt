@@ -243,7 +243,7 @@ createServer()
 
 - **Tipo:** `string | undefined`
 
-Adiciona no principio esta pasta às requisições, para utilizar quando estiver delegando a Vite como uma subpasta. Deve começar e terminar com o carácter `/`.
+Adiciona no principio esta pasta às requisições, para utilizar quando estiver delegando a Vite como uma sub-pasta. Deve começar e terminar com o carácter `/`.
 
 ## server.fs.strict {#server-fs-strict}
 
