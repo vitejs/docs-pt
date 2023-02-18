@@ -31,7 +31,7 @@ Hoje, 16 meses desde o lançamento da versão 2 estamos felizes em anunciar o la
 
 Ligações rápidas:
 
-- [Guia de Migração](/guide/migration)
+- [Guia de Migração](https://v3.vitejs.dev/guide/migration.html)
 - [Relatório de Mudança](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#300-2022-07-13)
 
 Se és recém-chegado na Vite, recomendamos a leitura do [Guia Porquê Vite](https://vitejs.dev/guide/why.html). Depois consulte [o Guia Começar](https://vitejs.dev/guide/) e o [Guia de Funcionalidades](https://vitejs.dev/guide/features) para veres o que a Vite fornece fora da caixa. Como de costume, as contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Mais de [600 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm ajudado a melhorar a Vite até aqui. Siga as atualizações na [Twitter](https://twitter.com/vite_js), ou junta-te as discussões com outros utilizadores da Vite no nosso [Servidor de Conversas da Discord](http://chat.vitejs.dev/).
@@ -192,7 +192,7 @@ Há outros cenários de implementação de produção onde não é suficiente. P
 
 ### Otimização de Dependências da Esbuild no Momento da Construção (Experimental) {#esbuild-deps-optimization-at-build-time}
 
-Umas das principais diferenças entre o momento da construção e o de desenvolvimento é como a Vite manipula as dependências. Durante o momento da construção, a extensão [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) é usada para permitir apenas a importação de dependências CJS (como a React). Quando estiveres a usar o servidor de desenvolvimento, a esbuild é usada para pré-empacotar e otimizar as dependências, e um esquema de interoperabilidade embutido é aplicado enquanto estiver transformando o código do utilizador importando dependências de CJS. Durante o desenvolvimento da Vite 3, introduzimos as mudanças necessárias para também permitir o uso da [esbuild para otimizar as dependências durante o momento da construção](/guide/migration.html#using-esbuild-deps-optimization-at-build-time). A extensão [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) pode então ser evitada, fazendo o trabalho em momento de desenvolvimento e construção caminhar na mesma direção.
+Umas das principais diferenças entre o momento da construção e o de desenvolvimento é como a Vite manipula as dependências. Durante o momento da construção, a extensão [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) é usada para permitir apenas a importação de dependências CJS (como a React). Quando estiveres a usar o servidor de desenvolvimento, a esbuild é usada para pré-empacotar e otimizar as dependências, e um esquema de interoperabilidade embutido é aplicado enquanto estiver transformando o código do utilizador importando dependências de CJS. Durante o desenvolvimento da Vite 3, introduzimos as mudanças necessárias para também permitir o uso da [esbuild para otimizar as dependências durante o momento da construção](https://v3.vitejs.dev/guide/migration.html#using-esbuild-deps-optimization-at-build-time). A extensão [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) pode então ser evitada, fazendo o trabalho em momento de desenvolvimento e construção caminhar na mesma direção.
 
 Dado que a versão 3 da Rollup será publicada nos próximos meses, e estamos seguindo de perto com uma outra versão principal de Vite, decidimos tornar este modo opcional para reduzir o limite da versão 3 e dar a Vite e ao ecossistema mais tempo para trabalhar questões possíveis com a nova interoperabilidade de CJS durante o momento da construção. As abstrações podem alternar para usar a otimização de dependências da esbuild durante o momento da construção por padrão no seu ritmo antes da Vite 4.
 
@@ -210,7 +210,7 @@ A Vite cuida sua pegada de publicação e instalação; uma instalação rápida
 | Vite 3.0.0  |         3.05MB        |         17.8MB        |
 | Reduction   |          -30%         |          -7%          |
 
-Em parte, esta redução foi possível tornando opcional algumas dependências que a maioria dos utilizadores não estavam a precisar. Primeiro, [Terser](https://github.com/terser/terser) já não é instalado por padrão. Esta dependência já não é necessária desde que tornamos a esbuild a minificadora padrão de ambos JavaScript e CSS na Vite 2. Se usas `build.minify: 'terser'`, precisarás de instalá-lo (`npm add -D terser`). Nós também movemos a [node-forge](https://github.com/digitalbazaar/forge) para fora do mono-repositório, implementando o suporte automático a geração de certificado de HTTPS como uma nova extensão: [`@vitejs/plugin-basic-ssl`](/guide/migration.html#automatic-https-certificate-generation). Já que esta funcionalidade apenas cria certificados não assegurados que não são adicionados ao armazenamento local, não justificava o tamanho adicionado.
+Em parte, esta redução foi possível tornando opcional algumas dependências que a maioria dos utilizadores não estavam a precisar. Primeiro, [Terser](https://github.com/terser/terser) já não é instalado por padrão. Esta dependência já não é necessária desde que tornamos a esbuild a minificadora padrão de ambos JavaScript e CSS na Vite 2. Se usas `build.minify: 'terser'`, precisarás de instalá-lo (`npm add -D terser`). Nós também movemos a [node-forge](https://github.com/digitalbazaar/forge) para fora do mono-repositório, implementando o suporte automático a geração de certificado de HTTPS como uma nova extensão: [`@vitejs/plugin-basic-ssl`](https://v3.vitejs.dev/guide/migration.html#automatic-https-certificate-generation). Já que esta funcionalidade apenas cria certificados não assegurados que não são adicionados ao armazenamento local, não justificava o tamanho adicionado.
 
 ## Correção de Bug {#bug-fixing}
 
@@ -227,7 +227,7 @@ Um maratona de triagem foi encabeçada pelos [@bluwyoo](https://twitter.com/bluw
 - A Base de Navegador Moderno agora aponta para navegadores que suportam os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importações dinâmica do Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e as funcionalidades de [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta).
 - As extensões de ficheiro de JavaScript no modo de SSR e biblioteca agora usam uma extensão válida (`js`, `mjs`, ou `cjs`) para as entradas de JavaScript de saída e pedaços baseados no seu formato e o no tipo do pacote.
 
-Aprenda mais no [Guia de Migração](/guide/migration).
+Aprenda mais no [Guia de Migração](https://v3.vitejs.dev/guide/migration.html).
 
 ## Atualizações para o Núcleo da Vite {#upgrades-to-vite-core}
 
