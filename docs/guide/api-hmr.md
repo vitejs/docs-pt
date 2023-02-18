@@ -70,11 +70,11 @@ if (import.meta.hot) {
 }
 ```
 
-Um módulo que "aceita" atualizações instantâneas é considerado uma **fronteira de HMR**. 
+Um módulo que "aceita" atualizações instantâneas é considerado uma **fronteira de HMR**.
 
-Nota que a HMR da Vite na realidade não troca o módulo importado originalmente: se um módulo de fronteira de HMR reexportar as importações de uma dependência, então é responsável pela atualização destas reexportações (e estas exportações devem estar utilizando o `let`). Além disto, os importadores em cima da cadeia do módulo de fronteiro não serão notificados da mudança.
+A HMR da Vite na realidade não troca o módulo originalmente importado: se um módulo de fronteira de HMR reexportar as importações de uma dependência, então é responsável para atualização destas reexportações (e estas exportações devem estar a usar `let`). Além disto, os importadores ao longo da cadeia do módulo de fronteira não serão notificados da mudança. Esta implementação simplificada da HMR é suficiente para a maioria dos casos de uso de desenvolvimento, enquanto permite-nos ignorar o trabalho dispendioso da geração de módulos de delegação.
 
-Esta implementação da HMR simplificada é suficiente para a maior parte dos casos de uso do desenvolvimento, ao passo que permite-nos saltar o trabalho dispendioso de gerar módulos de delegação.
+A Vite exige que a chamada para esta função apareça como `import.meta.hot.accept(` (sensível aos espaços em branco) no código-fonte em ordem para módulo aceitar atualizar. Este é um requisito da analise estática que a Vite faz para ativar o suporte da HMR para um módulo.
 
 ## `hot.accept(deps, cb)`
 
