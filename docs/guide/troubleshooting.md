@@ -44,8 +44,16 @@ Para resolver isto:
   $ sudo sysctl fs.inotify.max_user_watches=524288
   ```
 
-### Requisições de Rede Impedem o Carregamento {#network-requests-stop-loading
-}
+Se os passos acima não funcionarem, podes tentar adicionar `DefaultLimitNOFILE=65536` como uma configuração não comentada aos seguintes ficheiros:
+
+- /etc/systemd/system.conf
+- /etc/systemd/user.conf
+
+Para Ubuntu Linux, podes precisar de adicionar a linha `* - nofile 65536` para o ficheiro `/etc/security/limits.conf` ao invés de atualizar os ficheiros de configuração do `systemd`.
+
+Nota que estas definições persistem mas uma **reinicialização é necessária**.
+
+### Requisições de Rede Impedem o Carregamento {#network-requests-stop-loading}
 
 Quando estiveres a usar um certificado de SSL auto-assinado, o Chrome ignora todas diretivas do armazenamento de recurso de consulta imediata (aka, caching) e recarrega o conteúdo. A Vite depende das diretivas de armazenamento de recurso de consulta imediata.
 
