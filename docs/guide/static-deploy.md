@@ -58,47 +58,60 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 
 1. Defina a `base` correta no `vite.config.js`.
 
-   Se estiveres desdobrando para `https://<USERNAME>.github.io/`, podes omitir a `base` porque ela padroniza para `'/'`.
+   Se estiveres implementar em produção para `https://<USERNAME>.github.io/`, podes omitir a `base` porque ela padroniza para `'/'`.
 
-   Se estiveres desdobrando para `https://<USERNAME>.github.io/<REPO>/`, por exemplo o teu repositório está em `https://github.com/<USERNAME>/<REPO>`, então defina a `base` para `'/<REPO>/'`.
+   Se estiveres implementar em produção para `https://<USERNAME>.github.io/<REPO>/`, por exemplo o teu repositório está em `https://github.com/<USERNAME>/<REPO>`, então defina a `base` para `'/<REPO>/'`.
 
-2. Dentro do teu projeto, crie `deploy.sh` com o seguinte conteúdo (com as linhas destacadas apropriadamente descomentada), e execute-o para desdobrar:
+2. Vá para a configuração do teu GitHub Pages nas definições do repositório e escolha a fonte da implementação em produção como "GitHub Actions", isto levar-te-á a criar um fluxo de trabalho que constrói e implementa o teu projeto, uma amostra de fluxo de trabalho que instala as dependências e constrói usando o npm fornecida:
 
-   ```bash{16,24,27}
-   #!/usr/bin/env sh
-
-   # abortar em caso de erros
-   set -e
-
-   # construir
-   npm run build
-
-   # navegar para o diretório de saída da construção
-   cd dist
-
-   # colocar .nojekull para contornar o processamento do Jekyll
-   echo > .nojekyll
-
-   # Se estiveres desdobrando para um domínio personalizado
-   # echo 'www.example.com' > CNAME
-
-   git init
-   git checkout -b main
-   git add -A
-   git commit -m 'deploy'
-
-   # Se estiveres desdobrando para https://<USERNAME>.github.io
-   # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git main
-
-   # Se estiveres desdobrando para https://<USERNAME>.github.io/<REPO>
-   # git push -f git@github.com:<USERNAME>/<REPO>.git main:gh-pages
-
-   cd -
+   ```yml
+   # Fluxo de trabalho simples para o implementação em produção de conteúdo estático para a GitHub Pages
+   name: Deploy static content to Pages
+   on:
+     # Executa sobre empurrões mirando o ramo padrão
+     push:
+       branches: ['main']
+     # Permite-te executar este fluxo de trabalho manualmente da aba de Actions
+     workflow_dispatch:
+   # Defina as permissões da GITHUB_TOKEN para permitir a implementação para a GitHub Pages
+   permissions:
+     contents: read
+     pages: write
+     id-token: write
+   # Permite uma implementação em produção simultânea
+   concurrency:
+     group: 'pages'
+     cancel-in-progress: true
+   jobs:
+     # Trabalho de implementação individual já que estamos apenas implementando
+     deploy:
+       environment:
+         name: github-pages
+         url: ${{ steps.deployment.outputs.page_url }}
+       runs-on: ubuntu-latest
+       steps:
+         - name: Checkout
+           uses: actions/checkout@v3
+         - name: Set up Node
+           uses: actions/setup-node@v3
+           with:
+             node-version: 18
+             cache: 'npm'
+         - name: Install dependencies
+           run: npm install
+         - name: Build
+           run: npm run build
+         - name: Setup Pages
+           uses: actions/configure-pages@v3
+         - name: Upload artifact
+           uses: actions/upload-pages-artifact@v1
+           with:
+             # Carregar o repositório dist
+             path: './dist'
+         - name: Deploy to GitHub Pages
+           id: deployment
+           uses: actions/deploy-pages@v1
    ```
-
-::: tip
-Tu também podes executar o programa acima na tua configuração do CI para ativar o desdobramento automático em cada empurrão.
-:::
 
 ## GitLab Pages e GitLab CI {#gitlab-pages-and-gitlab-ci}
 
