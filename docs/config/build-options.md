@@ -114,7 +114,6 @@ Se especificares `build.lib`, `build.cssCodeSplit` será `false` como padrão.
 
 Esta opção permite os utilizadores definir um alvo de navegador diferente para a minificação de CSS daquela usada para a tradução de código de JavaScript.
 
-It should only be used when you are targeting a non-mainstream browser.
 Ela deve apenas ser usada quando estiveres mirando um navegador fora dos padrão. Um exemplo é o Android WeChat WebView, que suporta a maior parte das funcionalidades de JavaScript moderno mais não a [notação de cor hexadecimal `#RGBA` em CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb_colors). Nestes casos, precisas definir `build.cssTarget` para `chrome61` para impedir a Vite de transformar as cores `rgba()` em notações hexadecimal `#RGBA`.
 
 ## build.sourcemap {#build-sourcemap}
@@ -139,14 +138,14 @@ Opções para passar ao [@rollup/plugin-commonjs](https://github.com/rollup/plug
 ## build.dynamicImportVarsOptions {#build-dynamicimportvarsoptions}
 
 - **Tipo:** [`RollupDynamicImportVarsOptions`](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#options)
-- **Relacionado ao:** [Dynamic Import](/guide/features#dynamic-import)
+- **Relacionado ao:** [Importação Dinâmica](/guide/features#dynamic-import)
 
 Opções para passar ao [@rollup/plugin-dynamic-import-vars](https://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars).
 
 ## build.lib {#build-lib}
 
 - **Tipo:** `{ entry: string | string[] | { [entryAlias: string]: string }, name?: string, formats?: ('es' | 'cjs' | 'umd' | 'iife')[], fileName?: string | ((format: ModuleFormat, entryName: string) => string) }`
-- **Relacionado ao:** [Library Mode](/guide/build#library-mode)
+- **Relacionado ao:** [Modo de Biblioteca](/guide/build#library-mode)
 
 Constrói como uma biblioteca. `entry` é obrigatório visto que a biblioteca não pode usar a HTML como entrada. `name` é a variável global exposta e é obrigatória quando `formats` inclui `'umd'` ou `'iife'`. Os valores predefinidos de `formats` são `['es', 'umd']`. `fileName` é o nome da saída de ficheiro do pacote, o valor predefinido de `fileName` é a opção de nome do `package.json`, ele também pode ser definido como função recebendo o `format` e `entryAlias` como argumentos.
 
@@ -154,7 +153,7 @@ Constrói como uma biblioteca. `entry` é obrigatório visto que a biblioteca n�
 
 - **Tipo:** `boolean | string`
 - **Predefinido como:** `false`
-- **Relacionado ao:** [Backend Integration](/guide/backend-integration)
+- **Relacionado ao:** [Integração de Backend](/guide/backend-integration)
 
 Quando definido para `true`, a construção também gerará um ficheiro `manifest.json` que contém um mapeamento de nomes de ficheiros de recurso não embaralhado para as suas versões embaralhadas, as quais podem então ser usadas por uma abstração de servidor para interpretar as ligações de recurso correta. Quando o valor é uma sequência de caracteres, será usada como nome do ficheiro de manifesto.
 
