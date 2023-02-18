@@ -1,4 +1,4 @@
-# Desdobrando um Sítio Estático {#deploying-a-static-site}
+# Implementando um Sítio Estático {#deploying-a-static-site}
 
 Os seguintes guias são baseados em algumas suposições partilhadas:
 
