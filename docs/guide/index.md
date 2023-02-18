@@ -79,9 +79,9 @@ pnpm create vite my-vue-app --template vue
 
 Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`.
 
-## Modelos da Comunidade {#community-templates}
+## Modelos de Projeto da Comunidade {#community-templates}
 
-A `create-vite` é uma ferramenta para iniciar um projeto rapidamente a partir de um modelo básico para abstrações populares. Consulte a Awesome Vite para [modelos mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluam outras ferramentas ou miram abstrações diferentes. Tu podes utilizar uma ferramenta como [degit](https://github.com/Rich-Harris/degit) para gerar o teu projeto com um dos modelos.
+A `create-vite` é uma ferramenta para iniciar um projeto rapidamente a partir de um modelo básico para abstrações populares. Consulte a Awesome Vite para [modelos de projeto mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluam outras ferramentas ou miram abstrações diferentes. Tu podes utilizar uma ferramenta como [degit](https://github.com/Rich-Harris/degit) para gerar o teu projeto com um dos modelos.
 
 ```bash
 npx degit user/project my-project
