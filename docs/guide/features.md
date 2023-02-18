@@ -65,7 +65,7 @@ Tu deves definir `"isolatedModules": true` no teu `tsconfig.json` sob `compilerO
 
 No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs/core/issues/1228)) não funciona bem com `"isolatedModules": true`. Tu podes utilizar `"skipLibCheck": true` para suprimir temporariamente os erros até ser corrigido corrente acima.
 
-#### `useDefineForClassFields`
+#### `useDefineForClassFields` {#usedefineforclassfields}
 
 A partir da Vite 2.5.0, o valor padrão será `true` se o alvo de TypeScript for `ESNext` ou `ES2022` ou mais recente. É consistente com o [comportamento da `tsc` 4.3.2 e adiante](https://github.com/microsoft/TypeScript/pull/42663). É também o comportamento de tempo de execução da ECMASCript padrão.
 
