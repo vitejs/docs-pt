@@ -23,15 +23,15 @@
 - 🔩 Interface de Extensão Universal
 - 🔑 APIs Completamente Tipadas
 
-Vite (palavra Francesa para "rápido", pronunciado [`/vit/`](https://cdn.jsdelivr.net/gh/vitejs/vite@main/docs/public/vite.mp3), como "veet") é uma nova espécie de ferramenta de construção que melhora significativamente a experiência de programação de frontend. Ela consiste em tuas partes principais:
+Vite (palavra Francesa para "rápido", pronunciada [`/vit/`](https://cdn.jsdelivr.net/gh/vitejs/vite@main/docs/public/vite.mp3), como "veet") é uma nova espécie de ferramenta de construção que melhora significativamente a experiência de programação do frontend. Ela consiste em duas partes principais:
 
 - Um servidor de desenvolvimento que serve o teu ficheiros de fonte sobre os [módulos de ECMAScript nativo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), com [funcionalidades embutidas ricas](./features), e [Substituição de Módulo Instantânea (HMR, sigla em Inglês)](./features#substituição-de-módulo-instantânea) surpreendentemente rápida.
 
-Um [comando de construção](https://pt.vitejs.dev/guide/build.html) que empacota o teu código com [Rollup](https://rollupjs.org), pré-configurado para produzir recursos estáticos altamente otimizados para produção.
+- Um [comando de construção](https://vite-docs-pt.netlify.app/guide/build.html) que empacota o teu código com [Rollup](https://rollupjs.org), pré-configurado para produzir recursos estáticos altamente otimizados para produção.
 
-Além disto, a Vite é altamente extensível através de sua [API de Extensão](https://pt.vitejs.dev/guide/api-plugin.html) e [API de JavaScript](https://pt.vitejs.dev/guide/api-javascript.html) como suporte de tipagem completa.
+Além disto, a Vite é altamente extensível através de sua [API de Extensão](https://vite-docs-pt.netlify.app/guide/api-plugin.html) e [API de JavaScript](https://vite-docs-pt.netlify.app/guide/api-javascript.html) como suporte de tipagem completa.
 
-[Leia a Documentação para Aprender Mais](https://pt.vitejs.dev).
+[Leia a Documentação para Saber Mais](https://vite-docs-pt.netlify.app/).
 
 ## Pacotes
 
