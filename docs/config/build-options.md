@@ -79,7 +79,7 @@ Especifica o diretório de saída (relativo à [raiz do projeto](/guide/#index-h
 - **Tipo:** `string`
 - **Predefinido como:** `assets`
 
-Especifica o diretório para encaixar os recursos gerados sob (relativo ao `build.outDir`).
+Especifica o diretório para encaixar os recursos gerados sob (relativo ao `build.outDir`. Isto não é usado no [Modo de Biblioteca](/guide/build#library-mode)).
 
 ## build.assetsInlineLimit {#build-assetsinlinelimit}
 
