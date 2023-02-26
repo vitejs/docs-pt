@@ -22,11 +22,11 @@ Consulte [Utilizando Extensões](../guide/using-plugins) para obter informaçõe
 
 ### [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)
 
-- Usa a esbuild e Babel, alcançando HMR rápida com uma pegada de pacote pequena e a flexibilidade de ser capaz de usar a conduta de transformação da Babel.
+- Usa a esbuild e Babel, alcançando HMR rápida com uma pegada de pacote pequena e a flexibilidade de ser capaz de usar a conduta de transformação da Babel. Sem as extensões adicionais da Babel, apenas a esbuild é usada durante as construções.
 
 ### [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)
 
-- Usa esbuild durante a construção, porém substitui a Babel com SWC durante o desenvolvimento. Para projetos grandes não exige extensões de React não-padronizadas, inicio refrigerado e Substituição de Módulo Instantânea (HMR, sigla em Inglês) pode ser significativamente mais rápido.
+- Substitui a Babel pela SWC durante o desenvolvimento. Durante as construções, a SWC mais a esbuild são usadas quando estiveres a usar extensões, de outro modo apenas a esbuild é usada. Para projetos grandes não exige extensões de React não-padronizadas, inicio refrigerado e Substituição de Módulo Instantânea (HMR, sigla em Inglês) pode ser significativamente mais rápido.
 
 ### [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy)
 
@@ -34,8 +34,8 @@ Consulte [Utilizando Extensões](../guide/using-plugins) para obter informaçõe
 
 ## Extensões da Comunidade {#community-plugins}
 
-Consulte a [awesome-vite](https://github.com/vitejs/awesome-vite#plugins) - tu também podes submeter uma PR para listar as tuas extensões lá.
+Consulte a [awesome-vite](https://github.com/vitejs/awesome-vite#plugins) - também podes submeter uma PR para listar as tuas extensões lá.
 
 ## Extensões de Rollup {#rollup-plugins}
 
-As [extensões de Vite](../guide/api-plugin) são uma extensão da interface de extensão da Rollup. Consulte a [secção de Compatibilidade de Extensão de Rollup](../guide/api-plugin#compatibilidade-de-extensão-de-rollup) para obter mais informações.
+As [extensões de Vite](../guide/api-plugin) são uma extensão da interface de extensão da Rollup. Consulte a [seção de Compatibilidade de Extensão de Rollup](../guide/api-plugin#rollup-plugin-compatibility) para obter mais informações.
