@@ -172,7 +172,7 @@ Os [Gatilhos da Geração da Saída](https://rollupjs.org/plugin-development/#ou
 
 As extensões de Vite também podem fornecer gatilhos que servem aos propósitos específicos da Vite. Estes gatilhos são ignorados pela Rollup.
 
-### `config`
+### `config` {#config}
 
 - **Tipo:** `(config: UserConfig, env: { mode: string, command: string }) => UserConfig | null | void`
 - **Natureza:** `async`, `sequential`
@@ -209,7 +209,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
   As extensões do utilizador são resolvidas antes da execução deste gatilho então injetar outras extensões dentro do gatilho `config` não surtirá efeito.
   :::
 
-### `configResolved`
+### `configResolved` {#config-resolved}
 
 - **Tipo:** `(config: ResolvedConfig) => void | Promise<void>`
 - **Natureza:** `async`, `parallel`
@@ -244,7 +244,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
   Nota que o valor do `command` é `serve` no desenvolvimento (na interface da linha de comando `vite`, `vite dev`, e `vite serve` são pseudónimos).
 
-### `configureServer`
+### `configureServer` {#configure-server}
 
 - **Tipo:** `(server: ViteDevServer) => (() => void) | void | Promise<(() => void) | void>`
 - **Natureza:** `async`, `sequential`
@@ -307,7 +307,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
   Nota que `configureServer` não é chamado quando estiveres a executar a construção de produção assim os outros dos teus gatilhos precisaram proteger-se contra a sua ausência.
 
-### `configurePreviewServer`
+### `configurePreviewServer` {#configure-preview-server}
 
 - **Tipo:** `(server: { middlewares: Connect.Server, httpServer: http.Server }) => (() => void) | void | Promise<(() => void) | void>`
 - **Natureza:** `async`, `sequential`
@@ -331,7 +331,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
   })
   ```
 
-### `transformIndexHtml`
+### `transformIndexHtml` {#transform-index-html}
 
 - **Tipo:** `IndexHtmlTransformHook | { order?: 'pre' | 'post', handler: IndexHtmlTransformHook }`
 - **Natureza:** `async`, `sequential`
@@ -396,7 +396,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
   }
   ```
 
-### `handleHotUpdate`
+### `handleHotUpdate` {#handle-hot-update}
 
 - **Tipo:** `(ctx: HmrContext) => Array<ModuleNode> | void | Promise<Array<ModuleNode> | void>`
 
@@ -483,7 +483,7 @@ Um número considerável de extensões da Rollup funcionará diretamente como um
 
 Em geral, enquanto uma extensão de Rollup cumprir os seguintes critérios então ela deve apenas funcionar como uma extensão de Vite:
 
-- Ela não usa o gatilho [`moduleParsed`](https://rollupjs.org/guide/en/#moduleparsed).
+- Ela não usa o gatilho [`moduleParsed`](https://rollupjs.org/plugin-development/#moduleparsed).
 - Ela não tem forte acoplamento entre gatilhos da fase de empacotamento e fase de saída.
 
 Se a extensão de Rollup apenas fazer sentido para a fase de construção, então ela pode ser especificada sob `build.rollupOptions.plugins`. Ela funcionará da mesma maneira que uma extensão de Vite com `enforce: 'post'` e `apply: 'build'`.
