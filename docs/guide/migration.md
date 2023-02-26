@@ -2,9 +2,9 @@
 
 ## Rollup 3 {#rollup-3}
 
-A Vite agora está a usar [Rollup 3](https://github.com/vitejs/vite/issues/9870), que permitiu-nos simplificar a manipulação de recurso interno da Vite e tem muitos aprimoramentos. Consulte as [notas de lançamento da Rollup 3](https://github.com/rollup/rollup/releases).
+Agora a Vite está a usar [Rollup 3](https://github.com/vitejs/vite/issues/9870), que permitiu-nos simplificar a manipulação de recurso interno da Vite e tem muitos aprimoramentos. Consulte as [notas de lançamento da Rollup 3](https://github.com/rollup/rollup/releases/tag/v3.0.0).
 
-A Rollup 3 é maioritariamente compatível com a Rollup 2. Se estiveres a usar [`rollupOptions`](../config/build-options.md#rollup-options) personalizada no teu projeto e teres problemas, consulte o [Guia de Migração da Rollup](https://rollupjs.org/guide/en/#migration) para atualizar a tua configuração.
+A Rollup 3 é maioritariamente compatível com a Rollup 2. Se estiveres a usar [`rollupOptions`](../config/build-options.md#rollup-options) personalizada no teu projeto e teres problemas, consulte o [Guia de Migração da Rollup](https://rollupjs.org/migration/) para atualizar a tua configuração.
 
 ## Mudança de Linhas de Bases de Navegador Moderno {#modern-browser-baseline-change}
 
