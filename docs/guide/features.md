@@ -12,7 +12,7 @@ import { someMethod } from 'my-dep'
 
 O exemplo acima lançará um erro no navegador. A Vite detetará tais importações simples de módulo em todos os ficheiros de fonte servidos e realizará o seguinte:
 
-1. [Pré-empacotá](./dep-pre-bundling)-os para melhorar a velocidade de carregamento da página e converte módulos CommonJS / UMD para ESM. A etapa de pré-empacotamento é realizada com [esbuild](http://esbuild.github.io/) e torna o tempo de início frio da Vite significativamente mais rápido do que qualquer empacotador baseado em JavaScript.
+1. [Pré-empacota](./dep-pre-bundling)-os para melhorar a velocidade de carregamento da página e converte módulos CommonJS / UMD para ESM. A etapa de pré-empacotamento é realizada com [esbuild](http://esbuild.github.io/) e torna o tempo de início frio da Vite significativamente mais rápido do que qualquer empacotador baseado em JavaScript.
 
 2. Reescreve as importações para URLs válidas como `/node_modules/.vite/deps/my-dep.js?v=f3sf2ebd` para que o navegador possa importá-los apropriadamente.
 
@@ -309,7 +309,7 @@ A Vite suporta a importação de múltiplos módulos do sistema de ficheiro atra
 const modules = import.meta.glob('./dir/*.js')
 ```
 
-O de cima será transformado no seguinte:
+O exemplo de cima será transformado no seguinte:
 
 ```js
 // código produzido pela vite
@@ -329,14 +329,14 @@ for (const path in modules) {
 }
 ```
 
-Os ficheiros correspondidos são por padrão preguiçosamente carregados através da importação dinâmica e serão divididos em pedaços separados durante a construção. Se preferires importar todos os módulos diretamente (por exemplo, depender dos efeitos colaterais nestes módulos a serem aplicados primeiro), podes passar `{ eager: true }` como segundo argumento:
+Os ficheiros correspondidos são por padrão preguiçosamente carregados através da importação dinâmica e serão divididos em pedaços separados durante a construção. Se preferires importar todos os módulos diretamente (por exemplo, dependendo dos efeitos colaterais nestes módulos para serem aplicados primeiro), podes passar `{ eager: true }` como segundo argumento:
 
 
 ```js
 const modules = import.meta.glob('./dir/*.js', { eager: true })
 ```
 
-O de cima será transformado no seguinte:
+O exemplo de cima será transformado no seguinte:
 
 ```js
 // código produzido pela vite
@@ -356,7 +356,7 @@ const modules = {
 const modules = import.meta.glob('./dir/*.js', { as: 'raw' })
 ```
 
-O de cima será transformado no seguinte:
+O exemplo de cima será transformado no seguinte:
 
 ```js
 // código produzido pela vite
