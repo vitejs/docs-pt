@@ -308,12 +308,33 @@ Lista de bloqueio para ficheiros sensíveis sendo restringidos de serem servidos
 
 - **Tipo:** `string`
 
-Define a origem as URLs do recurso gerado durante o desenvolvimento.
+Define a origem das URLs do recurso gerado durante o desenvolvimento.
 
 ```js
 export default defineConfig({
   server: {
     origin: 'http://127.0.0.1:8080'
+  }
+})
+```
+
+## server.sourcemapIgnoreList {#server-sourcemapignorelist}
+
+* **Tipo**: `false | (sourcePath: string, sourcemapPath: string) => boolean`
+* **Predefinido como**: `(sourcePath) => sourcePath.includes('nodes_modules')`
+
+Se deve ou não ignorar ficheiros de código-fonte no mapa do código-fonte do servidor, usado para povoar a extensão `x_google_ignoreList` do mapa do código-fonte.
+
+A `server.sourcemapIgnoreList` é o equivalente de [`build.rollupOptions.output.sourcemapIgnoreList`](https://rollupjs.org/configuration-options/#output-sourcemapignorelist) para o servidor de desenvolvimento. Uma diferença entre as duas opções de configuração é que a função de Rollup é chamada com um caminho relativo para `sourcePath` enquanto `server.sourcemapIgnoreList` é chamada com um caminho absoluto. Durante o desenvolvimento, a maioria dos módulos têm o mapa e o código-fonte no mesmo diretório, assim o caminho relativo para `sourcePath` é o próprio nome do ficheiro. Nestes casos, os caminhos absolutos tornam-o conveniente o seu uso.
+
+Por padrão, ela exclui todos os caminhos contendo `node_modules`. Tu podes passar `false` para desligar este comportamento, ou, para controlar completamente, uma função que recebe o caminho do código-fonte e o caminho do mapa do código-fonte e que retorna se deve ignorar o caminho do código-fonte:
+
+```js
+export default defineConfig({
+  server: {
+    // Isto é o valor padrão, e adicionará todos os ficheiros com `node_modules` nos
+    // seus caminhos para ignorar a lista.
+    sourcemapIgnoreList: (sourcePath, sourcemapPath) => sourcePath.includes('node_modules')
   }
 })
 ```
