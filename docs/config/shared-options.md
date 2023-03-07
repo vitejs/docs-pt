@@ -225,7 +225,15 @@ Nota se uma configuração embutida for fornecida, a Vite não procurará por ou
 
 - **Tipo:** `Record<string, object>`
 
-Especifica opções para passar os pré-processador de CSS. As extensões de ficheiro são usadas como chaves para as opções. Exemplo:
+Especifica opções para passar os pré-processadores de CSS. As extensões de ficheiro são usadas como chaves para as opções. As opções suportadas para cada pré-processador pode ser encontrada na sua respetiva documentação:
+
+- `sass`/`scss` - [Opções](https://sass-lang.com/documentation/js-api/interfaces/LegacyStringOptions).
+- `less` - [Opções](https://lesscss.org/usage/#less-options).
+- `styl`/`stylus` - Apenas a opção [`define`](https://stylus-lang.com/docs/js.html#define-name-node) é suportada, a qual pode ser passada como um objeto.
+
+Todos as opções dos pré-processadores suportam também a opção `additionalData`, a qual pode ser usada para injetar código adicional para cada conteúdo de estilo.
+
+Por exemplo:
 
 ```js
 export default defineConfig({
@@ -234,8 +242,13 @@ export default defineConfig({
       scss: {
         additionalData: `$injectedColor: orange;`
       },
+      less: {
+        math: 'parens-division',
+      },
       styl: {
-        additionalData: `$injectedColor ?= orange`
+        define: {
+          $specialColor: new stylus.nodes.RGBA(51, 197, 255, 1),
+        }
       }
     }
   }
