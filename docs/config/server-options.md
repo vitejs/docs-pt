@@ -332,8 +332,8 @@ Por padrão, ela exclui todos os caminhos contendo `node_modules`. Tu podes pass
 ```js
 export default defineConfig({
   server: {
-    // Isto é o valor padrão, e adicionará todos os ficheiros com `node_modules` nos
-    // seus caminhos para ignorar a lista.
+    // Isto é o valor padrão, e adicionará todos os ficheiros com
+    // `node_modules` nos seus caminhos para lista de ignorância.
     sourcemapIgnoreList: (sourcePath, sourcemapPath) => sourcePath.includes('node_modules')
   }
 })
