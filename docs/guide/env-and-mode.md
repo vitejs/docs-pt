@@ -96,9 +96,20 @@ Se o teu código depender dos tipos dos ambientes do navegador tais como [DOM](h
 }
 ```
 
+## Substituição de Variáveis de Ambiente no HTML
+
+A Vite suporta também a substituição de variáveis de ambiente em ficheiro de HTML. Quaisquer propriedades na `import.meta.env` pode ser usada nos ficheiros de HTML com uma sintaxe `%ENV_NAME%` especial:
+
+```html
+<h1>Vite is running in %MODE%</h1>
+<p>Using data from %VITE_API_URL%</p>
+```
+
+Se a variável de ambiente não existir em `import.meta.env`, por exemplo `%NON_EXISTENT%`, será ignorado e não substituído, diferente de `import.meta.env.NON_EXISTENT` na JavaScript onde seria substituída por `undefined`.
+
 ## Modos {#modes}
 
-Por padrão, o servidor de desenvolvimento (comando `dev`) executa no modo de `development (desenvolvimento)` e o comando `build` executa no modo de `production (produção)`. 
+Por padrão, o servidor de desenvolvimento (comando `dev`) executa no modo de `development (desenvolvimento)` e o comando `build` executa no modo de `production (produção)`.
 
 Isto significa que quando estiveres executando `vite build`, ela carregará as variáveis de ambiente a partir de `.env.production` se houver uma:
 
