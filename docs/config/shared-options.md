@@ -362,6 +362,14 @@ As variáveis de ambiente começando com `envPrefix` serão expostos ao código-
 
 :::warning NOTAS DE SEGURANÇA
 O `envPrefix` não deve ser definido como `''`, o que exporá todas as tuas variáveis de ambiente e causará fugas inesperadas de informações sensíveis. A Vite lançará um erro quando detetar `''`.
+
+Se gostarias de expor uma variável não prefixada, podes usar [`define`](#define) para expo-la:
+
+```js
+define: {
+  'import.meta.env.ENV_VARIABLE': JSON.stringify(process.env.ENV_VARIABLE)
+}
+```
 :::
 
 ## appType {#apptype}
