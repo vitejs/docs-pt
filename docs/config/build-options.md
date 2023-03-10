@@ -116,6 +116,13 @@ Esta opção permite os utilizadores definir um alvo de navegador diferente para
 
 Ela deve apenas ser usada quando estiveres mirando um navegador fora dos padrão. Um exemplo é o Android WeChat WebView, que suporta a maior parte das funcionalidades de JavaScript moderno mais não a [notação de cor hexadecimal `#RGBA` em CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#rgb_colors). Nestes casos, precisas definir `build.cssTarget` para `chrome61` para impedir a Vite de transformar as cores `rgba()` em notações hexadecimal `#RGBA`.
 
+## build.cssMinify {#build-cssminify}
+
+- **Tipo:**
+- **Predefinido como:** o mesmo que [`build.minify`](#build-minify)
+
+Esta opção permite os utilizadores sobrepor a especificamente a minificação de CSS no lugar de padronizar para `build.minify`, assim podes configurar a minificação para código de JavaScript e CSS separadamente. A Vite usa a `esbuild` para minificar o CSS.
+
 ## build.sourcemap {#build-sourcemap}
 
 - **Tipo:** `boolean | 'inline' | 'hidden'`
