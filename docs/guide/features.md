@@ -250,9 +250,12 @@ Tu podes também utilizar os módulos de CSS combinados com os pré-processadore
 A injeção automática de conteúdos de CSS pode ser desligada através da parâmetro de consulta `?inline`. Neste caso, a sequência de caracteres da CSS processada é retornada como exportação padrão do módulo como de costume, mas os estilos não são injetados para página.
 
 ```js
-import styles from './foo.css' // será injetado na página
 import otherStyles from './bar.css?inline' // não será injetado na página
 ```
+
+:::tip NOTA
+As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import style from './foo.css'`) estão depreciadas desde a Vite 4. Use o consulta de `?inline`.
+:::
 
 ## Recursos Estáticos {#static-assets}
 
