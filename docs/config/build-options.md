@@ -11,7 +11,7 @@ Alvo da compatibilidade de navegador para o pacote final. O valor padrão é um 
 Um outro valor especial é `'esnext'` - que presume o suporte de importações dinâmicas nativa e traduzirá o código o menos possível:
 
 
-- Se a opção [`build.minify`](#build-minify) for `'terser'`, `'esnext'` será forçado até `'es2021'`.
+- Se a opção [`build.minify`](#build-minify) for `'terser'` e a versão de Terser instalada estiver abaixo de 5.16.0, `'esnext'` será forçada até `'es2021'`.
 - Em outros casos, ele não realizará nenhuma tradução de código.
 
 A transformação é realizada com `esbuild` e o valor deve ser uma [opção `target` da `esbuild`](https://esbuild.github.io/api/#target) válida. Os alvos personalizados pode ser tanto uma versão de ECMAScript (por exemplo, `es2015`), um navegador com aversão (por exemplo, `chrome58`), ou um arranjo de várias sequências de caracteres de alvos.
