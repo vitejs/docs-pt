@@ -96,7 +96,7 @@ Os tipos padrão da Vite são para a sua API de Node.js. Para calçar o ambiente
 /// <reference types="vite/client" />
 ```
 
-Além disto, podes adicionar `vite/client` ao `compilerOptions.types` do teu `tsconfig`:
+Alternativamente, podes adicionar `vite/client` ao `compilerOptions.types` dentro do teu `tsconfig.json`:
 
 ```json
 {
