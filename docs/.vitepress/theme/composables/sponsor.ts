@@ -21,6 +21,11 @@ const data = ref()
 const dataHost = 'https://sponsors.vuejs.org'
 const dataUrl = `${dataHost}/vite.json`
 
+// no sponsors yet :(
+const viteSponsors: Pick<Sponsors, 'gold'> = {
+  gold: [],
+}
+
 export function useSponsor() {
   onMounted(async () => {
     if (data.value) {
@@ -41,14 +46,14 @@ export function useSponsor() {
 function mapSponsors(sponsors: Sponsors) {
   return [
     {
-      tier: 'Patrocinador Platina',
+      tier: 'Patrocinador de Platina',
       size: 'big',
       items: mapImgPath(sponsors['platinum'])
     },
     {
-      tier: 'Patrocinadores Ouro',
+      tier: 'Patrocinadores de Ouro',
       size: 'medium',
-      items: mapImgPath(sponsors['gold'])
+      items: viteSponsors['gold'].concat(mapImgPath(sponsors['gold']))
     }
   ]
 }
