@@ -323,7 +323,7 @@ export default defineConfig({
 * **Tipo**: `false | (sourcePath: string, sourcemapPath: string) => boolean`
 * **Predefinido como**: `(sourcePath) => sourcePath.includes('nodes_modules')`
 
-Se deve ou não ignorar ficheiros de código-fonte no mapa do código-fonte do servidor, usado para povoar a extensão `x_google_ignoreList` do mapa do código-fonte.
+Se deve ou não ignorar ficheiros de código-fonte no mapa do código-fonte do servidor, usado para povoar a [extensão `x_google_ignoreList` do mapa do código-fonte](https://developer.chrome.com/articles/x-google-ignore-list/).
 
 A `server.sourcemapIgnoreList` é o equivalente de [`build.rollupOptions.output.sourcemapIgnoreList`](https://rollupjs.org/configuration-options/#output-sourcemapignorelist) para o servidor de desenvolvimento. Uma diferença entre as duas opções de configuração é que a função de Rollup é chamada com um caminho relativo para `sourcePath` enquanto `server.sourcemapIgnoreList` é chamada com um caminho absoluto. Durante o desenvolvimento, a maioria dos módulos têm o mapa e o código-fonte no mesmo diretório, assim o caminho relativo para `sourcePath` é o próprio nome do ficheiro. Nestes casos, os caminhos absolutos tornam-o conveniente o seu uso.
 
