@@ -156,3 +156,7 @@ Por exemplo, podes ver estes erros.
 > (Tradução) Erro de Tipo: Não possível criar a propriedade `'foo'` sobre o booleano '`false`'
 
 Se estes códigos são utilizados dentro de dependências, poderias utilizar [`patch-package`](https://github.com/ds300/patch-package) (ou [`yarn patch`](https://yarnpkg.com/cli/patch) ou [`pnpm patch`](https://pnpm.io/cli/patch)) por uma escotilha de saída.
+
+### Extensões de Navegador {#browser-extensions}
+
+Algumas extensões de navegador (como bloqueadores de anúncios) podem impedir o cliente da Vite de enviar requisições para o servidor de desenvolvimento da Vite. Tu podes ver um ecrã branco sem erros registados neste caso. Tente desativar as extensões se tiveres este problema.
