@@ -111,7 +111,7 @@ Quando atribuíres pseudónimos aos caminhos do sistema de ficheiro, use sempre 
 Mais resoluções personalizadas avançadas podem ser alcançado através de [extensões](/guide/api-plugin).
 
 ::: warning Usando com SSR
-Se tiveres pseudónimos configurados para [dependências expostas da SSR](/guide/ssr.md#ssr-externals), podes desejar atribuir pseudónimo os pacotes do `node_modules`. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.js.org/en/aliases) suportam a atribuição pseudónimos através do prefixo `npm:`.
+Se tiveres pseudónimos configurados para [dependências expostas da SSR](/guide/ssr.md#ssr-externals), podes desejar atribuir pseudónimo os pacotes do `node_modules`. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a atribuição pseudónimos através do prefixo `npm:`.
 :::
 
 ## resolve.dedupe {#resolve-dedupe}
