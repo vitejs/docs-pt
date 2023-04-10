@@ -74,7 +74,7 @@ async function createServer() {
   const app = express()
 
   // Cria o servidor de Vite no mode de intermediário e configura o tipo da
-  // aplicação como 'custom', desativando a lógica de serviço de HTML 
+  // aplicação como 'custom', desativando a lógica de serviço de HTML
   // própria da Vite assim o servidor pode tomar o controlo.
   const vite = await createViteServer({
     server: { middlewareMode: true },
@@ -217,7 +217,7 @@ Se uma dependência precisa ser transformada pela conduta da Vite, por exemplo, 
 Para as dependências ligadas, não são expostas por padrão para tirarem vantagem da HMR da Vite. Se isto não for desejado, por exemplo, para testar as dependências como se elas não estivessem ligadas, podes adicioná-lo ao [`ssr.external`](../config/ssr-options.md#ssr-external).
 
 :::warning Trabalhando com Pseudónimos
-Se tiveres pseudónimos configurados que redirecionam um pacote para um outro, podes querer atribuir pseudónimo aos pacotes do `node_modules` ao  invés de fazê-lo funcionar para as dependências expostas de SSR. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [PNPM](https://pnpm.js.org/en/aliases) suportam a definição de pseudónimos através do prefixo `npm:`.
+Se tiveres pseudónimos configurados que redirecionam um pacote para um outro, podes querer atribuir pseudónimo aos pacotes do `node_modules` ao  invés de fazê-lo funcionar para as dependências expostas de SSR. Ambos [yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a definição de pseudónimos através do prefixo `npm:`.
 :::
 
 ## Lógica de Extensão Específica de SSR {#ssr-specific-plugin-logic}
