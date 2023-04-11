@@ -74,7 +74,7 @@ Tu podes ler mais a respeito da transição nas [notas de lançamento da TypeScr
 
 Se estiveres a utilizar uma biblioteca que depende fortemente de campos de classe, por favor seja cuidadoso a respeito da utilização tencionada da biblioteca dela.
 
-Muitas bibliotecas esperam `"useDefineForClassFields": true`, tais como [MobX](https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties), [Componentes de Classe de Vue 8.x](https://github.com/vuejs/vue-class-component/issues/465), etc.
+Muitas bibliotecas esperam `"useDefineForClassFields": true`, tais como [MobX](https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties).
 
 Mas algumas bibliotecas não transitaram para este novo padrão ainda, incluindo [`lit-element`](https://github.com/lit/lit-element/issues/1030). Por favor defina explicitamente `useDefineForClassFields` para `false` nestes casos.
 
