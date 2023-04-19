@@ -353,10 +353,10 @@ const modules = {
 
 ### Importação de Glob Como {#glob-import-as}
 
-`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](https://vitejs.dev/guide/assets.html#importing-asset-as-string)) com a sintaxe de [Importação Reflexa](https://github.com/tc39/proposal-import-reflection):
+`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](https://vitejs.dev/guide/assets.html#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
 
 ```js
-const modules = import.meta.glob('./dir/*.js', { as: 'raw' })
+const modules = import.meta.glob('./dir/*.js', { as: 'raw', eager: true })
 ```
 
 O exemplo de cima será transformado no seguinte:
