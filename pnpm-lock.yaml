@@ -3,15 +3,15 @@ lockfileVersion: '6.0'
 dependencies:
   vitepress:
     specifier: ^1.0.0-alpha.46
-    version: 1.0.0-alpha.46(@algolia/client-search@4.13.1)(@types/node@18.15.12)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
+    version: 1.0.0-alpha.46(@algolia/client-search@4.13.1)(@types/node@18.15.13)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@algolia/client-search':
     specifier: ^4.13.1
     version: 4.13.1
   '@types/node':
-    specifier: 18.15.12
-    version: 18.15.12
+    specifier: 18.15.13
+    version: 18.15.13
   '@types/react':
     specifier: ^18.0.15
     version: 18.0.15
@@ -389,8 +389,8 @@ packages:
     dev: false
     optional: true
 
-  /@types/node@18.15.12:
-    resolution: {integrity: sha512-Wha1UwsB3CYdqUm2PPzh/1gujGCNtWVUYF0mB00fJFoR4gTyWTDPjSm+zBF787Ahw8vSGgBja90MkgFwvB86Dg==}
+  /@types/node@18.15.13:
+    resolution: {integrity: sha512-N+0kuo9KgrUQ1Sn/ifDXsvg0TTleP7rIy4zOBGECxAljqvqfqpTfzx0Q1NUedOixRMBfe2Whhb056a42cWs26Q==}
 
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -416,7 +416,7 @@ packages:
       vite: ^4.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 4.1.2(@types/node@18.15.12)
+      vite: 4.1.2(@types/node@18.15.13)
       vue: 3.2.47
     dev: false
 
@@ -742,7 +742,7 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /vite@4.1.2(@types/node@18.15.12):
+  /vite@4.1.2(@types/node@18.15.13):
     resolution: {integrity: sha512-MWDb9Rfy3DI8omDQySbMK93nQqStwbsQWejXRY2EBzEWKmLAXWb1mkI9Yw2IJrc+oCvPCI1Os5xSSIBYY6DEAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -767,7 +767,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.15.12
+      '@types/node': 18.15.13
       esbuild: 0.16.17
       postcss: 8.4.21
       resolve: 1.22.1
@@ -776,7 +776,7 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress@1.0.0-alpha.46(@algolia/client-search@4.13.1)(@types/node@18.15.12)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0):
+  /vitepress@1.0.0-alpha.46(@algolia/client-search@4.13.1)(@types/node@18.15.13)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-HiKiHzC0iTPsRsKs8XcsMeMzCpcCt5LWcX9mpDr288Ju+nQf1G8A2+Wm44ZkBsVv4EHxFK4ChmWyZrL1OJUXpg==}
     hasBin: true
     dependencies:
@@ -787,7 +787,7 @@ packages:
       '@vueuse/core': 9.13.0(vue@3.2.47)
       body-scroll-lock: 4.0.0-beta.0
       shiki: 0.14.1
-      vite: 4.1.2(@types/node@18.15.12)
+      vite: 4.1.2(@types/node@18.15.13)
       vue: 3.2.47
     transitivePeerDependencies:
       - '@algolia/client-search'
