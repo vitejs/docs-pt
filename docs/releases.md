@@ -1,61 +1,61 @@
-# Releases {#releases}
+# Lançamentos {#releases}
 
-Vite releases follow [Semantic Versioning](https://semver.org/). You can see the latest stable version of Vite in the [Vite npm package page](https://www.npmjs.com/package/vite).
+Os lançamentos da Vite seguem o [Versionamento Semântico](https://semver.org/). Tu podes ver a versão estável mais recente da Vite na [página do pacote de npm da Vite](https://www.npmjs.com/package/vite).
 
-A full changelog of past releases is [available on GitHub](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md).
+Um relatório de mudança completo dos lançamentos passados está [disponível na GitHub](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md).
 
-::: tip note
-The next Vite Major release will happen after the Node 16 EOL in September.
+:::tip NOTA
+O próximo lançamento principal da Vite acontecerá depois do FIM DE VIDA da Node 16 em Setembro.
 
-Check out the [Vite 5 discussion](https://github.com/vitejs/vite/discussions/12466) for more information.
+Consulte a [discussão a respeito da Vite 5](https://github.com/vitejs/vite/discussions/12466) para mais informações.
 :::
 
-## Release Cycle​ {#release-cycle}
+## Ciclo de Lançamento {#release-cycle}
 
-Vite does not have a fixed release cycle.
+A Vite não tem um ciclo de lançamento fixo.
 
-- **Patch** releases are released as needed.
-- **Minor** releases always contain new features and are also released as needed. Minor releases always go through a beta pre-release phase.
-- **Major** releases generally align with [Node.js EOL schedule](https://endoflife.date/nodejs), and will be announced ahead of time. These releases will go through an early discussion phase, and both alpha and beta pre-release phases.
+- Lançamentos de **remendo** são lançados quando necessário.
+- Lançamentos **secundários** sempre contém novas funcionalidades e também são lançados quando necessários.
+- Lançamentos **principais** geralmente alinham-se com a [agenda do FIM DE VIDA da Node.js](https://endoflife.date/nodejs), e serão anunciados com antecedência. Estes lançamentos passaram por uma fase de discussão prévia, e ambas fases de pré-lançamento alfa e beta.
 
-The previous Vite Major will keep receiving important fixes and security patches. After that, it would only get updates if there are security concerns. We recommend updating Vite regularly. Check out the [Migration Guides](https://vitejs.dev/guide/migration.html) when you update to each Major.
+Os anteriores versões principais de Vite continuarão a receber correções e remendos de segurança importantes. Depois disto, apenas receberiam atualizações se houverem razões de segurança. Nós recomendados atualizar a Vite regularmente. Consulte os [Guias de Migração](https://pt.vitejs.dev/guide/migration.html) quando atualizares para cada versão principal.
 
-The Vite team partners with the main projects in the ecosystem to test new Vite versions before they are released through the [vite-ecosystem-ci project](https://github.com/vitejs/vite-ecosystem-ci). Most projects using Vite should be able to quickly offer support or migrate to new versions as soon as they are released.
+Os parceiros da equipa da Vite com projetos principais no ecossistema para testar as novas versões de Vite antes de serem lançadas através do [projeto vite-ecosystem-ci]. A maioria dos projetos usando a Vite deveriam ser capazes de rapidamente oferecer suporte ou migrar para as novas versões logo que forem lançadas.
 
-## Semantic Versioning Edge Cases {#semantic-versioning-edge-cases}
+## Casos Extremos de Versionamento Semântico {#semantic-versioning-edge-cases}
 
-### TypeScript Definitions​ {#typescript-definitions}
+### Definições de TypeScript {#typescript-definitions}
 
-We may ship incompatible changes to TypeScript definitions between minor versions. This is because:
+Pode ser que entreguemos mudanças incompatíveis com as definições de TypeScript entre versões secundárias. Isto porque:
 
-- Sometimes TypeScript itself ships incompatible changes between minor versions, and we may have to adjust types to support newer versions of TypeScript.
-- Occasionally we may need to adopt features that are only available in a newer version of TypeScript, raising the minimum required version of TypeScript.
-- If you are using TypeScript, you can use a semver range that locks the current minor and manually upgrade when a new minor version of Vite is released.
+- Algumas vezes a própria TypeScript entrega mudanças incompatíveis entre versões secundárias, e podemos ter de ajustar os tipos para suportar versões mais novas da TypeScript.
+- Ocasionalmente podemos precisar de adotar funcionalidades que apenas estão disponíveis numa versão mais recente da TypeScript, elevando a versão mínima obrigatória de TypeScript.
+- Se estiveres a usar a TypeScript, podes usar um limite de versionamento semântico que tranca a atual versão secundária e atualizar manualmente quando uma nova versão secundária da Vite for lançada.
 
 ### esbuild {#esbuild}
 
-[esbuild](https://esbuild.github.io/) is pre-1.0.0 and sometimes it has a breaking change we may need to include to have access to newer features and performance improvements. We may bump the esbuild's version in a Vite Minor.
+A [esbuild](https://esbuild.github.io/) está na pré-1.0.0 e algumas vezes tem uma mudança de rutura que podemos precisar de incluir para ter acesso às novas funcionalidades e melhorias de desempenho. Nós podemos bater a versão da esbuild numa versão secundária da Vite.
 
-### Node.js non-LTS versions
+### Versões Que Não Faz Parte do Suporte de Longo Prazo da Node.js {#node-js-non-lts-versions}
 
-Non-LTS Node.js versions (odd-numbered) are not tested as part of Vite's CI, but they should still work before their [EOL](https://endoflife.date/nodejs).
+As versões que não fazem parte do suporte de longo prazo da Node.js (numerados com ímpares) não são testas como parte da integração continua da Vite, mas devem continuar a funcionar antes do [FIM DA SUA VIDA](https://endoflife.date/nodejs).
 
-## Pre Releases​ {#pre-releases}
+## Pré-Lançamentos {#pre-releases}
 
-Minor releases typically go through a non-fixed number of beta releases. Major releases will go through an alpha phase and a beta phase.
+Os lançamentos secundários normalmente passam por um número não fixo de lançamentos beta. Os lançamentos principais passarão por uma fase alfa e uma fase beta.
 
-Pre-releases allow early adopters and maintainers from the Ecosystem to do integration and stability testing, and provide feedback. Do not use pre-releases in production. All pre-releases are considered unstable and may ship breaking changes in between. Always pin to exact versions when using pre-releases.
+Os pré-lançamentos permitem que os primeiros adotantes e gestores do ecossistema a fazer a integração e testes de estabilidade, e fornecer comentários. Não use os pré-lançamentos em produção. Todos os pré-lançamentos são considerados instáveis e podem entregar mudanças de rutura no meio. Sempre coloque as versões exatas quando usas pré-lançamentos.
 
-## Deprecations​ {#deprecations}
+## Depreciações {#deprecations}
 
-We periodically deprecate features that have been superseded by better alternatives in Minor releases. Deprecated features will continue to work with a type or logged warning. They will be removed in the next major release after entering deprecated status. The [Migration Guide](https://vitejs.dev/guide/migration.html) for each major will list these removals and document an upgrade path for them.
+Nós depreciamos periodicamente funcionalidades que tem sido substituídas por alternativas melhores nos lançamentos secundários. As funcionalidades depreciadas continuarão a funcionar com um aviso de tipo ou registado. Eles serão removidos no próximo lançamento primário depois de entrar no estado de depreciado. O [Guia de Migração](https://vitejs.dev/guide/migration.html) para cada lançamento primário listarão estas remoções e documentarão um caminho de atualizar para elas.
 
-## Experimental Features​ {experimental-features}
+## Funcionalidades Experimentais {experimental-features}
 
-Some features are marked as experimental when released in a stable version of Vite. Experimental features allows us to gather real-world experience to influence their final design. The goal is to let users provide feedback by testing them in production. Experimental features themselves are considered unstable, and should only be used in a controlled manner. These features may change between Minors, so users must pin their Vite version when they rely on them.
+Algumas funcionalidades são marcadas como experimentais quando lançadas numa versão estável da Vite. As funcionalidades experimentais permitem-nos reunir a experiência no mundo real para influenciar o seu desenho final. O objetivo é permitir os utilizadores fornecer comentários testando-as em produção. As próprias funcionalidades experimentais são consideradas instáveis, e apenas deveriam ser usadas de uma maneira controlada. Estas funcionalidades podem entre versões secundárias, então os utilizadores devem alfinetar suas versões de Vite quando dependem delas.
 
-## RFCs​ {rfcs}
+## Requisição Por Comentários {rfcs}
 
-Many changes, including features, bug fixes, and documentation improvements are discussed, implemented and reviewed via GitHub discussions, issues, and pull requests workflow. For substantial changes that would affect several downstream projects, we offer a Request For Comments (RFC) process to help gather consensus among the Vite core team, the Ecosystem, and the community.
+Muitas mudanças, incluindo funcionalidades, correções de erro de programação, e melhorias da documentação são discutidas, implementadas e revisadas através das discussões, questões, fluxo de trabalho dos pedidos de atualização da GitHub. Para mudanças substanciais que afetariam vários projetos rio abaixo, oferecemos um processo de Requisição Por Comentários (RFC, sigla em Inglês) para ajudar a reunir consenso entre a equipa principal, o ecossistema, e a comunidade da Vite.
 
-Continue reading about the RFC process in the [vitejs/rfcs](https://github.com/vitejs/rfcs) repo on GitHub.
+Continue a leitura sobre o processo de RFC no repositório [vitejs/rfcs](https://github.com/vitejs/rfcs) na GitHub.
