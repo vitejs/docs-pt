@@ -18,7 +18,11 @@ Consulte [Utilizando Extensões](../guide/using-plugins) para obter informaçõe
 
 ### [@vitejs/plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
 
-- Fornece suporta aos Componentes de Ficheiro Único da Vue 2.
+- Fornece suporta aos Componentes de Ficheiro Único da Vue 2.7.
+
+### [@vitejs/plugin-vue2-jsx](https://github.com/vitejs/vite-plugin-vue2-jsx)
+
+- Fornece suporte a Extensão de Sintaxe de JavaScript de Vue 2.7 (através da [transformação de babel dedicada](https://github.com/vuejs/jsx-vue2/)).
 
 ### [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react)
 
