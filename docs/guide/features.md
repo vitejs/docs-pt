@@ -140,10 +140,10 @@ Por exemplo, para fazer a importação padrão de um componente `*.svg` de React
 
 A Vite fornece suporte a Vue de primeira classe:
 
-- Suporte ao Componente de Ficheiro Único de Vue (Vue 3 SFC) através de [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
-- Suporte a Extensão de Sintaxe de JavaScript de Vue 3 (Vue 3 JSX) através de [@vitejs/plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)
-- Suporte a Vue 2.7 através de [@vitejs/plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
-- Suporte a Vue <2.7 através de [vite-plugin-vue2](https://github.com/underfin/vite-plugin-vue2)
+- Suporte ao Componente de Ficheiro Único de Vue 3 através de [@vitejs/plugin-vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue)
+- Suporte a Extensão de Sintaxe de JavaScript de Vue 3 através de [@vitejs/plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx)
+- Suporte ao Componente de Ficheiro Único de Vue 2.7 através de [@vitejs/plugin-vue2](https://github.com/vitejs/vite-plugin-vue2)
+- Suporte a Extensão de Sintaxe de JavaScript de Vue 2.7 através de [@vitejs/vite-plugin-vue2-jsx](https://github.com/vitejs/vite-plugin-vue2-jsx)
 
 ## JSX {#jsx}
 
