@@ -159,6 +159,10 @@ Os seguintes gatilhos são chamados em cada requisição de módulo externa:
 - [`load`](https://rollupjs.org/plugin-development/#load)
 - [`transform`](https://rollupjs.org/plugin-development/#transform)
 
+Estes gatilhos também têm um parâmetro `options` estendido com propriedades específicas de Vite adicionais. Tu podes ler mais na [documentação da SSR](/guide/ssr#ssr-specific-plugin-logic).
+
+Alguns valores de `importar` da chamada de `resolveId` podem ser um caminho absoluto para um `index.html` genérico na raiz visto que não é sempre possível derivar o verdadeiro importador devido ao padrão do servidor de desenvolvimento desempacotado da Vite. Para as importações manipuladas dentro da conduta de resolução da Vite, o importador pode ser rastreado durante a fase de analise da importação, fornecendo o valor de `importer` correto.
+
 Os seguintes gatilhos são chamados quando o servidor é fechado:
 
 - [`buildEnd`](https://rollupjs.org/plugin-development/#buildend)
