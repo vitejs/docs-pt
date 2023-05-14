@@ -53,9 +53,3 @@ Nós depreciamos periodicamente funcionalidades que tem sido substituídas por a
 ## Funcionalidades Experimentais {experimental-features}
 
 Algumas funcionalidades são marcadas como experimentais quando lançadas numa versão estável da Vite. As funcionalidades experimentais permitem-nos reunir a experiência no mundo real para influenciar o seu desenho final. O objetivo é permitir os utilizadores fornecer comentários testando-as em produção. As próprias funcionalidades experimentais são consideradas instáveis, e apenas deveriam ser usadas de uma maneira controlada. Estas funcionalidades podem entre versões secundárias, então os utilizadores devem alfinetar suas versões de Vite quando dependem delas.
-
-## Requisição Por Comentários {rfcs}
-
-Muitas mudanças, incluindo funcionalidades, correções de erro de programação, e melhorias da documentação são discutidas, implementadas e revisadas através das discussões, questões, fluxo de trabalho dos pedidos de atualização da GitHub. Para mudanças substanciais que afetariam vários projetos rio abaixo, oferecemos um processo de Requisição Por Comentários (RFC, sigla em Inglês) para ajudar a reunir consenso entre a equipa principal, o ecossistema, e a comunidade da Vite.
-
-Continue a leitura sobre o processo de RFC no repositório [vitejs/rfcs](https://github.com/vitejs/rfcs) na GitHub.
