@@ -99,7 +99,7 @@ Se especificares `build.lib`, `build.assetsInlineLimit` será ignorado e os recu
 - **Tipo:** `boolean`
 - **Predefinido como:** `true`
 
-Ativa e desativa a separação de código de CSS. Quando ativada, a CSS importada nos pedaços assíncronos serão embutidos no próprio pedaço assíncrono e inserido quando o pedaço for carregado.
+Ativa ou desativa a separação de código de CSS. Quando ativada, a CSS importada nos pedaços assíncronos serão preservados como pedaços e trazidos juntos quando o pedaço for requisitado.
 
 Se desativada, todas CSS no projeto inteiro serão extraídas em um único ficheiro de CSS.
 
