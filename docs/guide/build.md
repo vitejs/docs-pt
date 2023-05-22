@@ -1,6 +1,6 @@
 # Construindo para Produção {#building-for-production}
 
-Quando for o momento de desdobrar a tua aplicação para produção, execute simplesmente o comando `vite build`. Por padrão, ele utiliza `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequada para ser servido sobre um serviço de hospedagem estática. Consulte o [Desdobrando um Sítio Estático](./static-deploy) por guias a respeito dos serviços populares.
+Quando for o momento de desdobrar a tua aplicação para produção, execute simplesmente o comando `vite build`. Por padrão, ele utiliza `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequada para ser servido sobre um serviço de hospedagem estática. Consulte o [Desdobrando um Sítio Estático](static-deploy) por guias a respeito dos serviços populares.
 
 ## Compatibilidade de Navegador {#browser-compatibility}
 
@@ -11,7 +11,7 @@ O pacote de produção presume suporte para JavaScript moderno. Por padrão, a V
 - Safari >=13
 - Edge >=88
 
-Tu podes especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options.md#build-target), onde o alvo inferior é `es2015`.
+Tu podes especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
 
 Nota que por padrão, a Vite apenas manipula transformações de sintaxe e **não cobre "polyfills" por padrão**. Tu podes consultar [Polyfill.io](https://polyfill.io/v3/) o qual é um serviço que gera automaticamente pacotes de "polyfill" baseado na sequência de caracteres de "UserAgent" do navegador do utilizador.
 
@@ -19,15 +19,15 @@ Os navegadores legados podem ser suportados através [@vitejs/plugin-legacy](htt
 
 ## Caminho de Base Pública {#public-base-path}
 
-- Relacionado ao: [Manipulação de Recurso](./assets)
+- Relacionado ao: [Manipulação de Recurso](assets)
 
-Se estiveres desdobrando o teu projeto sob um caminho público encaixado, simplesmente especifique a [opção de configuração `base`](/config/shared-options.md#base) e todos caminhos de recurso serão sobrescritos por consequência. Esta opção também pode ser especificada como uma bandeira de linha de comando, por exemplo, `vite build --base=/my/public/path/`.
+Se estiveres desdobrando o teu projeto sob um caminho público encaixado, simplesmente especifique a [opção de configuração `base`](/config/shared-options#base) e todos caminhos de recurso serão sobrescritos por consequência. Esta opção também pode ser especificada como uma bandeira de linha de comando, por exemplo, `vite build --base=/my/public/path/`.
 
 As URLs de recurso importado de JavaScript, referências de `url()` da CSS, e referências de recurso nos teus ficheiros `.html` são todos ajustados automaticamente para respeitar esta opção durante a construção.
 
 A exceção está quando precisares concatenar dinamicamente as URLs. Neste caso, podes utilizar a variável `import.meta.env.BASE_URL` injetada globalmente a qual será o caminho de base pública. Nota que esta variável é substituída estaticamente durante a construção então deve aparecer exatamente como está (por exemplo, `import.meta.env['BASE_URL']` não funcionará).
 
-Para controlo de caminho de base avançado, consulte [Opções de Base Avançada](#opções-de-base-avançada)
+Para controlo de caminho de base avançado, consulte [Opções de Base Avançada](#advanced-base-options)
 
 ## Personalizando a Construção {#customizing-the-build}
 
@@ -228,9 +228,9 @@ Um utilizador pode escolher desdobrar em três caminhos diferentes:
 
 - Os ficheiros de HTML de entrada gerados (os quais podem ser processados durante a SSR)
 - O recursos embaralhados gerados (JS, CSS, e outros tipos de ficheiros como imagens)
-- Os [ficheiros públicos](assets.md#o-diretório-public) copiados
+- Os [ficheiros públicos](assets#the-public-directory) copiados
 
-Uma única [base](#caminho-de-base-pública) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançada durante a construção, utilizando a `experimental.renderBuiltUrl`.
+Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançada durante a construção, utilizando a `experimental.renderBuiltUrl`.
 
 ```ts
 experimental: {
