@@ -545,7 +545,7 @@ import MyWorker from './worker?worker'
 const worker = new MyWorker()
 ```
 
-O programa operário pode também utilizar declarações de `import` no lugar de `importScripts()` - nota que durante o desenvolvimento isto depende do suporte nativo do navegador e atualmente só funciona no Chrome, mas para a construção de produção é compilada fora.
+O programa operário pode também utilizar declarações de `import` no lugar de `importScripts()`. **Nota**: durante o desenvolvimento isto depende do [suporte nativo do navegador](https://caniuse.com/?search=module%20worker) (atualmente não suportado no Firefox), mas para a construção de produção é compilado fora.
 
 Por padrão, o programa operário será emitido como um pedaço separado na construção de produção. Se desejares embutir o operário como sequências de caracteres de base64, adicione a consulta `inline`:
 
