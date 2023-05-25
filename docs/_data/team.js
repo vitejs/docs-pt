@@ -5,7 +5,7 @@ export const core = [
     title: 'Criador',
     org: 'Vue.js',
     orgLink: 'https://vuejs.org/',
-    desc: 'Programador independente de código-aberto, criador de Vue.js e Vite.',
+    desc: 'Programador Independente de Código-Aberto, Criador da Vue e Vite.',
     links: [
       { icon: 'github', link: 'https://github.com/yyx990803' },
       { icon: 'twitter', link: 'https://twitter.com/youyuxi' }
@@ -15,10 +15,10 @@ export const core = [
   {
     avatar: 'https://www.github.com/patak-dev.png',
     name: 'Patak',
-    title: 'Um ser colaborativo',
+    title: 'Um Ser Colaborativo',
     org: 'StackBlitz',
     orgLink: 'https://stackblitz.com/',
-    desc: 'Membro da equipa principal de Vite. Membro da equipa de Vue.',
+    desc: 'Membro da Equipa Principal da Vite. Membro da Equipa da Vue.',
     links: [
       { icon: 'github', link: 'https://github.com/patak-dev' },
       { icon: 'twitter', link: 'https://twitter.com/patak_dev' }
@@ -28,28 +28,15 @@ export const core = [
   {
     avatar: 'https://www.github.com/antfu.png',
     name: 'Anthony Fu',
-    title: 'Um programador fanático de código-aberto',
+    title: 'Um Programador Fanático Por Código-Aberto',
     org: 'NuxtLabs',
     orgLink: 'https://nuxtlabs.com/',
-    desc: 'Membro da equipa principal de Vite e Vue. Trabalhando na NuxtLabs.',
+    desc: 'Membro da Equipa Principal da Vue e Vite.',
     links: [
       { icon: 'github', link: 'https://github.com/antfu' },
       { icon: 'twitter', link: 'https://twitter.com/antfu7' }
     ],
     sponsor: 'https://github.com/sponsors/antfu'
-  },
-  {
-    avatar: 'https://github.com/sodatea.png',
-    name: 'Haoqun Jiang',
-    title: 'Programador',
-    org: 'Vue.js',
-    orgLink: 'https://vuejs.org/',
-    desc: 'Membro da equipa principal da Vue e Vite. Colaborador em tempo integral em projetos de código-aberto.',
-    links: [
-      { icon: 'github', link: 'https://github.com/sodatea' },
-      { icon: 'twitter', link: 'https://twitter.com/haoqunjiang' }
-    ],
-    sponsor: 'https://github.com/sponsors/sodatea'
   },
   {
     avatar: 'https://github.com/Shinigami92.png',
@@ -79,7 +66,7 @@ export const core = [
     avatar: 'https://github.com/bluwy.png',
     name: 'Bjorn Lu',
     title: 'Programador de Código-Aberto',
-    desc: 'Internato complementar do núcleo da Astro. Membro da equipa principal da Vite e Svelte.',
+    desc: 'Membro da Equipa Principal da Svelte e Vite.',
     links: [
       { icon: 'github', link: 'https://github.com/bluwy' },
       { icon: 'twitter', link: 'https://twitter.com/bluwyoo' }
@@ -90,7 +77,7 @@ export const core = [
     avatar: 'https://github.com/poyoho.png',
     name: 'yoho',
     title: 'Programador de Frontend',
-    desc: 'Frontend. Membro da equipa de Vite.',
+    desc: 'Membro da Equipa da Vite.',
     links: [
       { icon: 'github', link: 'https://github.com/poyoho' },
       { icon: 'twitter', link: 'https://twitter.com/yoho_po' }
@@ -100,7 +87,7 @@ export const core = [
     avatar: 'https://github.com/sapphi-red.png',
     name: 'green',
     title: 'Programador de Web',
-    desc: 'Membro da equipa da Vite. Chama-me sapphi ou green ou midori ;)',
+    desc: 'Membro da Equipa da Vite. Chama-me sapphi ou green ou midori 😉',
     links: [
       { icon: 'github', link: 'https://github.com/sapphi-red' },
       { icon: 'twitter', link: 'https://twitter.com/sapphi_red' }
@@ -113,7 +100,7 @@ export const core = [
     title: 'Programador',
     org: 'Vue.js',
     orgLink: 'https://vuejs.org/',
-    desc: 'Membro da equipa principal da Vite/Vite. Programador de código-aberto em tempo integral.',
+    desc: 'Membro da Equipa Principal da Vue e Vite.',
     links: [
       { icon: 'github', link: 'https://github.com/sodatea' },
       { icon: 'twitter', link: 'https://twitter.com/haoqunjiang' },
@@ -124,7 +111,7 @@ export const core = [
     avatar: 'https://github.com/ArnaudBarre.png',
     name: 'Arnaud Barré',
     title: 'Programador de Frontend',
-    desc: 'Apaixonado por ferramental em volta da TypeScript e React.',
+    desc: 'Apaixonado Pelo Ferramental em Volta da TypeScript e React.',
     links: [{ icon: 'github', link: 'https://github.com/ArnaudBarre' }],
     sponsor: 'https://github.com/sponsors/ArnaudBarre',
   },
@@ -143,7 +130,7 @@ export const core = [
     avatar: 'https://github.com/sheremet-va.png',
     name: 'Vladimir',
     title: 'Membro da Equipa Principal da Vitest e Vite',
-    desc: 'Um programador de código-aberto',
+    desc: 'Um Programador de Código-Aberto',
     links: [
       { icon: 'github', link: 'https://github.com/sheremet-va' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@sheremet_va' },
@@ -158,7 +145,7 @@ export const emeriti = [
     avatar: 'https://github.com/ygj6.png',
     name: 'ygj6',
     title: 'Programador',
-    desc: 'Programador de Web. Membro da equipa de Vue & Vite',
+    desc: 'Membro da Equipa da Vue e Vite',
     links: [
       { icon: 'github', link: 'https://github.com/ygj6' },
       { icon: 'twitter', link: 'https://twitter.com/ygj_66' }
