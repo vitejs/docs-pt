@@ -109,7 +109,7 @@ A Vite também suporta [aplicações de várias páginas](./build#aplicação-de
 
 #### Especificando Raiz Alternativa {#specifying-alternative-root}
 
-A execução de `vite` inicia o servidor de desenvolvimento utilizando o diretório de trabalho atual como raiz. Tu podes especificar uma raiz alternativa com `vite serve some/sub/dir`.
+A execução de `vite` inicia o servidor de desenvolvimento utilizando o diretório de trabalho atual como raiz. Tu podes especificar uma raiz alternativa com `vite serve some/sub/dir`. Nota que a Vite também resolverá o [seu ficheiro de configuração (por exemplo, `vite.config.js`)](/config/#configuring-vite) dentro da raiz do projeto, então precisarás de movê-lo se a raiz for mudada.
 
 ## Interface de Linha de Comando {#command-line-interface}
 
