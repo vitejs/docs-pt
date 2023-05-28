@@ -348,6 +348,8 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
   - Um arranjo de objetos descritores de marcador (`{ tag, attrs, children }`) para injetar para o HTML existente. Cada marcador também pode especificar onde ele deve ser injetado (o padrão é anexar no inicio do `<head>`)
   - Um objeto contendo ambos como `{ html, tags }`
 
+  Por padrão `order` é `undefined`, com este gatilho aplicado depois da HTML ter sido transformada. Para injetar um programa que deveria passar pela conduta de extensões da Vite, `order: 'pre'` aplicará o gatilho antes de processar a HTML. `order: 'post'` aplica o gatilho depois de todos os gatilhos com `order: undefined` serem aplicados.
+
   **Exemplo Básico:**
 
   ```js
