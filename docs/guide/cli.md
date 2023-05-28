@@ -98,7 +98,7 @@ vite optimize [root]
 
 ### `vite preview` {#vite-preview}
 
-Pré-visualiza localmente a construção de produção.
+Pré-visualiza localmente a construção de produção. Não use isto como um servidor de produção visto que não está desenhada para isto.
 
 #### Uso {#vite-preview-usage}
 
