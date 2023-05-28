@@ -63,3 +63,10 @@ A otimização de dependências no modo de construção é **experimental**. Se 
 
 Se quiseres testar esta estratégia de construção, podes usar `optimizeDeps.disabled: false`. `@rollup/plugin-commonjs` pode ser removido passando `build.commonjsOptions: { include: [] }`.
 :::
+
+## optimizeDeps.needsInterop {#optimizedeps-needsinterop}
+
+- **Experimental**
+- **Tipo:** `string[]`
+
+Força a interoperação de Módulo de ECMAScript quando estiver a importar estas dependências. A Vite é capaz de detetar apropriadamente quando uma dependência precisa interoperar, assim esta opção geralmente não é necessária. No entanto, combinações diferentes de dependências poderia fazer algumas delas serem pré-empacotadas de maneira diferente. Adicionar estes pacotes ao `needsInterop` pode acelerar o arranque a frio evitando recarregamentos da página inteira. Receberás um aviso se este for o caso para uma das tuas dependências, sugerindo adicionar o nome do pacote para este arranjo na tua configuração.
