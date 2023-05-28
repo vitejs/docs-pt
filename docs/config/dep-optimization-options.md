@@ -16,7 +16,7 @@ Se nenhum destes adequado as tuas necessidades, podes especificar entradas perso
 
 Dependências à excluir do pré-empacotamento.
 
-:::warning CommonJS
+:::warning Aviso sobre a CommonJS
 As dependências da CommonJS não devem ser excluídas da otimização. Se uma dependência de Módulo de ECMAScript for excluída da otimização, mas tiver uma dependência de CommonJS encaixada, a dependência de CommonJS deve ser adicionada ao `optimizeDeps.include`. Por exemplo:
 
 ```js
@@ -51,3 +51,15 @@ Certas opções são omitidas visto que a mudança delas não seria compatível 
 - **Tipo:** `boolean`
 
 Defina para `true` para forçar o pré-empacotamento de dependência, ignorando as dependências otimizadas cacheadas previamente.
+
+## optimizeDeps.disabled {#optimizedeps-disabled}
+
+- **Tipo:** `boolean | 'build' | 'dev'`
+
+Desativa as otimizações de dependências, `true` desativa o otimizador durante a construção e desenvolvimento. Passe `'build'` ou `'dev'` para apenas desativar o otimizador em um dos modos. A otimização de dependência está desligada por padrão apenas no desenvolvimento.
+
+:::warning AVISO
+A otimização de dependências no modo de construção é **experimental**. Se ativada, remove uma das diferenças mais significativas entre o desenvolvimento e produção. O [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) já não é necessário neste caso já que a esbuild converte dependências que estão apenas CJS para ESM.
+
+Se quiseres testar esta estratégia de construção, podes usar `optimizeDeps.disabled: false`. `@rollup/plugin-commonjs` pode ser removido passando `build.commonjsOptions: { include: [] }`.
+:::
