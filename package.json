@@ -1,7 +1,7 @@
 {
-  "name": "vite-docs-template",
+  "name": "vite-docs-pt",
   "version": "1.0.0",
-  "description": "Vite docs template",
+  "description": "Vite documentation in Portuguese",
   "main": "docs/index.md",
   "directories": {
     "doc": "docs"
@@ -20,21 +20,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vitejs/docs-template.git"
+    "url": "git+https://github.com/vitejs/docs-pt.git"
   },
   "keywords": [
     "vite",
     "docs",
-    "translation"
+    "translation",
+    "pt"
   ],
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vitejs/docs-template/issues"
+    "url": "https://github.com/vitejs/docs-pt/issues"
   },
-  "homepage": "https://github.com/vitejs/docs-template#readme",
+  "homepage": "https://github.com/vitejs/docs-pt#readme",
   "dependencies": {
-    "vitepress": "^1.0.0-alpha.46"
+    "vitepress": "^1.0.0-alpha.74"
   },
   "devDependencies": {
     "@algolia/client-search": "^4.13.1",
