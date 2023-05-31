@@ -114,6 +114,8 @@ export default defineConfig({
 
 Se especificares uma raiz diferente, lembra-te de que `__dirname` ainda será a pasta do teu ficheiro `vite.config.js` quando estiveres resolvendo os caminhos de entrada. Portanto, precisarás adicionar a tua entrada `root` aos argumentos para a `resolve`.
 
+Nota que para os ficheiros de HTML, a Vite ignora o nome dado para a entrada no objeto `rollupOptions.input` e ao invés disto respeita o identificador resolvido da ficheiro quando gera o recurso de HTML na pasta de distribuição. Isto garante uma estrutura consistente com a maneira que o servidor de desenvolvimento funciona.
+
 ## Modo de Biblioteca {#library-mode}
 
 Quando estiveres desenvolvendo uma biblioteca orientada a navegador, estás provavelmente gastando a maior parte do tempo sobre a página de teste ou demonstração que importa a tua biblioteca real. Com a Vite, podes utilizar o teu `index.html` para aquele propósito de obter a agradável experiência de programação.
