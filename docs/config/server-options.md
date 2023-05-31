@@ -34,6 +34,14 @@ O segundo caso é quando os hospedeiros do cartão selvagem (ou "wildcard") (por
 
 :::
 
+:::tip Acessando o Servidor no Subsistema de Windows para Linux 2 a partir da tua rede local
+
+Quando executas a Vite no WSL2, não é suficiente definir `host: true` para acessar o servidor a partir da tua rede local.
+
+Consulte [o documento do Subsistema de Windows para Linux](https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-a-wsl-2-distribution-from-your-local-area-network-lan) por mais detalhes.
+
+:::
+
 ## server.port {#server-port}
 
 - **Tipo:** `number`
