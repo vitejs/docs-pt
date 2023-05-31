@@ -160,3 +160,14 @@ Se estes códigos são utilizados dentro de dependências, poderias utilizar [`p
 ### Extensões de Navegador {#browser-extensions}
 
 Algumas extensões de navegador (como bloqueadores de anúncios) podem impedir o cliente da Vite de enviar requisições para o servidor de desenvolvimento da Vite. Tu podes ver um ecrã branco sem erros registados neste caso. Tente desativar as extensões se tiveres este problema.
+
+## Ligações de Condução Transversal no Windows {#cross-drive-links-on-windows}
+
+Se existir ligações de condução transversal no teu projeto no Windows, a Vite talvez não funcione.
+
+Os exemplos de ligações de condução transversal são:
+
+- Uma unidade virtual ligada à uma pasta pelo comando `subst`.
+- Uma ligação simbólica ou junção à uma unidade diferente pelo comando `mklink` (por exemplo, `yarn global cache`).
+
+Questão relacionada: [#10802](https://github.com/vitejs/vite/issues/10802).
