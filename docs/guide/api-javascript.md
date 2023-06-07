@@ -64,8 +64,8 @@ interface ViteDevServer {
    * A connect app instance Uma instância da aplicação de conexão
    * - Pode ser utilizada para atribuir intermediários personalizados ao
    *   servidor de desenvolvimento.
-   * - Também pode ser utilizado como função manipuladora de um servidor 
-   *   de http personalizado ou como um intermediário em quaisquer abstrações 
+   * - Também pode ser utilizado como função manipuladora de um servidor
+   *   de http personalizado ou como um intermediário em quaisquer abstrações
    *   de estilo de conexão da Node.js.
    *
    * https://github.com/senchalabs/connect#use-middleware
@@ -86,12 +86,12 @@ interface ViteDevServer {
    */
   ws: WebSocketServer
   /**
-   * Contentor da extensão de Rollup que pode executar gatilhos da 
+   * Contentor da extensão de Rollup que pode executar gatilhos da
    * extensão em um dado ficheiro.
    */
   pluginContainer: PluginContainer
   /**
-   * Gráfico do módulo que rastreia as relacionamentos de importação, 
+   * Gráfico do módulo que rastreia as relacionamentos de importação,
    * URL para o mapeamento de ficheiro e o estado da HMR.
    */
   moduleGraph: ModuleGraph
@@ -101,7 +101,7 @@ interface ViteDevServer {
    */
   resolvedUrls: ResolvedServerUrls | null
   /**
-   * Resolve, carrega e transforma programaticamente uma URL e 
+   * Resolve, carrega e transforma programaticamente uma URL e
    * obtém o resultado sem ir através de uma conduta de requisição de http.
    */
   transformRequest(
@@ -109,7 +109,7 @@ interface ViteDevServer {
     options?: TransformOptions
   ): Promise<TransformResult | null>
   /**
-   * Aplica as transformações de HTML embutida de Vite e 
+   * Aplica as transformações de HTML embutida de Vite e
    * quaisquer transformações de HTML de extensão.
    */
   transformIndexHtml(url: string, html: string): Promise<string>
@@ -131,7 +131,7 @@ interface ViteDevServer {
   /**
    * Reinicia o servidor.
    *
-   * @param forceOptimize - força o otimizador à reempacotar, 
+   * @param forceOptimize - força o otimizador à reempacotar,
    * o mesmo que bandeira --force da linha de comando.
    */
   restart(forceOptimize?: boolean): Promise<void>
@@ -227,6 +227,10 @@ function mergeConfig(
 ```
 
 Combina profundamente duas configurações de Vite. `isRoot` representa o nível dentro da configuração de Vite que está sendo combinada. Por exemplo, defina para `false` se estiveres combinando duas opções de `build`.
+
+:::tip NOTA
+`mergeConfig` aceita apenas configuração na forma de objeto. Se tiveres uma configuração na forma de função de resposta, deves chamá-la antes de passar para `mergeConfig`.
+:::
 
 ## `searchForWorkspaceRoot`
 
