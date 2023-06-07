@@ -60,6 +60,10 @@ export default defineConfig({
 
 Esta estratégia também é fornecida como uma fábrica `splitVendorChunk({ cache: SplitVendorChunkCache })`, neste caso a composição com lógica personalizada se faz necessária. A `cache.reset()` precisa ser chamada no `buildStart` para o modo de observação da construção para funcionar corretamente neste caso.
 
+:::warning AVISO
+Tu deves usar a forma da função `build.rollupOptions.output.manualChunks` quando usares esta extensão. Se a forma do objeto for usada, a extensão não surtirá nenhum efeito.
+:::
+
 ## Reconstrução Sobre Mudanças de Ficheiros {#rebuild-on-files-changes}
 
 Tu podes ativar o observador de Rollup com `vite build --watch`. Ou, podes diretamente ajustar a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
