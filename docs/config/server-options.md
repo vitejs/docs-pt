@@ -30,7 +30,7 @@ export default defineConfig({
 })
 ```
 
-O segundo caso é quando os hospedeiros do cartão selvagem (ou "wildcard") (por exemplo, `0.0.0.0`) são utilizados. Isto é porque os servidores ouvindo hospedeiros sem cartão selvagem ficam com a prioridade sobre aqueles ouvindo hospedeiros com cartão selvagem.
+O segundo caso é quando os hospedeiros de asterisco (ou "wildcard") (por exemplo, `0.0.0.0`) são utilizados. Isto é porque os servidores ouvindo hospedeiros sem asterisco ficam com a prioridade sobre aqueles ouvindo hospedeiros com o asterisco.
 
 :::
 
