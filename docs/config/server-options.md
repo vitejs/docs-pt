@@ -266,7 +266,9 @@ Restringe o serviço de ficheiros fora da raiz do espaço de trabalho.
 
 Restringe os ficheiros que poderiam ser servidos através de `/@fs/`. Quando `server.fs.strict` é definido para `true`, o acesso dos ficheiros fora desta lista de diretório que não são importados de um ficheiro permitido resultará em um 403.
 
-A Vite procurará pela raiz do potencial espaço de trabalho e o utilizará como padrão. Um espaço de trabalho válido atende as seguintes condições, caso contrário retrocederá para a [raiz do projeto](/guide/#index-html-e-a-raiz-do-projeto):
+Tanto os diretórios e ficheiros podem ser fornecidos.
+
+A Vite procurará pela raiz do potencial espaço de trabalho e o utilizará como padrão. Um espaço de trabalho válido atende as seguintes condições, caso contrário retrocederá para a [raiz do projeto](/guide/#index-html-and-project-root):
 
 - contém o campo `workspaces` no `package.json`
 - contém um dos seguintes ficheiro
@@ -298,7 +300,8 @@ export default defineConfig({
         // procure pela raiz do espaço de trabalho
         searchForWorkspaceRoot(process.cwd()),
         // as tuas regras personalizadas
-        '/path/to/custom/allow'
+        '/path/to/custom/allow_directory',
+        '/path/to/custom/allow_file.demo',
       ]
     }
   }
