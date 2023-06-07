@@ -33,7 +33,17 @@ export default defineConfig({
 
 - **Tipo:** `string[]`
 
-Por padrão, pacotes ligados não os que estão dentro do `node_modules` não são pré-empacotados. Utilize esta opção para forçar com que um pacote ligado seja pré-empacotado.
+Por padrão, pacotes ligados que não estão dentro da `node_modules` não são pré-empacotados. Utilize esta opção para forçar com que um pacote ligado seja pré-empacotado.
+
+**Experimental:** Se estiveres a usar uma biblioteca com muitas importações profundas, podes também especificar um padrão global final para pré-empacotar todas as importações de uma vez. Isto evitará pré-empacotar constantemente sempre que uma importação profunda for usada. Por exemplo:
+
+```js
+export default defineConfig({
+  otimizeDeps: {
+    include: ['my-lib/components/**/*.vue'],
+  },
+})
+```
 
 ## optimizeDeps.esbuildOptions {#optimizedeps-esbuildoptions}
 
