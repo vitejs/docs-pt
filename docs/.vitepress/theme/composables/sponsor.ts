@@ -22,7 +22,27 @@ const dataHost = 'https://sponsors.vuejs.org'
 const dataUrl = `${dataHost}/vite.json`
 
 // no sponsors yet :(
-const viteSponsors: Pick<Sponsors, 'gold'> = {
+const viteSponsors: Pick<Sponsors, 'special' | 'gold'> = {
+  special: [
+    // sponsors patak-dev
+    {
+      name: 'StackBlitz',
+      url: 'https://stackblitz.com',
+      img: '/stackblitz.svg'
+    },
+    // sponsor antfu
+    {
+      name: 'NuxtLabs',
+      url: 'https://nuxtlabs.com',
+      img: '/nuxtlabs.svg'
+    },
+    // sponsor bluwy
+    {
+      name: 'Astro',
+      url: 'https://astro.build',
+      img: '/astro.svg'
+    }
+  ],
   gold: [],
 }
 
@@ -46,7 +66,12 @@ export function useSponsor() {
 function mapSponsors(sponsors: Sponsors) {
   return [
     {
-      tier: 'Patrocinador de Platina',
+      tier: 'Patrocinadores Especiais',
+      size: 'big',
+      items: viteSponsors['special']
+    },
+    {
+      tier: 'Patrocinadores de Platina',
       size: 'big',
       items: mapImgPath(sponsors['platinum'])
     },
@@ -58,9 +83,17 @@ function mapSponsors(sponsors: Sponsors) {
   ]
 }
 
+const viteSponsorNames = new Set(
+  Object.values(viteSponsors).flatMap((sponsors) =>
+    sponsors.map((s) => s.name),
+  ),
+)
+
 function mapImgPath(sponsors: Sponsor[]) {
-  return sponsors.map((sponsor) => ({
-    ...sponsor,
-    img: `${dataHost}/images/${sponsor.img}`
-  }))
+  return sponsors
+    .filter((sponsor) => !viteSponsorNames.has(sponsor.name))
+    .map((sponsor) => ({
+      ...sponsor,
+      img: `${dataHost}/images/${sponsor.img}`,
+    }))
 }
