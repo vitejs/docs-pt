@@ -93,6 +93,7 @@ export default defineConfig({
     zh: { label: '简体中文', link: 'https://cn.vitejs.dev' },
     ja: { label: '日本語', link: 'https://ja.vitejs.dev' },
     es: { label: 'Español', link: 'https://es.vitejs.dev' },
+    ko: { label: '한국어', link: 'https://ko.vitejs.dev' },
   },
 
   themeConfig: {
