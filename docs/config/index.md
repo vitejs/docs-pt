@@ -71,7 +71,7 @@ A `ssrBuild` é experimental. Ela só está disponível durante a construção a
 
 ## Configuração Assíncrona {#async-config}
 
-Se a configuração precisa chamar função assíncrona, ela pode exportar uma função assíncrona:
+Se a configuração precisar chamar funções assíncronas, pode de preferência exportar uma função assíncrona. E esta função assíncrona também pode ser passada através de `defineConfig` para suporte de sensor inteligente melhorado:
 
 ```js
 export default defineConfig(async ({ command, mode }) => {
