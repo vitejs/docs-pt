@@ -15,7 +15,10 @@
     "peerDependencyRules": {
       "allowedVersions": {
         "react": "18"
-      }
+      },
+      "ignoreMissing": [
+        "search-insights"
+      ]
     }
   },
   "repository": {
