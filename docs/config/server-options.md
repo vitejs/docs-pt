@@ -247,12 +247,6 @@ async function createServer() {
 createServer()
 ```
 
-## server.base {#server-base}
-
-- **Tipo:** `string | undefined`
-
-Adiciona no principio esta pasta às requisições, para utilizar quando estiver delegando a Vite como uma sub-pasta. Deve começar e terminar com o carácter `/`.
-
 ## server.fs.strict {#server-fs-strict}
 
 - **Tipo:** `boolean`
