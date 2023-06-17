@@ -151,6 +151,8 @@ Os seguintes eventos de HMR são despachados pela Vite automaticamente:
 - `'vite:beforePrune'` quando os módulos que não são mais necessários estiverem para ser  cortados
 - `'vite:invalidate'` quando um módulo for invalidado com `import.meta.hot.invalidate()`
 - `'vite:error'` quando um erro ocorrer (por exemplo, erro de sintaxe)
+- `'vite:ws:disconnect'` quando a conexão de websocket for perdida
+- `'vite:ws:connect'` quando a conexão de websocket for reestabelecida
 
 Os eventos de HMR personalizados também podem ser enviados a partir das extensões. Consulta a [handleHotUpdate](./api-plugin#handlehotupdate) para mais detalhes.
 
