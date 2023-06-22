@@ -13,7 +13,7 @@ O pacote de produção presume suporte para JavaScript moderno. Por padrão, a V
 
 Tu podes especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
 
-Nota que por padrão, a Vite apenas manipula transformações de sintaxe e **não cobre "polyfills" por padrão**. Tu podes consultar [Polyfill.io](https://polyfill.io/v3/) o qual é um serviço que gera automaticamente pacotes de "polyfill" baseado na sequência de caracteres de "UserAgent" do navegador do utilizador.
+Nota que por padrão, a Vite apenas manipula transformações de sintaxe e **não cobre "polyfills"**. Tu podes consultar [Polyfill.io](https://polyfill.io/v3/) o qual é um serviço que gera automaticamente pacotes de "polyfill" baseado na sequência de caracteres de "UserAgent" do navegador do utilizador.
 
 Os navegadores legados podem ser suportados através [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará automaticamente pedaços legados e correspondentes aos "polyfills" da funcionalidade da linguagem de ECMAScript. Os pedaços legados são condicionalmente carregados apenas nos navegadores que não têm suporte nativo ao Módulo de ECMAScript.
 
