@@ -4,7 +4,7 @@ title: Configurando a Vite
 
 # Configurando a Vite {#configuring-vite}
 
-Quando estiveres executando a `vite` a partir da linha de comando, a Vite tentará automaticamente resolver um ficheiro de configuração nomeado como `vite.config.js` dentro da [raiz do projeto](/guide/#index-html-e-a-raiz-do-projeto).
+Quando estiveres executando a `vite` a partir da linha de comando, a Vite tentará automaticamente resolver um ficheiro de configuração nomeado como `vite.config.js` dentro da [raiz do projeto](/guide/#index-html-and-project-root). (Outras extensões de JavaScript e TypeScript também são suportadas).
 
 O ficheiro de configuração mais básico se parece com isto:
 
