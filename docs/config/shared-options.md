@@ -209,6 +209,8 @@ A ativação desta definição faz a Vite determinar a identidade de ficheiro pe
 
 Configura o comportamento dos módulos de CSS. As opções são passadas para [postcss-modules](https://github.com/css-modules/postcss-modules).
 
+Esta opção não surte qualquer feito quando usas [CSS relâmpago](../guide/features.md#lightning-css). Se ativada, [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) deve ser usado.
+
 ## css.postcss {#css-postcss}
 
 - **Tipo:** `string | (postcss.ProcessOptions & { plugins?: postcss.AcceptedPlugin[] })`
@@ -262,6 +264,46 @@ export default defineConfig({
 - **Predefinido como:** `false`
 
 Se for ativar os mapas de fonte durante o desenvolvimento.
+
+## css.transformer {#css-transformer}
+
+- **Experimental**
+- **Tipo:** `'postcss' | 'lightingcss'`
+- **Predefinido como:** `'postcss'`
+
+Seleciona o motor usado para o processamento da CSS. Consulte a [CSS Relâmpago](../guide/features.md#lightning-css) por mais informação.
+
+## css.lightningcss {#css-lightningcss}
+
+- **Experimental**
+- **Tipo:**
+
+```js
+import type {
+  CSSModulesConfig,
+  Drafts,
+  Features,
+  NonStandard,
+  PseudoClasses,
+  Targets,
+} from 'lightningcss'
+```
+
+```js
+{
+  targets?: Targets
+  include?: Features
+  exclude?: Features
+  drafts?: Drafts
+  nonStandard?: NonStandard
+  pseudoClasses?: PseudoClasses
+  unusedSymbols?: string[]
+  cssModules?: CSSModulesConfig,
+  // ...
+}
+```
+
+Configura a CSS Relâmpago. As opções de transformação completa podem ser encontradas no [repositório da CSS Relâmpago](https://github.com/parcel-bundler/lightningcss/blob/master/node/index.d.ts).
 
 ## json.namedExports {#json-namedexports}
 
