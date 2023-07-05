@@ -267,12 +267,12 @@ npm add -D lightningcss
 
 Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao invés da PostCSS. Para configurá-la, podes passar as opções da CSS Relâmpago para a opção de configuração [`css.lightingcss`](../config/shared-options.md#css-lightningcss).
 
-Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) ao invés de [`css.modules`](../config/shared-options.md#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
+Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) ao invés de [`css.modules`](../config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
 
-Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](../config/build-options.md#css-minify).
+Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](../config/build-options#css-minify).
 
 :::tip NOTA
-Os [pré-processadores de CSS](/#css-pre-processors) não são suportados quando usas a CSS relâmpago.
+Os [pré-processadores de CSS](#css-pre-processors) não são suportados quando usas a CSS relâmpago.
 :::
 
 ## Recursos Estáticos {#static-assets}
@@ -587,7 +587,7 @@ Consulte as [Opções de Operário](/config/worker-options.md) por detalhes a re
 
 A Vite extrai automaticamente a CSS utilizada pelos módulos em um pedaço assíncrono e gera um ficheiro separado para ela. O ficheiro de CSS é carregado automaticamente através do marcador `<link>` quando o pedaço assíncrono associado for carregado, e o pedaço assíncrono tem a garantia de apenas ser avaliada depois da CSS for carregada para evitar [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content#:~:text=A%20flash%20of%20unstyled%20content,before%20all%20information%20is%20retrieved.).
 
-Se preferires ter todas as CSS extraídas em um único ficheiro, podes desativar a separação de código de CSS definindo [`build.cssCodeSplit`](/config/build-options.md#build-csscodesplit) para `false`.
+Se preferires ter todas as CSS extraídas em um único ficheiro, podes desativar a separação de código de CSS definindo [`build.cssCodeSplit`](/config/build-options#build-csscodesplit) para `false`.
 
 ### Geração de Diretivas de Pré-Carregamento {#preload-directives-generation}
 
