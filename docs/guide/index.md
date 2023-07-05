@@ -36,6 +36,7 @@ As pré-configurações de modelo suportadas são:
 |  [preact](https://vite.new/preact)  |  [preact-ts](https://vite.new/preact-ts)  |
 |     [lit](https://vite.new/lit)     |     [lit-ts](https://vite.new/lit-ts)     |
 |  [svelte](https://vite.new/svelte)  |  [svelte-ts](https://vite.new/svelte-ts)  |
+|  [solid](https://vite.new/solid)  |  [solid-ts](https://vite.new/solid-ts)  |
 
 ## Estruturando o Teu Primeiro Projeto de Vite {#scaffolding-your-first-vite-project}
 
@@ -79,7 +80,7 @@ yarn create vite my-vue-app --template vue
 pnpm create vite my-vue-app --template vue
 ```
 
-Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`.
+Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`.
 
 ## Modelos de Projeto da Comunidade {#community-templates}
 
