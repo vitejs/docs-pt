@@ -237,6 +237,10 @@ export default defineConfig({
               link: '/guide/troubleshooting'
             },
             {
+              text: 'Filosofia',
+              link: '/guide/philosophy',
+            },
+            {
               text: 'Guia de Migração',
               link: '/guide/migration'
             }
