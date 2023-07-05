@@ -1,6 +1,6 @@
 # Guia de Contribuição de Vite {#vite-contributing-guide}
 
-Olá! Estamos muito excitados que estejas interessado em contribuir com a Vite. Antes da submissão da tua contribuição, certifica-te de tirar um momento para ler através do seguinte guia:
+Olá! Estamos muito excitados que estejas interessado em contribuir com a Vite. Antes da submissão da tua contribuição, certifica-te de tirar um momento para ler através do seguinte guia. Nós também sugerimos-te ler a [Filosofia do Projeto](https://pt.vitejs.dev/guide/philosophy) na nossa documentação.
 
 ## Configuração de Repositório {$repo-setup}
 
