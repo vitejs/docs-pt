@@ -86,7 +86,7 @@ Mas algumas bibliotecas não transitaram para este novo padrão ainda, incluindo
 - [`jsxFactory`](https://www.typescriptlang.org/tsconfig#jsxFactory)
 - [`jsxFragmentFactory`](https://www.typescriptlang.org/tsconfig#jsxFragmentFactory)
 
-Se a migração da tua base de código para `"isolatedModules": true` for um esforço insuportável, talvez sejas capaz de dar a volta a isto com uma extensão de terceiro tal como [rollup-plugin-friendly-type-imports](https://www.npmjs.com/package/rollup-plugin-friendly-type-imports). No entanto, esta abordagem não é oficialmente suportada pela Vite.
+Se a migração da tua base de código para `"isolatedModules": true` for um esforço insuperável, talvez sejas capaz de dar a volta a isto com uma extensão de terceiro tal como [rollup-plugin-friendly-type-imports](https://www.npmjs.com/package/rollup-plugin-friendly-type-imports). No entanto, esta abordagem não é oficialmente suportada pela Vite.
 
 ### Tipos de Clientes {#client-types}
 
