@@ -330,3 +330,7 @@ Por padrão, qualquer nova consolidação empurrada para o ramo especificado aci
 O [Desdobrar Automaticamente (Auto-Deploy, em Inglês)](https://render.com/docs/deploys#toggling-auto-deploy-for-a-service) pode ser configurado nas definições do projeto.
 
 Tu também podes adicionar um [domínio personalizado](https://render.com/docs/custom-domains) ao teu projeto.
+
+## ## Flightcontrol
+
+Implemente a tua aplicação estática em produção usando [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
