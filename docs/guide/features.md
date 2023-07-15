@@ -269,7 +269,7 @@ Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao inv�
 
 Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) ao invés de [`css.modules`](../config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
 
-Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](../config/build-options#css-minify).
+Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](../config/build-options#build-cssminify).
 
 :::tip NOTA
 Os [pré-processadores de CSS](#css-pre-processors) não são suportados quando usas a CSS relâmpago.
