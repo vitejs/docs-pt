@@ -24,6 +24,7 @@ Alvo da construção para o servidor da SSR.
 ## ssr.format {ssr-format}
 
 - **Experimental**
+- **Depreciada** Apenas saídas de Módulos de ECMAScript serão suportadas na Vite 5.
 - **Tipo:** `'esm' | 'cjs'`
 - **Predefinido como:** `esm`
 
