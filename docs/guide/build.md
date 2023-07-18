@@ -124,7 +124,7 @@ Nota que para os ficheiros de HTML, a Vite ignora o nome dado para a entrada no 
 
 Quando estiveres desenvolvendo uma biblioteca orientada a navegador, estás provavelmente gastando a maior parte do tempo sobre a página de teste ou demonstração que importa a tua biblioteca real. Com a Vite, podes utilizar o teu `index.html` para aquele propósito de obter a agradável experiência de programação.
 
-Quando for o momento de empacotar a tua biblioteca para distribuição, utilizar a [opção de configuração `build.lib`](/config/build-options.md#build-lib). Certifica-te de também expor quaisquer dependências que não quiseres empacotar na tua biblioteca, por exemplo, `vue` ou `react`:
+Quando for o momento de empacotar a tua biblioteca para distribuição, utilizar a [opção de configuração `build.lib`](/config/build-options#build-lib). Certifica-te de também expor quaisquer dependências que não quiseres empacotar na tua biblioteca, por exemplo, `vue` ou `react`:
 
 ```js
 // vite.config.js
