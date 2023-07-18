@@ -111,7 +111,7 @@ Quando atribuíres pseudónimos aos caminhos do sistema de ficheiro, use sempre 
 Mais resoluções personalizadas avançadas podem ser alcançado através de [extensões](/guide/api-plugin).
 
 ::: warning Usando com SSR
-Se tiveres pseudónimos configurados para [dependências expostas da SSR](/guide/ssr.md#ssr-externals), podes desejar atribuir pseudónimo os pacotes do `node_modules`. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a atribuição pseudónimos através do prefixo `npm:`.
+Se tiveres pseudónimos configurados para [dependências expostas da SSR](/guide/ssr#ssr-externals), podes desejar atribuir pseudónimo os pacotes do `node_modules`. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a atribuição pseudónimos através do prefixo `npm:`.
 :::
 
 ## resolve.dedupe {#resolve-dedupe}
@@ -259,7 +259,7 @@ export default defineConfig({
 
 ## css.devSourcemap {#css-devsourcemap}
 
-- **Experimental**
+- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13845)
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
 
@@ -267,15 +267,15 @@ Se for ativar os mapas de fonte durante o desenvolvimento.
 
 ## css.transformer {#css-transformer}
 
-- **Experimental**
+- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:** `'postcss' | 'lightingcss'`
 - **Predefinido como:** `'postcss'`
 
-Seleciona o motor usado para o processamento da CSS. Consulte a [CSS Relâmpago](../guide/features.md#lightning-css) por mais informação.
+Seleciona o motor usado para o processamento da CSS. Consulte a [CSS Relâmpago](../guide/features#lightning-css) por mais informação.
 
 ## css.lightningcss {#css-lightningcss}
 
-- **Experimental**
+- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:**
 
 ```js
@@ -348,7 +348,7 @@ export default defineConfig({
 })
 ```
 
-Quando [`build.minify`](./build-options.md#build-minify) for `true`, todas otimizações de minificação são aplicadas por padrão. Para desativar [certos aspetos](https://esbuild.github.io/api/#minify) dele, defina qualquer uma das opções `esbuild.minifyIdentifiers`, `esbuild.minifySyntax`, ou `esbuild.minifyWhitespace` para `false`. Nota que a opção `esbuild.minify` não pode ser usada para sobrepor o `build.minify`.
+Quando [`build.minify`](./build-options#build-minify) for `true`, todas otimizações de minificação são aplicadas por padrão. Para desativar [certos aspetos](https://esbuild.github.io/api/#minify) dele, defina qualquer uma das opções `esbuild.minifyIdentifiers`, `esbuild.minifySyntax`, ou `esbuild.minifyWhitespace` para `false`. Nota que a opção `esbuild.minify` não pode ser usada para sobrepor o `build.minify`.
 
 Defina para `false` para desativar as transformações da esbuild.
 
