@@ -64,7 +64,9 @@ Defina para `true` para forçar o pré-empacotamento de dependência, ignorando 
 
 ## optimizeDeps.disabled {#optimizedeps-disabled}
 
+- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13839)
 - **Tipo:** `boolean | 'build' | 'dev'`
+- **Predefinido como:** `'build'`
 
 Desativa as otimizações de dependências, `true` desativa o otimizador durante a construção e desenvolvimento. Passe `'build'` ou `'dev'` para apenas desativar o otimizador em um dos modos. A otimização de dependência está desligada por padrão apenas no desenvolvimento.
 
