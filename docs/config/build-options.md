@@ -29,13 +29,13 @@ Por padrão, um ["polyfill" de pré-carregamento de módulo](https://guybedford.
 import 'vite/modulepreload-polyfill'
 ```
 
-Nota: o "polyfill" **não** aplica-se ao [Modo de Biblioteca](/guide/build#modo-de-biblioteca). Se precisares suportar os navegadores sem importação dinâmica nativa, deves provavelmente evitar usá-lo na tua biblioteca.
+Nota: o "polyfill" **não** aplica-se ao [Modo de Biblioteca](/guide/build#library-mode). Se precisares suportar os navegadores sem importação dinâmica nativa, deves provavelmente evitar usá-lo na tua biblioteca.
 
 O "polyfill" pode ser desativado usando `{ polyfill: false }`.
 
 A lista de pedaços de pré-carregamento para cada importação dinâmica é calculada pela Vite. Por padrão, um caminho absoluto incluindo a `base` será usado quando carregamos estas dependências. Se a `base` for relativa (`''` ou `'./'`), `import.meta.url` é usado em tempo de execução para evitar caminhos absolutos que dependem da base desdobrada final.
 
-Existe suporte experimenta para o controlo refinado sobre a lista de dependências e seus caminhos usando a função `resolveDependencies`. Ela espera uma função de tipo `ResolveModulePreloadDependenciesFn`:
+Existe suporte experimental para o controlo refinado sobre a lista de dependências e seus caminhos usando a função `resolveDependencies`. [Faça Comentário](https://github.com/vitejs/vite/discussions/13841). Espera-se uma função de tipo `ResolveModulePreloadDependenciesFn`:
 
 ```ts
 type ResolveModulePreloadDependenciesFn = (
@@ -57,7 +57,7 @@ modulePreload: {
 }
 ```
 
-Os caminhos de dependência resolvida podem ser ainda modificados usando [`experimental.renderBuiltUrl`](../guide/build.md#opções-de-base-avançada).
+Os caminhos de dependência resolvida podem ser ainda modificados usando [`experimental.renderBuiltUrl`](../guide/build#advanced-base-options).
 
 ## build.polyfillModulePreload {#build-polyfillmodulepreload}
 
@@ -72,7 +72,7 @@ Caso precisares injetar automaticamente um ["polyfill" de pré-carregamento de m
 - **Tipo:** `string`
 - **Predefinido como:** `dist`
 
-Especifica o diretório de saída (relativo à [raiz do projeto](/guide/#index-html-e-a-raiz-do-projeto)).
+Especifica o diretório de saída (relativo à [raiz do projeto](/guide/#index-html-and-project-root)).
 
 ## build.assetsDir {#build-assetsdir}
 
@@ -121,7 +121,7 @@ Ela deve apenas ser usada quando estiveres mirando um navegador fora dos padrão
 - **Tipo:**
 - **Predefinido como:** o mesmo que [`build.minify`](#build-minify)
 
-Esta opção permite os utilizadores sobrepor a especificamente a minificação de CSS no lugar de padronizar para `build.minify`, assim podes configurar a minificação para código de JavaScript e CSS separadamente. A Vite usa a `esbuild` por padrão para minificar a CSS. Defina a opção para `'lightningcss'` para usar a [CSS relâmpago](https://lightningcss.dev/minification.html). Caso selecionada, pode ser configurada usando [`css.lightningcss`](./shared-options.md#css-lightningcss).
+Esta opção permite os utilizadores sobrepor a especificamente a minificação de CSS no lugar de padronizar para `build.minify`, assim podes configurar a minificação para código de JavaScript e CSS separadamente. A Vite usa a `esbuild` por padrão para minificar a CSS. Defina a opção para `'lightningcss'` para usar a [CSS relâmpago](https://lightningcss.dev/minification.html). Caso selecionada, pode ser configurada usando [`css.lightningcss`](./shared-options#css-lightningcss).
 
 ## build.sourcemap {#build-sourcemap}
 
@@ -168,7 +168,7 @@ Quando definido para `true`, a construção também gerará um ficheiro `manifes
 
 - **Tipo:** `boolean | string`
 - **Predefinido como:** `false`
-- **Relacionado ao:** [Server-Side Rendering](/guide/ssr)
+- **Relacionado ao:** [Interpretação no Lado do Servidor](/guide/ssr)
 
 Quando definido para `true`, a construção também gerará um manifesto de SSR para a determinação de ligações de estilo e diretivas de pré-carregamento de recurso em produção. Quando o valor for uma sequência de caracteres, será usada como nome do ficheiro de manifesto.
 
