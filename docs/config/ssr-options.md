@@ -23,7 +23,7 @@ Alvo da construção para o servidor da SSR.
 
 ## ssr.format {ssr-format}
 
-- **Experimental**
+- **Experimental:** [Suporte à CJS à ser removido na Vite 5](https://github.com/vitejs/vite/discussions/13816)
 - **Depreciada** Apenas saídas de Módulos de ECMAScript serão suportadas na Vite 5.
 - **Tipo:** `'esm' | 'cjs'`
 - **Predefinido como:** `esm`
