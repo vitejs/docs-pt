@@ -226,7 +226,7 @@ No modo de biblioteca, todas as utilizações de `import.meta.env.*` são substi
 ## Opções de Base Avançada {#advanced-base-options}
 
 :::warning Aviso
-Esta funcionalidade é experimental, a API pode mudar num lançamento menor futuro sem seguir o padrão de versionamento semântico ("semver", sigla em Inglês). Por favor sempre prenda a versão da Vite à uma atualização menor quando estiveres utilizando-a.
+Esta funcionalidade é experimental. [Faça Comentário](https://github.com/vitejs/vite/discussions/13834).
 :::
 
 Para casos de usos avançados, os recursos desdobrados e ficheiros públicos podem estar caminhos diferentes, por exemplo para utilizares diferentes estratégias de cache.
