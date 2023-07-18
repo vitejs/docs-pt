@@ -215,6 +215,14 @@ Defina para `false` para desativar a escrita do pacote no disco. Isto é na maio
 
 Por padrão, a Vite esvaziará o `outDir` na construção se estiver dentro da raiz do projeto. Ele emitirá um aviso se `outDir` está fora da raiz para evitar remover acidentalmente ficheiros importantes. Tu podes definir explicitamente esta opção para suprimir o aviso. Isto também está disponível através da linha de comando como `--emptyOutDir`.
 
+## build.copyPublicDir {#build-copypublicdir}
+
+- **Experimental**
+- **Tipo:** `boolean`
+- **Predefinido como:** `true`
+
+Por padrão, Vite copiará os ficheiros da `publicDir` para a `outDir` na construção. Defina para `false` para desativar isto.
+
 ## build.reportCompressedSize {#build-reportcompressedsize}
 
 - **Tipo:** `boolean`
