@@ -29,7 +29,9 @@
     "vite",
     "docs",
     "translation",
-    "pt"
+    "pt",
+    "pt-br",
+    "pt-pt"
   ],
   "author": "",
   "license": "MIT",
