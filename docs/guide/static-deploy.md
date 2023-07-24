@@ -331,6 +331,10 @@ O [Desdobrar Automaticamente (Auto-Deploy, em Inglês)](https://render.com/docs/
 
 Tu também podes adicionar um [domínio personalizado](https://render.com/docs/custom-domains) ao teu projeto.
 
-## Flightcontrol
+## Flightcontrol {#flightcontrol}
 
 Implemente a tua aplicação estática em produção usando [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
+
+## Hospedagem da AWS Amplify {#aws-amplify-hosting}
+
+Implemente a tua aplicação estática em produção usando a [Hospedagem da AWS Amplify](https://aws.amazon.com/amplify/hosting/), seguindo estas [instruções](https://docs.amplify.aws/guides/hosting/vite/q/platform/js/)
