@@ -494,13 +494,13 @@ Nota que:
 
 ## Importação Dinâmica {#dynamic-import}
 
-Semelhante a [importação de glob](#importação-de-glob), a Vite também suporta importação dinâmica com as variáveis.
+Semelhante a [importação de glob](#glob-import), a Vite também suporta importação dinâmica com as variáveis.
 
 ```ts
 const module = await import(`./dir/${file}.js`)
 ```
 
-Nota que as variáveis apenas representam os nomes de ficheiro um nível de profundidade. Se `file` for `'foo/bar'`, a importação falharia. Para utilização mais avançada, podes utilizar a funcionalidade de [importação de glob](#importação-de-glob).
+Nota que as variáveis apenas representam os nomes de ficheiro um nível de profundidade. Se `file` for `'foo/bar'`, a importação falharia. Para utilização mais avançada, podes utilizar a funcionalidade de [importação de glob](#glob-import).
 
 ## WebAssembly {#webassembly}
 
@@ -577,7 +577,7 @@ Se desejares recuperar o operário como uma URL, adicione a consulta `url`:
 import MyWorker from './worker?worker&url'
 ```
 
-Consulte as [Opções de Operário](/config/worker-options.md) por detalhes a respeito da configuração do empacotamento de todos operários.
+Consulte as [Opções de Operário](/config/worker-options) por detalhes a respeito da configuração do empacotamento de todos operários.
 
 ## Otimizações de Construção {#build-optimizations}
 
