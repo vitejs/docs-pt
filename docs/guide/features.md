@@ -504,7 +504,8 @@ Nota que as variáveis apenas representam os nomes de ficheiro um nível de prof
 
 ## WebAssembly {#webassembly}
 
-Os ficheiros `.wasm` pré-compilados podem ser importados com `?init` - a exportação padrão será uma função de inicialização que retorna uma Promessa de instância de `wasm`:
+Os ficheiros `.wasm` pré-compilados podem ser importados com `?init`.
+A exportação padrão será uma função de inicialização que retorna uma promessa da [`WebAssembly.Instance`](https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/Instance):
 
 ```js
 import init from './example.wasm?init'
@@ -514,7 +515,7 @@ init().then((instance) => {
 })
 ```
 
-A função de inicialização pode também receber o objeto `imports` que é passado para `WebAssembly.instantiate` como seu segundo argumento:
+A função de inicialização também pode receber um `ImportObject` que é passado para [`WebAssembly.instantiate`](https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/instantiate) como seu segundo argumento:
 
 ```js
 init({
@@ -528,12 +529,52 @@ init({
 })
 ```
 
-Na construção de produção, os ficheiros `.wasm` mas pequenos do que `assetInlineLimit` serão embutidos como sequências de caracteres de base64. De outro modo, eles serão copiados para o diretório de distribuição `dist/` como um recurso e requisitado sobre demanda.
+Na construção de produção, os ficheiros `.wasm` mas pequenos do que o `assetInlineLimit` serão embutidos como sequências de caracteres de base64. De outro modo, serão tratados como um [recurso estático](./assets) e requisitado sobre demanda.
 
-:::warning Aviso
+:::warning NOTA
 [Proposta de Integração de Módulo de ECMAScript para WebAssembly](https://github.com/WebAssembly/esm-integration) não é atualmente suportada.
 Utilize [`vite-plugin-wasm`](https://github.com/Menci/vite-plugin-wasm) ou outras extensões da comunidade para lidar com isto.
 :::
+
+### Acessando o Módulo WebAssembly {#accessing-the-webassembly-module}
+
+Se precisarmos de acesso ao objeto `Module`, por exemplo, para instância-lo várias vezes, usaremos uma [importação de URL explícita](./assets#explicit-url-imports) para resolver o recurso, e depois realizar a instanciação:
+
+```js
+import wasmUrl from 'foo.wasm?url'
+
+const main = async () => {
+  const responsePromise = fetch(wasmUrl)
+  const { module, instance } = await WebAssembly.instantiateStreaming(
+    responsePromise,
+  )
+  /* ... */
+}
+
+main()
+```
+
+### Requisitando o Módulo na Node.js {#fetching-the-module-in-node-js}
+
+Na interpretação no lado do servidor, a `fetch()` acontecendo como parte da importação `?init`, pode falhar com `TypeError: Invalid URL`. Consulte a questão [Suportar `wasm` na SSR](https://github.com/vitejs/vite/issues/8882).
+
+Cá está uma alternativa, assumindo que a base do projeto é o diretório atual:
+
+```js
+import wasmUrl from 'foo.wasm?url'
+import { readFile } from 'node:fs/promises'
+
+const main = async () => {
+  const resolvedUrl = (await import('./test/boot.test.wasm?url')).default
+  const buffer = await readFile('.' + resolvedUrl)
+  const { instance } = await WebAssembly.instantiate(buffer, {
+    /* ... */
+  })
+  /* ... */
+}
+
+main()
+```
 
 ## Operários de Web {#web-workers}
 
