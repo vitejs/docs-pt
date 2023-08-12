@@ -143,6 +143,34 @@ Consulte o [Motivo: Requisição de CORS não é HTTP - HTTP | MDN](https://deve
 
 Tu precisarás acessar o ficheiro com o protocolo de `http`. A maneira mais fácil de alcançar isto é executar o `npx vite preview`.
 
+## Dependências Otimizadas {#optimized-dependencies}
+
+### Dependências pré-empacotadas desatualizadas quando ligamos ao pacote local {#outdated-pre-bundled-deps-when-linking-to-a-local-package}
+
+A chave de has usada para invalidar dependências otimizadas depende do conteúdo de fecho do pacote, os remendos aplicados às dependências, e as opções no ficheiro de configuração da Vite que afetam o empacotamento dos módulos da node. Isto significa que a Vite detetará quando uma dependência for sobreposta usando uma funcionalidade como [sobreposições de npm](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#overrides), e re-empacota as tuas dependências na próxima inicialização do servidor. A Vite não invalidará as dependências quando usas uma funcionalidade com o [ligação de npm](https://docs.npmjs.com/cli/v9/commands/npm-link). No caso quando ligas ou desligas uma dependência, precisarás de forçar a re-otimização na próxima inicialização do servidor usando `vite --force`. Nós recomendamos usar as sobreposições, qua agora são suportadas por todos os gestores de pacotes (consulte também as [sobreposições de pnpm](https://pnpm.io/package_json#pnpmoverrides) e as [resoluções de yarn](https://yarnpkg.com/configuration/manifest/#resolutions)).
+
+## Problemas de Desempenho {#performance-bottlenecks}
+
+Se sofreres quaisquer problemas de desempenho de aplicação resultando em tempos de carregamento lentos, podes iniciar o inspetor de Node.js embutido com o teu servidor de desenvolvimento da Vite ou quando construíres a tua aplicação para criar o perfil da CPU:
+
+:::code-group
+
+```bash [servidor de desenvolvimento]
+vite --profile --open
+```
+
+```bash [construção]
+vite build --profile
+```
+
+:::
+
+:::tip Servidor de Desenvolvimento da Vite
+Uma vez que a tua aplicação estiver aberta no navegador, apenas aguarde a conclusão do carregamento dela e depois siga para o terminal e pressione a tecla `p` (interromperá o inspetor da Node.js) depois pressione a tecla `q` para interromper o servidor de desenvolvimento.
+:::
+
+O inspetor da Node.js gerará o ficheiro `vite-profile-0.cpuprofile` na pasta de raiz, siga para https://www.speedscope.app/, e carregue o perfil da CPU usando o botão `BROWSE` para inspecionar o resultado.
+
 ## Outros {#others}
 
 ### Módulo Exposto para Compatibilidade de Navegador {#module-externalized-for-browser-compatibility}
