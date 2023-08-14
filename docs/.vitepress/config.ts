@@ -164,6 +164,10 @@ export default defineConfig({
               {
                 text: 'Relatório de Mudança',
                 link: 'https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md'
+              },
+              {
+                text: 'Contribuição',
+                link: 'https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md',
               }
             ]
           }
