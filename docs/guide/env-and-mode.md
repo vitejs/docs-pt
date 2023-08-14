@@ -6,7 +6,7 @@ A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`
 
 - **`import.meta.env.MODE`**: {sequência de caracteres} o [modo](#modo) em que a aplicação está executando.
 
-- **`import.meta.env.BASE_URL`**: {sequência de caracteres} a url de base a partir da qual a aplicação está sendo servida. Isto é determinado pela [opção de configuração `base`](/config/shared-options.md#base).
+- **`import.meta.env.BASE_URL`**: {sequência de caracteres} a url de base a partir da qual a aplicação está sendo servida. Isto é determinado pela [opção de configuração `base`](/config/shared-options#base).
 
 - **`import.meta.env.PROD`**: {booleano} se a aplicação estiver executando em produção.
 
@@ -60,7 +60,7 @@ console.log(import.meta.env.VITE_SOME_KEY) // 123
 console.log(import.meta.env.DB_PASSWORD) // undefined
 ```
 
-Se quiseres personalizar o prefixo das variáveis de ambiente consulte a opção [`envPrefix`](/config/shared-options.html#envprefix).
+Se quiseres personalizar o prefixo das variáveis de ambiente consulte a opção [`envPrefix`](/config/shared-options#envprefix).
 
 :::warning NOTAS DE SEGURANÇA
 
@@ -96,7 +96,7 @@ Se o teu código depender dos tipos dos ambientes do navegador tais como [DOM](h
 }
 ```
 
-## Substituição de Variáveis de Ambiente no HTML
+## Substituição de Variáveis de Ambiente no HTML {#html-env-replacement}
 
 A Vite suporta também a substituição de variáveis de ambiente em ficheiro de HTML. Quaisquer propriedades na `import.meta.env` pode ser usada nos ficheiros de HTML com uma sintaxe `%ENV_NAME%` especial:
 

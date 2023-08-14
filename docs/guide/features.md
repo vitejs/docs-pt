@@ -110,7 +110,7 @@ Isto fornecerá os seguintes calçados de tipo:
 
 
 - Importações de recurso (por exemplo, importação de um ficheiro `.svg`)
-- Tipos para [variáveis de ambiente](./env-and-mode#variáveis-de-ambiente) injetadas para Vite sobre a `import.meta.env`
+- Tipos para [variáveis de ambiente](./env-and-mode#env-variables) injetadas para Vite sobre a `import.meta.env`
 - Tipos para a [API de HMR](./api-hmr) sobre a `import.meta.hot`
 
 :::tip Dica
@@ -188,7 +188,7 @@ A importação de ficheiros `.css` injetarão o seu conteúdo para a página atr
 
 A Vite está pré-configurada para suportar a incorporação de `@import` de CSS através de `postcss-import`. Os pseudónimos de Vite são também respeitados pela `@import` de CSS. Além disto, todas referências de `url()` de CSS, mesmo se os ficheiros importados estiverem em diretórios diferentes, são sempre automaticamente rebaseados para garantir a correção.
 
-Os pseudónimos `@import` e o rebaseamento de URL são também suportados para os ficheiros de Sass e Less (consulte [Pré-processadores de CSS](#pré-processadores-de-css)).
+Os pseudónimos `@import` e o rebaseamento de URL são também suportados para os ficheiros de Sass e Less (consulte [Pré-processadores de CSS](#css-pre-processors)).
 
 ### PostCSS {#postcss}
 
@@ -210,7 +210,7 @@ import classes from './example.module.css'
 document.getElementById('foo').className = classes.red
 ```
 
-O comportamento de módulos de CSS pode ser configurado através da [opção `css.modules`](/config/shared-options.md#css-modules).
+O comportamento de módulos de CSS pode ser configurado através da [opção `css.modules`](/config/shared-options#css-modules).
 
 Se `css.modules.localsConvention` for definido para ativar locais em "camelCase" (por exemplo, `localsConvention: 'camelCaseOnly'`), podes também usar as importações nomeadas:
 
@@ -259,15 +259,15 @@ As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import st
 
 ## CSS Relâmpago {#lightning-css}
 
-Desde a versão 4.4 da Vite, existe suporte experimental para [CSS Relâmpago](https://lightningcss.dev/). Tu podes optar por esta opção adicionado [`css.transformer: 'lightningcss'`](../config/shared-options.md#css-transformer) ao teu ficheiro de configuração e instalar a dependência [`lightningcss`](https://www.npmjs.com/package/lightningcss) opcional:
+Desde a versão 4.4 da Vite, existe suporte experimental para [CSS Relâmpago](https://lightningcss.dev/). Tu podes optar por esta opção adicionado [`css.transformer: 'lightningcss'`](../config/shared-options#css-transformer) ao teu ficheiro de configuração e instalar a dependência [`lightningcss`](https://www.npmjs.com/package/lightningcss) opcional:
 
 ```bash
 npm add -D lightningcss
 ```
 
-Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao invés da PostCSS. Para configurá-la, podes passar as opções da CSS Relâmpago para a opção de configuração [`css.lightingcss`](../config/shared-options.md#css-lightningcss).
+Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao invés da PostCSS. Para configurá-la, podes passar as opções da CSS Relâmpago para a opção de configuração [`css.lightingcss`](../config/shared-options#css-lightningcss).
 
-Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) ao invés de [`css.modules`](../config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
+Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules) ao invés de [`css.modules`](../config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
 
 Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](../config/build-options#build-cssminify).
 
@@ -371,7 +371,7 @@ const modules = {
 
 ### Importação de Glob Como {#glob-import-as}
 
-`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](https://vitejs.dev/guide/assets.html#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
+`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
 
 ```js
 const modules = import.meta.glob('./dir/*.js', { as: 'raw', eager: true })
@@ -488,7 +488,7 @@ const modules = {
 Nota que:
 
 - Isto é uma funcionalidade apenas para Vite e não é um padrão de Web ou ECMAScript.
-- Os padrões glob são tratados como especificadores de importação: eles deve ser tanto relativos (começar com `./`) ou absolutos (começar com `/`, resolvidos como sendo relativos a raiz do projeto) ou um caminho de pseudónimo (consulte a [opção `resolve.alias`](/config/shared-options.md#resolve-alias)).
+- Os padrões glob são tratados como especificadores de importação: eles deve ser tanto relativos (começar com `./`) ou absolutos (começar com `/`, resolvidos como sendo relativos a raiz do projeto) ou um caminho de pseudónimo (consulte a [opção `resolve.alias`](/config/shared-options#resolve-alias)).
 - O glob correspondente é feito através de [`fast-glob`](https://github.com/mrmlnc/fast-glob) - consulte a sua documentação por [padrões de glob suportados](https://github.com/mrmlnc/fast-glob#pattern-syntax).
 - Tu deves também estar ciente de que todos os argumentos na `import.meta.glob` devem ser **passados como literais**. Tu NÃO podes utilizar as variáveis ou as expressões nelas.
 

@@ -45,23 +45,21 @@ As pré-configurações de modelo suportadas são:
 A Vite requer a versão 14.18+, 16+ da [Node.js](https://nodejs.org/en/). No entanto, alguns modelos exigem uma versão ainda superior da Node.js para funcionarem, atualize caso o teu gestor de pacote alertar acerca disto.
 :::
 
-Com o NPM:
+::: code-group
 
-```bash
+```bash [NPM]
 $ npm create vite@latest
 ```
 
-Com o Yarn:
-
-```bash
+```bash [Yarn]
 $ yarn create vite
 ```
 
-Com o PNPM:
-
-```bash
+```bash [PNPM]
 $ pnpm create vite
 ```
+
+:::
 
 Depois siga os prontos!
 

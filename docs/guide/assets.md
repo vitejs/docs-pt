@@ -1,7 +1,11 @@
+---
+outline: [2, 3]
+---
+
 # Manipulação de Recurso Estático {#static-asset-handling}
 
 - Relacionado ao: [Caminho de Base Pública](./build#public-base-path)
-- Relacionado a: [opção de configuração `assetsInclude`](/config/shared-options.md#assetsinclude)
+- Relacionado a: [opção de configuração `assetsInclude`](/config/shared-options#assetsinclude)
 
 ## Importando o Recurso como URL {#importing-asset-as-url}
 
@@ -20,11 +24,11 @@ O comportamento é semelhante ao `file-loader` do webpack. A diferença é que a
 
 - Se estiveres utilizando a extensão de Vue, as referências de recurso nos modelos de marcação de Componentes de Ficheiro Único de Vue são convertidos automaticamente em importações.
 
-- Os tipos de ficheiro de imagem, media, e fonte são detetados como recursos automaticamente. Tu podes estender a lista interna utilizando a [opção `assetsInclude`](/config/shared-options.md#assetsinclude).
+- Os tipos de ficheiro de imagem, media, e fonte são detetados como recursos automaticamente. Tu podes estender a lista interna utilizando a [opção `assetsInclude`](/config/shared-option#assetsinclude).
 
 - Os recursos referenciados são incluídos como parte do gráfico de recursos de construção, terão os nomes de ficheiros baralhados, e poderão ser processados pelas extensões para otimização.
 
-- Recursos mais pequenos em bytes do que a [opção `assetsInlineLimit`](/config/build-options.md#build-assetsinlinelimit) estarão embutidos como URLs de dados em base64.
+- Recursos mais pequenos em bytes do que a [opção `assetsInlineLimit`](/config/build-option#build-assetsinlinelimit) estarão embutidos como URLs de dados em base64.
 
 - Os seguradores de lugar do Armazenamento de Ficheiros Grandes de Git (Git LFS) são excluídos automaticamente do embutido porque eles não contém o conteúdo do ficheiro que eles representam. Para receber o embutido, certifica-te de descarregar os conteúdos do ficheiro através do Armazenamento de Ficheiros Grandes de Git (Git LFS) antes da construção.
 
@@ -68,7 +72,7 @@ const sharedWorker = new SharedWorker()
 import InlineWorker from './shader.js?worker&inline'
 ```
 
-Consulte [secção de Operário de Web](./features.md#operários-da-web) para mais detalhes.
+Consulte [secção de Operário de Web](./features#web-workers) para mais detalhes.
 
 ## O Diretório `public` {#the-public-directory}
 
@@ -80,14 +84,14 @@ Se tiveres recursos que:
 
 Então podes colocar o recurso em um diretório `public` especial sob a tua raiz de projeto. Os recursos neste diretório serão servidos no caminho de raiz `/` durante o desenvolvimento, e copiados para a raiz do diretório `dist` como está.
 
-O diretório é predefinido para `<root>/public`, mas pode ser configurado através da [opção `publicDir`](/config/shared-options.md#publicdir).
+O diretório é predefinido para `<root>/public`, mas pode ser configurado através da [opção `publicDir`](/config/shared-options#publicdir).
 
 Nota que:
 
 - Tu deves sempre faz referência aos recursos de `public` utilizando o caminho absoluto de raiz - por exemplo, `public/icon.png` deve ser referenciado no código-fonte como `/icon.png`.
 - Os recursos no `public` não podem ser importados a partir da JavaScript.
 
-## new URL(url, import.meta.url) {#new-url}
+## `new URL(url, import.meta.url)` {#new-url}
 
 A [`import.meta.url`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta) é uma funcionalidade de Módulo de ECMAScript nativo que expõe a URL do módulo atual. Ao combiná-la com o [construtor de URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) nativo, podemos obter a URL resolvida completa de um recurso estático utilizando o caminho relativo a partir de um módulo de JavaScript:
 
