@@ -171,6 +171,8 @@ Uma vez que a tua aplicação estiver aberta no navegador, apenas aguarde a conc
 
 O inspetor da Node.js gerará o ficheiro `vite-profile-0.cpuprofile` na pasta de raiz, siga para https://www.speedscope.app/, e carregue o perfil da CPU usando o botão `BROWSE` para inspecionar o resultado.
 
+Nós podemos instalar [`vite-plugin-inspect`](https://github.com/antfu/vite-plugin-inspect), que permite-nos inspecionar o estado intermediário das extensões da Vite  e também pode ajudar-nos a identificar quais extensões ou intermediários são congestionamentos nas nossas aplicações. A extensão pode ser usada em ambos modos de desenvolvimento e construção. Consulte o ficheiro leia-me por mais detalhes.
+
 ## Outros {#others}
 
 ### Módulo Exposto para Compatibilidade de Navegador {#module-externalized-for-browser-compatibility}
