@@ -4,7 +4,7 @@
   <source src="/vite.mp3" type="audio/mpeg">
 </audio>
 
-## Visão de Conjunto {#overview}
+## Visão Geral {#overview}
 
 Vite (palavra Francesa para "rápido", pronunciado `/vit/`<button style="border:none;padding:3px;border-radius:4px;vertical-align:bottom" id="play-vite-audio" onclick="document.getElementById('vite-audio').play();"><svg style="height:2em;width:2em"><use href="/voice.svg#voice" /></svg></button>, como "veet") é uma ferramenta de construção que se destina a oferecer uma experiência de desenvolvimento mais rápida e leve para projetos de web modernos. Ela consiste em duas partes principais:
 
@@ -12,7 +12,7 @@ Vite (palavra Francesa para "rápido", pronunciado `/vit/`<button style="border:
 
 - Um comando de construção que empacota o teu código com [Rollup](https://rollupjs.org), pré-configurado para produzir recursos estáticos altamente otimizados para produção.
 
-A Vite é opiniosa e vem com padrões sensíveis fora da caixa. Leia sobre o que é possível no [Guia de Funcionalidade](./features). Suporte para abstrações ou integrações com outras ferramentas é possível através de [Extensões](./using-plugins). A [Seção de Configuração](../config/) explica como adaptar a Vite ao teu projeto se necessário.
+A Vite é opiniosa e trás padrões sensíveis fora da caixa. Leia sobre o que é possível no [Guia de Funcionalidade](./features). Suporte para abstrações ou integrações com outras ferramentas é possível através de [Extensões](./using-plugins). A [Seção de Configuração](../config/) explica como adaptar a Vite ao teu projeto se necessário.
 
 A Vite também é altamente extensível através da sua [API de Extensão](./api-plugin) e [API de JavaScript](./api-javascript) com suporte completo a tipos.
 
@@ -22,7 +22,7 @@ Tu podes aprender mais a respeito do fundamento lógico por trás do projeto na 
 
 O construção padrão mira navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de módulos de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). Os navegadores legado podem ser suportados através do [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial - consulte a secção [Construindo para Produção](./build) para mais detalhes.
 
-## Experimentando a Vite Online {#trying-vite-online}
+## Experimentar a Vite Online {#trying-vite-online}
 
 Tu podes experimentar a Vite online na [StackBlitz](https://vite.new/). Ele executa a configuração de construção baseada em Vite diretamente no navegador, assim ela é quase idêntica a configuração local mas não exige a instalação de nada na tua máquina. Tu podes navegar para `vite.new/{template}` para selecionar qual abstração utilizar.
 
@@ -42,7 +42,7 @@ As pré-configurações de modelo suportadas são:
 ## Estruturando o Teu Primeiro Projeto de Vite {#scaffolding-your-first-vite-project}
 
 :::tip Nota de Compatibilidade
-A Vite requer a versão 14.18+, 16+ da [Node.js](https://nodejs.org/en/). No entanto, alguns modelos exigem uma versão ainda superior da Node.js para funcionarem, atualize caso o teu gestor de pacote alertar acerca disto.
+A Vite exige a versão 18+, 20+ da [Node.js](https://nodejs.org/en/). No entanto, alguns modelos exigem uma versão ainda superior da Node.js para funcionarem, atualize caso o teu gestor de pacote alertar a respeito disto.
 :::
 
 ::: code-group
