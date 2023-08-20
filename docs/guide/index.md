@@ -6,27 +6,27 @@
 
 ## Visão Geral {#overview}
 
-Vite (palavra Francesa para "rápido", pronunciado `/vit/`<button style="border:none;padding:3px;border-radius:4px;vertical-align:bottom" id="play-vite-audio" onclick="document.getElementById('vite-audio').play();"><svg style="height:2em;width:2em"><use href="/voice.svg#voice" /></svg></button>, como "veet") é uma ferramenta de construção que se destina a oferecer uma experiência de desenvolvimento mais rápida e leve para projetos de web modernos. Ela consiste em duas partes principais:
+Vite (palavra francesa para "rápido", pronunciada como `/vit/`<button style="border:none;padding:3px;border-radius:4px;vertical-align:bottom" id="play-vite-audio" onclick="document.getElementById('vite-audio').play();"><svg style="height:2em;width:2em"><use href="/voice.svg#voice" /></svg></button>, como "veet") é uma ferramenta de construção de projetos de frontend que se destina a oferecer uma experiência de desenvolvimento mais rápida e leve para projetos de web modernos. Ela consiste em duas partes principais:
 
-- Um servidor de desenvolvimento que oferece [melhorias de funcionalidade ricas](./features) sobre [módulos de ECMAScript nativo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), por exemplo [Substituição de Módulo Instantânea (HMR, sigla em Inglês)](./features#hot-module-replacement) extremamente rápida.
+- Um servidor de desenvolvimento que oferece [melhorias de funcionalidade ricas](./features) sobre [módulos de ECMAScript nativo](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules), por exemplo [Substituição de Módulo Instantânea](./features#hot-module-replacement) extremamente rápida.
 
-- Um comando de construção que empacota o teu código com [Rollup](https://rollupjs.org), pré-configurado para produzir recursos estáticos altamente otimizados para produção.
+- Um comando de construção que empacota o nosso código com a [Rollup](https://rollupjs.org), pré-configurado para produzir recursos estáticos altamente otimizados para produção.
 
-A Vite é opiniosa e trás padrões sensíveis fora da caixa. Leia sobre o que é possível no [Guia de Funcionalidade](./features). Suporte para abstrações ou integrações com outras ferramentas é possível através de [Extensões](./using-plugins). A [Seção de Configuração](../config/) explica como adaptar a Vite ao teu projeto se necessário.
+A Vite é opiniosa e trás padrões sensíveis fora da caixa. Leia sobre o que é possível fazer no [Guia de Funcionalidade](./features). O suporte para abstrações ou integrações com outras ferramentas é possível através de [Extensões](./using-plugins). A [Seção de Configuração](../config/) explica como adaptar a Vite ao nosso projeto se necessário.
 
 A Vite também é altamente extensível através da sua [API de Extensão](./api-plugin) e [API de JavaScript](./api-javascript) com suporte completo a tipos.
 
-Tu podes aprender mais a respeito do fundamento lógico por trás do projeto na secção [Porquê Vite](./why).
+Nós podemos estudar mais a respeito do fundamento lógico por trás do projeto na secção [Porquê Vite](./why).
 
-## Suporte de Navegador {#browser-support}
+## Suporte do Navegador {#browser-support}
 
-O construção padrão mira navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de módulos de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). Os navegadores legado podem ser suportados através do [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial - consulte a secção [Construindo para Produção](./build) para mais detalhes.
+O construção padrão dirige-se aos navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de módulos de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial - consulte a seção [Construindo para Produção](./build) para mais detalhes.
 
 ## Experimentar a Vite Online {#trying-vite-online}
 
-Tu podes experimentar a Vite online na [StackBlitz](https://vite.new/). Ele executa a configuração de construção baseada em Vite diretamente no navegador, assim ela é quase idêntica a configuração local mas não exige a instalação de nada na tua máquina. Tu podes navegar para `vite.new/{template}` para selecionar qual abstração utilizar.
+Nós podemos experimentar a Vite online na [StackBlitz](https://vite.new/). Ela executa a configuração de construção baseada em Vite diretamente no navegador, assim é quase idêntica a configuração local mas não exige a instalação de nada na nossa máquina. Nós podemos navegar para `vite.new/{template}` para selecionar a abstração que queremos usar.
 
-As pré-configurações de modelo suportadas são:
+As pré-configurações de modelo de projetos suportadas são:
 
 |             JavaScript              |                TypeScript                 |
 | :---------------------------------: | :---------------------------------------: |
@@ -42,7 +42,7 @@ As pré-configurações de modelo suportadas são:
 ## Estruturando o Teu Primeiro Projeto de Vite {#scaffolding-your-first-vite-project}
 
 :::tip Nota de Compatibilidade
-A Vite exige a versão 18+, 20+ da [Node.js](https://nodejs.org/en/). No entanto, alguns modelos exigem uma versão ainda superior da Node.js para funcionarem, atualize caso o teu gestor de pacote alertar a respeito disto.
+A Vite exige a versão 18+, 20+ da [Node.js](https://nodejs.org/en/). No entanto, alguns modelos de projeto exigem uma versão ainda superior da Node.js para funcionarem, atualize caso o teu gestor de pacote alertar a respeito disto.
 :::
 
 ::: code-group
@@ -61,9 +61,9 @@ $ pnpm create vite
 
 :::
 
-Depois siga os prontos!
+Depois devemos seguir os prontos!
 
-Tu também podes diretamente especificar o nome de projeto e o modelo que queres utilizar através de opções de linha de comando adicionais. Por exemplo, para gerar um projeto Vite + Vue, execute:
+Nós também podemos diretamente especificar o nome do projeto e o modelo que queremos usar através das opções de linha de comando adicionais. Por exemplo, para gerar um projeto Vite + Vue, executamos:
 
 ```bash
 # npm 6.x
@@ -79,11 +79,11 @@ yarn create vite my-vue-app --template vue
 pnpm create vite my-vue-app --template vue
 ```
 
-Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) para mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
+Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
 
 ## Modelos de Projeto da Comunidade {#community-templates}
 
-A `create-vite` é uma ferramenta para iniciar um projeto rapidamente a partir de um modelo básico para abstrações populares. Consulte a Awesome Vite para [modelos de projeto mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluam outras ferramentas ou miram abstrações diferentes. Tu podes utilizar uma ferramenta como [degit](https://github.com/Rich-Harris/degit) para gerar o teu projeto com um dos modelos.
+A `create-vite` é uma ferramenta para iniciar um projeto rapidamente a partir de um modelo de projeto básico para abstrações populares. Consulte a [awesome-vite](https://github.com/vitejs/awesome-vite) por [modelos de projeto mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluam outras ferramentas ou dirigem-se à abstrações diferentes. Nós podemos usar uma ferramenta como [degit](https://github.com/Rich-Harris/degit) para gerar o nosso projeto com um dos modelos:
 
 ```bash
 npx degit user/project my-project
@@ -93,7 +93,7 @@ npm install
 npm run dev
 ```
 
-Se o projeto utiliza `main` como ramo padrão, sufixe o repositório do projeto com `#main`.
+Se o projeto usa `main` como ramo padrão, sufixe o repositório do projeto com `#main`.
 
 ```bash
 npx degit user/project#main my-project
@@ -101,13 +101,13 @@ npx degit user/project#main my-project
 
 ## `index.html` e a Raiz do Projeto {#index-html-and-project-root}
 
-Uma coisa que podes ter notado é que em um projeto de Vite, `index.html` é a frente e a central no lugar de ser escondido dentro de `public`. Isto é intencional: durante o desenvolvimento a Vite é um servidor, e `index.html` é o ponto de entrada para a tua aplicação.
+Uma coisa que podemos ter notado é que em um projeto de Vite, `index.html` é a frente e a central no lugar de ser escondido dentro de `public`. Isto é intencional: durante o desenvolvimento a Vite é um servidor, e `index.html` é o ponto de entrada para a tua aplicação.
 
 A Vite trata o `index.html` como código-fonte e parte do módulo gráfico. Ela resolve `<script type="module" src="...">` que faz referência ao teu código-fonte de JavaScript. Mesmo o `<script type="module">` em linha e a CSS referenciada através de `<link href>` também gozam das funcionalidades especificas da Vite. Além disto, as URLs dentro de `index.html` são baseados novamente automaticamente assim não há necessidade para seguradores de locar como `%PUBLIC_URL%`.
 
-Semelhante aos servidores de HTTP estáticos, a Vite tem o conceito de um "diretório raiz" a partir do qual os teus ficheiros são servidos. Tu o verás referenciado como `<root>` por todo o resto da documentação. As URLs absolutas no teu código-fonte serão resolvidas utilizando a raiz de projeto como base, assim podes escrever código como se estivesses trabalhando com um servidor de ficheiro estático normal (exceto que mais poderoso!). A Vite também é capaz de manipular dependências que resolvem para fora das localizações do sistema de ficheiro raiz, o que a torna utilizável mesmo em uma configuração baseada em mono-repositório.
+Semelhante aos servidores de HTTP estáticos, a Vite tem o conceito dum "diretório raiz" a partir do qual os nossos ficheiros são servidos. Nós os veremos referenciados como `<root>` ao longo do resto da documentação. As URLs absolutas no nosso código-fonte serão resolvidas usando a raiz do projeto como base, assim podemos escrever código como se estivéssemos trabalhando com um servidor de ficheiro estático normal (só que mais poderoso!). A Vite também é capaz de manipular dependências que resolvem para fora das localizações do sistema de ficheiro raiz, o que a torna utilizável mesmo em uma configuração baseada em mono-repositório.
 
-A Vite também suporta [aplicações de várias páginas](./build#aplicação-de-várias-páginas) com vários pontos de entrada `.html`.
+A Vite também suporta [aplicações de várias páginas](./build#multi-page-app) com vários pontos de entrada `.html`.
 
 #### Especificando Raiz Alternativa {#specifying-alternative-root}
 
