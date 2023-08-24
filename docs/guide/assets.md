@@ -24,11 +24,11 @@ O comportamento é semelhante ao `file-loader` do webpack. A diferença é que a
 
 - Se estiveres utilizando a extensão de Vue, as referências de recurso nos modelos de marcação de Componentes de Ficheiro Único de Vue são convertidos automaticamente em importações.
 
-- Os tipos de ficheiro de imagem, media, e fonte são detetados como recursos automaticamente. Tu podes estender a lista interna utilizando a [opção `assetsInclude`](/config/shared-option#assetsinclude).
+- Os tipos de ficheiro de imagem, media, e fonte são detetados como recursos automaticamente. Tu podes estender a lista interna utilizando a [opção `assetsInclude`](/config/shared-options#assetsinclude).
 
 - Os recursos referenciados são incluídos como parte do gráfico de recursos de construção, terão os nomes de ficheiros baralhados, e poderão ser processados pelas extensões para otimização.
 
-- Recursos mais pequenos em bytes do que a [opção `assetsInlineLimit`](/config/build-option#build-assetsinlinelimit) estarão embutidos como URLs de dados em base64.
+- Recursos mais pequenos em bytes do que a [opção `assetsInlineLimit`](/config/build-options#build-assetsinlinelimit) estarão embutidos como URLs de dados em base64.
 
 - Os seguradores de lugar do Armazenamento de Ficheiros Grandes de Git (Git LFS) são excluídos automaticamente do embutido porque eles não contém o conteúdo do ficheiro que eles representam. Para receber o embutido, certifica-te de descarregar os conteúdos do ficheiro através do Armazenamento de Ficheiros Grandes de Git (Git LFS) antes da construção.
 
