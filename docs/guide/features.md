@@ -151,7 +151,7 @@ O ficheiros `.jsx` e `.tsx` são também suportados fora da caixa. A tradução 
 
 Os utilizadores de Vue devem utilizar a extensão [@vitejs/plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) oficial, a qual fornece funcionalidades especificas incluindo a HMR, resolução de componente global, diretivas e ranhuras.
 
-Se não estiveres a utilizar a JSX com a React ou Vue, Os `jsxFactory` e `jsxFragment` personalizados podem ser configurados utilizando a [opção `esbuild`](/config/shared-options.md#esbuild). Por exemplo para a Preact:
+Se não estiveres a utilizar a JSX com a React ou Vue, Os `jsxFactory` e `jsxFragment` personalizados podem ser configurados utilizando a [opção `esbuild`](/config/shared-options#esbuild). Por exemplo para a Preact:
 
 ```js
 // vite.config.js
@@ -259,17 +259,17 @@ As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import st
 
 ## CSS Relâmpago {#lightning-css}
 
-Desde a versão 4.4 da Vite, existe suporte experimental para [CSS Relâmpago](https://lightningcss.dev/). Tu podes optar por esta opção adicionado [`css.transformer: 'lightningcss'`](../config/shared-options#css-transformer) ao teu ficheiro de configuração e instalar a dependência [`lightningcss`](https://www.npmjs.com/package/lightningcss) opcional:
+Desde a versão 4.4 da Vite, existe suporte experimental para [CSS Relâmpago](https://lightningcss.dev/). Tu podes optar por esta opção adicionado [`css.transformer: 'lightningcss'`](/config/shared-options#css-transformer) ao teu ficheiro de configuração e instalar a dependência [`lightningcss`](https://www.npmjs.com/package/lightningcss) opcional:
 
 ```bash
 npm add -D lightningcss
 ```
 
-Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao invés da PostCSS. Para configurá-la, podes passar as opções da CSS Relâmpago para a opção de configuração [`css.lightingcss`](../config/shared-options#css-lightningcss).
+Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao invés da PostCSS. Para configurá-la, podes passar as opções da CSS Relâmpago para a opção de configuração [`css.lightingcss`](/config/shared-options#css-lightningcss).
 
-Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules) ao invés de [`css.modules`](../config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
+Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules) ao invés de [`css.modules`](/config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
 
-Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](../config/build-options#build-cssminify).
+Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](/config/build-options#build-cssminify).
 
 :::tip NOTA
 Os [pré-processadores de CSS](#css-pre-processors) não são suportados quando usas a CSS relâmpago.
@@ -307,7 +307,7 @@ import Worker from './worker.js?worker'
 import InlineWorker from './worker.js?worker&inline'
 ```
 
-Mais detalhes em [Manipulação de Recurso Estático](./assets).
+Mais detalhes em [Manipulação de Recurso Estático](/guide/assets).
 
 ## JSON {#json}
 
@@ -322,7 +322,7 @@ import json from './example.json'
 import { field } from './example.json'
 ```
 
-## Importação de Glob {#glob-import}
+## Importação de Glob Como {#glob-import}
 
 A Vite suporta a importação de múltiplos módulos do sistema de ficheiro através da função `import.meta.glob` especial:
 
@@ -371,7 +371,7 @@ const modules = {
 
 ### Importação de Glob Como {#glob-import-as}
 
-`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
+`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](/guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
 
 ```js
 const modules = import.meta.glob('./dir/*.js', { as: 'raw', eager: true })
@@ -529,7 +529,7 @@ init({
 })
 ```
 
-Na construção de produção, os ficheiros `.wasm` mas pequenos do que o `assetInlineLimit` serão embutidos como sequências de caracteres de base64. De outro modo, serão tratados como um [recurso estático](./assets) e requisitado sobre demanda.
+Na construção de produção, os ficheiros `.wasm` mas pequenos do que o `assetInlineLimit` serão embutidos como sequências de caracteres de base64. De outro modo, serão tratados como um [recurso estático](/guide/assets) e requisitado sobre demanda.
 
 :::warning NOTA
 [Proposta de Integração de Módulo de ECMAScript para WebAssembly](https://github.com/WebAssembly/esm-integration) não é atualmente suportada.
@@ -538,7 +538,7 @@ Utilize [`vite-plugin-wasm`](https://github.com/Menci/vite-plugin-wasm) ou outra
 
 ### Acessando o Módulo WebAssembly {#accessing-the-webassembly-module}
 
-Se precisarmos de acesso ao objeto `Module`, por exemplo, para instância-lo várias vezes, usaremos uma [importação de URL explícita](./assets#explicit-url-imports) para resolver o recurso, e depois realizar a instanciação:
+Se precisarmos de acesso ao objeto `Module`, por exemplo, para instância-lo várias vezes, usaremos uma [importação de URL explícita](/guide/assets#explicit-url-imports) para resolver o recurso, e depois realizar a instanciação:
 
 ```js
 import wasmUrl from 'foo.wasm?url'
