@@ -69,7 +69,7 @@ Devido as diferenças na resolução de dependência ligada, dependências trans
 
 ## Personalizando o Comportamento {#customizing-the-behavior}
 
-As heurísticas da descoberta de dependência padrão podem não sempre ser desejável. Nestes casos onde quiseres explicitamente incluir ou excluir dependências da lista, utilize as [opções de configuração `optimizeDeps`](/config/dep-optimization-options.md).
+As heurísticas da descoberta de dependência padrão podem não sempre ser desejável. Nestes casos onde quiseres explicitamente incluir ou excluir dependências da lista, utilize as [opções de configuração `optimizeDeps`](/config/dep-optimization-options).
 
 Um caso de uso normal para `optimizeDeps.include` ou `optimizeDeps.exclude` é quando tens uma importação que não é passível de ser descoberto no código-fonte. Por exemplo, talvez a importação seja criada como um resultado de uma transformação de extensão. Isto significa que a Vite não será capaz de descobrir a importação no exame inicial - ela pode apenas descobri-lo depois do ficheiro ser requisitado pelo navegador e transformado. Isto causará que o servidor empacote novamente imediatamente depois do servidor iniciar.
 
