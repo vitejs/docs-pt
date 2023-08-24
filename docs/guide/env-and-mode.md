@@ -4,7 +4,7 @@
 
 A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`**. Algumas variáveis embutidas estão disponíveis em todos os casos:
 
-- **`import.meta.env.MODE`**: {sequência de caracteres} o [modo](#modo) em que a aplicação está executando.
+- **`import.meta.env.MODE`**: {sequência de caracteres} o [modo](#modes) em que a aplicação está executando.
 
 - **`import.meta.env.BASE_URL`**: {sequência de caracteres} a url de base a partir da qual a aplicação está sendo servida. Isto é determinado pela [opção de configuração `base`](/config/shared-options#base).
 
@@ -12,7 +12,7 @@ A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`
 
 - **`import.meta.env.DEV`**: {booleano} se a aplicação estiver executando em desenvolvimento (sempre o oposto de `import.meta.env.PROD`)
 
-- **`import.meta.env.SSR`**: {booleano} se a aplicação estiver executando no [servidor](./ssr.md#lógica-condicional).
+- **`import.meta.env.SSR`**: {booleano} se a aplicação estiver executando no [servidor](./ssr#conditional-logic).
 
 ### Substituição de Produção {#production-replacement}
 
