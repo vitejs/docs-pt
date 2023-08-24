@@ -18,7 +18,7 @@ O exemplo acima lançará um erro no navegador. A Vite detetará tais importaç�
 
 **As Dependências são Fortemente Cacheadas**
 
-A Vite cacheia as requisições de dependências através de cabeçalhos de HTTP, então se desejares editar ou depurar localmente uma dependência, siga as etapas [aqui](./dep-pre-bundling#cache-do-navegador).
+A Vite cacheia as requisições de dependências através de cabeçalhos de HTTP, então se desejares editar ou depurar localmente uma dependência, siga as etapas [aqui](./dep-pre-bundling#browser-cache).
 
 ## Substituição de Módulo Instantânea {#hot-module-replacement}
 
