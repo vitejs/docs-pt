@@ -29,7 +29,7 @@ vite [root]
 | `--force`                | Forçar o otimizador a ignorar o cache e re-empacotar (`boolean`)  |
 | `-c, --config <file>`    | Usar o ficheiro de configuração especificado (`string`)           |
 | `--base <path>`          | Caminho de base pública (default: `/`) (`string`)                 |
-| `-l, --logLevel <level>` | Informação \| aviso \| erro \| silencioso (`string`)              |
+| `-l, --logLevel <level>` | informação \| aviso \| erro \| silencioso (`string`)              |
 | `--clearScreen`          | Permitir/desativar a limpeza da tela quando estiver a fazer o registo em diário (`boolean`)               |
 | `-d, --debug [feat]`     | Exibir os registos da depuração (`string \| boolean`)             |
 | `-f, --filter <filter>`  | Filtrar os registos da depuração (`string`)                       |
