@@ -270,6 +270,15 @@ Combina profundamente duas configurações de Vite. `isRoot` representa o nível
 
 :::tip NOTA
 `mergeConfig` aceita apenas configuração na forma de objeto. Se tiveres uma configuração na forma de função de resposta, deves chamá-la antes de passar para `mergeConfig`.
+
+Tu podes usar a auxiliar `defineConfig` para combinar uma configuração na forma de função de resposta com uma outra configuração:
+
+```ts
+export default defineConfig((configEnv) =>
+  mergeConfig(configAsCallback(configEnv), configAsObject)
+)
+```
+
 :::
 
 ## `searchForWorkspaceRoot`
