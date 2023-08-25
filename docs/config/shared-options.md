@@ -1,6 +1,6 @@
 # Opções Partilhadas {#shared-options}
 
-## root {#root}
+## `root` {#root}
 
 - **Tipo:** `string`
 - **Predefinido como:** `process.cwd()`
@@ -9,7 +9,7 @@ Diretório raiz do projeto (onde o `index.html` está localizado). Pode ser um c
 
 Consulte [Raiz do Projeto](/guide/#index-html-and-project-root) para mais detalhes.
 
-## base {#base}
+## `base` {#base}
 
 - **Tipo:** `string`
 - **Predefinido como:** `/`
@@ -22,7 +22,7 @@ O caminho público de base quando servido em desenvolvimento ou produção. Os v
 
 Consulte [Caminho de Base Pública](/guide/build#public-base-path) para mais detalhes.
 
-## mode {#mode}
+## `mode` {#mode}
 
 - **Tipo:** `string`
 - **Predefinido como:** `'development'` para servir, `'production'` para construir
@@ -31,7 +31,7 @@ Especificando isto na configuração sobreporá o modo padrão para **ambos serv
 
 Consulte [Variáveis de Ambiente e Modos](/guide/env-and-mode) para mais detalhes.
 
-## define {#define}
+## `define` {#define}
 
 - **Tipo:** `Record<string, string>`
 
@@ -75,13 +75,13 @@ const obj = {
 
 :::
 
-## plugins {#plugins}
+## `plugins` {#plugins}
 
 - **Tipo:** `(Plugin | Plugin[] | Promise<Plugin | Plugin[]>)[]`
 
 Arranjo de extensões a usar. As extensões falsas são ignoras e os arranjos de extensões são aplanados. Se uma promessa for retornada, seria resolvida antes da execução. Consulte [API da Extensão](/guide/api-plugin) por mais detalhes sobre as extensões de Vite.
 
-## publicDir {#publicdir}
+## `publicDir` {#publicdir}
 
 - **Tipo:** `string | false`
 - **Predefinido como:** `"public"`
@@ -92,14 +92,14 @@ Definir `publicDir` como `false` desativa esta funcionalidade.
 
 Consulte [O Diretório `public`](/guide/assets#the-public-directory) por mais detalhes.
 
-## cacheDir {#cachedir}
+## `cacheDir` {#cachedir}
 
 - **Tipo:** `string`
 - **Predefinido como:** `"node_modules/.vite"`
 
 Diretório para guardar ficheiros para consulta imediata. Os ficheiros neste diretório são dependências pré-empacotadas ou outros ficheiros de consulta imediata gerados pela Vite, o que pode melhorar o desempenho. Tu podes usar a opção `--force` ou manualmente eliminar o diretório para regenerar os ficheiros de consulta imediata. O valor pode ser tanto um caminho do sistema de ficheiro absoluto ou um caminho relativo a raiz do projeto. Predefinido para `.vite` quando nenhum `package.json` for detetado.
 
-## resolve.alias {#resolve-alias}
+## `resolve.alias` {#resolve-alias}
 
 - **Tipo:**
   `Record<string, string> | Array<{ find: string | RegExp, replacement: string, customResolver?: ResolverFunction | ResolverObject }>`
@@ -114,7 +114,7 @@ Mais resoluções personalizadas avançadas podem ser alcançado através de [ex
 Se tiveres pseudónimos configurados para [dependências expostas da SSR](/guide/ssr#ssr-externals), podes desejar atribuir pseudónimo os pacotes do `node_modules`. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a atribuição pseudónimos através do prefixo `npm:`.
 :::
 
-## resolve.dedupe {#resolve-dedupe}
+## `resolve.dedupe` {#resolve-dedupe}
 
 - **Tipo:** `string[]`
 
@@ -124,7 +124,7 @@ Se tiveres copias duplicadas da mesma dependência na tua aplicação (provavelm
 Para as construções de SSR, a resolução da duplicação de cópias da mesma dependência não funcionar para saídas da construção de módulos de ECMAScript (ESM, em Inglês) configurados a partir do `build.rollupOptions.output`. Um solução é usar as saídas da construção de CJS até que a ESM ter melhor suporte de extensão para o carregamento de módulo.
 :::
 
-## resolve.conditions {#resolve-conditions}
+## `resolve.conditions` {#resolve-conditions}
 
 - **Tipo:** `string[]`
 
@@ -151,14 +151,14 @@ A Vite tem uma lista de "condições permitidas" e corresponderá a primeira con
 A exportação de chaves que terminam com "/" está depreciada pela Node e não funcionam bem. Entre em contato com autor do pacote para o convencer para que de preferência a usar [padrões de sub-pasta `*`](https://nodejs.org/api/packages.html#package-entry-points).
 :::
 
-## resolve.mainFields {#resolve-mainfields}
+## `resolve.mainFields` {#resolve-mainfields}
 
 - **Tipo:** `string[]`
 - **Predefinido como:** `['module', 'jsnext:main', 'jsnext']`
 
 Lista de campos no `package.json` para experimentar quando estiveres a resolver um ponto de entrada de pacote. Nota que isto recebe prioridade mais baixa do que as exportações condicionais resolvidas a partir do campo `exports`: se um ponto de entrada for resolvido com sucesso a partir do `exports`, o campo principal será ignorado.
 
-## resolve.browserField {#resolve-browserfield}
+## `resolve.browserField` {#resolve-browserfield}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `true`
@@ -168,14 +168,14 @@ Se for ativar a resolução para campo `browser`.
 
 No futuro, o valor padrão do `resolve.mainFields` será `['browser', 'module', 'jsnext:main', 'jsnext']` e esta opção será removida.
 
-## resolve.extensions {#resolve-extensions}
+## `resolve.extensions` {#resolve-extensions}
 
 - **Tipo:** `string[]`
 - **Predefinido como:** `['.mjs', '.js', '.mts', '.ts', '.jsx', '.tsx', '.json']`
 
 Lista de extensões de ficheiros para experimentar às importações que omitem as extensões. Nota que **NÃO** recomendado omitir as extensões para tipos de importações personalizadas (por exemplo, `.vue`) já que isto pode interferir com a IDE e o suporte de tipo.
 
-## resolve.preserveSymlinks {#resolve-preservesymlinks}
+## `resolve.preserveSymlinks` {#resolve-preservesymlinks}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
@@ -184,7 +184,7 @@ A ativação desta definição faz a Vite determinar a identidade de ficheiro pe
 
 - **Relacionado ao:** [esbuild#preserve-symlinks](https://esbuild.github.io/api/#preserve-symlinks), [webpack#resolve.symlinks](https://webpack.js.org/configuration/resolve/#resolvesymlinks)
 
-## css.modules {#css-modules}
+## `css.modules` {#css-modules}
 
 - **Tipo:**
   ```ts
@@ -211,7 +211,7 @@ Configura o comportamento dos módulos de CSS. As opções são passadas para [p
 
 Esta opção não surte qualquer feito quando usas [CSS relâmpago](../guide/features.md#lightning-css). Se ativada, [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) deve ser usado.
 
-## css.postcss {#css-postcss}
+## `css.postcss` {#css-postcss}
 
 - **Tipo:** `string | (postcss.ProcessOptions & { plugins?: postcss.AcceptedPlugin[] })`
 
@@ -223,7 +223,7 @@ A pesquisa é feita com o uso da [postcss-load-config](https://github.com/postcs
 
 Nota se uma configuração embutida for fornecida, a Vite não procurará por outras fontes de configuração de PostCSS.
 
-## css.preprocessorOptions {#css-preprocessoroptions}
+## `css.preprocessorOptions` {#css-preprocessoroptions}
 
 - **Tipo:** `Record<string, object>`
 
@@ -257,7 +257,7 @@ export default defineConfig({
 })
 ```
 
-## css.devSourcemap {#css-devsourcemap}
+## `css.devSourcemap` {#css-devsourcemap}
 
 - **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13845)
 - **Tipo:** `boolean`
@@ -265,7 +265,7 @@ export default defineConfig({
 
 Se for ativar os mapas de fonte durante o desenvolvimento.
 
-## css.transformer {#css-transformer}
+## `css.transformer` {#css-transformer}
 
 - **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:** `'postcss' | 'lightingcss'`
@@ -273,7 +273,7 @@ Se for ativar os mapas de fonte durante o desenvolvimento.
 
 Seleciona o motor usado para o processamento da CSS. Consulte a [CSS Relâmpago](../guide/features#lightning-css) por mais informação.
 
-## css.lightningcss {#css-lightningcss}
+## `css.lightningcss` {#css-lightningcss}
 
 - **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:**
@@ -305,14 +305,14 @@ import type {
 
 Configura a CSS Relâmpago. As opções de transformação completa podem ser encontradas no [repositório da CSS Relâmpago](https://github.com/parcel-bundler/lightningcss/blob/master/node/index.d.ts).
 
-## json.namedExports {#json-namedexports}
+## `json.namedExports` {#json-namedexports}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `true`
 
 Se for suportar importações nomeadas a partir de ficheiros `.json`.
 
-## json.stringify {#json-stringify}
+## `json.stringify` {#json-stringify}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
@@ -321,11 +321,11 @@ Se definido para `true`, o JSON importado será transformado em `export default 
 
 A ativação disto desativa as importações nomeadas.
 
-## esbuild {#esbuild}
+## `esbuild` {#esbuild}
 
 - **Tipo:** `ESBuildOptions | false`
 
-`ESBuildOptions` estende as [opções de transformação do próprio esbuild](https://esbuild.github.io/api/#transform-api). O caso de uso mais comum é a personalização de JSX:
+`ESBuildOptions` estende as [opções de transformação do próprio esbuild](https://esbuild.github.io/api/#transform). O caso de uso mais comum é a personalização de JSX:
 
 ```js
 export default defineConfig({
@@ -352,7 +352,7 @@ Quando [`build.minify`](./build-options#build-minify) for `true`, todas otimiza�
 
 Defina para `false` para desativar as transformações da esbuild.
 
-## assetsInclude {#assetsinclude}
+## `assetsInclude` {#assetsinclude}
 
 - **Tipo:** `string | RegExp | (string | RegExp)[]`
 - **Related:** [Manipulação de Recurso Estático](/guide/assets)
@@ -373,20 +373,20 @@ export default defineConfig({
 })
 ```
 
-## logLevel {#loglevel}
+## `logLevel` {#loglevel}
 
 - **Tipo:** `'info' | 'warn' | 'error' | 'silent'`
 
 Ajusta verbosidade da saída da consola. O padrão é `'info'`.
 
-## clearScreen {#clearscreen}
+## `clearScreen` {#clearscreen}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `true`
 
 Defina para `false` para impedir que a Vite de limpar o tela do terminal quando registares certas mensagens. Através da linha de comando, use `--clearScreen false`.
 
-## envDir {#envdir}
+## `envDir` {#envdir}
 
 - **Tipo:** `string`
 - **Predefinido como:** `root`
@@ -395,7 +395,7 @@ O diretório a partir do qual os ficheiros `.env` são carregados. Pode ser um c
 
 Consulte [Ficheiros de Configuração do Ambiente](/guide/env-and-mode#env-files) para mais detalhes sobre ficheiros de ambiente.
 
-## envPrefix {#envprefix}
+## `envPrefix` {#envprefix}
 
 - **Tipo:** `string | string[]`
 - **Predefinido como:** `VITE_`
@@ -414,7 +414,7 @@ define: {
 ```
 :::
 
-## appType {#apptype}
+## `appType` {#apptype}
 
 - **Tipo:** `'spa' | 'mpa' | 'custom'`
 - **Predefinido como:** `'spa'`
