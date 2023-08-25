@@ -217,7 +217,6 @@ Por padrão, a Vite esvaziará o `outDir` na construção se estiver dentro da r
 
 ## `build.copyPublicDir` {#build-copypublicdir}
 
-- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13807)
 - **Tipo:** `boolean`
 - **Predefinido como:** `true`
 
