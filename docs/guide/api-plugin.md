@@ -313,10 +313,11 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
 ### `configurePreviewServer` {#configure-preview-server}
 
-- **Tipo:** `(server: { middlewares: Connect.Server, httpServer: http.Server }) => (() => void) | void | Promise<(() => void) | void>`
+- **Tipo:** `(server: PreviewServer) => (() => void) | void | Promise<(() => void) | void>`
 - **Natureza:** `async`, `sequential`
+- **Consulte também:** [PreviewServer](./api-javascript#previewserver)
 
-  O mesmo que [`configureServer`](/guide/api-plugin.html#configureserver) porém para o servidor de pré-visualização. Ele fornece o servidor [connect](https://github.com/senchalabs/connect) e o [servidor de http](https://nodejs.org/api/http.html) subjacente. Similarmente ao `configureServer`, o gatilho `configurePreviewServer` é chamado antes dos outros intermediários serem instalados. Se quiseres injetar um intermediário **depois** dos outros intermediários, podes retornar uma função de `configurePreviewServer`, que será chamado depois dos intermediários internos serem instalados:
+  O mesmo que [`configureServer`](/guide/api-plugin#configureserver) porém para o servidor de pré-visualização. Ele fornece o servidor [connect](https://github.com/senchalabs/connect) e o [servidor de http](https://nodejs.org/api/http.html) subjacente. Similarmente ao `configureServer`, o gatilho `configurePreviewServer` é chamado antes dos outros intermediários serem instalados. Se quiseres injetar um intermediário **depois** dos outros intermediários, podes retornar uma função de `configurePreviewServer`, que será chamado depois dos intermediários internos serem instalados:
 
   ```js
   const myPlugin = () => ({
