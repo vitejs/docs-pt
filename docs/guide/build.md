@@ -215,12 +215,16 @@ Ou, se estiveres expondo vários pontos de entrada:
 }
 ```
 
-:::tip Nota
+:::tip Extensões de Ficheiro
 Se o `package.json` não conter a `"type": "module"`, a Vite gerará extensões de ficheiro diferentes para compatibilidade da Node.js. A `.js` tornar-se-á em `.mjs` e `.cjs` tornar-se-á em `.js`.
 :::
 
 :::tip Variáveis de Ambiente
 No modo de biblioteca, todas as utilizações de `import.meta.env.*` são substituídas estaticamente quando estiveres construindo para produção. No entanto, as utilizações de `process.env.*` não são, para que os consumidores da tua biblioteca possam mudá-la dinamicamente. Se isto for indesejável, podes utilizar a `define: { 'process.env.`<wbr>`NODE_ENV': '"production"' }` por exemplo para substituí-las estaticamente.
+:::
+
+:::warning Uso Avançado
+O modo de biblioteca inclui uma simples e opiniosa configuração para bibliotecas orientadas para o navegador e para abstração de JavaScript. Se estivermos a construir bibliotecas que não estão destinadas ao navegador, ou exigem fluxos de construção avançados, podemos usar diretamente a [Rollup](https://rollupjs.org) ou [esbuild](https://esbuild.github.io).
 :::
 
 ## Opções de Base Avançada {#advanced-base-options}
