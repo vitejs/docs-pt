@@ -40,11 +40,11 @@ Se precisares uma integração personalizada, podes seguir os passos neste guia 
    Para servir os recursos apropriadamente, tens duas opções:
 
    - Certifica-te de que o servidor está configurada para delegar as requisições de recursos estáticos para o servidor da Vite
-   - Defina a opção [`server.origin`](/config/server-options.md#server-origin) para que as URLs de recurso geradas sejam resolvidas utilizando a URL do servidor de back-end ao invés de um caminho relativo
+   - Defina a opção [`server.origin`](/config/server-options#server-origin) para que as URLs de recurso geradas sejam resolvidas utilizando a URL do servidor de back-end ao invés de um caminho relativo
 
    Isto é necessário para recursos tais como imagens carreguem apropriadamente.
 
-   Nota que se estiveres utilizando a React com `@vitejs/plugin-react`, também precisarás adicionar isto antes dos programas acima, já que a extensão não é capaz de modificar a HTML que estás servindo:
+   Nota que se estiveres utilizando a React com `@vitejs/plugin-react`, também precisarás adicionar isto antes dos programas acima, já que a extensão não é capaz de modificar a HTML que estás servindo (substitua `http://localhost:5173` com a URL local em que a Vite está a ser executada):
 
    ```html
    <script type="module">
