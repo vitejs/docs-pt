@@ -66,10 +66,7 @@ Depois devemos seguir os prontos!
 Nós também podemos diretamente especificar o nome do projeto e o modelo que queremos usar através das opções de linha de comando adicionais. Por exemplo, para gerar um projeto Vite + Vue, executamos:
 
 ```bash
-# npm 6.x
-npm create vite@latest my-vue-app --template vue
-
-# npm 7+, os duplo travessão é necessário:
+# npm 7+, o duplo travessão adicional é necessário:
 npm create vite@latest my-vue-app -- --template vue
 
 # yarn
