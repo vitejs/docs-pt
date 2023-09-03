@@ -59,6 +59,10 @@ $ yarn create vite
 $ pnpm create vite
 ```
 
+```bash [Bun]
+$ bunx create
+```
+
 :::
 
 Depois devemos seguir os prontos!
@@ -74,6 +78,9 @@ yarn create vite my-vue-app --template vue
 
 # pnpm
 pnpm create vite my-vue-app --template vue
+
+# bun
+bunx create-vite my-vue-app --template vue
 ```
 
 Consulte [create-vite](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes a respeito de cada modelo suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
