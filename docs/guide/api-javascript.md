@@ -31,6 +31,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
   await server.listen()
 
   server.printUrls()
+  server.bindCLIShortcuts({ print: true })
 })()
 ```
 
@@ -136,9 +137,13 @@ interface ViteDevServer {
    */
   restart(forceOptimize?: boolean): Promise<void>
   /**
-   * Termina o servidor.
+   * Terminar o servidor.
    */
   close(): Promise<void>
+  /**
+   * Vincular os atalhos da interface da linha de comando
+  */
+  bindCLIShortcuts(options?: BindCLIShortcutsOptions<ViteDevServer>): void
 }
 ```
 
@@ -197,6 +202,7 @@ import { preview } from 'vite'
   })
 
   previewServer.printUrls()
+  previewServer.bindCLIShortcuts({ print: true })
 })()
 ```
 
@@ -237,6 +243,10 @@ interface PreviewServerForHook {
    * Print server urls
    */
   printUrls(): void
+  /**
+   * Vincular atalhos da interface da linha de comando
+   */
+  bindCLIShortcuts(options?: BindCLIShortcutsOptions<PreviewServer>): void
 }
 ```
 
