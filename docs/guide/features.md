@@ -1,3 +1,7 @@
+---
+outline: [2, 3]
+---
+
 # Funcionalidades {#features}
 
 No nível mais básico, o desenvolvimento utilizando a Vite não é tão diferente da utilização de um servidor de ficheiro estático. No entanto, a Vite fornece muitas otimizações sobre as importações de ESM nativa para suportar várias funcionalidades que são normalmente vistas em configurações baseada em empacotador.
