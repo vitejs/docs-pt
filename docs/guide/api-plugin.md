@@ -1,3 +1,7 @@
+---
+outline: [2, 3]
+---
+
 # API de Extensão {#plugin-api}
 
 As extensões de Vite estendem a bem desenha interface de extensão da Rollup com algumas opções adicionais específicas da Vite. Como resultado, podes escrever uma extensão de Vite uma vez e tê-la a funcionar para ambos desenvolvimento e construção.
