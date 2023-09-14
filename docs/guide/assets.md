@@ -1,7 +1,3 @@
----
-outline: [2, 3]
----
-
 # Manipulação de Recurso Estático {#static-asset-handling}
 
 - Relacionado ao: [Caminho de Base Pública](./build#public-base-path)

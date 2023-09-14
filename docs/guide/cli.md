@@ -1,7 +1,3 @@
----
-outline: [2, 3]
----
-
 # Interface da Linha de Comando {#command-line-interface}
 
 ## Servidor de Desenvolvimento {#dev-server}

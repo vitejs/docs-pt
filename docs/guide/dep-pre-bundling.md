@@ -1,7 +1,3 @@
----
-outline: [2, 3]
----
-
 # Pré-Empacotamento de Dependência {#dependency-pre-bundling}
 
 Quando executas `vite` pela primeira vez, podes reparar nesta mensagem:

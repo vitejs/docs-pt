@@ -1,7 +1,3 @@
----
-outline: [2, 3]
----
-
 # Porquê Vite {#why-vite}
 
 ## Os Problemas {#the-problems}
