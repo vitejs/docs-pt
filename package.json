@@ -1,7 +1,7 @@
 {
   "name": "vite-docs-pt",
   "version": "1.0.0",
-  "description": "Vite documentation in Portuguese",
+  "description": "Documentação da Vite em Português",
   "main": "docs/index.md",
   "directories": {
     "doc": "docs"
@@ -40,7 +40,7 @@
   },
   "homepage": "https://github.com/vitejs/docs-pt#readme",
   "dependencies": {
-    "vitepress": "^1.0.0-beta.1"
+    "vitepress": "1.0.0-beta.7"
   },
   "devDependencies": {
     "@algolia/client-search": "^4.13.1",
