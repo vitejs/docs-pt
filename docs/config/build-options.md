@@ -180,6 +180,13 @@ Quando definido para `true`, a construção também gerará um manifesto de SSR 
 
 Produz a construção orientada pela SSR. O valor pode ser uma sequência de caracteres para diretamente especificar a entrada da SSR, ou `true`, o qual exige a especificação da entrada de SSR através de `rollupOptions.input`.
 
+## `build.ssrEmitAssets` {#build-ssremitassets}
+
+- **Tipo:** `boolean`
+- **Predefinido como:** `false`
+
+Durante a construção do lado do servidor, os recursos estáticos não são emitidos como se assume que seriam emitidos como parte da construção do cliente. Esta opção permite a abstração forçar a emição deles em ambas construções o cliente e servidor. É responsabilidade da abstração combinar os recursos com uma etapa pós-construção.
+
 ## `build.minify` {#build-minify}
 
 - **Tipo:** `boolean | 'terser' | 'esbuild'`
