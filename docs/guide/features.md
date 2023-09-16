@@ -182,7 +182,7 @@ export default defineConfig({
 
 ## CSS {#css}
 
-A importação de ficheiros `.css` injetarão o seu conteúdo para a página através de um marcador `<style>` com suporte a HMR. Tu podes também recuperar a CSS processada como uma sequência de caracteres como a exportação padrão do módulo.
+A importação de ficheiros `.css` injetará o seu conteúdo para a página através dum marcador `<style>` com suporte a substituição de módulo instantânea.
 
 ### Incorporação e Rebaseamento de `@import` {at-import-inlining-and-rebasing}
 
@@ -254,7 +254,7 @@ import otherStyles from './bar.css?inline' // não será injetado na página
 ```
 
 :::tip NOTA
-As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import style from './foo.css'`) estão depreciadas desde a Vite 4. Use a consulta `?inline`.
+As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import style from './foo.css'`) foram removias desde a Vite 5. Use a consulta `?inline`.
 :::
 
 ## CSS Relâmpago {#lightning-css}
