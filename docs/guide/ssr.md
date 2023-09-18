@@ -267,7 +267,3 @@ Os comandos de Linha de Comando `$ vite dev` e `$ vite preview` também podem se
 :::tip Nota
 Utilize um gatilho de publicação para o teu intermediário de SSR executar _depois_ dos intermediários da Vite.
 :::
-
-## Formato da SSR {#ssr-format}
-
-Por padrão, a Vite gera o pacote de SSR em ESM. Existe suporte experimental para configuração de `ssr.format`, mas não é recomendado. Os esforços futuros em volta do desenvolvimento da SSR serão baseados no ESM, e a CommonJS continuará disponível para compatibilidade retrógrada. Se a utilização de ESM para SSR não for possível no teu projeto, podes definir `legacy.buildSsrCjsExternalHeuristics: true` para gerares um pacote CJS utilizando a mesma [heurística de exposição da Vite v2](https://v2.vitejs.dev/guide/ssr.html#ssr-externals).
