@@ -162,7 +162,7 @@ Constrói como uma biblioteca. `entry` é obrigatório visto que a biblioteca n�
 - **Predefinido como:** `false`
 - **Relacionado ao:** [Integração de Backend](/guide/backend-integration)
 
-Quando definido para `true`, a construção também gerará um ficheiro `manifest.json` que contém um mapeamento de nomes de ficheiros de recurso não embaralhado para as suas versões embaralhadas, as quais podem então ser usadas por uma abstração de servidor para interpretar as ligações de recurso correta. Quando o valor é uma sequência de caracteres, será usada como nome do ficheiro de manifesto.
+Quando definido para `true`, a construção também gerará um ficheiro `.vite/manifest.json` que contém um mapeamento de nomes de ficheiros de recurso não embaralhado para as suas versões embaralhadas, as quais podem então ser usadas por uma abstração de servidor para interpretar as ligações de recurso correta. Quando o valor é uma sequência de caracteres, será usada como nome do ficheiro de manifesto.
 
 ## `build.ssrManifest` {#build-ssrmanifest}
 

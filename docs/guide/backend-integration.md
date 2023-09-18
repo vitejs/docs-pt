@@ -12,7 +12,7 @@ Se precisares uma integração personalizada, podes seguir os passos neste guia 
    // vite.config.js
    export default defineConfig({
      build: {
-       // gera o "manifest.json" no "outDir"
+       // gera o ".vite/manifest.json" no "outDir"
        manifest: true,
        rollupOptions: {
          // sobrescreve a entrada ".html" padrão
@@ -56,7 +56,7 @@ Se precisares uma integração personalizada, podes seguir os passos neste guia 
    </script>
    ```
 
-3. Para produção: depois da execução de `vite build`, um ficheiro `manifest.json` será gerado ao lado de outros ficheiros de recurso. Um exemplo de ficheiro de manifesto se parece com isto:
+3. Para produção: depois da execução de `vite build`, um ficheiro `.vite/manifest.json` será gerado ao lado de outros ficheiros de recurso. Um exemplo de ficheiro de manifesto se parece com isto:
 
    ```json
    {

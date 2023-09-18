@@ -182,14 +182,14 @@ Consulte as demonstrações de [Vue](https://github.com/vitejs/vite-plugin-vue/t
 
 ## Gerando Diretórios de Pré-Carregamento {#generating-preload-directives}
 
-O `vite build` suporta a bandeira `--ssrManifest` que gerará o `ssr-manifest.json` na diretório de saída da construção:
+O `vite build` suporta a bandeira `--ssrManifest` que gerará o `.vite/ssr-manifest.json` na diretório de saída da construção:
 
 ```diff
 - "build:client": "vite build --outDir dist/client",
 + "build:client": "vite build --outDir dist/client --ssrManifest",
 ```
 
-O programa acima agora gerará `dist/client/ssr-manifest.json` para a construção de cliente (Sim, o manifesto de SSR é gerado a partir da construção de cliente porque queremos mapear os IDs do módulo para os ficheiros do cliente). O manifesto contém mapeamentos de IDs do módulo para os seus pedaços associados e ficheiros de recurso.
+O programa acima agora gerará `dist/client/.vite/ssr-manifest.json` para a construção de cliente (Sim, o manifesto de SSR é gerado a partir da construção de cliente porque queremos mapear os IDs do módulo para os ficheiros do cliente). O manifesto contém mapeamentos de IDs do módulo para os seus pedaços associados e ficheiros de recurso.
 
 Para influenciar o manifesto, as abstrações precisam fornecer uma maneira de coletar os IDs do módulo dos componentes que foram utilizados durante uma chamada do interpretador do servidor.
 
