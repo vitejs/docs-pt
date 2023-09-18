@@ -215,7 +215,7 @@ Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concept
 1. Instale a [Linha de Comando Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
 2. Autentica a Wrangler com a tua conta da Cloudflare utilizando `wrangler login`.
 3. Executa o teu comando de construção.
-4. Desdobra utilizando `npx wrangler pages publish dist`.
+4. Carregar em produção usando `npx wrangler pages deploy dist`.
 
 ```bash
 # Instalar a Linha de Comando Wrangler
@@ -229,7 +229,7 @@ $ wrangler login
 $ npm run build
 
 # Criar novo desdobramento
-$ npx wrangler pages publish dist
+$ npx wrangler pages deploy dist
 ```
 
 Após os teus recursos serem carregados, a Wrangler dar-te-á uma URL de pré-visualização para inspecionar o teu sítio. Quando entrares no painel de controlo da Cloudflare Pages, verás o teu novo projeto.
