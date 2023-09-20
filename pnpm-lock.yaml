@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   vitepress:
-    specifier: 1.0.0-rc.14
-    version: 1.0.0-rc.14(@types/node@18.16.16)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.0.0-rc.15
+    version: 1.0.0-rc.15(@types/node@18.16.16)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -831,8 +831,8 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress@1.0.0-rc.14(@types/node@18.16.16)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-yChIeXOAcNvVnSVjhziH1vte0uhKb00PuZf7KdIMfx3ixTMAz73Nn+6gREvCv0SdH+anteGUKz5eljv0ygcgGQ==}
+  /vitepress@1.0.0-rc.15(@types/node@18.16.16)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-5criiHoEibkT/du7t6wQ2xQVsuTNuirQZbMAi0M9Hp0YzJoJvEX68Ej9p2PtNC84bYb/CxAh5QkMtMutk03lHw==}
     hasBin: true
     peerDependencies:
       markdown-it-mathjax3: ^4.3.2
