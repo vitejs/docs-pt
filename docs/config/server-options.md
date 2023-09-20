@@ -176,7 +176,7 @@ O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. 
 
 ## server.watch {#server-watch}
 
-- **Tipo:** `object`
+- **Tipo:** `object | null`
 
 Opções do observador do sistema de ficheiro para passar para o [chokidar](https://github.com/paulmillr/chokidar#api).
 
@@ -196,6 +196,8 @@ export default defineConfig({
   }
 })
 ```
+
+Se definida para `null`, nenhum ficheiro será observado. `server.watcher` fornecerá um emissor de evento compatível, mas chamar `add` ou `unwatch` não terá nenhum efeito.
 
 :::warning Utilizando a Vite sobre o Subsistema de Windows para Linux (WSL, sigla em Inglês) 2
 

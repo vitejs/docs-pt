@@ -79,6 +79,8 @@ interface ViteDevServer {
   httpServer: http.Server | null
   /**
    * Instância do observador do Chokidar.
+   * Se `config.server.watch` for definida para `null`,
+   * retorna um emissor de evento noop
    * https://github.com/paulmillr/chokidar#api
    */
   watcher: FSWatcher
