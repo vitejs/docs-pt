@@ -3,7 +3,7 @@ import { defineConfig, DefaultTheme } from 'vitepress'
 const ogDescription = 'Ferramental de Frontend de Nova Geração'
 const ogImage = 'https://vitejs.dev/og-image.png'
 const ogTitle = 'Vite'
-const ogUrl = 'https://vitejs.dev'
+const ogUrl = 'https://pt.vitejs.dev'
 
 // netlify envs
 const deployURL = process.env.DEPLOY_PRIME_URL || ''
@@ -225,7 +225,7 @@ export default defineConfig({
               link: '/guide/env-and-mode'
             },
             {
-              text: 'Interpretação no Servidor (SSR)',
+              text: 'Interpretação no Servidor',
               link: '/guide/ssr'
             },
             {
