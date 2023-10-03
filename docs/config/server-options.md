@@ -180,26 +180,17 @@ O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. 
 
 Opções do observador do sistema de ficheiro para passar para o [chokidar](https://github.com/paulmillr/chokidar#api).
 
-O observador do servidor da Vite ignora os diretórios `.git/` e `node_modules/` por padrão. Se quiseres observar o pacote dentro de `node_modules/`, podes passar um padrão de "glob" negado para `server.watch.ignored`. Que é:
-
-```js
-export default defineConfig({
-  server: {
-    watch: {
-      ignored: ['!**/node_modules/your-package-name/**']
-    }
-  },
-  // O pacote observado deve ser excluído da otimização,
-  // para ele possa aparecer no gráfico de dependência e acionar o recarregamento instantâneo.
-  optimizeDeps: {
-    exclude: ['your-package-name']
-  }
-})
-```
+O observador do servidor da Vite observa o `root` e ignora os diretórios `.git/` e `node_modules/` por padrão. Quando atualizamos um ficheiro observado, a Vite aplicará substituição de módulo instantânea e atualizar a página apenas se necessário.
 
 Se definida para `null`, nenhum ficheiro será observado. `server.watcher` fornecerá um emissor de evento compatível, mas chamar `add` ou `unwatch` não terá nenhum efeito.
 
-:::warning Utilizando a Vite sobre o Subsistema de Windows para Linux (WSL, sigla em Inglês) 2
+:::warning Observando os Ficheiros no `node_modules`
+
+Atualmente não é possível observar ficheiros e pacotes no `node_modules`. Para mais progressos e soluções alternativas, podemos seguir a [questão #8619](https://github.com/vitejs/vite/issues/8619).
+
+:::
+
+:::warning Utilizando a Vite sobre o Subsistema de Windows para Linux 2
 
 Quando estiveres executando a Vite sobre o WSL2, a observação do sistema de ficheiro não funciona quando um ficheiro é editado pelas aplicações do Windows (sem processo WSL2). Isto é devido a [uma limitação do WSL2](https://github.com/microsoft/WSL/issues/4739). Isto também se aplica à execução sobre Docker com um backend de WSL2.
 
