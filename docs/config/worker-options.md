@@ -1,21 +1,21 @@
 # Opções do Operário {#worker-options}
 
-Opções relacionadas aos Operários da Web (Web Workers, em Inglês).
+Opções relacionadas aos Operários da Web.
 
-## worker.format {#worker-format}
+## `worker.format` {#worker-format}
 
 - **Tipo:** `'es' | 'iife'`
 - **Predefinido como:** `iife`
 
-Formato de saída para pacote do operário.
+Formato de saída para o pacote do operário.
 
-## worker.plugins {#worker-plugins}
+## `worker.plugins` {#worker-plugins}
 
 - **Tipo:** [`(Plugin | Plugin[])[]`](./shared-options#plugins)
 
-As extensões de Vite que se aplicam ao pacote do operário. Nota que [`config.plugins`](./shared-options#plugins) apenas aplica-se aos operários em desenvolvimento, deve ser configurado aqui em vez de ser para a construção.
+As extensões de Vite que aplicam-se ao pacote do operário. Nota que a [`config.plugins`](./shared-options#plugins) apenas aplica-se aos operários em desenvolvimento, deve ser configurado cá em vez de ser para a construção.
 
-## worker.rollupOptions {#worker-rollupoptions}
+## `worker.rollupOptions` {#worker-rollupoptions}
 
 - **Tipo:** [`RollupOptions`](https://rollupjs.org/configuration-options/)
 
