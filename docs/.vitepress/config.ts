@@ -285,27 +285,27 @@ export default defineConfig({
               link: '/config/shared-options'
             },
             {
-              text: 'Opções de Servidor',
+              text: 'Opções do Servidor',
               link: '/config/server-options'
             },
             {
-              text: 'Opções de Construção',
+              text: 'Opções da Construção',
               link: '/config/build-options'
             },
             {
-              text: 'Opções de Pré-Visualização',
+              text: 'Opções da Pré-Visualização',
               link: '/config/preview-options'
             },
             {
-              text: 'Opções de Otimização de Dependência',
+              text: 'Opções da Otimização de Dependência',
               link: '/config/dep-optimization-options'
             },
             {
-              text: 'Opções de Interpretação no Servidor',
+              text: 'Opções da Interpretação do Lado do Servidor',
               link: '/config/ssr-options'
             },
             {
-              text: 'Opções de Operário',
+              text: 'Opções do Operário',
               link: '/config/worker-options'
             }
           ]
