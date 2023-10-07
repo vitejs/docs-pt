@@ -43,13 +43,13 @@ Define as substituições de constante global. Entradas serão definidas como gl
 
 - Substituições são realizadas apenas quando a correspondência não estiver cercada por outras letras, números, `_` ou `$`.
 
-:::warning Aviso
+:::warning AVISO
 Um vez que é implementado como substituição de texto direta sem qualquer analise de sintaxe, recomendados o uso de `define` apenas para CONSTANTES.
 
 Por exemplo, `process.env.FOO` e `__APP_VERSION__` são bem apropriadas. Mas `process` ou `global` não deveriam ser colocados nesta opção. Variáveis podem ser calçadas ou preenchidas.
 :::
 
-::: tip NOTA
+:::tip NOTA
 Para os utilizadores de TypeScript, certifiquem-se de adicionar as declarações de tipo no `env.d.ts` ou ficheiro `vite-env.d.ts` para term as verificações de tipo e o sensor inteligente.
 
 Exemplo:
@@ -61,7 +61,7 @@ declare const __APP_VERSION__: string
 
 :::
 
-::: tip NOTA
+:::tip NOTA
 Já que o desenvolvimento (dev) e construção (build) implementam `define` de maneira diferente, devemos evitar alguns casos de uso para evitar inconsistência.
 
 Exemplo:
@@ -110,7 +110,7 @@ Quando atribuíres pseudónimos aos caminhos do sistema de ficheiro, use sempre 
 
 Mais resoluções personalizadas avançadas podem ser alcançado através de [extensões](/guide/api-plugin).
 
-::: warning Usando com SSR
+:::warning Usando com SSR
 Se tiveres pseudónimos configurados para [dependências expostas da SSR](/guide/ssr#ssr-externals), podes desejar atribuir pseudónimo os pacotes do `node_modules`. Ambos [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a atribuição pseudónimos através do prefixo `npm:`.
 :::
 

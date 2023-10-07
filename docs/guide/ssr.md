@@ -260,10 +260,15 @@ Em alguns casos como executores de `webworker`, podes querer empacotar a tua con
 - Trata todas dependências como `noExternal`
 - Lança um erro se quaisquer embutidos de Node.js forem importados
 
-## Linha de Comando da Vite {#vite-cli}
+## Condições de Resolução da Interpretação do Lado do Servidor {#ssr-resolve-conditions}
+
+Por padrão a resolução da entrada de pacote usará as condições definidas na
+[`resolve.conditions`](../config/shared-options#resolve-conditions) para a construção da interpretação no lado do servidor. Nós podemos usar [`ssr.resolve.conditions`](../config/ssr-options#ssr-resolve-conditions) e [`ssr.resolve.externalConditions`](../config/ssr-options#ssr-resolve-externalconditions) para personalizar este comportamento.
+
+## Interface da Linha de Comando da Vite {#vite-cli}
 
 Os comandos de Linha de Comando `$ vite dev` e `$ vite preview` também podem ser utilizados para aplicações de SSR. Tu podes adicionar os teus intermediários de SSR ao servidor de desenvolvimento com [`configureServer`](/guide/api-plugin#configureserver) e ao servidor de pré-visualização com [`configurePreviewServer`](/guide/api-plugin#configurepreviewserver).
 
-:::tip Nota
+:::tip NOTA
 Utilize um gatilho de publicação para o teu intermediário de SSR executar _depois_ dos intermediários da Vite.
 :::
