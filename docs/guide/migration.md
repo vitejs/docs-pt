@@ -43,7 +43,7 @@ Esta mudança impedi a Vite de engolir e controlar atalhos específicos do siste
 
 - As exportações padrão de ficheiros de CSS (por exemplo, `import style from './foo.css'`): Usamos a consulta `?inline`.
 - `import.meta.globEager`: Usamos `import.meta.glob('*', { eager: true })`.
-- `ssr.format: 'cjs`' e `legacy.buildSsrCjsExternalHeuristics` ([#13816](https://github.com/vitejs/vite/discussions/13816))
+- `ssr.format: 'cjs'` e `legacy.buildSsrCjsExternalHeuristics` ([#13816](https://github.com/vitejs/vite/discussions/13816))
 
 ## Avançado {#advanced}
 

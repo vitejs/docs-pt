@@ -185,7 +185,7 @@ Produz a construção orientada pela SSR. O valor pode ser uma sequência de car
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
 
-Durante a construção do lado do servidor, os recursos estáticos não são emitidos como se assume que seriam emitidos como parte da construção do cliente. Esta opção permite a abstração forçar a emição deles em ambas construções o cliente e servidor. É responsabilidade da abstração combinar os recursos com uma etapa pós-construção.
+Durante a construção do lado do servidor, os recursos estáticos não são emitidos, uma vez que se assume que seriam emitidos como parte da construção do cliente. Esta opção permite a abstração forçar a emissão deles em ambas construções do cliente e do servidor. É responsabilidade da abstração combinar os recursos com uma etapa pós-construção.
 
 ## `build.minify` {#build-minify}
 
