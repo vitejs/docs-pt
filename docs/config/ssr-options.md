@@ -1,30 +1,30 @@
-# Opções da SSR {#ssr-options}
+# Opções da Interpretação do Lado do Servidor {#ssr-options}
 
 ## `ssr.external `{#ssr-external}
 
 - **Tipo:** `string[]`
-- **Relacionado ao:** [Aspetos Externos da SSR](/guide/ssr#ssr-externals)
+- **Relacionado aos:** [Aspetos Externos da Interpretação do Lado do Servidor](/guide/ssr#ssr-externals)
 
-Força a exposição de dependências para a SSR.
+Força a exposição de dependências para a interpretação do lado do servidor.
 
 ## `ssr.noExternal` {#ssr-noexternal}
 
 - **Tipo:** `string | RegExp | (string | RegExp)[] | true`
-- **Relacionado ao:** [Aspetos Externos da SSR](/guide/ssr#ssr-externals)
+- **Relacionado aos:** [Aspetos Externos da Interpretação do Lado do Servidor](/guide/ssr#ssr-externals)
 
-Impede as dependências listadas de serem expostas externamente para a SSR. Se for `true`, nenhuma dependência é exposta externamente.
+Impede as dependências listadas de serem expostas externamente para a interpretação do lado do servidor. Se for `true`, nenhuma dependência é exposta externamente.
 
 ## `ssr.target` {#ssr-target}
 
 - **Tipo:** `'node' | 'webworker'`
 - **Predefinido como:** `node`
 
-Alvo da construção para o servidor da SSR.
+Alvo da construção para o servidor da interpretação do lado do servidor.
 
 ## `ssr.resolve.conditions` {#srr-resolve-conditions}
 
 - **Tipo:** `string[]`
-- **Relacionada:** [Resolver Condições](./shared-options#resolve-conditions)
+- **Relacionada às:** [Condições de Resolução](./shared-options#resolve-conditions)
 
 Predefine para a [`resolve.conditions`](./shared-options#resolve-conditions) de raiz.
 
