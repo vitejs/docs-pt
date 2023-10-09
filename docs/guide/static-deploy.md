@@ -210,7 +210,7 @@ Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concept
 
 ## Cloudflare Pages {#cloudflare-pages}
 
-### Cloudflare Pages através de Wrangler {#cloudflare-pages-via-wrangler}
+### Cloudflare Pages através da Wrangler {#cloudflare-pages-via-wrangler}
 
 1. Instale a [Linha de Comando Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
 2. Autentica a Wrangler com a tua conta da Cloudflare utilizando `wrangler login`.
@@ -228,7 +228,7 @@ $ wrangler login
 # Executar o teu comando de construção
 $ npm run build
 
-# Criar novo desdobramento
+# Criar nova implementação em produção
 $ npx wrangler pages deploy dist
 ```
 
