@@ -37,7 +37,11 @@ interface ViteHotContext {
   // `InferCustomEventPayload` fornece tipos para eventos de Vite embutidos
   on<T extends string>(
     event: T,
-    cb: (payload: InferCustomEventPayload<T>) => void
+    cb: (payload: InferCustomEventPayload<T>) => void,
+  ): void
+  off<T extends string>(
+    event: T,
+    cb: (payload: InferCustomEventPayload<T>) => void,
   ): void
   send<T extends string>(event: T, data?: InferCustomEventPayload<T>): void
 }
@@ -155,6 +159,10 @@ Os seguintes eventos de HMR são despachados pela Vite automaticamente:
 - `'vite:ws:connect'` quando a conexão de websocket for reestabelecida
 
 Os eventos de HMR personalizados também podem ser enviados a partir das extensões. Consulta a [handleHotUpdate](./api-plugin#handlehotupdate) para mais detalhes.
+
+## `hot.off(event, cb)`
+
+Remove a função de resposta dos ouvintes de evento.
 
 ## `hot.send(event, data)`
 
