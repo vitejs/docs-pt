@@ -59,10 +59,6 @@ export default defineConfig({
 
 Quando estiveres fazendo mudanças para a dependência ligada, reinicie o servidor de desenvolvimento com a opção de linha de comando `--force` para as mudanças surtirem efeito.
 
-:::warning Duplicação de Cópias da Mesma Dependência
-Devido as diferenças na resolução de dependência ligada, dependências transitivas podem deduzir incorretamente, causando problemas quando utilizadas em tempo de execução. Se encontrares este problema, utilize `npm pack` sobre a dependência ligada para corrigir isto.
-:::
-
 ## Personalizando o Comportamento {#customizing-the-behavior}
 
 As heurísticas da descoberta de dependência padrão podem não sempre ser desejável. Nestes casos onde quiseres explicitamente incluir ou excluir dependências da lista, utilize as [opções de configuração `optimizeDeps`](/config/dep-optimization-options).
