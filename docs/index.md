@@ -2,12 +2,12 @@
 layout: home
 
 title: Vite
-titleTemplate: Ferramental de Frontend de Nova Geração
+titleTemplate: Ferramental de Frontend de Última Geração
 
 hero:
   name: Vite
-  text: Ferramental de Frontend de Nova Geração
-  tagline: Prepara-te para um ambiente de programação que acompanhar-te-á no desenvolvimento das tuas aplicações.
+  text: Ferramental de Frontend de Última Geração
+  tagline: Prepara-te para um ambiente de desenvolvimento que pode finalmente acompanhar.
   image:
     src: /logo-with-shadow.png
     alt: Vite
@@ -27,13 +27,13 @@ hero:
 
 features:
   - icon: 💡
-    title: Inicio de Servidor Imediato
+    title: Inicio de Servidor Instantâneo
     details: Ficheiro sobre demanda servindo sobre Módulo de ECMAScript, sem necessidade de empacotamento!
   - icon: ⚡️
     title: Substituição de Módulo Instantânea Rápida como Relâmpago
-    details: Substituição de Módulo Instantânea (HMR, sigla em Inglês) que continua rápida independentemente do tamanho da aplicação.
+    details: Substituição de Módulo Instantânea que se mantém rápida independentemente do tamanho da aplicação.
   - icon: 🛠️
-    title: Funcionalidades Ricas
+    title: Vastos Recursos
     details: Suporte fora da caixa para TypeScript, JSX, CSS e muito mais.
   - icon: 📦
     title: Construção Otimizada
@@ -43,5 +43,5 @@ features:
     details: Interface de extensão de superconjunto de Rollup partilhada entre o desenvolvimento e a construção.
   - icon: 🔑
     title: APIs Completamente Tipadas
-    details: APIs programáticas flexíveis com tipagem de TypeScript completa.
+    details: APIs programáticas flexíveis com tipos de TypeScript completos.
 ---
