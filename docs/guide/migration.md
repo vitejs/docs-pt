@@ -57,6 +57,8 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
   - `this` de alto nível foi reescrito ao `globalThis` por padrão quando construímos. Este comportamento agora foi removido.
 - [[#14231] feat!: add extension to internal virtual modules](https://github.com/vitejs/vite/pull/14231)
   - O identificador dos módulos virtuais internos agora tem uma extensão (`.js`).
+- [[#5657] fix: return 404 for resources requests outside the base path](https://github.com/vitejs/vite/pull/5657)
+  - No passado, a Vite respondia às requisições fora do caminho de base sem `Accept: text/html`, como se fossem requisitadas com o caminho de base. A Vite já não faz isto e responde com 404.
 
 ## Migração da V3 {#migration-from-v3}
 
