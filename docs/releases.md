@@ -32,13 +32,13 @@ Nós podemos entregar mudanças incompatíveis às definições de TypeScript en
 - Ocasionalmente podemos precisar de adotar as funcionalidades que apenas estão disponíveis numa versão mais recente da TypeScript, aumentando a versão obrigatória mínima da TypeScript.
 - Se estivermos a usar a TypeScript, podemos usar um limite do padrão de definição de versão semântica que fecha a versão secundária atual e atualizar manualmente quando uma nova versão secundária da Vite for lançada.
 
-### esbuild {#esbuild}
+### `esbuild` {#esbuild}
 
 A [`esbuild`](https://esbuild.github.io/) está na versão pré-1.0.0 e algumas vezes tem uma mudança de rutura que podemos precisar de incluir para ter acesso às funcionalidades mais recentes e melhorias do desempenho. Nós podemos bater a versão da `esbuild` numa versão secundária da Vite.
 
 ### Versões Que Não Fazem Parte do Suporte de Longo Prazo da Node.js {#node-js-non-lts-versions}
 
-As versões que não fazem parte do suporte de longo prazo da Node.js (numerados com ímpares) não são testas como parte da integração continua da Vite, mas devem continuar a funcionar antes do [FIM DA SUA EXPECTATIVA DE VIDA](https://endoflife.date/nodejs).
+As versões que não fazem parte do suporte de longo prazo da Node.js (versões numeradas com ímpares) não são testas como parte da integração continua da Vite, mas devem continuar a funcionar antes do [FIM DA SUA EXPECTATIVA DE VIDA](https://endoflife.date/nodejs).
 
 ## Pré-Lançamentos {#pre-releases}
 
