@@ -60,6 +60,6 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
 - [[#5657] fix: return 404 for resources requests outside the base path](https://github.com/vitejs/vite/pull/5657)
   - No passado, a Vite respondia às requisições fora do caminho de base sem `Accept: text/html`, como se fossem requisitadas com o caminho de base. A Vite já não faz isto e responde com 404.
 
-## Migração da V3 {#migration-from-v3}
+## Migração da Versão 3 {#migration-from-v3}
 
 Consulte primeiro o [Guia de Migração da Versão 3](https://v4.vitejs.dev/guide/migration) na documentação da versão 4 da Vite para veres as mudanças necessárias para portar a nossa aplicação para a versão 4 da Vite, e depois prossiga com as mudanças nesta página.
