@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Documentação da Vite em Português",
   "type": "module",
-  "engines": {
-    "node": "20.0.0"
-  },
   "main": "docs/index.md",
   "directories": {
     "doc": "docs"
