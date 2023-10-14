@@ -39,6 +39,29 @@ Os atalhos da interface da linha de comando, como `r` para reiniciar o servidor 
 
 Esta mudança impedi a Vite de engolir e controlar atalhos específicos do sistema operacional, permitindo melhor compatibilidade quando combinamos o servidor de desenvolvimento da Vite com outros processos, e evita as [advertências anteriores](https://github.com/vitejs/vite/pull/14342).
 
+### Remover as APIs `resolvePackageEntry` e `resolvePackageData` {#remove-resolvepackageentry-and-resolvepackagedata-apis}
+
+As APIs `resolvePackageEntry` e `resolvePackageData` foram removidas uma vez que expunham os interiores da Vite e bloqueavam potenciais otimizações da Vite 4.3 no passado. Estas APIs podem ser substituídas por pacotes de terceiros, por exemplo:
+
+- `resolvePackageEntry`: [`import.meta.resolve`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve) ou o pacote [`import-meta-resolve`](https://github.com/wooorm/import-meta-resolve).
+- `resolvePackageData`: O mesmo que o de cima, e rastreie o diretório do pacote para obter o `package.json` da raiz. Ou use o pacote [`vitefu`](https://github.com/svitejs/vitefu) da comunidade.
+
+```js
+import { resolve } from 'import-meta-env'
+import { findDepPkgJsonPath } from 'vitefu'
+import fs from 'node:fs'
+
+const pkg = 'my-lib'
+const basedir = process.cwd()
+
+// `resolvePackageEntry`:
+const packageEntry = resolve(pkg, basedir)
+
+// `resolvePackageData`:
+const packageJsonPath = findDepPkgJsonPath(pkg, basedir)
+const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
+```
+
 ## APIs Depreciadas Removida {#removed-deprecated-apis}
 
 - As exportações padrão de ficheiros de CSS (por exemplo, `import style from './foo.css'`): Usamos a consulta `?inline`.
