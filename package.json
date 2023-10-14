@@ -4,7 +4,7 @@
   "description": "Documentação da Vite em Português",
   "type": "module",
   "engines": {
-    "node": "20.0.0"
+    "node": "20.8.1"
   },
   "main": "docs/index.md",
   "directories": {
