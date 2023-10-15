@@ -64,7 +64,7 @@ Defina para `true` para forçar o pré-empacotamento de dependência, ignorando 
 
 ## optimizeDeps.disabled {#optimizedeps-disabled}
 
-- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13839)
+- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13839)
 - **Tipo:** `boolean | 'build' | 'dev'`
 - **Predefinido como:** `'build'`
 
