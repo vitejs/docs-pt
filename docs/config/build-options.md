@@ -35,7 +35,7 @@ O "polyfill" pode ser desativado usando `{ polyfill: false }`.
 
 A lista de pedaços de pré-carregamento para cada importação dinâmica é calculada pela Vite. Por padrão, um caminho absoluto incluindo a `base` será usado quando carregamos estas dependências. Se a `base` for relativa (`''` ou `'./'`), `import.meta.url` é usado em tempo de execução para evitar caminhos absolutos que dependem da base desdobrada final.
 
-Existe suporte experimental para o controlo refinado sobre a lista de dependências e seus caminhos usando a função `resolveDependencies`. [Faça Comentário](https://github.com/vitejs/vite/discussions/13841). Espera-se uma função de tipo `ResolveModulePreloadDependenciesFn`:
+Existe suporte experimental para o controlo refinado sobre a lista de dependências e seus caminhos usando a função `resolveDependencies`. [Comente](https://github.com/vitejs/vite/discussions/13841). Espera-se uma função de tipo `ResolveModulePreloadDependenciesFn`:
 
 ```ts
 type ResolveModulePreloadDependenciesFn = (
