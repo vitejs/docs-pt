@@ -260,7 +260,7 @@ export default defineConfig({
 
 ## `css.devSourcemap` {#css-devsourcemap}
 
-- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13845)
+- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13845)
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
 
@@ -268,7 +268,7 @@ Se for verdadeiro ativa os mapas de código-fonte durante o desenvolvimento.
 
 ## `css.transformer` {#css-transformer}
 
-- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13835)
+- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:** `'postcss' | 'lightingcss'`
 - **Predefinido como:** `'postcss'`
 
@@ -276,7 +276,7 @@ Seleciona o motor usado para o processamento de CSS. Consulte a [CSS Relâmpago]
 
 ## `css.lightningcss` {#css-lightningcss}
 
-- **Experimental:** [Faça Comentário](https://github.com/vitejs/vite/discussions/13835)
+- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:**
 
 ```js
