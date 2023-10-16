@@ -16,10 +16,16 @@ Se tiveres questões, a comunidade é usualmente útil no [canal de #ssr da Disc
 
 ## Projetos de Exemplo {#example-projects}
 
-A Vite oferece suporte embutido para interpretação no lado do servidor (SSR, sigla em Inglês). A zona de testes da Vite contém exemplos de configurações de SSR para Vue 3 e React, as quais podem ser utilizadas como referências para este guia:
+A Vite oferece suporte embutido para interpretação do lado do servidor. [`create-vite-extra`](https://github.com/bluwy/create-vite-extra) contém configurações de interpretação do lado do servidor de exemplo que podemos usar como referências para este guia:
 
-- [Vue 3](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue)
-- [React](https://github.com/vitejs/vite-plugin-react/tree/main/playground/ssr-react)
+- [Vanilla](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-vanilla)
+- [Vue](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-vue)
+- [React](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-react)
+- [Preact](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-preact)
+- [Svelte](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-svelte)
+- [Solid](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-solid)
+
+Nós também podemos estruturar estes projetos localmente [executando `create-vite`](./#scaffolding-your-first-vite-project) e escolhendo `Others > create-vite-extra` sob a opção de abstração.
 
 ## Estrutura da Fonte {#source-structure}
 
@@ -178,9 +184,9 @@ Então, no `server.js` precisamos adicionar alguma lógica especifica de produç
 
 - Mova a criação e toda utilização do servidor de desenvolvimento da `vite` para trás os ramos condicionais de apenas desenvolvimento, depois adicione os intermediários de serviço de ficheiro estático para servir os ficheiros a partir do `dist/client`.
 
-Consulte as demonstrações de [Vue](https://github.com/vitejs/vite-plugin-vue/tree/main/playground/ssr-vue) e de [React](https://github.com/vitejs/vite-plugin-react/tree/main/playground/ssr-react) por configuração funcionando.
+Consulte os [projetos de exemplo](#example-projects) por uma configuração em funcionamento.
 
-## Gerando Diretórios de Pré-Carregamento {#generating-preload-directives}
+## Gerando Diretivas de Pré-Carregamento {#generating-preload-directives}
 
 O `vite build` suporta a bandeira `--ssrManifest` que gerará o `.vite/ssr-manifest.json` na diretório de saída da construção:
 
