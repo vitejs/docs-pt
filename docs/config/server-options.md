@@ -1,6 +1,6 @@
 # Opções do Servidor {#server-options}
 
-## server.host {#server-host}
+## `server.host` {#server-host}
 
 - **Tipo:** `string | boolean`
 - **Predefinido como:** `'localhost'`
@@ -42,20 +42,20 @@ Consulte [o documento do Subsistema de Windows para Linux](https://learn.microso
 
 :::
 
-## server.port {#server-port}
+## `server.port` {#server-port}
 
 - **Tipo:** `number`
 - **Predefinido como:** `5173`
 
 Especifica a porta do servidor. Nota que se a porta estiver já sendo utilizada, a Vite tentará automaticamente a próxima porta disponível então esta pode não ser a porta real que o servidor termina ouvindo.
 
-## server.strictPort {#server-strictPort}
+## `server.strictPort` {#server-strictPort}
 
 - **Tipo:** `boolean`
 
 Defina para `true` para sair se a porta já estiver em uso, ao invés de tentar a próxima porta disponível automaticamente.
 
-## server.https {#server-https}
+## `server.https` {#server-https}
 
 - **Tipo:** `boolean | https.ServerOptions`
 
@@ -65,7 +65,7 @@ O valor também pode ser um [objeto de opções](https://nodejs.org/api/https.ht
 
 Um certificado válido é necessário. Para uma configuração básica, podes adicionar [@vitejs/plugin-basic-ssl](https://github.com/vitejs/vite-plugin-basic-ssl) às extensões do projeto, o que automaticamente criará e cacheará um certificado auto-assinado. Mas nós recomendamos a criação do teu próprio certificado.
 
-## server.open {#server-open}
+## `server.open` {#server-open}
 
 - **Tipo:** `boolean | string`
 
@@ -83,7 +83,7 @@ export default defineConfig({
 })
 ```
 
-## server.proxy {#server-proxy}
+## `server.proxy` {#server-proxy}
 
 - **Tipo:** `Record<string, string | ProxyOptions>`
 
@@ -91,7 +91,7 @@ Configura regras de delegação personalizadas para o servidor de desenvolviment
 
 Estende a [`http-proxy`](https://github.com/http-party/node-http-proxy#options). As opções adicionar [estão aqui](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/middlewares/proxy.ts#L12).
 
-Em alguns casos, podes também querer configurar o servidor de desenvolvimento subjacente (por exemplo, para adicionar intermediários personalizados para aplicação [connect](https://github.com/senchalabs/connect) interna). Para fazer isto, precisas escrever a tua própria [extensão](/guide/using-plugins.html) e utilizar a função [configureServer](/guide/api-plugin.html#configureserver).
+Em alguns casos, podes também querer configurar o servidor de desenvolvimento subjacente (por exemplo, para adicionar intermediários personalizados para aplicação [`connect`](https://github.com/senchalabs/connect) interna). Para fazer isto, precisas escrever a tua própria [extensão](/guide/using-plugins) e utilizar a função [configureServer](/guide/api-plugin#configureserver).
 
 **Exemplo:**
 
@@ -131,19 +131,19 @@ export default defineConfig({
 })
 ```
 
-## server.cors {#server-cors}
+## `server.cors` {#server-cors}
 
 - **Tipo:** `boolean | CorsOptions`
 
 Configura o CORS para o servidor de desenvolvimento. Isto é ativado por padrão e permite qualquer origem. Passa um [objeto de opções](https://github.com/expressjs/cors#configuration-options) para aperfeiçoar o comportamento ou `false` para desativar.
 
-## server.headers {#server-headers}
+## `server.headers` {#server-headers}
 
 - **Tipo:** `OutgoingHttpHeaders`
 
 Especifica os cabeçalhos da resposta do servidor.
 
-## server.hmr {#server-hmr}
+## `server.hmr` {#server-hmr}
 
 - **Tipo:** `boolean | { protocol?: string, host?: string, port?: number, path?: string, timeout?: number, overlay?: boolean, clientPort?: number, server?: Server }`
 
@@ -174,11 +174,39 @@ O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. 
 
 :::
 
-## server.watch {#server-watch}
+## `server.warmup` {#server-warmup}
+
+- **Tipo:** `{ clientFiles?: string[], ssrFiles?: string[] }`
+
+Aquece os ficheiros para transformar e armazenar para consulta imediata os resultados antecipadamente. Isto melhora o carregamento inicial da página durante a inicialização do servidor e evitar as cascatas de transformação.
+
+As opções `clientFiles` e `ssrFiles` aceitam um vetor de caminhos de ficheiro ou padrões globais relação à `root`. Temos que certificar-nos de apenas adicionar os ficheiros que são código de aquecimento, caso contrário, a adição de muitos ficheiros pode tornar o processo de transformação mais lento.
+
+Para entender como o aquecimento pode ser útil, eis um exemplo. Dado este gráfico de módulo onde o ficheiro da esquerda importa o ficheiro da direita:
+
+```
+main.js -> Component.vue -> big-file.js -> large-data.json
+```
+
+Os identificadores importados apenas podem ser conhecidos depois do ficheiro ser transformado, então se `Component.vue` demorar algum tempo para transformar, o `big-file.js` tem de esperar a sua vez, e assim por diante. Isto causa uma cascata interna.
+
+Ao aquecer o `big-file.js`, ou quaisquer ficheiros que conhecemos é um caminho aquecimento na nossa aplicação, serão armazenados para consulta imediata e podem ser servidos imediatamente.
+
+```js
+export default defineConfig({
+  server: {
+    warmup: {
+      clientFiles: ['./src/big-file.js', './src/components/*.vue'],
+    },
+  },
+})
+```
+
+## `server.watch` {#server-watch}
 
 - **Tipo:** `object | null`
 
-Opções do observador do sistema de ficheiro para passar para o [chokidar](https://github.com/paulmillr/chokidar#api).
+Opções do observador do sistema de ficheiro para passar para o [`chokidar`](https://github.com/paulmillr/chokidar#api).
 
 O observador do servidor da Vite observa o `root` e ignora os diretórios `.git/` e `node_modules/` por padrão. Quando atualizamos um ficheiro observado, a Vite aplicará substituição de módulo instantânea e atualizar a página apenas se necessário.
 
@@ -203,14 +231,14 @@ Para corrigir isto, poderias tanto:
 
 :::
 
-## server.middlewareMode {#server-middlewareMode}
+## `server.middlewareMode` {#server-middlewareMode}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
 
 Cria um servidor de Vite no modo intermediário.
 
-- **Relacionado ao:** [appType](./shared-options#apptype), [SSR - Configurando o Servidor de Desenvolvimento](/guide/ssr#setting-up-the-dev-server)
+- **Relacionado ao:** [`appType`](./shared-options#apptype), [Interpretação do Lado do Servidor - Configurando o Servidor de Desenvolvimento](/guide/ssr#setting-up-the-dev-server)
 
 - **Exemplo:**
 
@@ -240,14 +268,14 @@ async function createServer() {
 createServer()
 ```
 
-## server.fs.strict {#server-fs-strict}
+## `server.fs.strict` {#server-fs-strict}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `true` (ativado por padrão desde a Vite 2.7)
 
 Restringe o serviço de ficheiros fora da raiz do espaço de trabalho.
 
-## server.fs.allow {#server-fs-allow}
+## `server.fs.allow` {#server-fs-allow}
 
 - **Tipo:** `string[]`
 
@@ -262,7 +290,7 @@ A Vite procurará pela raiz do potencial espaço de trabalho e o utilizará como
   - `lerna.json`
   - `pnpm-workspace.yaml`
 
-Aceita um caminho para especificar a raiz do espaço de trabalho personalizado. Poderia ser um caminho absoluto ou um caminho relativo para [raiz do projeto](/guide/#index-html-e-a-raiz-do-projeto). Por exemplo:
+Aceita um caminho para especificar a raiz do espaço de trabalho personalizado. Poderia ser um caminho absoluto ou um caminho relativo para [raiz do projeto](/guide/#index-html-and-project-root). Por exemplo:
 
 ```js
 export default defineConfig({
@@ -295,14 +323,14 @@ export default defineConfig({
 })
 ```
 
-## server.fs.deny {#server-fs-deny}
+## `server.fs.deny` {#server-fs-deny}
 
 - **Tipo:** `string[]`
 - **Predefinido como:** `['.env', '.env.*', '*.{crt,pem}']`
 
-Lista de bloqueio para ficheiros sensíveis sendo restringidos de serem servidos pelo servidor de desenvolvimento da Vite. Isto terá uma prioridade superior a [`server.fs.allow`](#server-fs-allow). [Os padrões picomatch](https://github.com/micromatch/picomatch#globbing-features) são suportados.
+Lista de bloqueio para ficheiros sensíveis sendo restringidos de serem servidos pelo servidor de desenvolvimento da Vite. Isto terá uma prioridade superior a [`server.fs.allow`](#server-fs-allow). [Os padrões `picomatch`](https://github.com/micromatch/picomatch#globbing-features) são suportados.
 
-## server.origin {#server-origin}
+## `server.origin` {#server-origin}
 
 - **Tipo:** `string`
 
@@ -316,7 +344,7 @@ export default defineConfig({
 })
 ```
 
-## server.sourcemapIgnoreList {#server-sourcemapignorelist}
+## `server.sourcemapIgnoreList` {#server-sourcemapignorelist}
 
 * **Tipo**: `false | (sourcePath: string, sourcemapPath: string) => boolean`
 * **Predefinido como**: `(sourcePath) => sourcePath.includes('nodes_modules')`
