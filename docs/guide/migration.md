@@ -30,7 +30,7 @@ Para outros projetos, existem algumas abordagens gerais:
 - **Manter CJS como padrão, aderir à módulo de ECMAScript se necessário:** Se o `package.json` do projeto não tem `"type":"module"`, todos os ficheiros `*.js` são interpretados como CJS. Nós podemos renomear um ficheiro com a extensão `.mjs` para usar módulo de ECMAScript.
 - **Importar dinamicamente a Vite:** Se precisarmos de continuar a usar CJS, podemos importar dinamicamente a Vite usando `import('vite')`. Isto exige que o nosso código seja escrito num contexto `async`, mas ainda assim deve ser gerenciável como API da Vite é principalmente assíncrona.
 
-Consulte o [guia de resolução de problemas](https://pt.vitejs.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated) por mais informação.
+Consulte o [guia de resolução de problemas](/guide/troubleshooting#vite-cjs-node-api-deprecated) por mais informação.
 
 ## Mudanças Gerais {#general-changes}
 
