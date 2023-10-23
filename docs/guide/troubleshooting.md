@@ -33,6 +33,8 @@ Se gostaríamos de ignorar temporariamente o aviso, podemos executar o nosso pro
 VITE_CJS_IGNORE_WARNING=true vite dev
 ```
 
+Nota que os ficheiros de configuração da PostCSS ainda não suportam Módulo de ECMAScript + TypeScript (`.mts` or `.ts` in `"type": "module"`). Se estivermos configurações de PostCSS com `.ts` e `"type: "module"` adicionado ao `package.json`, também precisaremos de renomear a configuração de PostCSS para usar `.cts`.
+
 ## Interface de Linha de Comando {#cli}
 
 ### `Error: Cannot find module 'C:\foo\bar&baz\vite\bin\vite.js'`
