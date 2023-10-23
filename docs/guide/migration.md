@@ -50,6 +50,10 @@ Os atalhos da interface da linha de comando, como `r` para reiniciar o servidor 
 
 Esta mudança impedi a Vite de engolir e controlar atalhos específicos do sistema operacional, permitindo melhor compatibilidade quando combinamos o servidor de desenvolvimento da Vite com outros processos, e evita as [advertências anteriores](https://github.com/vitejs/vite/pull/14342).
 
+### Remover a opção `--https` e `http: true` {#remove-https-flag-and-http-true}
+
+A opção `--https` define `http: true`. Esta configuração foi concebida para ser usada em conjunto com a funcionalidade de geração de certificação de https automática que [foi abandonado na Vite 3](https://v3.vitejs.dev/guide/migration.html#automatic-https-certificate-generation). Esta configuração já não faz sentido, uma vez que fará a Vite iniciar um servidor de HTTPs sem um certificado. Ambos [`@vitejs/plugin-basic-ssl`](https://github.com/vitejs/vite-plugin-basic-ssl) e [`vite-plugin-mkcert`](https://github.com/liuweiGL/vite-plugin-mkcert) definem a definição de `https` apesar do valor `https`, assim podemos apenas remover `--https` e `https: true`.
+
 ### Remover as APIs `resolvePackageEntry` e `resolvePackageData` {#remove-resolvepackageentry-and-resolvepackagedata-apis}
 
 As APIs `resolvePackageEntry` e `resolvePackageData` foram removidas uma vez que expunham os interiores da Vite e bloqueavam potenciais otimizações da Vite 4.3 no passado. Estas APIs podem ser substituídas por pacotes de terceiros, por exemplo:

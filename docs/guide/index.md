@@ -132,7 +132,9 @@ Em um projeto onde a Vite for instalada, podes utilizar o binário de `vite` nos
 }
 ```
 
-Tu podes especificar opções de linha de comando adicionar como `--port` ou `--https`. Para teres uma lista completa de opções de linha de comando, execute `npx vite --help` no teu projeto.
+Nós podemos especificar opções de linha de comando adicionar como `--port` ou `--open`. Para teres uma lista completa de opções de linha de comando, execute `npx vite --help` no teu projeto.
+
+Saiba mais sobre o [Interface da Linha de Comando](./cli)
 
 ## Utilizando Consolidações Não Lançadas {#using-unreleased-commits}
 

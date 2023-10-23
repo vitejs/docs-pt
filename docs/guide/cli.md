@@ -18,7 +18,6 @@ vite [root]
 | ------------------------ | ----------------------------------------------------------------- |
 | `--host [host]`          | Especificar o nome do hospedeiro (`string`)                       |
 | `--port <port>`          | Especificar a porta (`number`)                                    |
-| `--https`                | Usar o TLS + HTTP/2 (`boolean`)                                   |
 | `--open [path]`          | Abrir o navegador na inicialização (`boolean \| string`)          |
 | `--cors`                 | Ativar o CORS (`boolean`)                                         |
 | `--strictPort`           | Sair se a porta especificada já estiver em uso (`boolean`)        |
@@ -114,7 +113,6 @@ vite preview [root]
 | `--host [host]`          | Especificar o nome do hospedeiro (`string`)                          |
 | `--port <port>`          | Especificar a porta (`number`)                              |
 | `--strictPort`           | Sair se a porta especificada já estiver em uso (`boolean`) |
-| `--https`                | Usar o TLS + HTTP/2 (`boolean`)                         |
 | `--open [path]`          | Abrir o navegador na inicialização (`boolean \| string`)        |
 | `--outDir <dir>`         | Diretório de saída (predefinido: `dist`)(`string`)         |
 | `-c, --config <file>`    | Usar o ficheiro de configuração especificado (`string`)                 |
