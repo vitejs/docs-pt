@@ -34,6 +34,10 @@ Consulte o [guia de resolução de problemas](/guide/troubleshooting#vite-cjs-no
 
 ## Mudanças Gerais {#general-changes}
 
+### `worker.plugins` agora é uma Função {#worker-plugins-is-now-a-function}
+
+Na Vite 4, `worker.plugins` aceitava uma vetor de extensões (`(Plugin | Plugin[])[]`). Desde a Vite 5, precisa de ser configurada como uma função que retorna um vetor de extensões (`() => (Plugin | Plugin[])[]`). Esta mudança é necessária para que as construções dos operários paralelas sejam executadas de maneira mais consistente e previsível.
+
 ### Permitir Caminho Contendo `.` Para Recuar para `index.html` {#allow-path-containing-to-fallback-to-index-html}
 
 Na Vite 4, acessar um caminho contendo `.` não recuava para `index.html` mesmo se `appType` é definido para `'SPA'` (padrão). A partir da Vite 5, recuará para `index.html`.
