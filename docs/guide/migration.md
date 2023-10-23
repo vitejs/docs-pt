@@ -34,6 +34,32 @@ Consulte o [guia de resolução de problemas](/guide/troubleshooting#vite-cjs-no
 
 ## Mudanças Gerais {#general-changes}
 
+### O Valor dos Módulos Expostos da Interpretação do Lado do Servidor agora Corresponde à Produção {#ssr-externalized-modules-value-now-matches-production}
+
+Na Vite 4, os módulos expostos da interpretação do lado do servidor são embrulhados com `.default` e a manipulação de `__esModule` para melhor interoperabilidade, mas não corresponde o comportamento de produção quando carregado pelo ambiente de execução (por exemplo, Node.js), causando incoerências difíceis de detetar. Por padrão, todas as dependências diretas do projeto são expostas pela interpretação do lado do servidor.
+
+A Vite 5 agora remove o `.default` e a manipulação de `.__esModule` para corresponder o comportamento de produção. Em prática, isto não deve afetar as dependências empacotadas apropriadamente, mas se encontrarmos novos problemas carregando módulos, podemos tentar estas alterações:
+
+```js
+// Antes:
+import { foo } from 'bar'
+
+// Depois:
+import _bar from 'bar'
+const { foo } = _bar
+```
+
+```js
+// Antes:
+import foo from 'bar'
+
+// Depois:
+import * as _foo from 'bar'
+const foo = _foo.default
+```
+
+Nota que estas mudanças correspondem o comportamento da Node.js, então podemos também executar as importações na Node.js para testar. Se preferirmos permanecer com o comportamento anterior, podemos definir `legacy.proxySsrExternalModules` para `true`.
+
 ### `worker.plugins` agora é uma Função {#worker-plugins-is-now-a-function}
 
 Na Vite 4, `worker.plugins` aceitava uma vetor de extensões (`(Plugin | Plugin[])[]`). Desde a Vite 5, precisa de ser configurada como uma função que retorna um vetor de extensões (`() => (Plugin | Plugin[])[]`). Esta mudança é necessária para que as construções dos operários paralelas sejam executadas de maneira mais consistente e previsível.
