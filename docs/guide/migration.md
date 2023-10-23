@@ -4,9 +4,20 @@
 
 A Vite já não suporta a Node.js 14 / 16 / 17 / 19, as quais alcançaram o fim da sua expetativa de vida. A Node.js 18 / 20+ agora é obrigatória.
 
-## Depreciar a API da Node CJS {#deprecate-cjs-node-api}
+## Rollup 4 {#rollup-4}
 
-A API da Node CJS da Vite está depreciada. Quando chamamos `require('vite')`, um aviso de depreciação agora é registado. Nós devemos atualizar os nossos ficheiros ou abstrações para importar a construção de módulo de ECMAScript da Vite.
+A Vite agora usa Rollup 4 que também vem com suas mudanças de rutura, em particular:
+
+- As asserções de importação (propriedade `assertions`) foram renomeada para importar atributos (propriedade `attributes`).
+- As extensão da bolota já não são suportados.
+- Para extensões da Vite, a opção `skipSelf` de `this.resolve` agora é `true` por padrão.
+- Para extensão da Vite, `this.parse` agora apenas suportam a opção `allowReturnOutsideFunction` por agora.
+
+Leia as mudanças de rutura completa nas [notas de lançamento do Rollup](https://github.com/rollup/rollup/releases/tag/v4.0.0) por mudanças relacionadas à construção no `build.rollupOptions`.
+
+## Depreciação da API da Node de CJS {#deprecate-cjs-node-api}
+
+A API da Node de CJS da Vite está depreciada. Quando chamamos `require('vite')`, um aviso de depreciação agora é registado. Nós devemos atualizar os nossos ficheiros ou abstrações para importar a construção de módulo de ECMAScript da Vite.
 
 Num projeto de Vite básico, devemos certificar-nos de que:
 
