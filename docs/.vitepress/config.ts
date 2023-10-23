@@ -154,6 +154,10 @@ export default defineConfig({
                 link: 'https://github.com/vitejs/awesome-vite'
               },
               {
+                text: 'ViteConf',
+                link: 'https://viteconf.org',
+              },
+              {
                 text: 'Comunidade na DEV',
                 link: 'https://dev.to/t/vite'
               },
