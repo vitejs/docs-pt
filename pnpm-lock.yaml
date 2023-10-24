@@ -7,12 +7,12 @@ settings:
 dependencies:
   vitepress:
     specifier: 1.0.0-rc.23
-    version: 1.0.0-rc.23(@types/node@18.16.16)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
+    version: 1.0.0-rc.23(@types/node@20.8.7)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/node':
-    specifier: ^18.16.16
-    version: 18.16.16
+    specifier: ^20.0.0
+    version: 20.8.7
   '@types/react':
     specifier: ^18.0.15
     version: 18.0.15
@@ -448,8 +448,10 @@ packages:
     resolution: {integrity: sha512-eC4U9MlIcu2q0KQmXszyn5Akca/0jrQmwDRgpAMJai7qBWq4amIQhZyNau4VYGtCeALvW1/NtjzJJ567aZxfKA==}
     dev: false
 
-  /@types/node@18.16.16:
-    resolution: {integrity: sha512-NpaM49IGQQAUlBhHMF82QH80J08os4ZmyF9MkpCzWAGuOHqE4gTEbhzd7L3l5LmWuZ6E0OiC1FweQ4tsiW35+g==}
+  /@types/node@20.8.7:
+    resolution: {integrity: sha512-21TKHHh3eUHIi2MloeptJWALuCu5H7HQTdTrWIFReA8ad+aggoX+lRes3ex7/FtpC+sVUpFMQ+QTfYr74mruiQ==}
+    dependencies:
+      undici-types: 5.25.3
 
   /@types/prop-types@15.7.5:
     resolution: {integrity: sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==}
@@ -810,7 +812,10 @@ packages:
     engines: {node: '>=4'}
     dev: false
 
-  /vite@4.5.0(@types/node@18.16.16):
+  /undici-types@5.25.3:
+    resolution: {integrity: sha512-Ga1jfYwRn7+cP9v8auvEXN1rX3sWqlayd4HP7OKk4mZWylEmu3KzXDUGrQUN6Ol7qo1gPvB2e5gX6udnyEPgdA==}
+
+  /vite@4.5.0(@types/node@20.8.7):
     resolution: {integrity: sha512-ulr8rNLA6rkyFAlVWw2q5YJ91v098AFQ2R0PRFwPzREXOUJQPtFUG0t+/ZikhaOCDqFoDhN6/v8Sq0o4araFAw==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -838,7 +843,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.16.16
+      '@types/node': 20.8.7
       esbuild: 0.18.20
       postcss: 8.4.31
       rollup: 3.29.2
@@ -846,7 +851,7 @@ packages:
       fsevents: 2.3.2
     dev: false
 
-  /vitepress@1.0.0-rc.23(@types/node@18.16.16)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0):
+  /vitepress@1.0.0-rc.23(@types/node@20.8.7)(@types/react@18.0.15)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-0YoBt8aFgbRt2JtYaCeTqq4W21q5lbGso+g1ZwkYYS35ExJxORssRJunhFuUcby8QeN4BP/88QDgsVSIVLAfXQ==}
     hasBin: true
     peerDependencies:
@@ -868,7 +873,7 @@ packages:
       mark.js: 8.11.1
       minisearch: 6.1.0
       shiki: 0.14.5
-      vite: 4.5.0(@types/node@18.16.16)
+      vite: 4.5.0(@types/node@20.8.7)
       vue: 3.3.6
     transitivePeerDependencies:
       - '@algolia/client-search'
