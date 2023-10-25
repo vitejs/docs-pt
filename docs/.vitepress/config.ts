@@ -158,7 +158,7 @@ export default defineConfig({
                 link: 'https://viteconf.org',
               },
               {
-                text: 'Comunidade na DEV',
+                text: 'Comunidade da DEV',
                 link: 'https://dev.to/t/vite'
               },
               {
@@ -243,6 +243,10 @@ export default defineConfig({
             {
               text: 'Resolução de Problemas',
               link: '/guide/troubleshooting'
+            },
+            {
+              text: 'Desempenho',
+              link: '/guide/performance'
             },
             {
               text: 'Filosofia',

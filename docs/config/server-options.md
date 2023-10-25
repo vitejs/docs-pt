@@ -180,23 +180,16 @@ O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. 
 
 Aquece os ficheiros para transformar e armazenar para consulta imediata os resultados antecipadamente. Isto melhora o carregamento inicial da página durante a inicialização do servidor e evitar as cascatas de transformação.
 
-As opções `clientFiles` e `ssrFiles` aceitam um vetor de caminhos de ficheiro ou padrões globais relação à `root`. Temos que certificar-nos de apenas adicionar os ficheiros que são código de aquecimento, caso contrário, a adição de muitos ficheiros pode tornar o processo de transformação mais lento.
+Os `clientFiles` são ficheiros que são usados apenas no cliente, enquanto os `ssrFiles` são ficheiros que são usados apenas na interpretação do lado do servidor. Eles aceitam um vetor de caminhos de ficheiros ou padrões de [`fast-glob`](https://github.com/mrmlnc/fast-glob) relativos à `root`.
 
-Para entender como o aquecimento pode ser útil, eis um exemplo. Dado este gráfico de módulo onde o ficheiro da esquerda importa o ficheiro da direita:
-
-```
-main.js -> Component.vue -> big-file.js -> large-data.json
-```
-
-Os identificadores importados apenas podem ser conhecidos depois do ficheiro ser transformado, então se `Component.vue` demorar algum tempo para transformar, o `big-file.js` tem de esperar a sua vez, e assim por diante. Isto causa uma cascata interna.
-
-Ao aquecer o `big-file.js`, ou quaisquer ficheiros que conhecemos é um caminho aquecimento na nossa aplicação, serão armazenados para consulta imediata e podem ser servidos imediatamente.
+Nós devemos certificar-nos de apenas adicionar os ficheiros que são frequentemente usados para não sobrecarregar o servidor de desenvolvimento da Vite durante a inicialização.
 
 ```js
 export default defineConfig({
   server: {
     warmup: {
-      clientFiles: ['./src/big-file.js', './src/components/*.vue'],
+      clientFiles: [ './src/components/*.vue', './src/utils/big-file.js'],
+      ssrFiles: ['./src/server/modules/*.js'],
     },
   },
 })
