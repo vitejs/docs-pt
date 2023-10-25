@@ -131,6 +131,8 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
   - Tipo de `ResolveWorkerOptions` renomeado para `ResolvedWorkerOptions`
 - [[#5657] fix: return 404 for resources requests outside the base path](https://github.com/vitejs/vite/pull/5657)
   - No passado, a Vite respondia às requisições fora do caminho de base sem `Accept: text/html`, como se fossem requisitadas com o caminho de base. A Vite já não faz isto e responde com 404.
+- [[#14723] fix(resolve)!: remove special .mjs handling](https://github.com/vitejs/vite/pull/14723)
+  - No passado, quando campo `"exports"` duma biblioteca mapeava para um ficheiro `.mjs`, a Vite ainda tentava corresponder os campos `"browser"` e `"module"` para corrigir a compatibilidade com certas bibliotecas. Este comportamento agora foi removido para alinhar-se com o algoritmo de resolução de exportações.
 
 ## Migração da Versão 3 {#migration-from-v3}
 
