@@ -32,6 +32,42 @@ Para outros projetos, existem algumas abordagens gerais:
 
 Consulte o [guia de resolução de problemas](/guide/troubleshooting#vite-cjs-node-api-deprecated) por mais informação.
 
+### Retrabalhar a Estratégia de Substituição de `define` e `import.meta.env` {#rework-define-import-meta-env-replacement-strategy}
+
+Na Vite 4, as funcionalidades `define` e `import.meta.env` usam diferentes estratégias de substituição no desenvolvimento e na construção:
+
+- No desenvolvimento, ambas funcionalidades são injetadas como variáveis globais ao `globalThis` e `import.meta` respetivamente.
+- Na construção, ambas funcionalidades são estaticamente substituídas por uma expressão regular.
+
+Isto resulta num inconsistência de desenvolvimento e construção quando tentamos acessar as variáveis, e algumas vezes até levava a construção à falhar. Por exemplo:
+
+```js
+// vite.config.js
+export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify('1.0.0'),
+  },
+})
+```
+
+```js
+const data = { __APP_VERSION__ }
+// dev: { __APP_VERSION__: "1.0.0" } ✅
+// build: { "1.0.0" } ❌
+
+const docs = 'I like import.meta.env.MODE'
+// dev: "I like import.meta.env.MODE" ✅
+// build: "I like "production"" ❌
+```
+
+A Vite 5 corrige isto usando a `esbuild` para lidar com as substituições nas construções, alinhando com o comportamento do desenvolvimento.
+
+Esta mudança não deve afetar a maioria das configurações, uma vez que já é documentado que os valores de `define` seguem a sintaxe da `esbuild`:
+
+> Para ser consistente com o comportamento da `esbuild`, expressões devem ou ser um objeto de JSON (`null`, `boolean`, `number`, `string`, `array`, ou `object`) ou um único identificador.
+
+No entanto, se preferirmos continuar à estaticamente substituir os valores diretamente, podemos usar [`@rollup/plugin-replace`](https://github.com/rollup/plugins/tree/master/packages/replace).
+
 ## Mudanças Gerais {#general-changes}
 
 ### O Valor dos Módulos Expostos da Interpretação do Lado do Servidor agora Corresponde à Produção {#ssr-externalized-modules-value-now-matches-production}

@@ -37,17 +37,18 @@ Consulte [Variáveis de Ambiente e Modos](/guide/env-and-mode) por mais detalhes
 
 Define as substituições de constante global. As entradas serão definidas como globais durante o desenvolvimento e substituídos estaticamente durante a construção.
 
-- Os valores da sequência de caracteres serão usados como expressões puras, então se definirmos uma sequência de caracteres constante, **esta precisa ser explicitamente colocada dentro de aspas** (por exemplo com o `JSON.stringify`).
+A Vite usa as [definições da `esbuild`](https://esbuild.github.io/api/#define) para realizar substituições, assim as expressões de valor devem ser uma sequência de caracteres que contém um valor serializável de JSON (`null`, `boolean`, `number`, `string`, `array`, ou `object`) ou um único identificador. Para valores que não são sequência de caracteres, a Vite converterá automaticamente para uma sequência de caracteres com `JSON.stringify`.
 
-- Para ser consistente com o [comportamento da `esbuild`](https://esbuild.github.io/api/#define), as expressões devem ou ser um objeto de JSON (`null`, `boolean`, `number`, `string`, `array`, ou `object`) ou um único identificador.
+**Exemplo:**
 
-- As substituições são realizadas apenas quando a correspondência não estiver cercada por outras letras, números, `_` ou `$`.
-
-:::warning AVISO
-Um vez que é implementado como substituição de texto direta sem qualquer analise de sintaxe, recomendados o uso de `define` apenas para CONSTANTES.
-
-Por exemplo, `process.env.FOO` e `__APP_VERSION__` são bem apropriadas. Mas `process` ou `global` não deveriam ser colocados nesta opção. As variáveis podem ser calçadas ou preenchidas.
-:::
+```js
+export default defineConfig({
+  define: {
+    __APP_VERSION__: JSON.stringify('v1.0.0'),
+    __API_URL__: 'window.__backend_api_url',
+  }
+})
+```
 
 :::tip NOTA
 Para os utilizadores de TypeScript, certifiquem-se de adicionar as declarações de tipo no ficheiro `env.d.ts` ou `vite-env.d.ts` para obterem as verificações de tipo e o sensor inteligente.
@@ -57,20 +58,6 @@ Exemplo:
 ```ts
 // vite-env.d.ts
 declare const __APP_VERSION__: string
-```
-
-:::
-
-:::tip NOTA
-Já que o desenvolvimento e a construção implementam `define` de maneira diferente, devemos evitar alguns casos de uso para evitar inconsistência.
-
-Exemplo:
-
-```js
-const obj = {
-  __NAME__, // Não definir nomes de propriedade de abreviação de objeto
-  __KEY__: value // Não definir a chave de objeto
-}
 ```
 
 :::
