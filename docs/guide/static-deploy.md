@@ -110,7 +110,7 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
              path: './dist'
          - name: Deploy to GitHub Pages
            id: deployment
-           uses: actions/deploy-pages@v1
+           uses: actions/deploy-pages@v2
    ```
 
 ## GitLab Pages e GitLab CI {#gitlab-pages-and-gitlab-ci}
