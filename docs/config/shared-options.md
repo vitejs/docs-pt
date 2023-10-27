@@ -154,19 +154,9 @@ As chaves de exportação que terminam com "/" está depreciada pela Node e pode
 ## `resolve.mainFields` {#resolve-mainfields}
 
 - **Tipo:** `string[]`
-- **Predefinido como:** `['module', 'jsnext:main', 'jsnext']`
+- **Predefinido como:** `['browser', 'module', 'jsnext:main', 'jsnext']`
 
 A lista de campos no `package.json` para experimentar quando resolvemos um ponto de entrada do pacote. Nota que isto recebe menor prioridade  do que as exportações condicionais resolvidas a partir do campo `exports`: se um ponto de entrada for resolvido com sucesso a partir do `exports`, o campo principal será ignorado.
-
-## `resolve.browserField` {#resolve-browserfield}
-
-- **Tipo:** `boolean`
-- **Predefinido como:** `true`
-- **Depreciado**
-
-Se for verdadeiro, ativa a resolução para o campo `browser`.
-
-No futuro, o valor padrão do `resolve.mainFields` será `['browser', 'module', 'jsnext:main', 'jsnext']` e esta opção será removida.
 
 ## `resolve.extensions` {#resolve-extensions}
 

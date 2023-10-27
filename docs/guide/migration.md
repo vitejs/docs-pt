@@ -133,6 +133,8 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
   - No passado, a Vite respondia às requisições fora do caminho de base sem `Accept: text/html`, como se fossem requisitadas com o caminho de base. A Vite já não faz isto e responde com 404.
 - [[#14723] fix(resolve)!: remove special .mjs handling](https://github.com/vitejs/vite/pull/14723)
   - No passado, quando campo `"exports"` duma biblioteca mapeava para um ficheiro `.mjs`, a Vite ainda tentava corresponder os campos `"browser"` e `"module"` para corrigir a compatibilidade com certas bibliotecas. Este comportamento agora foi removido para alinhar-se com o algoritmo de resolução de exportações.
+- [[#14733] feat(resolve)!: remove `resolve.browserField`](https://github.com/vitejs/vite/pull/14733)
+  - `resolve.browserField` foi depreciada desde a Vite 3 em favor duma predefinição atualizada de `['browser', 'module', 'jsnext:main', 'jsnext']` para `resolve.mainFields`.
 
 ## Migração da Versão 3 {#migration-from-v3}
 
