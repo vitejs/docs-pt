@@ -57,6 +57,8 @@ Alguns campos de configuração sob `compilerOptions` no `tsconfig.json` exige e
 
 #### `isolatedModules` {#isolatedmodules}
 
+- [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#isolatedModules)
+
 Deve ser definido para `true`.
 
 É porque `esbuild` só realiza tradução de código sem informação de tipo, ela não suporta certas funcionalidades tais como importações implícitas de apenas tipo, constantes e enumerações.
@@ -67,16 +69,33 @@ No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs
 
 #### `useDefineForClassFields` {#usedefineforclassfields}
 
+- [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#useDefineForClassFields)
+
 A partir da Vite 2.5.0, o valor padrão será `true` se o alvo de TypeScript for `ESNext` ou `ES2022` ou mais recente. É consistente com o [comportamento da `tsc` 4.3.2 e adiante](https://github.com/microsoft/TypeScript/pull/42663). É também o comportamento de tempo de execução da ECMASCript padrão.
 
-Mas pode ser contra-intuitivo para aqueles chegando de outras linguagens de programação ou versões antigas da TypeScript.
-Tu podes ler mais a respeito da transição nas [notas de lançamento da TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#the-usedefineforclassfields-flag-and-the-declare-property-modifier).
+Outros alvos de TypeScript predefinirão para `false`.
+
+Mas pode ser contra-intuitivo para aqueles chegando de outras linguagens de programação ou versões antigas da TypeScript. Nós podemos ler mais a respeito da transição nas [notas de lançamento da TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#the-usedefineforclassfields-flag-and-the-declare-property-modifier).
 
 Se estiveres a utilizar uma biblioteca que depende fortemente de campos de classe, por favor seja cuidadoso a respeito da utilização tencionada da biblioteca dela.
 
 Muitas bibliotecas esperam `"useDefineForClassFields": true`, tais como [MobX](https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties).
 
 Mas algumas bibliotecas não transitaram para este novo padrão ainda, incluindo [`lit-element`](https://github.com/lit/lit-element/issues/1030). Por favor defina explicitamente `useDefineForClassFields` para `false` nestes casos.
+
+#### `target` {#target}
+
+- [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#target)
+
+A Vite não traduz o código da TypeScript com o valor de `target` configurado por padrão, seguindo o mesmo que a `esbuild`.
+
+A opção [`esbuild.target`](/config/shared-options#esbuild) pode ser usada, o qual predefine para `esnext` para tradução de código minimalista. Nas construções, a opção [`build.target`](/config/build-options#build-target) tem maior prioridade e também pode ser definida se necessário.
+
+:::warning `useDefineForClassFields`
+Se `target` não for `ESNext` ou `ES2022` ou mais recente, ou se não existir nenhum ficheiro `tsconfig.json`, `useDefineForClassFields` predefinirá para `false` o que pode ser problemático com o valor de `esbuild.target` padrão de `esnext`. Esta pode traduzir o código para [blocos de inicialização estática](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility) que pode não ser suportado no nosso navegador.
+
+Como tal, é recomendado definir `target` para `ESNext` ou `ES2022` ou mais recente, ou definir `useDefineForClassFields` para `true` explicitamente quando configuramos o `tsconfig.json`.
+:::
 
 #### Outras Opções do Compilador Afetando o Resultado da Construção {#other-compiler-options-affecting-the-build-result}
 
