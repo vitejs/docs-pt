@@ -12,9 +12,11 @@ O interior e extensões oficiais da Vite estão otimizadas para fazer a quantida
 
 No entanto, o desempenho das extensões da comunidade está fora do controlo da Vite, o que pode afetar a experiência de programação. Eis algumas que podemos estar atento quando usamos extensões de Vite adicionais:
 
-1. Os gatilhos `buildStart`, `config`, e `configResolved` não devem executar operações extensas e longas. Estes gatilhos são aguardados durante a inicialização do servidor de desenvolvimento, o que atrasa quando podemos acessar a aplicação no navegador.
+1. As grandes dependências que apenas são usadas em certos casos devem ser dinamicamente importadas para reduzir o tempo da inicialização da Node.js. Re-implementações de exemplo: [`vite-plugin-react#212`](https://github.com/vitejs/vite-plugin-react/pull/212) e [`vite-plugin-pwa#224`](https://github.com/vite-pwa/vite-plugin-pwa/pull/244).
 
-2. Os gatilhos `resolveId`, `load`, e `transform` pode fazer alguns ficheiros carregarem mais lento do que outros. Embora inevitável algumas vezes, ainda vale a pena verificar por possíveis áreas à otimizar. Por exemplo, verificar se o `code` contém uma palavra-chave específica, ou o `id` corresponde à uma extensão específica, antes de fazer a transformação completa:
+2. Os gatilhos `buildStart`, `config`, e `configResolved` não devem executar operações extensas e longas. Estes gatilhos são aguardados durante a inicialização do servidor de desenvolvimento, o que atrasa quando podemos acessar a aplicação no navegador.
+
+3. Os gatilhos `resolveId`, `load`, e `transform` pode fazer alguns ficheiros carregarem mais lento do que outros. Embora inevitável algumas vezes, ainda vale a pena verificar por possíveis áreas à otimizar. Por exemplo, verificar se o `code` contém uma palavra-chave específica, ou o `id` corresponde à uma extensão específica, antes de fazer a transformação completa:
 
    Quanto mais tempo demorar para transformar um ficheiro, mais significativo a cascata de requisição será quando carregarmos a aplicação no navegador.
 
