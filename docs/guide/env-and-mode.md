@@ -14,16 +14,6 @@ A Vite expõe variáveis de ambiente sobre o objeto especial **`import.meta.env`
 
 - **`import.meta.env.SSR`**: {booleano} se a aplicação estiver executando no [servidor](./ssr#conditional-logic).
 
-### Substituição de Produção {#production-replacement}
-
-Durante a produção, estas variáveis de ambiente são **substituídas estaticamente**. É portanto necessário sempre fazer referência a elas utilizando a sequência de caracteres estático completa. Por exemplo, chave de acesso dinâmico como `import.meta.env[key]` não funcionarão.
-
-Isto também substituirá estas sequências de caracteres que aparecem nas sequências de caracteres de JavaScript e das do modelos de marcação de Vue. Isto deve ser um caso raro, mas pode ser não intencional. Tu podes ver erros como `Missing Semicolon` ou neste caso `Unexpected token`, por exemplo quando `"process.env.`<wbr>`NODE_ENV"` é transformada para `""development": "`. Existem maneiras de solucionar este comportamento:
-
-- Para as sequências de caracteres de JavaScript, podes dividir a sequência de caracteres com um espaço de Unicode de largura zero, por exemplo `'import.meta\u200b.env.MODE'`.
-
-- Para os modelos de marcação de Vue ou outro HTML que é compilado para sequências de caracteres de JavaScript, podes utilizar o [marcador `<wbr>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/wbr), por exemplo `import.meta.<wbr>env.MODE`.
-
 ## Os Ficheiros `.env` {#env-files}
 
 A Vite utiliza o pacote [dotenv](https://github.com/motdotla/dotenv) para carregar variáveis de ambiente adicionais a partir dos seguintes ficheiros no teu [diretório de ambiente](/config/shared-options.md#envdir):
