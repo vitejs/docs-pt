@@ -148,6 +148,7 @@ const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
 - As exportações padrão de ficheiros de CSS (por exemplo, `import style from './foo.css'`): Usamos a consulta `?inline`.
 - `import.meta.globEager`: Usamos `import.meta.glob('*', { eager: true })`.
 - `ssr.format: 'cjs'` e `legacy.buildSsrCjsExternalHeuristics` ([#13816](https://github.com/vitejs/vite/discussions/13816))
+- `server.middlewareMode: 'ssr'` e `server.middlewareMode: 'html'`: Usamos [`appType`](/config/shared-options.md#apptype) + [`server.middlewareMode: true`](/config/server-options.md#server-middlewaremode) ao invés de ([#8452](https://github.com/vitejs/vite/pull/8452))
 
 ## Avançado {#advanced}
 
