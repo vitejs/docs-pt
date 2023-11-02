@@ -13,7 +13,7 @@ A Vite agora usa Rollup 4 que também vem com suas mudanças de rutura, em parti
 - Para extensões da Vite, a opção `skipSelf` de `this.resolve` agora é `true` por padrão.
 - Para extensão da Vite, `this.parse` agora apenas suportam a opção `allowReturnOutsideFunction` por agora.
 
-Leia as mudanças de rutura completa nas [notas de lançamento do Rollup](https://github.com/rollup/rollup/releases/tag/v4.0.0) por mudanças relacionadas à construção no `build.rollupOptions`.
+Leia as mudanças de rutura completa nas [notas de lançamento do Rollup](https://github.com/rollup/rollup/releases/tag/v4.0.0) por mudanças relacionadas à construção no [`build.rollupOptions`](/config/build-options#build-rollupoptions).
 
 ## Depreciação da API da Node de CJS {#deprecate-cjs-node-api}
 
@@ -34,7 +34,7 @@ Consulte o [guia de resolução de problemas](/guide/troubleshooting#vite-cjs-no
 
 ### Retrabalhar a Estratégia de Substituição de `define` e `import.meta.env` {#rework-define-import-meta-env-replacement-strategy}
 
-Na Vite 4, as funcionalidades `define` e `import.meta.env` usam diferentes estratégias de substituição no desenvolvimento e na construção:
+Na Vite 4, as funcionalidades [`define`](/config/shared-options#define) e [`import.meta.env`](/guide/env-and-mode#env-variables) usam diferentes estratégias de substituição no desenvolvimento e na construção:
 
 - No desenvolvimento, ambas funcionalidades são injetadas como variáveis globais ao `globalThis` e `import.meta` respetivamente.
 - Na construção, ambas funcionalidades são estaticamente substituídas por uma expressão regular.
@@ -98,11 +98,11 @@ Nota que estas mudanças correspondem o comportamento da Node.js, então podemos
 
 ### `worker.plugins` agora é uma Função {#worker-plugins-is-now-a-function}
 
-Na Vite 4, `worker.plugins` aceitava uma vetor de extensões (`(Plugin | Plugin[])[]`). Desde a Vite 5, precisa de ser configurada como uma função que retorna um vetor de extensões (`() => (Plugin | Plugin[])[]`). Esta mudança é necessária para que as construções dos operários paralelas sejam executadas de maneira mais consistente e previsível.
+Na Vite 4, [`worker.plugins`](/config/worker-options#worker-plugins) aceitava uma vetor de extensões (`(Plugin | Plugin[])[]`). Desde a Vite 5, precisa de ser configurada como uma função que retorna um vetor de extensões (`() => (Plugin | Plugin[])[]`). Esta mudança é necessária para que as construções dos operários paralelas sejam executadas de maneira mais consistente e previsível.
 
 ### Permitir Caminho Contendo `.` Para Recuar para `index.html` {#allow-path-containing-to-fallback-to-index-html}
 
-Na Vite 4, acessar um caminho contendo `.` não recuava para `index.html` mesmo se `appType` é definido para `'SPA'` (padrão). A partir da Vite 5, recuará para `index.html`.
+Na Vite 4, acessar um caminho contendo `.` não recuava para `index.html` mesmo se [`appType`](/config/shared-options#apptype) for definida para `'SPA'` (padrão). A partir da Vite 5, recuará para `index.html`.
 
 Nota que o navegador já não mostrará a mensagem de erro de 404 na consola se apontarmos o caminho da imagem para um ficheiro inexistente (por exemplo, `<img src="./file-does-not-exist.png">`).
 
@@ -129,15 +129,40 @@ Na Vite 4, os servidores de desenvolvimento e pré-visualização servem o HTML 
 
 ### Ficheiros de Manifesto Agora São Gerados no Diretório `.vite` Por Padrão {#manifest-files-are-now-generated-in-vite-directory-by-default}
 
-Na Vite 4, os ficheiros de manifesto (`build.manifest`, `build.ssrManifest`) foram gerados na raiz do `build.outDir` por padrão. A partir da Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão.
+Na Vite 4, os ficheiros de manifesto ([`build.manifest`](/config/build-options#build-manifest), [`build.ssrManifest`](/config/build-options#build-ssrmanifest)) foram gerados na raiz do [`build.outDir`](/config/build-options#build-outdir) por padrão. A partir da Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão.
 
-### Atalhos da Interface da Linha de Comando Exige Uma Pressão de `Enter` Adicional {#cli-shortcuts-require-an-additional-enter-press}
+### Atalhos da Interface da Linha de Comando Exigem Uma Pressão de `Enter` Adicional {#cli-shortcuts-require-an-additional-enter-press}
 
 Os atalhos da interface da linha de comando, como `r` para reiniciar o servidor de desenvolvimento, agora exige uma pressão de `Enter` adicional para acionar o atalho. Por exemplo, `r + Enter` para reiniciar o servidor de desenvolvimento.
 
 Esta mudança impedi a Vite de engolir e controlar atalhos específicos do sistema operacional, permitindo melhor compatibilidade quando combinamos o servidor de desenvolvimento da Vite com outros processos, e evita as [advertências anteriores](https://github.com/vitejs/vite/pull/14342).
 
-### Remover a opção `--https` e `http: true` {#remove-https-flag-and-http-true}
+### Atualizar o Comportamentos da TypeScript de `experimentalDecorators` e `useDefineForClassFields` {#update-experimentaldecorators-and-usedefineforclassfields-typescript-behaviour}
+
+A Vite 5 usa a `esbuild` 0.19 e remove a camada de compatibilidade para `esbuild` 0.18, a qual muda como [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators) e [`useDefineForClassFields`](https://www.typescriptlang.org/tsconfig#useDefineForClassFields) são manipuladas.
+
+- **`experimentalDecorators` não é ativada por padrão**
+
+  Nós precisamos definir `compilerOptions.experimentalDecorators` para `true` no `tsconfig.json` para usarmos os decoradores.
+
+- **`useDefineForClassFields` predefini-se dependendo do valor de `target` da TypeScript**
+
+  Se `target` não for `ESNext` ou `ES2022` ou mais recente, ou se não existir nenhum ficheiro `tsconfig.json`, `useDefineForClassFields` pré-definirá para `false` o que pode ser problemático com valor de `esbuild.target` padrão de `esnext`. Esta pode traduzir o código para [blocos de inicialização estática](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility) que podem não ser suportadas no nosso navegador.
+
+  Como tal, é recomendado definir `target` para `ESNext` ou `ES2022` ou mais recente, ou definir `useDefineForClassFields` para `true` explicitamente quando configuramos `tsconfig.json`.
+
+```jsonc
+{
+  "compilerOptions": {
+    // Definir `true` se usarmos decoradores
+    "experimentalDecorators": true,
+    // Definir `true` se vermos erros de analise no navegador
+    "useDefineForClassFields": true
+  }
+}
+```
+
+### Remover a Opção `--https` e `http: true` {#remove-https-flag-and-http-true}
 
 A opção `--https` define `http: true`. Esta configuração foi concebida para ser usada em conjunto com a funcionalidade de geração de certificação de https automática que [foi abandonado na Vite 3](https://v3.vitejs.dev/guide/migration.html#automatic-https-certificate-generation). Esta configuração já não faz sentido, uma vez que fará a Vite iniciar um servidor de HTTPs sem um certificado. Ambos [`@vitejs/plugin-basic-ssl`](https://github.com/vitejs/vite-plugin-basic-ssl) e [`vite-plugin-mkcert`](https://github.com/liuweiGL/vite-plugin-mkcert) definem a definição de `https` apesar do valor `https`, assim podemos apenas remover `--https` e `https: true`.
 
@@ -192,7 +217,7 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
 - [[#14723] fix(resolve)!: remove special .mjs handling](https://github.com/vitejs/vite/pull/14723)
   - No passado, quando campo `"exports"` duma biblioteca mapeava para um ficheiro `.mjs`, a Vite ainda tentava corresponder os campos `"browser"` e `"module"` para corrigir a compatibilidade com certas bibliotecas. Este comportamento agora foi removido para alinhar-se com o algoritmo de resolução de exportações.
 - [[#14733] feat(resolve)!: remove `resolve.browserField`](https://github.com/vitejs/vite/pull/14733)
-  - `resolve.browserField` foi depreciada desde a Vite 3 em favor duma predefinição atualizada de `['browser', 'module', 'jsnext:main', 'jsnext']` para `resolve.mainFields`.
+  - `resolve.browserField` foi depreciada desde a Vite 3 em favor duma predefinição atualizada de `['browser', 'module', 'jsnext:main', 'jsnext']` para [`resolve.mainFields`](/config/shared-options#resolve-mainfields).
 
 ## Migração da Versão 3 {#migration-from-v3}
 
