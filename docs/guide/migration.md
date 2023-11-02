@@ -106,6 +106,27 @@ Na Vite 4, acessar um caminho contendo `.` não recuava para `index.html` mesmo 
 
 Nota que o navegador já não mostrará a mensagem de erro de 404 na consola se apontarmos o caminho da imagem para um ficheiro inexistente (por exemplo, `<img src="./file-does-not-exist.png">`).
 
+### Alinhar o Comportamento Serviço de HTML do Desenvolvimento e Pré-visualização {#align-dev-and-preview-html-serving-behaviour}
+
+Na Vite 4, os servidores de desenvolvimento e pré-visualização servem o HTML baseado na sua estrutura de diretório e na barra final de maneira diferente. Isto causa inconsistências quando testamos a nossa aplicação construída. A Vite 5 refaz este comportamento à um único comportamento como de baixo, dado a seguinte estrutura de ficheiro:
+
+```
+├── index.html
+├── file.html
+└── dir
+    └── index.html
+```
+
+
+| Requisição           | Antes (desenvolvimento)                 | Antes (pré-visualização)  | Depois (desenvolvimento & pré-visualização)        |
+| ----------------- | ---------------------------- | ----------------- | ---------------------------- |
+| `/dir/index.html` | `/dir/index.html`            | `/dir/index.html` | `/dir/index.html`            |
+| `/dir`            | `/index.html` (retrocesso de SPA) | `/dir/index.html` | `/dir.html` (retrocesso de SPA)   |
+| `/dir/`           | `/dir/index.html`            | `/dir/index.html` | `/dir/index.html`            |
+| `/file.html`      | `/file.html`                 | `/file.html`      | `/file.html`                 |
+| `/file`           | `/index.html` (retrocesso de SPA) | `/file.html`      | `/file.html`                 |
+| `/file/`          | `/index.html` (retrocesso de SPA) | `/file.html`      | `/index.html` (retrocesso de SPA) |
+
 ### Ficheiros de Manifesto Agora São Gerados no Diretório `.vite` Por Padrão {#manifest-files-are-now-generated-in-vite-directory-by-default}
 
 Na Vite 4, os ficheiros de manifesto (`build.manifest`, `build.ssrManifest`) foram gerados na raiz do `build.outDir` por padrão. A partir da Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão.
