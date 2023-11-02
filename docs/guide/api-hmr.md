@@ -57,6 +57,10 @@ if (import.meta.hot) {
 }
 ```
 
+## Sensor Inteligente para TypeScript
+
+A Vite fornece definições de tipo para `import.meta.hot` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Nós podemos criar um `env.d.ts` no diretório `src`, assim a TypeScript escolhe as definições de tipo:
+
 ## `hot.accept(cb)`
 
 Para um módulo aceitar-se, utilize a `import.meta.hot.accept` com uma resposta que receba o módulo atualizado:
@@ -121,9 +125,35 @@ if (import.meta.hot) {
 }
 ```
 
+## `hot.prune(cb)`
+
+Regista uma função de resposta que chamará quando o módulo já não for importado na página. Comparado à `hot.dispose`, esta pode ser usada se o código-fonte limpar os efeitos colaterais sozinho sobre as atualizações e apenas precisamos limpar quando for removida da página. A Vite atualmente usa isto para importações de `.css`:
+
+```js
+function setupOrReuseSideEffect() {}
+
+setupOrReuseSideEffect()
+
+if (import.meta.hot) {
+  import.meta.hot.prune((data) => {
+    // limpar o efeito colateral
+  })
+}
+```
+
 ## `hot.data`
 
 O objeto `import.meta.hot.data` é persistido através de diferentes instâncias do mesmo módulo atualizado. Ele pode ser utilizado para transmitir informação de uma versão anterior do módulo para a próxima.
+
+Nota que a re-atribuição de `data` em si não é suportada. No lugar disto, devemos modificar as propriedades do objeto `data`, assim as informações adicionadas a partir dos outros manipuladores são preservadas:
+
+```js
+// ok
+import.meta.hot.data.someValue = 'hello'
+
+// não suportado
+import.meta.hot.data = { someValue: 'hello' }
+```
 
 ## `hot.decline()`
 
