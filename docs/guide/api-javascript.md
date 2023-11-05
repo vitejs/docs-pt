@@ -260,11 +260,12 @@ interface PreviewServerForHook {
 async function resolveConfig(
   inlineConfig: InlineConfig,
   command: 'build' | 'serve',
-  defaultMode = 'development'
+  defaultMode = 'development',
+  isPreview = false,
 ): Promise<ResolvedConfig>
 ```
 
-O valor de `command` é `serve` em desenvolvimento (na linha de comando `vite`, `vite dev` e `vite serve` são pseudónimos).
+O valor de `command` é `serve` em desenvolvimento e pré-visualização, e `build` em construção.
 
 ## `mergeConfig`
 

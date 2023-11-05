@@ -48,7 +48,7 @@ A Vite também suporta diretamente os ficheiros de configuração de TypeScript.
 
 ## Configuração Condicional {#conditional-config}
 
-Se a configuração precisa determinar condicionalmente as opções baseadas no comando (`dev`, `serve` ou `build`), no [modo](/guide/env-and-mode) a ser usado, ou se for uma construção da interpretação do lado do servidor (`ssrBuild`), pode exportar uma função:
+Se a configuração precisa determinar condicionalmente as opções baseadas no comando (`serve` ou `build`), no [modo](/guide/env-and-mode) a ser usado, ou se for uma construção da interpretação do lado do servidor (`isSsrBuild`), ou é uma pré-visualização da construção (`isPreview`), esta pode exportar uma função:
 
 ```js
 export default defineConfig(({ command, mode, ssrBuild }) => {
@@ -67,7 +67,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
 
 É importante notar que na API da Vite o valor de `command` é `serve` durante o desenvolvimento (na interface da linha de comando `vite`, `vite dev`, e `vite serve` são pseudónimos), e `build` quando construímos para produção (`vite build`).
 
-A `ssrBuild` é experimental. Está apenas está disponível durante a construção ao invés duma opção de `ssr` mais geral porque, durante o desenvolvimento, a configuração é partilhada pelo único servidor manipulado as requisições da interpretação do lado do servidor e as que não são da interpretação do lado do servidor. O valor poderia ser `undefined` para ferramentas que não têm comandos separados para a construção da interpretação do lado do servidor e navegador, assim usamos comparação explícita contra `true` e `false`.
+A `isSsrBuild` e `isPreview` são opções opcionais condicionais para diferenciar os tipos de comandos `build` e `serve` respetivamente. Algumas ferramentas que carregam a configuração da Vite não suportam estas opções e passarão `undefined`. Por isto, é recomendado usar comparação explícita contra `true` e `false`.
 
 ## Configuração Assíncrona {#async-config}
 

@@ -221,6 +221,8 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
   - No passado, quando campo `"exports"` duma biblioteca mapeava para um ficheiro `.mjs`, a Vite ainda tentava corresponder os campos `"browser"` e `"module"` para corrigir a compatibilidade com certas bibliotecas. Este comportamento agora foi removido para alinhar-se com o algoritmo de resolução de exportações.
 - [[#14733] feat(resolve)!: remove `resolve.browserField`](https://github.com/vitejs/vite/pull/14733)
   - `resolve.browserField` foi depreciada desde a Vite 3 em favor duma predefinição atualizada de `['browser', 'module', 'jsnext:main', 'jsnext']` para [`resolve.mainFields`](/config/shared-options#resolve-mainfields).
+- [[#14855] feat!: add isPreview to ConfigEnv and resolveConfig](https://github.com/vitejs/vite/pull/14855)
+  - `ssrBuild` renomeado para `isSsrBuild` no objeto `ConfigEnv`.
 
 ## Migração da Versão 3 {#migration-from-v3}
 
