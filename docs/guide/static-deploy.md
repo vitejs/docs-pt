@@ -338,3 +338,7 @@ Implemente a tua aplicação estática em produção usando [Flightcontrol](http
 ## Hospedagem da AWS Amplify {#aws-amplify-hosting}
 
 Implemente a tua aplicação estática em produção usando a [Hospedagem da AWS Amplify](https://aws.amazon.com/amplify/hosting/), seguindo estas [instruções](https://docs.amplify.aws/guides/hosting/vite/q/platform/js/)
+
+## Hospedagem de Aplicação Estática da Kinsta {#kinsta-static-site-hosting}
+
+Nós podemos implementar a nossa aplicação de Vite como uma Aplicação Estática em produção na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
