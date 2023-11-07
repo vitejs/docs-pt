@@ -121,7 +121,7 @@ Na Vite 4, os servidores de desenvolvimento e pré-visualização servem o HTML 
 | Requisição           | Antes (desenvolvimento)                 | Antes (pré-visualização)  | Depois (desenvolvimento & pré-visualização)        |
 | ----------------- | ---------------------------- | ----------------- | ---------------------------- |
 | `/dir/index.html` | `/dir/index.html`            | `/dir/index.html` | `/dir/index.html`            |
-| `/dir`            | `/index.html` (retrocesso de SPA) | `/dir/index.html` | `/dir.html` (retrocesso de SPA)   |
+| `/dir`            | `/index.html` (retrocesso de SPA) | `/dir/index.html` | `/index.html` (retrocesso de SPA)   |
 | `/dir/`           | `/dir/index.html`            | `/dir/index.html` | `/dir/index.html`            |
 | `/file.html`      | `/file.html`                 | `/file.html`      | `/file.html`                 |
 | `/file`           | `/index.html` (retrocesso de SPA) | `/file.html`      | `/file.html`                 |
@@ -129,7 +129,9 @@ Na Vite 4, os servidores de desenvolvimento e pré-visualização servem o HTML 
 
 ### Ficheiros de Manifesto Agora São Gerados no Diretório `.vite` Por Padrão {#manifest-files-are-now-generated-in-vite-directory-by-default}
 
-Na Vite 4, os ficheiros de manifesto ([`build.manifest`](/config/build-options#build-manifest), [`build.ssrManifest`](/config/build-options#build-ssrmanifest)) foram gerados na raiz do [`build.outDir`](/config/build-options#build-outdir) por padrão. A partir da Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão.
+Na Vite 4, os ficheiros de manifesto ([`build.manifest`](/config/build-options#build-manifest) e [`build.ssrManifest`](/config/build-options#build-ssrmanifest)) eram gerados na raiz do [`build.outDir`](/config/build-options#build-outdir) por padrão.
+
+Na Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão. Esta mudança ajuda desfazer o conflito os ficheiros públicos com os mesmos nomes de ficheiro de manifesto quando são copiados ao `build.outDir`.
 
 ### Atalhos da Interface da Linha de Comando Exigem Uma Pressão de `Enter` Adicional {#cli-shortcuts-require-an-additional-enter-press}
 
@@ -164,7 +166,9 @@ A Vite 5 usa a `esbuild` 0.19 e remove a camada de compatibilidade para `esbuild
 
 ### Remover a Opção `--https` e `http: true` {#remove-https-flag-and-http-true}
 
-A opção `--https` define `http: true`. Esta configuração foi concebida para ser usada em conjunto com a funcionalidade de geração de certificação de https automática que [foi abandonado na Vite 3](https://v3.vitejs.dev/guide/migration.html#automatic-https-certificate-generation). Esta configuração já não faz sentido, uma vez que fará a Vite iniciar um servidor de HTTPs sem um certificado. Ambos [`@vitejs/plugin-basic-ssl`](https://github.com/vitejs/vite-plugin-basic-ssl) e [`vite-plugin-mkcert`](https://github.com/liuweiGL/vite-plugin-mkcert) definem a definição de `https` apesar do valor `https`, assim podemos apenas remover `--https` e `https: true`.
+A opção `--https` define `http: true`. Esta configuração foi concebida para ser usada em conjunto com a funcionalidade de geração de certificação de `https` automática que [foi abandonada na Vite 3](https://v3.vitejs.dev/guide/migration.html#automatic-https-certificate-generation). Portanto, esta configuração já não faz sentido, uma vez que fará a Vite iniciar um servidor de HTTPs sem um certificado.
+
+Se usarmos [`@vitejs/plugin-basic-ssl`](https://github.com/vitejs/vite-plugin-basic-ssl) ou [`vite-plugin-mkcert`](https://github.com/liuweiGL/vite-plugin-mkcert), estas já definirão o configuração de `https` internamente, então podemos remover `--https`, `server.https: true` e `preview.https: true` da nossa configuração.
 
 ### Remover as APIs `resolvePackageEntry` e `resolvePackageData` {#remove-resolvepackageentry-and-resolvepackagedata-apis}
 
