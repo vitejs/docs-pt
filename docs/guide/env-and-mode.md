@@ -97,6 +97,8 @@ A Vite suporta também a substituição de variáveis de ambiente em ficheiro de
 
 Se a variável de ambiente não existir em `import.meta.env`, por exemplo `%NON_EXISTENT%`, será ignorado e não substituído, diferente de `import.meta.env.NON_EXISTENT` na JavaScript onde seria substituída por `undefined`.
 
+Dado que a Vite é usada por muitas abstrações, é intencionalmente pouco opinativa sobre substituições complexas como as condicionais. A Vite pode ser estendida usando [uma extensão do terreno do utilizador existente](https://github.com/vitejs/awesome-vite#transformers) ou uma extensão personalizada que implementa o [gatilho `transformIndexHtml`](./api-plugin#transformindexhtml).
+
 ## Modos {#modes}
 
 Por padrão, o servidor de desenvolvimento (comando `dev`) executa no modo de `development (desenvolvimento)` e o comando `build` executa no modo de `production (produção)`.
