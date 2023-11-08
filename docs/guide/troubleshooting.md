@@ -146,15 +146,11 @@ Problema relacionado: [#964](https://github.com/vitejs/vite/issues/964)
 
 Se estiveres executando a Vite com o WSL2, a Vite não consegue observar mudanças de ficheiro em algumas condições. Consulte a [opção `server.watch`](/config/server-options.md#server-watch).
 
-### Um Recarregamento Completo Acontece no Lugar da HMR {#a-full-reload-happens-instead-of-hmr}
+### Um Recarregamento Completo Acontece no Lugar da Substituição de Módulo Instantânea {#a-full-reload-happens-instead-of-hmr}
 
-Se a HMR não for manipulada pela Vite ou uma extensão, um recarregamento completo acontecerá.
+Se a substituição de módulo instantânea não for manipulada pela Vite ou por uma extensão, um recarregamento completo acontecerá uma vez que é a única maneira de atualizar o estado.
 
-Além disto se houver um laço de dependência, um recarregamento completo acontecerá. Para resolver isto, tente a remoção do laço.
-
-### Alto Número de Atualizações de HMR na Consola {high-number-of-hmr-updates-in-console}
-
-Isto pode ser causado por uma dependência circular. Para resolver isto, tente quebrar o laço.
+Se a substituição de módulo instantânea for manipulada mas está dentro duma dependência circular, um recarregamento completo também acontece para recuperar a ordem de execução. Para resolver isto, tente quebrar o laço de repetição. Nós podemos executar `vite --debug hmr` para registar o remendo de dependência circular se uma mudança de ficheiro o acionar.
 
 ## Construção {#build}
 
