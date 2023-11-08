@@ -13,11 +13,12 @@ Consulte [Raiz do Projeto](/guide/#index-html-and-project-root) por mais detalhe
 
 - **Tipo:** `string`
 - **Predefinido como:** `/`
+- **Relacionado ao:** [`server.origin`](/config/server-options#server-origin)
 
 O caminho público de base quando servido em desenvolvimento ou produção. Os valores válidos incluem:
 
 - Nome do caminho da URL absoluta, por exemplo `/foo/`
-- URL completa, por exemplo `https://foo.com/`
+- URL completa, por exemplo `https://foo.com/` (A parte da origem não será usada em desenvolvimento)
 - Sequência de caracteres vazia ou `./` (para o implementação de produção embutida)
 
 Consulte [Caminho de Base Pública](/guide/build#public-base-path) por mais detalhes.
