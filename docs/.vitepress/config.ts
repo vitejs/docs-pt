@@ -38,26 +38,26 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
       return [
         {
           text: 'Documentação da Vite 4 (Lançamento)',
-          link: 'https://vitejs.dev'
+          link: 'https://vitejs.dev',
         },
         {
           text: 'Documentação da Vite 3',
-          link: 'https://v3.vitejs.dev'
+          link: 'https://v3.vitejs.dev',
         },
         {
           text: 'Documentação da Vite 2',
-          link: 'https://v2.vitejs.dev'
+          link: 'https://v2.vitejs.dev',
         }
       ]
     case 'release':
       return [
         {
           text: 'Documentação da Vite 3',
-          link: 'https://v3.vitejs.dev'
+          link: 'https://v3.vitejs.dev',
         },
         {
           text: 'Documentação da Vite 2',
-          link: 'https://v2.vitejs.dev'
+          link: 'https://v2.vitejs.dev',
         }
       ]
   }
@@ -78,7 +78,8 @@ export default defineConfig({
     ['meta', { name: 'twitter:site', content: '@vite_js' }],
     ['meta', { name: 'theme-color', content: '#646cff' }],
     [
-      'script', {
+      'script',
+      {
         src: 'https://cdn.usefathom.com/script.js',
         'data-site': 'CBDFBSLI',
         'data-spa': 'auto',
@@ -163,7 +164,7 @@ export default defineConfig({
                 link: 'https://dev.to/t/vite'
               },
               {
-                text: 'Compatibilidade de Extensões de Rollup',
+                text: 'Compat de Extensões de Rollup',
                 link: 'https://vite-rollup-plugins.patak.dev/'
               },
               {
@@ -222,7 +223,7 @@ export default defineConfig({
               link: '/guide/build'
             },
             {
-              text: 'Implementando em Produção',
+              text: 'Implementando uma Aplicação Estática',
               link: '/guide/static-deploy'
             },
             {
@@ -230,7 +231,7 @@ export default defineConfig({
               link: '/guide/env-and-mode'
             },
             {
-              text: 'Interpretação no Servidor',
+              text: 'Interpretação do Lado do Servidor',
               link: '/guide/ssr'
             },
             {
@@ -254,7 +255,7 @@ export default defineConfig({
               link: '/guide/philosophy',
             },
             {
-              text: 'Guia de Migração',
+              text: 'Migração da Versão 4',
               link: '/guide/migration'
             }
           ]
@@ -267,7 +268,7 @@ export default defineConfig({
               link: '/guide/api-plugin'
             },
             {
-              text: 'API de HMR',
+              text: 'API da Substituição de Módulo Instantânea',
               link: '/guide/api-hmr'
             },
             {
