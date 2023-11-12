@@ -1,10 +1,10 @@
-# Utilizando Extensões {#using-plugins}
+# Usando Extensões {#using-plugins}
 
-A Vite pode ser estendida com a utilização de extensões, as quais são baseadas na bem desenhada interface de extensão da Rollup com algumas opções adicionais especificas de Vite. Isto significa que os utilizadores de Vite podem confiar no ecossistema maduro de extensões de Rollup, ao passo que são capazes de estender o servidor de desenvolvimento e a funcionalidade de interpretação no lado do servidor (SSR) conforme necessário.
+A Vite pode ser estendida usando extensões, que são baseadas na interface de extensão bem desenhadas da Rollup com algumas opções adicionais específicas para Vite. Isto significa que os utilizadores da Vite podem confiar no ecossistema maduro de extensões de Rollup, enquanto também são capazes de estender o servidor de desenvolvimento e a funcionalidade da interpretação do lado do servidor conforme necessário.
 
 ## Adicionando uma Extensão {#adding-a-plugin}
 
-Para utilizar uma extensão, ela precisa ser adicionada ao `devDependencies` do projeto e incluída no arranjo de `plugins` no ficheiro de configuração `vite.config.js`. Por exemplo, para fornecer suporte para navegadores legados, o [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial pode ser utilizado:
+Para usar uma extensão, esta precisa ser adicionada à `devDependencies` do projeto e incluída no vetor de `plugins` no ficheiro de configuração `vite.config.js`. Por exemplo, para fornecer suporte aos navegadores antigos, o pacote [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial pode ser usado:
 
 ```
 $ npm add -D @vitejs/plugin-legacy
@@ -18,29 +18,29 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   plugins: [
     legacy({
-      targets: ['defaults', 'not IE 11']
-    })
-  ]
+      targets: ['defaults', 'not IE 11'],
+    }),
+  ],
 })
 ```
 
-Os `plugins` também aceita programações incluindo várias extensões como um único elemento. Isto é útil para funcionalidades complexas (como integração de abstração) que são implementadas utilizando várias extensões. O arranjo será aplanado internamente.
+O `plugins` também aceita predefinições incluindo várias extensões como um único elemento. Isto é útil para funcionalidades complexas (como integração de abstração) que são implementadas usando várias extensões. O vetor será simplificado (ou aplanado) internamente.
 
-As extensões falsas (ou "falsy") serão ignoradas, as quais podem ser utilizadas para ativar e desativar facilmente as extensões.
+As extensões falsas serão ignoradas, as quais podem ser usadas para ativar e desativar facilmente as extensões.
 
 ## Encontrando Extensões {#finding-plugins}
 
 :::tip NOTA
-A Vite tem por objetivo fornecer suporte fora da caixa para padrões de desenvolvimento de web comuns. Antes de procurares por uma extensão compatível com a com a Vite ou com a Rollup, consulte o [Guia de Funcionalidades](../guide/features.md). Muitos casos onde uma extensão seria necessária em um projeto de Rollup já são cobridas pela Vite.
+A Vite tem por objetivo fornecer suporte fora da caixa para os padrões de desenvolvimento da Web comuns. Antes de procurarmos por uma extensão compatível com a Vite ou com a Rollup, devemos consultar o [Guia de Funcionalidades](../guide/features). Muitos casos onde uma extensão seria necessária num projeto de Rollup já são cobertos pela Vite.
 :::
 
-Consulta a [secção de Extensões](../plugins/) para obter informações a respeito das extensões oficiais. As extensões da comunidade são listadas na [awesome-vite](https://github.com/vitejs/awesome-vite#plugins). Para extensões compatíveis de Rollup, consulte [Extensões de Rollup de Vite](https://vite-rollup-plugins.patak.dev) para obter uma lista de extensões de Rollup oficiais compatíveis com as instruções de utilização ou a [secção Compatibilidade de Extensão de Rollup](../guide/api-plugin#rollup-plugin-compatibility) no caso de não estar listada lá.
+Consulte a [seção de Extensões](../plugins/) por informação sobre a extensões oficiais. As extensões da comunidade são listadas no [`awesome-vite`](https://github.com/vitejs/awesome-vite#plugins). Para extensões de Rollup compatíveis, consulte as [Extensões de Rollup da Vite](https://vite-rollup-plugins.patak.dev) por uma lista de extensões de Rollup oficiais compatíveis com instruções de uso ou a [seção de Compatibilidade de Extensão de Rollup](../guide/api-plugin#rollup-plugin-compatibility) no caso que não estiver listada por lá.
 
-Tu também podes encontrar extensões que sigam as [convenções recomendadas](./api-plugin.md#conventions) utilizando um comando [`npm search` para `vite-plugin`](https://www.npmjs.com/search?q=vite-plugin&ranking=popularity) para extensões de Vite ou um [`npm search` para `rollup-plugin`](https://www.npmjs.com/search?q=rollup-plugin&ranking=popularity) para extensões de Rollup.
+Nós também podemos encontrar extensões que seguem as [convenções recomendadas](./api-plugin#conventions) usando um [`npm search` por `vite-plugin`](https://www.npmjs.com/search?q=vite-plugin&ranking=popularity) para extensões de Vite ou um [`npm search` por `rollup-plugin`](https://www.npmjs.com/search?q=rollup-plugin&ranking=popularity) para extensões de Rollup.
 
-## Forçando a Ordem de Extensão {#enforcing-plugin-ordering}
+## Forçando o Ordenamento de Extensão {#enforcing-plugin-ordering}
 
-Para compatibilidade com algumas extensões de Rollup, talvez seja necessário forçar a ordem da extensão ou apenas aplicar no momento da construção. Isto deve ser um detalhe de implementação para extensões de Vite. Tu podes forçar a posição de uma extensão com o modificador `enforce`:
+Para compatibilidade com algumas extensões de Rollup, pode ser necessário forçar a ordem da extensão ou apenas aplicar durante a construção. Isto deve ser um detalhe de implementação para extensões de Vite. Nós podemos forçar a posição duma extensão com o modificador `enforce`:
 
 - `pre`: invoca a extensão antes das extensões principais da Vite
 - `default`: invoca a extensão depois das extensões principais da Vite
@@ -55,17 +55,17 @@ export default defineConfig({
   plugins: [
     {
       ...image(),
-      enforce: 'pre'
-    }
-  ]
+      enforce: 'pre',
+    },
+  ],
 })
 ```
 
-Consulte o [Guia da API de Extensões](./api-plugin.md#ordenamento-de-extensões) para obter informações detalhadas, e esteja atento ao rótulo `enforce` e instruções de utilização para as extensões populares na listagem de compatibilidade de [Extensões de Rollup de Vite](https://vite-rollup-plugins.patak.dev).
+Consulte o [Guia da API de Extensões](./api-plugin.md#plugin-ordering) por informação detalhada, e vê o rótulo `enforce` e as instruções de uso para extensões populares na listagem de compatibilidade das [Extensões de Rollup da Vite](https://vite-rollup-plugins.patak.dev).
 
 ## Aplicação Condicional {#conditional-application}
 
-Por padrão, as extensões são invocadas para ambos servir (`serve`) e construir (`build`). Nos casos onde uma extensão precisa ser condicionalmente aplicada apenas durante o servir (`serve`) ou construir (`build`), utilize a propriedade `apply` para os invocar apenas durante `'build'` ou `'serve'`:
+Por padrão, as extensões são invocadas por ambos comandos `serve` e `build`. Nos casos onde uma extensão precisa ser condicionalmente aplicada apenas durante a execução do comando `serve` ou `build`, usamos a propriedade `apply` para apenas invocá-las durante o `'build'` ou `'serve'`;
 
 ```js
 // vite.config.js
@@ -76,12 +76,12 @@ export default defineConfig({
   plugins: [
     {
       ...typescript2(),
-      apply: 'build'
-    }
-  ]
+      apply: 'build',
+    },
+  ],
 })
 ```
 
 ## Construindo Extensões {#building-plugins}
 
-Consulte o [Guia da API de Extensões](./api-plugin.md) para obter a documentação a respeito da criação de extensões.
+Consulte o [Guia da API de Extensões](./api-plugin) pela documentação sobre a criação de extensões.
