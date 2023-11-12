@@ -206,7 +206,7 @@ export default defineConfig({
               link: '/guide/cli'
             },
             {
-              text: 'Utilizando Extensões',
+              text: 'Usando Extensões',
               link: '/guide/using-plugins'
             },
             {
