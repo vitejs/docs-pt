@@ -226,7 +226,7 @@ export default defineConfig({
               link: '/guide/static-deploy'
             },
             {
-              text: 'Modos e Variáveis de Ambiente',
+              text: 'Variáveis e Modos de Ambiente',
               link: '/guide/env-and-mode'
             },
             {
