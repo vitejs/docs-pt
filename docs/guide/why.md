@@ -1,12 +1,12 @@
-# Porque Vite {#why-vite}
+# Por que Vite {#why-vite}
 
 ## Os Problemas {#the-problems}
 
-Antes dos módulos de ECMAScript estarem disponíveis nos navegadores, os programadores não tinham nenhum mecanismo nativo para produção de código JavaScript que pudesse separar esses códigos em módulos. É por isto que estamos todos familiarizados com o conceito de "empacotamento": utilizando ferramentas que rastreiam, processam e concatenam os nossos módulos de origem em arquivos que possam ser executados no navegador.
+Antes dos módulos de ECMAScript estarem disponíveis nos navegadores, os programadores não tinham nenhum mecanismo nativo para produção de código JavaScript que pudesse separar esses códigos em módulos. É por isto que estamos todos familiarizados com o conceito de "empacotamento": utilizando ferramentas que rastreiam, processam e concatenam os nossos módulos de origem em ficheiros que possam ser executados no navegador.
 
 Ao longo do tempo temos visto ferramentas como [webpack](https://webpack.js.org/), [Rollup](https://rollupjs.org) e [Parcel](https://parceljs.org/), que melhoraram grandemente a experiência de programação para os programadores de frontend.
 
-No entanto, à medida que construimos aplicações mais e mais ambiciosas, a quantidade de JavaScript com que estamos lidando também está crescendo dramaticamente. Não é incomum para projetos de larga escala conter milhares de módulos. Nós estamos começando a atingir um engarrafamento de desempenho para o ferramental baseado em JavaScript: o que pode frequentemente custar uma espera exorbitantemente longa (algumas vezes até minutos!) para rodar um servidor de desenvolvimento, e mesmo com a Substituição de Módulo Instantânea (HMR, sigla em Inglês), a edição de arquivos pode custar alguns segundos para ser refletida no navegador. O ciclo de resposta lento pode afetar grandemente a produtividade e felicidade dos programadores.
+No entanto, à medida que construimos aplicações mais e mais ambiciosas, a quantidade de JavaScript com que estamos lidando também está crescendo dramaticamente. Não é incomum para projetos de larga escala conter milhares de módulos. Nós estamos começando a atingir um engarrafamento de desempenho para o ferramental baseado em JavaScript: o que pode frequentemente custar uma espera exorbitantemente longa (algumas vezes até minutos!) para rodar um servidor de desenvolvimento, e mesmo com a Substituição de Módulo Instantânea (HMR, sigla em Inglês), a edição de ficheiros pode custar alguns segundos para ser refletida no navegador. O ciclo de resposta lento pode afetar grandemente a produtividade e felicidade dos programadores.
 
 A Vite tem por objetivo abordar estes problemas influenciando novos avanços no ecossistema: a disponibilidade dos módulos de ECMAScript nativo no navegador, e o aumento de ferramentas de JavaScript escritas em linguagens que compilam para nativo.
 
@@ -33,11 +33,11 @@ import esmSvg from '../images/esm.svg?raw'
 
 ### Atualizações Lentas {#slow-updates}
 
-Quando um arquivo é editado em uma configuração de construção baseada no empacotador, é ineficiente reconstruir o pacote inteiro por razões óbvias: a velocidade de atualização degradará linearmente com o tamanho da aplicação.
+Quando um ficheiro é editado em uma configuração de construção baseada no empacotador, é ineficiente reconstruir o pacote inteiro por razões óbvias: a velocidade de atualização degradará linearmente com o tamanho da aplicação.
 
 Em alguns empacotadores, o servidor de desenvolvimento executa o empacotamento em memória para que só precise invalidar parte do seu gráfico de módulo quando um ficheiro mudar, mas ele ainda precisa reconstruir o pacote inteiro e recarregar a página de web. A reconstrução do pacote pode ser cara, e o recarregamento da página liquida o estado atual da aplicação. É por isto que alguns empacotadores suportam a Substituição de Módulo Instantânea (HMR, sigla em Inglês): permitindo um módulo ser "substituir-se de forma instantânea" sem afetar o resto da página. Isto melhora grandemente a experiência de programação - no entanto, na prática descobrimos que mesmo a velocidade de atualização da Substituição de Módulo Instantânea se deteriora significativamente a medida que cresce o tamanho da aplicação.
 
-Na Vite, a Substituição de Módulo Instantânea é realizada sobre o Módulo de ECMAScript (ESM, sigla em Inglês). Quando um arquivo é editado, a Vite só precisa invalidar precisamente a corrente entre o módulo editado e a sua fronteira de Substituição de Módulo Instantânea (HMR) mais próxima (na maior parte das vezes só o próprio módulo), tornando as atualizações de Substituição de Módulo Instantânea (HMR) consistentemente rápida independentemente do tamanho da tua aplicação.
+Na Vite, a Substituição de Módulo Instantânea é realizada sobre o Módulo de ECMAScript (ESM, sigla em Inglês). Quando um ficheiro é editado, a Vite só precisa invalidar precisamente a corrente entre o módulo editado e a sua fronteira de Substituição de Módulo Instantânea (HMR) mais próxima (na maior parte das vezes só o próprio módulo), tornando as atualizações de Substituição de Módulo Instantânea (HMR) consistentemente rápida independentemente do tamanho da tua aplicação.
 
 A Vite também influencia os cabeçalhos de HTTP para acelerar os recarregamentos da página inteira (novamente, deixar o navegador fazer mais trabalha por nós): os requisições do módulo de código-fonte são tornadas condicionais através de `304 Não Modificado`, e as requisições do módulo de dependência são fortemente cacheadas através de `Cache-Control: max-age=31536000,immutable` assim elas não atingem o servidor novamente uma vez cacheadas.
 
