@@ -43,13 +43,13 @@ A Vite também influencia os cabeçalhos de HTTP para acelerar os recarregamento
 
 Uma vez que experimentas o quão rápida a Vite é, duvidamos muito que estejas disposto a suportar o desenvolvimento empacotado novamente.
 
-## Porque Empacotar para Produção {#why-bundle-for-production}
+## Por que Empacotar para Produção? {#why-bundle-for-production}
 
 Embora o Módulo de ECMAScript nativo esteja largamente suportado, entregar Módulo de ECMAScript desempacotado em produção ainda é ineficiente (mesmo com a HTTP/2) por causa das viagens de ida e volta na rede adicionais causadas pelas importações encaixadas. Para receber o desempenho de carregamento ideal em produção, ainda é melhor empacotar o teu código com agitação de árvore, carregamento preguiçoso e separação de pedaço comum (para cacheamento melhor).
 
 Garantir resultado ideal e consistência comportamental entre o servidor de desenvolvimento e a construção de produção não é fácil. Isto porque a Vite entrega com um [comando de construção](./build) pré-configurado que realiza várias [otimizações de desempenho](./features#otimizações-de-construção) fora da caixa.
 
-## Porque Não Empacotar com a esbuild? {#why-not-bundle-with-esbuild}
+## Por que Não Empacotar com a esbuild? {#why-not-bundle-with-esbuild}
 
 Embora a `esbuild` seja extremamente rápida e seja já um empacotador muito capaz para bibliotecas, algumas das funcionalidades importantes necessárias para o empacotamento de _aplicações_ ainda estão a funcionar em progresso - em particular a separação de código e manipulação de CSS. Por enquanto, a Rollup é mais madura e flexível nestes aspetos. Com isto dito, não descartamos a possibilidade da utilização de `esbuild` para construções de produção quando ele estabilizar estas funcionalidades no futuro.
 
