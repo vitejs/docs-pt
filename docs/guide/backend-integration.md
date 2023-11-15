@@ -1,35 +1,35 @@
 # Integração de Backend {#backend-integration}
 
-:::tip Nota
-Se quiseres servir a HTML utilizando um backend tradicional (por exemplo, Rails, Laravel) porém utilizar a Vite para servir os recursos, consulte pelas integrações existentes listadas na [Awesome Vite](https://github.com/vitejs/awesome-vite#integrations-with-backends).
+:::tip NOTA
+Se quisermos servir o HTML usando um backend tradicional (por exemplo, Rails, Laravel, Django) porém usar a Vite para servir os recursos, devemos consultar as integrações existentes listadas no [Awesome Vite](https://github.com/vitejs/awesome-vite#integrations-with-backends).
 
-Se precisares uma integração personalizada, podes seguir os passos neste guia para a configurares manualmente.
+Se precisarmos duma integração personalizada, podemos seguir os passos neste guia para configurá-la manualmente.
 :::
 
-1. Na tua configuração de Vite, configure a entrada e ative o manifesto de construção:
+1. Na nossa configuração de Vite, configuramos uma entrada e ativamos o manifeste de construção:
 
    ```js
    // vite.config.js
    export default defineConfig({
      build: {
-       // gera o ".vite/manifest.json" no "outDir"
+       // gera `.vite/manifest.json` no diretório de saída
        manifest: true,
        rollupOptions: {
-         // sobrescreve a entrada ".html" padrão
-         input: '/path/to/main.js'
-       }
-     }
+         // sobrescreve a entrada de `.html` padrão
+         input: '/path/to/main.js',
+       },
+     },
    })
    ```
 
-   Se não desativaste o ["polyfill" de precarregamento de módulo](/config/build-options.md#build-polyfillmodulepreload), também precisas importar o "polyfill" na tua entrada.
+   Se não tivermos desativado o [preenchimento de lacuna da funcionalidade de pré-carregamento de módulo](/config/build-options#build-polyfillmodulepreload), também precisamos importar o preenchimento de lacuna na nossa entrada:
 
    ```js
-   // adiciona no inicio da entrada da tua aplicação
+   // adicionar no inicio da entrada da nossa aplicação
    import 'vite/modulepreload-polyfill'
    ```
 
-2. Para desenvolvimento, injete o seguinte no modelo de HTML do teu servidor (substitua `http://localhost:5173` com a URL local que a Vite está executando):
+2. Para o desenvolvimento, injetamos o seguinte no modelo de marcação de HTML do nosso servidor (substituímos `http://localhost:5173` pela URL local em que a Vite está ser executada):
 
    ```html
    <!-- if development -->
@@ -37,14 +37,14 @@ Se precisares uma integração personalizada, podes seguir os passos neste guia 
    <script type="module" src="http://localhost:5173/main.js"></script>
    ```
 
-   Para servir os recursos apropriadamente, tens duas opções:
+   No sentido de servir corretamente os recursos, temos duas opções:
 
-   - Certifica-te de que o servidor está configurada para delegar as requisições de recursos estáticos para o servidor da Vite
-   - Defina a opção [`server.origin`](/config/server-options#server-origin) para que as URLs de recurso geradas sejam resolvidas utilizando a URL do servidor de back-end ao invés de um caminho relativo
+   - Certificar-nos de que o servidor está configurado para delegar as requisições de recursos estáticos ao servidor da Vite.
+   - Definir a opção [`server.origin`](/config/server-options.md#server-origin) para que as URLs dos recursos gerados sejam resolvidas usando a URL do servidor de backend ao invés dum caminho relativo.
 
-   Isto é necessário para recursos tais como imagens carreguem apropriadamente.
+   Isto é necessário para que recursos como imagens sejam carregados corretamente.
 
-   Nota que se estiveres utilizando a React com `@vitejs/plugin-react`, também precisarás adicionar isto antes dos programas acima, já que a extensão não é capaz de modificar a HTML que estás servindo (substitua `http://localhost:5173` com a URL local em que a Vite está a ser executada):
+   Nota que se estivermos a usar a React com `@vitejs/plugin-react`, também precisaremos adicionar isto antes dos programas acima, já que a extensão não capaz de modificar o HTML que estivermos a servir (substituímos `http://localhost:5173` pela URL local em que a Vite está ser executada):
 
    ```html
    <script type="module">
@@ -56,7 +56,7 @@ Se precisares uma integração personalizada, podes seguir os passos neste guia 
    </script>
    ```
 
-3. Para produção: depois da execução de `vite build`, um ficheiro `.vite/manifest.json` será gerado ao lado de outros ficheiros de recurso. Um exemplo de ficheiro de manifesto se parece com isto:
+3. Para a produção: depois de executar `vite build`, um ficheiro `.vite/manifest.json` será gerado ao lado dos outros ficheiros de recurso. Um ficheiro de manifesto de exemplo se parece com isto:
 
    ```json
    {
@@ -80,12 +80,12 @@ Se precisares uma integração personalizada, podes seguir os passos neste guia 
    }
    ```
 
-   - O manifesto tem uma estrutura `Registo<nome, pedaço>`
-   - Para os pedaços de entrada ou entrada dinâmica, a chave é o caminho do recurso relativo da raiz do projeto.
-   - Para os pedaços que não são de entrada, a chave é no nome da base do ficheiro gerado prefixado com `_`.
-   - Os pedaços conterão informações sobre a sua importação estática ou dinâmica (ambas são chaves que delineiam para o pedaço correspondente no manifesto), e também seus ficheiros de recurso e CSS correspondente (se houver algum).
+   - O manifesto tem uma estrutura de `Record<name, chunk>` (ou `Registo<nome, pedaço>`)
+   - Para a entrada ou pedaços de entrada dinâmica, a chave é o caminho de origem relativo a partir da raiz do projeto.
+   - Para os pedaços que não forem de entrada, a chave é nome da base do ficheiro gerado prefixado com `_`.
+   - Os pedaços conterão informação sobre as suas importações estáticas e dinâmicas (ambas são chaves que mapeiam para o pedaço correspondente no manifesto), e também os seus ficheiros de CSS e recursos correspondentes (se existirem).
 
-   Tu podes utilizar este ficheiro para interpretar as ligações ou pré-carregar as diretivas com os nomes de ficheiro baralhado (nota: a sintaxe aqui é para explicação apenas, substitua com a linguagem geradora de modelos de marcação do teu servidor):
+   Nós podemos usar este ficheiro para desenhar as ligações ou pré-carregar as diretivas com nomes de ficheiros compostos por caracteres pseudo-aleatórios (nota: a sintaxe aqui é apenas para explicação, porque iremos substituir pela linguagem de modelação de marcação de hipertexto do servidor):
 
    ```html
    <!-- if production -->
