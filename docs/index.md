@@ -7,7 +7,7 @@ titleTemplate: Ferramental de Frontend de Última Geração
 hero:
   name: Vite
   text: Ferramental de Frontend de Última Geração
-  tagline: Prepara-te para um ambiente de desenvolvimento que pode finalmente acompanhar.
+  tagline: Prepara-se para um ambiente de desenvolvimento que pode finalmente acompanhá-lo.
   image:
     src: /logo-with-shadow.png
     alt: Vite
@@ -16,11 +16,14 @@ hero:
       text: Começar
       link: /guide/
     - theme: alt
-      text: Porquê Vite?
+      text: Por que Vite?
       link: /guide/why
     - theme: alt
       text: Ver na GitHub
       link: https://github.com/vitejs/vite
+    - theme: brand
+      text: 🎉 ViteConf 23!
+      link: https://viteconf.org/23/replay?utm=vite-homepage
 
 features:
   - icon: 💡
