@@ -29,15 +29,18 @@
     "url": "git+https://github.com/vitejs/docs-pt.git"
   },
   "keywords": [
-    "vite-pt",
-    "vite-docs-pt",
-    "vite-portuguese-translation",
-    "vite-pt-br",
-    "vite-pt-pt",
-    "vite-portuguese-documentation",
+    "pt",
     "pt-pt",
     "pt-br",
-    "pt"
+    "vite-pt",
+    "vite-pt-br",
+    "vite-pt-br",
+    "vite-pt-pt",
+    "vite-docs-pt",
+    "pt.vitejs.dev",
+    "br.vitejs.dev",
+    "vite-portuguese-translation",
+    "vite-portuguese-documentation"
   ],
   "author": "",
   "license": "MIT",
