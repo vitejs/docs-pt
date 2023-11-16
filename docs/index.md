@@ -27,7 +27,7 @@ hero:
 
 features:
   - icon: 💡
-    title: Inicio de Servidor Instantâneo
+    title: Inicialização de Servidor Instantâneo
     details: Ficheiro sobre demanda servindo sobre Módulo de ECMAScript, sem necessidade de empacotamento!
   - icon: ⚡️
     title: Substituição de Módulo Instantânea Rápida como Relâmpago
@@ -42,6 +42,6 @@ features:
     title: Extensões Universais
     details: Interface de extensão de superconjunto de Rollup partilhada entre o desenvolvimento e a construção.
   - icon: 🔑
-    title: APIs Completamente Tipadas
-    details: APIs programáticas flexíveis com tipos de TypeScript completos.
+    title: APIs Completamente Tipificadas
+    details: APIs programáticas flexíveis com tipos completos de TypeScript.
 ---
