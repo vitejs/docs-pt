@@ -108,7 +108,7 @@ export default defineConfig({
 
     socialLinks: [
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@vite' },
-      { icon: 'twitter', link: 'https://twitter.com/vite_js' },
+      { icon: 'x', link: 'https://x.com/vite_js' },
       { icon: 'discord', link: 'https://chat.vitejs.dev' },
       { icon: 'github', link: 'https://github.com/vitejs/vite' }
     ],
@@ -145,8 +145,8 @@ export default defineConfig({
           {
             items: [
               {
-                text: 'Twitter',
-                link: 'https://twitter.com/vite_js'
+                text: 'X',
+                link: 'https://x.com/vite_js'
               },
               {
                 text: 'Conversas da Discord',
