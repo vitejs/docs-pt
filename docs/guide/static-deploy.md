@@ -1,10 +1,10 @@
-# Implementando um Sítio Estático {#deploying-a-static-site}
+# Implementando uma Aplicação Estática {#deploying-a-static-site}
 
-Os seguintes guias são baseados em algumas suposições partilhadas:
+As seguintes orientações são baseadas nalgumas suposições partilhadas:
 
-- Tu estás utilizando a localização da saída da construção padrão (`dist`). Esta localização [pode ser mudada utilizando `build.outDir`](/config/build-options.md#build-outdir), e podes extrapolar as instruções destes guias neste caso.
-- Tu estás utilizando o npm. Tu podes utilizar comandos equivalentes para executar os programas se estiveres utilizando o Yarn ou outro gestor de pacote.
-- A Vite está instalada como uma dependência local no teu projeto, e configuraste os seguintes programas de npm:
+- Nós estamos usando a localização da saída da construção padrão (`dist`). Esta localização [pode ser mudada usando `build.outDir`](/config/build-options#build-outdir), e podemos extrapolar as instruções a partir destas orientações neste caso.
+- Nós estamos usando o npm. Nós podemos usar os comandos equivalentes para executar os programas se estivermos usando Yarn ou outros gestores de pacote.
+- A Vite é instalada como uma dependência local no nosso projeto, e temos configurado os seguintes programas de npm:
 
 ```json
 {
@@ -15,34 +15,34 @@ Os seguintes guias são baseados em algumas suposições partilhadas:
 }
 ```
 
-É importante notar que `vite preview` está destinado para a pré-visualização da construção localmente e não destinada como servidor de produção.
+É importante notar que o comando `vite preview` está destinado para pré-visualizar a construção localmente e não está destinado a servir como um servidor de produção.
 
 :::tip NOTA
-Estes guias fornecem instruções para realização de um desdobramento estático do teu sítio de Vite. A Vite também suporta a Interpretação no Lado do Servidor (SSR, sigla em Inglês). A SSR refere-se as abstrações de front-end que suportam a execução da mesma aplicação em Node.js, pré-interpretando-a para HTML, e finalmente hidratando-a no cliente. Consulte o [Guia da SSR](./ssr) para aprender a respeito desta funcionalidade. Por outro lado, se estiveres procurando pela integração com abstrações de lado do servidor tradicionais, consulte o [Guia da Integração de Backend](./backend-integration).
+Estas orientações fornecem instruções para realizar uma implementação estática da nossa aplicação de Vite. A Vite também suporta interpretação do lado do servidor. A interpretação do lado do servidor refere-se às abstrações de front-end que suportam executar a mesma aplicação na Node.js, pré-interpretando-a à HTML, e finalmente hidratando-a no cliente. Consulte o [Guia da Interpretação do Lado do Cliente](./ssr) para aprender sobre esta funcionalidade. Por outro lado, se estivermos procurando pela integração com as abstrações do lado do servidor tradicionais, devemos consultar o [Guia da Integração do Backend](./backend-integration).
 :::
 
 ## Construindo a Aplicação {#building-the-app}
 
-Tu podes executar o comando `npm run build` para construir a aplicação.
+Nós podemos executar o comando `npm run build` para construir a aplicação:
 
 ```bash
 $ npm run build
 ```
 
-Por padrão, a saída da construção será colocada no `dist`. Tu podes desdobrar esta pasta `dist` para quaisquer plataformas de tua preferência.
+Por padrão, a saída da construção será colocada no diretório `dist`. Nós podemos servir esta pasta `dist` em produção em quaisquer plataformas de nossa preferência.
 
 ### Testando a Aplicação Localmente {#testing-the-app-locally}
 
-Um vez que construiste a aplicação, podes testá-la localmente executando o comando `npm run preview`.
+Assim que construirmos a aplicação, podemos testá-la localmente executando o comando `npm run preview`:
 
 ```bash
 $ npm run build
 $ npm run preview
 ```
 
-O comando `vite preview` iniciará um servidor de web estático local que serve os ficheiros do `dist` no `http://localhost:4173`. É uma maneira fácil para verificar se a construção de produção parece bem no teu ambiente local.
+O comando `vite preview` iniciará um servidor da Web estático localmente que serve os ficheiros do diretório `dist` na `http://localhost:4173`. É uma maneira fácil de verificar se a construção de produção funciona corretamente no nosso ambiente local.
 
-Tu podes configurar a porta do servidor passando a bandeira `--port` como um argumento.
+Nós podemos configurar a porta do servidor passando a opção `--port` como argumento:
 
 ```json
 {
@@ -52,38 +52,47 @@ Tu podes configurar a porta do servidor passando a bandeira `--port` como um arg
 }
 ```
 
-Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
+Agora o comando `preview` lançará o servidor na `http://localhost:8080`.
 
 ## GitHub Pages  {#github-pages}
 
-1. Defina a `base` correta no `vite.config.js`.
+1. Definimos a `base` correta no `vite.config.js`.
 
-   Se estiveres implementar em produção para `https://<USERNAME>.github.io/`, podes omitir a `base` porque ela padroniza para `'/'`.
+   Se estivermos implementando na `https://<USERNAME>.github.io/`, ou num domínio personalizado através da GitHub Pages (por exemplo, `www.example.com`), definimos a `base` para `'/'`. Alternativamente, podemos remover `base` da configuração, já que esta predefine para `'/'`.
 
-   Se estiveres implementar em produção para `https://<USERNAME>.github.io/<REPO>/`, por exemplo o teu repositório está em `https://github.com/<USERNAME>/<REPO>`, então defina a `base` para `'/<REPO>/'`.
+   Se estivermos implementando na `https://<USERNAME>.github.io/<REPO>/` (por exemplo, o nosso repositório está em `https://github.com/<USERNAME>/<REPO>`), então definimos a `base` para `'/<REPO>/'`.
 
-2. Vá para a configuração do teu GitHub Pages nas definições do repositório e escolha a fonte da implementação em produção como "GitHub Actions", isto levar-te-á a criar um fluxo de trabalho que constrói e implementa o teu projeto, uma amostra de fluxo de trabalho que instala as dependências e constrói usando o npm fornecida:
+2. Vamos para a configuração da nossa GitHub Pages na página de definições (ou configurações) do repositório e escolhemos a fonte da implementação como "GitHub Actions", isto levar-nos-á à criar um fluxo de trabalho que constrói e implementa o nosso projeto, um fluxo de trabalho de exemplo que instala as dependências e constrói o projeto usando o npm é fornecido:
 
    ```yml
-   # Fluxo de trabalho simples para o implementação em produção de conteúdo estático para a GitHub Pages
+   # Fluxo de trabalho simples para implementar
+   # conteúdo estático na GitHub Pages
    name: Deploy static content to Pages
+
    on:
-     # Executa sobre empurrões mirando o ramo padrão
+     # Executa sobre as atualizações mirando o ramo padrão
      push:
        branches: ['main']
-     # Permite-te executar este fluxo de trabalho manualmente da aba de Actions
+
+     # Permite-nos executar este fluxo de trabalho manualmente
+     # a partir da aba de Ações (ou `Actions`)
      workflow_dispatch:
-   # Defina as permissões da GITHUB_TOKEN para permitir a implementação para a GitHub Pages
+
+   # Define as permissões do GITHUB_TOKEN para permitir
+   # a implementação na GitHub Pages
    permissions:
      contents: read
      pages: write
      id-token: write
-   # Permite uma implementação em produção simultânea
+
+   # Permitir uma implementação simultânea
    concurrency:
      group: 'pages'
      cancel-in-progress: true
+
    jobs:
-     # Trabalho de implementação individual já que estamos apenas implementando
+     # Único trabalho de implementação
+     # uma vez que apenas estamos implementando
      deploy:
        environment:
          name: github-pages
@@ -106,7 +115,7 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
          - name: Upload artifact
            uses: actions/upload-pages-artifact@v2
            with:
-             # Carregar o repositório dist
+             # Carregar o repositório de distribuição
              path: './dist'
          - name: Deploy to GitHub Pages
            id: deployment
@@ -115,13 +124,13 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 
 ## GitLab Pages e GitLab CI {#gitlab-pages-and-gitlab-ci}
 
-2. Defina a `base` correta no `vite.config.js`.
+1. Definimos a `base` correta no `vite.config.js`.
 
-   Se estiveres desdobrando para `https://<USERNAME or GROUP>.gitlab.io/`, podes omitir a `base` porque ela padroniza para `'/'`.
+   Se estivermos implementando na `https://<USERNAME or GROUP>.gitlab.io/`, podemos omitir a `base`, já que esta predefine para `'/'`.
 
-   Se estiveres desdobrando para `https://<USERNAME or GROUP>.gitlab.io/<REPO>/`, por exemplo o teu repositório está em `https://gitlab.com/<USERNAME>/<REPO>`, então defina a `base` para `'/<REPO>/'`.
+   Se estivermos implementando na `https://<USERNAME or GROUP>.gitlab.io/<REPO>/`, por exemplo o nosso repositório está em `https://gitlab.com/<USERNAME>/<REPO>`, então definimos a `base` para `'/<REPO>/'`.
 
-2. Cria um ficheiro chamado `.gitlab-ci.yml` na raiz do teu projeto com o conteúdo abaixo. Isto construirá e desdobrará o teu sítio sempre que fizeres mudanças ao teu conteúdo:
+2. Críamos um ficheiro chamado `.gitlab-ci.yml` na raiz do nosso projeto com o conteúdo abaixo. Isto construirá e implementará a nossa aplicação sempre que fizermos mudanças no nosso conteúdo:
 
    ```yaml
    image: node:16.5.0
@@ -149,45 +158,45 @@ Agora o comando `preview` lançará o servidor no `http://localhost:8080`.
 
 ### Netlify CLI {#netlify-cli}
 
-1. Instale a [Linha de Comando da Netlify](https://cli.netlify.com/).
-2. Cria um novo sítio utilizando o `ntl init`.
-3. Desdobra utilizando `ntl deploy`.
+1. Instalamos a [Interface da Linha de Comando da Netlify](https://cli.netlify.com/).
+2. Críamos uma nova aplicação usando `ntl init`.
+3. Implementamos usando `ntl deploy`:
 
 ```bash
-# Instalar a Linha de Comando da Netlify
+# Instalar a Interface da Linha de Comando da Netlify
 $ npm install -g netlify-cli
 
-# Criar um novo sítio na Netlify
+# Criar uma nova aplicação na Netlify
 $ ntl init
 
-# Desdobrar para uma URL de pré-visualização única.
+# Implementar numa única URL de pré-visualização
 $ ntl deploy
 ```
 
-A Linha de Comando da Netlify partilhará contigo uma URL de pré-visualização para inspecionar. Quando estiveres pronto para avançar para produção, utilize a bandeira `prod`:
+A interface da linha de comando da Netlify partilhará connosco uma URL de pré-visualização para inspecionar. Quando estivermos pronto para avançarmos para produção, usamos a opção `prod`:
 
 ```bash
-# Desdobrar o sítio para produção
+# Implementar a aplicação em produção
 $ ntl deploy --prod
 ```
 
-### Netlify com Git {#netlify-with-git}
+### Netlify com a Git {#netlify-with-git}
 
-1. Empurre o teu código para um repositório de git (GitHub, GitLab, BitBucket, Azure DevOps).
-2. [Importe o projeto](https://app.netlify.com/start) para a Netlify.
-3. Escolha o ramo, diretório de saída, e configure as variáveis de ambiente se aplicável.
-4. Clique sobre **Deploy (Desdobrar)**
-5. A tua aplicação de Vite está desdobrada!
+1. A tua aplicação de Vite está desdobrada!
+2. Empurramos o nosso código para um repositório de Git (GitHub, GitLab, BitBucket, Azure DevOps).
+3. [Importamos o projeto](https://app.netlify.com/start) na Netlify.
+4. Escolhemos o ramo, diretório de saída, e definimos as variáveis de ambiente se aplicável.
+5. Clicamos sobre **Implementar (ou _Deploy_)**
 
-Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://docs.netlify.com/site-deploys/deploy-previews/), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://docs.netlify.com/site-deploys/overview/#definitions).
+Depois do nosso projeto ter sido importado e implementado, todas as atualizações (ou pushes) subsequentes aos outros ramos que não são o de produção juntamente com os pedidos de atualização (ou pull requests) gerarão as [implementações de pré-visualização](https://docs.netlify.com/site-deploys/deploy-previews/), e todas as mudanças feitas ao ramo de produção (comummente “main”) resultarão numa [implementação de produção](https://docs.netlify.com/site-deploys/overview/#definitions).
 
 ## Vercel {#vercel}
 
 ### Vercel CLI {#vercel-cli}
 
-1. Instale a [Linha de Comando da Vercel](https://vercel.com/cli) e execute `vercel` para desdobrar.
-2. A Vercel detetará que estás utilizando a Vite e ativará as definições corretas para o teu desdobramento.
-3. A tua aplicação está desdobrada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/)).
+1. Instalamos a [Interface da Linha de Comando da Vercel](https://vercel.com/cli) e executamos `vercel` para implementar.
+2. A Vercel detetará que estamos usando a Vite e ativará as definições (ou configurações) corretas para a nossa implementação.
+3. A aplicação está implementada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/)):
 
 ```bash
 $ npm i -g vercel
@@ -197,14 +206,14 @@ Vercel CLI
 - To deploy, `cd vite` and run `vercel`.
 ```
 
-### Vercel com Git {#vercel-for-git}
+### Vercel com a Git {#vercel-for-git}
 
-1. Empurre o teu código para o teu repositório de git (GitHub, GitLab, Bitbucket).
-2. [Importe o teu projeto de Vite](https://vercel.com/new) para a Vercel.
-3. A Vercel detetará que estás utilizando a Vite e ativará as definições corretas para o teu desdobramento.
-4. A tua aplicação está desdobrada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/))
+1. Empurramos o nosso código ao nosso repositório de Git (GitHub, GitLab, BitBucket).
+2. [Importamos o nosso projeto de Vite](https://vercel.com/new) na Vercel.
+3. A Vercel detetará que estamos usando a Vite e ativará as definições (ou configurações) corretas para a nossa implementação
+4. A nossa aplicação está implementada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/))
 
-Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para outros ramos que não o ramo de produção juntamente com requisições de puxão ("pull requests") gerarão os [Desdobramentos de Pré-Visualização](https://vercel.com/docs/concepts/deployments/environments#preview), e todas as mudanças feitas para o Ramo de Produção (comummente “main”) resultará num [Desdobramento de Produção](https://vercel.com/docs/concepts/deployments/environments#production).
+Depois do nosso projeto ter sido importado e implementado, todas as atualizações subsequentes (ou pushes) aos ramos gerarão [implementações de pré-visualização](https://vercel.com/docs/concepts/deployments/environments#preview), e todas as mudanças feitas ao ramo de produção (comummente “main”) resultarão numa [implementação de produção](https://vercel.com/docs/concepts/deployments/environments#production).
 
 Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concepts/git) da Vercel.
 
@@ -212,47 +221,47 @@ Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concept
 
 ### Cloudflare Pages através da Wrangler {#cloudflare-pages-via-wrangler}
 
-1. Instale a [Linha de Comando Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
-2. Autentica a Wrangler com a tua conta da Cloudflare utilizando `wrangler login`.
-3. Executa o teu comando de construção.
-4. Carregar em produção usando `npx wrangler pages deploy dist`.
+1. Instalamos a [Interface da Linha de Comando da Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
+2. Autenticamos a Wrangler com a nossa conta da Cloudflare usando `wrangler login`.
+3. Executamos o nosso comando de construção.
+4. Implementamos usando `npx wrangler pages deploy dist`.
 
 ```bash
-# Instalar a Linha de Comando Wrangler
+# Instalar a interface da linha de comando da Wrangler
 $ npm install -g wrangler
 
 # Iniciar sessão da conta da Cloudflare
-# a partir da Linha de Comando
+# a partir da interface da linha de comando
 $ wrangler login
 
-# Executar o teu comando de construção
+# Executar o nosso comando de construção
 $ npm run build
 
-# Criar nova implementação em produção
+# Criar nova implementação
 $ npx wrangler pages deploy dist
 ```
 
-Após os teus recursos serem carregados, a Wrangler dar-te-á uma URL de pré-visualização para inspecionar o teu sítio. Quando entrares no painel de controlo da Cloudflare Pages, verás o teu novo projeto.
+Depois dos nossos recursos estiverem carregados, a Wrangler dar-nos-á uma URL de pré-visualização para inspecionar a nossa aplicação. Quando entrarmos no painel de controlo da Cloudflare Pages, veremos o nosso novo projeto.
 
-### Cloudflare Pages com Git {#cloudflare-pages-with-git}
+### Cloudflare Pages com a Git {#cloudflare-pages-with-git}
 
-1. Empurre o teu código para o teu repositório (GitHub, GitLab).
-2. Entre no painel de controlo da Cloudflare e selecione a tua conta em **Account Home (Casa da Conta)** > **Pages (Páginas)**.
-3. Selecione **Create a new Project (Criar um novo Projeto)** e a opção **Connect Git (Conectar a Git)**.
-4. Selecione o projeto de git que queres desdobrar e clique em **Begin setup (Iniciar a configuração)**.
-5. Selecione a configuração da abstração correspondente nas definições da construção dependendo da abstração de Vite que selecionaste.
-6. Depois guarde e desdobre!
-7. A tua aplicação está desdobrada! (por exemplo, `https://<PROJECTNAME>.pages.dev/`)
+1. Empurramos o nosso código ao nosso repositório (GitHub, GitLab).
+2. Entramos no painel de controlo da Cloudflare e selecionamos a nossa conta em **Página Inicial da Conta (ou _Account Home_)** > **Páginas (ou _Pages_)**.
+3. Selecionamos **Criar um novo Projeto (ou _Create a new Project_)** e a opção **Conectar Git (ou _Connect Git_)**.
+4. Selecionamos o projeto de Git que queremos implementar e clicamos em **Iniciar configuração (ou _Begin setup_)**.
+5. Selecionamos pré-definição (ou pré-configuração) da abstração correspondente nas definições (ou configurações) de construção dependendo da abstração de Vite que selecionamos.
+6. Depois guardamos e implementamos!
+7. A nossa aplicação está implementada! (por exemplo, `https://<PROJECTNAME>.pages.dev/`)
 
-Após o teu projeto ter sido importado e desdobrado, todos os empurrões subsequentes para os ramos gerarão [Desdobramentos de Pré-Visualização](https://developers.cloudflare.com/pages/platform/preview-deployments/) a menos que seja especificado para não o fazer nos teus [controlos da construção do ramo](https://developers.cloudflare.com/pages/platform/branch-build-controls/). Todas as mudanças para o Ramo de Produção (comummente “main”) resultarão em um Desdobramento de Produção.
+Depois do nosso projeto ter sido importado e implementado, todas as atualizações subsequentes (pushes) aos ramos gerarão [implementações de pré-visualização](https://developers.cloudflare.com/pages/platform/preview-deployments/) a menos que seja especificado para não o fazer nos nossos [controlos de construção do ramo](https://developers.cloudflare.com/pages/platform/branch-build-controls/). Todas as mudanças ao ramo de produção (comummente “main”) resultarão numa implementação de produção.
 
-Tu também podes adicionar domínios personalizados e manipular as definições da construção personalizada na Pages. Aprenda mais a respeito da [Integração de Git da Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/#manage-your-site).
+Nós também podemos adicionar domínios personalizados e manipular as definições (ou configurações) na Pages. Saiba mais sobre a [Integração de Git da Cloudflare Pages](https://developers.cloudflare.com/pages/get-started/#manage-your-site).
 
 ## Google Firebase {#google-firebase}
 
-1. Certifica-te de que tens a [firebase-tools](https://www.npmjs.com/package/firebase-tools) instalada.
+1. Certificamos-nos de que temos a [`firebase-tools`](https://www.npmjs.com/package/firebase-tools) instalada.
 
-2. Crie o `firebase.json` e o `.firebaserc` na raiz do teu projeto com o seguinte conteúdo:
+2. Críamos o `firebase.json` e o `.firebaserc` na raiz do nosso projeto com o seguinte conteúdo:
 
    `firebase.json`:
 
@@ -281,64 +290,63 @@ Tu também podes adicionar domínios personalizados e manipular as definições 
    }
    ```
 
-3. Após executares `npm run build`, desdobre utilizando o comando `firebase deploy`.
+3. Depois de executarmos `npm run build`, implementamos usando o comando `firebase deploy`.
 
 ## Surge {#surge}
 
-1. Primeiro instale a [surge](https://www.npmjs.com/package/surge), se já não a tiveres instalada.
+1. Instalamos a [`surge`](https://www.npmjs.com/package/surge), se já não estiver instalada.
 
-2. Execute `npm run build`.
+2. Executamos `npm run build`.
 
-3. Desdobre para surge digitando `surge dist`.
+3. Implementamos à surge digitando `surge dist`.
 
-Tu também podes desdobrar para um [domínio personalizado](http://surge.sh/help/adding-a-custom-domain) adicionado `surge dist yourdomain.com`.
+Nós também podemos implementar para um [domínio personalizado](http://surge.sh/help/adding-a-custom-domain) adicionando `surge dist yourdomain.com`.
 
 ## Azure Static Web Apps {#azure-static-web-apps}
 
-Tu podes desdobrar rapidamente a tua aplicação de Vite com o serviço de [Aplicações de Web Estáticas](https://aka.ms/staticwebapps) da Microsoft Azure. Tu precisas:
+Nós podemos implementar rapidamente a nossa aplicação de Vite com o serviço de [Aplicações da Web Estáticas](https://aka.ms/staticwebapps) da Microsoft Azure. Nós precisamos:
 
-- De uma conta Azure e de uma chave de subscrição. Tu podes criar uma [conta Azure gratuita aqui](https://azure.microsoft.com/free).
-- Que o código da tua aplicação seja empurrado para [GitHub](https://github.com).
-- Da [Extensão SWA](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) no [Visual Studio Code](https://code.visualstudio.com).
+- Duma conta da Azure e uma chave de subscrição. Nós podemos criar uma [conta gratuita da Azure nesta ligação](https://azure.microsoft.com/free).
+- Que o código da nossa aplicação seja empurrado à [GitHub](https://github.com).
+- Da [extensão SWA](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) no [Visual Studio Code](https://code.visualstudio.com).
 
-Instale a extensão no VS Code e navegar para a raiz da tua aplicação. Abrir a extensão Static Web Apps, registar-se na Azure, e clicar no sinal '+' para criar uma nova Aplicação de Web Estática. Tu serás levado a designar qual chave de subscrição utilizar.
+Instalamos a extensão no VS Code e navegamos à raiz da nossa aplicação. Abrimos a extensão **Static Web Apps**, iniciamos a sessão na Azure, clicamos no sinal de '+' para criar uma nova Aplicação de Web Estática. Ser-nos-á pedido que designemos a chave de subscrição a usar.
 
-Siga o assistente ("wizard" ou "feiticeiro" se preferires) iniciado pela extensão para dares um nome a tua aplicação, escolher uma configuração de abstração, e designar a raiz da aplicação (normalmente `/`) e a localização do ficheiro construído `/dist`. O assistente ("wizard" ou "feiticeiro" se preferires) executará e criará uma ação de GitHub no teu repositório numa pasta `.github`.
+Seguimos o assistente (ou wizard ou feiticeiro se preferirmos) iniciado pela extensão para darmos um nome à nossa aplicação, escolhemos uma pré-definição (ou pré-configuração) de abstração, e designamos a raiz da aplicação (normalmente `/`) e a localização do ficheiro construído `/dist`. O assistente executará e criará uma ação de GitHub no nosso repositório numa pasta `.github`.
 
-A ação trabalhará para desdobrar a tua aplicação (observe o seu progresso na aba Ações (Actions, em Inglês) do teu repositório) e, quando terminada com sucesso, podes visualizar a tua aplicação no endereço fornecido na janela de progresso da extensão clicando no botão 'Olhar o Sítio (Browse Website, em Inglês)' que aparece quando a ação de GitHub executa.
+A ação trabalhará para implementar a nossa aplicação (observamos o seu progresso na aba Ações (ou Actions)) e, quando concluída com sucesso, podemos visualizar a nossa aplicação no endereço fornecido na janela de progresso da extensão clicando no botão 'Olhar Aplicação' (ou 'Browse Website') que aparece quando a ação de GitHub é executada.
 
 ## Render {#render}
 
-Tu podes desdobrar a tua aplicação de Vite como um Sítio Estático na [Render](https://render.com/).
+Nós podemos implementar a nossa aplicação de Vite como uma Aplicação Estática na [Render](https://render.com/):
 
-1. Crie uma [conta Render](https://dashboard.render.com/register).
+1. Críamos uma [conta da Render](https://dashboard.render.com/register).
 
-2. No [Painel de Controlo](https://dashboard.render.com/), clique no botão **Novo (New, em Inglês)** e selecione o **Sítio Estático (Static Site, em Inglês)**.
+2. No [painel de controlo](https://dashboard.render.com/), clicamos no botão **Novo (ou _New_)** e selecionamos **Aplicação Estática (ou _Static Site_)**.
 
-3. Conecte a tua conta GitHub/GitLab ou utilize um repositório público.
+3. Conectamos a nossa conta da GitHub ou GitLab, ou usamos um repositório público.
 
-4. Especifique um nome de projeto e o ramo.
+4. Especificamos um nome de projeto e o ramo:
 
-   - **Comando de Construção (Build Command, em Inglês)**: `npm run build`
-   - **Diretório de Publicação (Publish Directory, em Inglês)**: `dist`
+   - **Comando de Construção (ou _Build Command_)**: `npm run build`
+   - **Diretório de Publicação (_Publish Directory_)**: `dist`
 
-5. Clique em **Criar Sítio Estático (Create Static Site, em Inglês)**
+5. Clicamos em **Criar Aplicação Estática (_Create Static Site_)**:
 
-   A tua aplicação deveria ser desdobrada em `https://<PROJECTNAME>.onrender.com/`.
+   A nossa aplicação deve ser implementada na `https://<PROJECTNAME>.onrender.com/`.
 
-Por padrão, qualquer nova consolidação empurrada para o ramo especificado acionará automaticamente um novo desdobramento.
-O [Desdobrar Automaticamente (Auto-Deploy, em Inglês)](https://render.com/docs/deploys#toggling-auto-deploy-for-a-service) pode ser configurado nas definições do projeto.
+Por padrão, qualquer nova atualização empurrada ao ramo especificado acionará automaticamente uma nova implementação. A [Implementação Automática (ou Auto-Deploy)](https://render.com/docs/deploys#toggling-auto-deploy-for-a-service) pode ser configurada nas definições (ou configurações) deo projeto.
 
-Tu também podes adicionar um [domínio personalizado](https://render.com/docs/custom-domains) ao teu projeto.
+Nós também podemos adicionar um [domínio personalizado](https://render.com/docs/custom-domains) ao nosso projeto.
 
 ## Flightcontrol {#flightcontrol}
 
-Implemente a tua aplicação estática em produção usando [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
+Implementamos a nossa aplicação estática usando a [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
 
 ## Hospedagem da AWS Amplify {#aws-amplify-hosting}
 
-Implemente a tua aplicação estática em produção usando a [Hospedagem da AWS Amplify](https://aws.amazon.com/amplify/hosting/), seguindo estas [instruções](https://docs.amplify.aws/guides/hosting/vite/q/platform/js/)
+Implementamos a nossa aplicação estática usando a [Hospedagem da AWS Amplify](https://aws.amazon.com/amplify/hosting/), seguindo estas [instruções](https://docs.amplify.aws/guides/hosting/vite/q/platform/js/).
 
 ## Hospedagem de Aplicação Estática da Kinsta {#kinsta-static-site-hosting}
 
-Nós podemos implementar a nossa aplicação de Vite como uma Aplicação Estática em produção na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
+Nós podemos implementar a nossa aplicação de Vite como uma Aplicação Estática na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
