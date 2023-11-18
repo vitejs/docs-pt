@@ -21,7 +21,7 @@ head:
       content: summary_large_image
 ---
 
-# A Vite 4 foi Publicada! {#vite-4-0-is-out}
+# A Vite 4.0 foi Publicada! {#vite-4-0-is-out}
 
 _9 de Dezembro de 2022_ - Consulte o [anúncio da Vite 5.0](./announcing-vite5.md)
 
