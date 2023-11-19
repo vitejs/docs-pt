@@ -4,12 +4,6 @@ Os lançamentos da Vite seguem o [Padrão de Definição de Versão Semântica](
 
 Um relatório completo de mudanças dos lançamentos passados encontra-se [disponível na GitHub](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md).
 
-:::tip NOTA
-O próximo lançamento principal da Vite acontecerá depois do FIM DA EXPECTATIVA DE VIDA da Node 16 em Setembro.
-
-Consulte a [Discussão da Vite 5](https://github.com/vitejs/vite/discussions/12466) por mais informações.
-:::
-
 ## Ciclo de Lançamento {#release-cycle}
 
 A Vite não tem um ciclo de lançamento fixo.
