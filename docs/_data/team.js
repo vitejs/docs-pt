@@ -87,10 +87,11 @@ export const core = [
     avatar: 'https://github.com/sapphi-red.png',
     name: 'green',
     title: 'Programador',
-    desc: 'Um especialista na Web, membro da equipa da Vite. Chama-me sapphi ou green ou midori 😉',
+    desc: 'Um especialista na Web, membro da equipa da principal da Vite. Chama-me sapphi ou green ou midori 😉',
     links: [
       { icon: 'github', link: 'https://github.com/sapphi-red' },
-      { icon: 'twitter', link: 'https://twitter.com/sapphi_red' }
+      { icon: 'twitter', link: 'https://twitter.com/sapphi_red' },
+      { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@sapphi_red' },
     ],
     sponsor: 'https://github.com/sponsors/sapphi-red'
   },
