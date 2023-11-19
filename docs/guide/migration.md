@@ -15,6 +15,8 @@ A Vite agora usa Rollup 4 que também vem com suas mudanças de rutura, em parti
 
 Leia as mudanças de rutura completa nas [notas de lançamento do Rollup](https://github.com/rollup/rollup/releases/tag/v4.0.0) por mudanças relacionadas à construção no [`build.rollupOptions`](/config/build-options#build-rollupoptions).
 
+Se estivermos usando a TypeScript, devemos certificar-nos de definir `moduleResolution: 'bundler'` (ou `node16`/`nodenext`) conforme a Rollup 4 o exige. Ou podemos definir `skipLibCheck: true`.
+
 ## Depreciação da API da Node de CJS {#deprecate-cjs-node-api}
 
 A API da Node de CJS da Vite está depreciada. Quando chamamos `require('vite')`, um aviso de depreciação agora é registado. Nós devemos atualizar os nossos ficheiros ou abstrações para importar a construção de módulo de ECMAScript da Vite.
