@@ -49,7 +49,7 @@
   },
   "homepage": "https://github.com/vitejs/docs-pt#readme",
   "dependencies": {
-    "vitepress": "1.0.0-rc.25"
+    "vitepress": "1.0.0-rc.29"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
