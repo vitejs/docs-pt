@@ -64,6 +64,8 @@ Um caso de uso normal para `optimizeDeps.include` ou `optimizeDeps.exclude` é q
 
 Ambas `include` e `exclude` podem ser usadas para lidar com isto. Se a dependência for grande (com muitos módulos internos) ou for CommonJS, então devemos incluí-la; Se a dependência for pequena e já for Módulo de ECMAScript válido, podemos excluí-la e deixar o navegador carregá-la diretamente.
 
+Nós também podemos personalizar a `esbuild` com a [opção `optimizeDeps.esbuildOptions`](/config/dep-optimization-options#optimizedeps-esbuildoptions). Por exemplo, adicionando uma extensão de `esbuild` para manipular ficheiros especiais nas dependências ou mudando o [`target` da construção](https://esbuild.github.io/api/#target).
+
 ## Armazenamento de Consulta Imediata {#caching}
 
 ### Armazenamento de Consulta Imediata do Sistema de Ficheiro {#file-system-cache}
