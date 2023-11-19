@@ -139,13 +139,12 @@ export default defineConfig({
       {
         text: 'Recursos',
         items: [
-          { text: 'Blogue', link: '/blog/'},
           { text: 'Equipa', link: '/team' },
           { text: 'Lançamentos', link: '/releases' },
           {
             items: [
               {
-                text: 'X',
+                text: 'X (Twitter)',
                 link: 'https://x.com/vite_js'
               },
               {
