@@ -1,7 +1,7 @@
 import { defineConfig, DefaultTheme } from 'vitepress'
 
 const ogDescription = 'Ferramental de Frontend de Nova Geração'
-const ogImage = 'https://vitejs.dev/og-image.png'
+const ogImage = 'https://pt.vitejs.dev/og-image.png'
 const ogTitle = 'Vite'
 const ogUrl = 'https://pt.vitejs.dev'
 
