@@ -1,7 +1,7 @@
 {
   "name": "vite-docs-pt",
   "version": "1.0.0",
-  "description": "Documentação da Vite em Português",
+  "description": "Documentação Oficial da Vite em Português",
   "type": "module",
   "main": "docs/index.md",
   "directories": {
@@ -29,20 +29,16 @@
     "url": "git+https://github.com/vitejs/docs-pt.git"
   },
   "keywords": [
-    "pt",
-    "pt-pt",
-    "pt-br",
-    "vite-pt",
-    "vite-pt-br",
-    "vite-pt-br",
-    "vite-pt-pt",
-    "vite-docs-pt",
+    "vite",
+    "docs",
+    "portuguese",
+    "translation",
     "pt.vitejs.dev",
     "br.vitejs.dev",
-    "vite-portuguese-translation",
-    "vite-portuguese-documentation"
+    "vitejs-docs-pt-br",
+    "vitejs-docs-pt-pt"
   ],
-  "author": "",
+  "author": "Nazaré da Piedade",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vitejs/docs-pt/issues"
@@ -55,6 +51,7 @@
     "@types/react": "^18.0.15",
     "@types/node": "^20.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "feed": "^4.2.2"
   }
 }
