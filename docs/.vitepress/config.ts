@@ -128,7 +128,7 @@ export default defineConfig({
 
     footer: {
       message: `Lançada sob a Licença MIT. (${commitRef})`,
-      copyright: 'Copyright © 2019-present Evan You & Colaboradores da Vite',
+      copyright: 'Direitos de Autor © 2019-present Evan You & Colaboradores da Vite',
     },
 
     nav: [
