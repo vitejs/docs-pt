@@ -96,6 +96,9 @@ const viteSponsorNames = new Set(
   ),
 )
 
+/**
+ * Map Vue/Vite sponsors data to objects and filter out Vite-specific sponsors
+ */
 function mapImgPath(sponsors: Sponsor[]) {
   return sponsors
     .filter((sponsor) => !viteSponsorNames.has(sponsor.name))
