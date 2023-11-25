@@ -1,10 +1,10 @@
 import { createContentLoader } from 'vitepress'
 
 interface Post {
-  title: string,
-  url: string,
+  title: string
+  url: string
   date: {
-    time: number,
+    time: number
     string: string
   }
 }
