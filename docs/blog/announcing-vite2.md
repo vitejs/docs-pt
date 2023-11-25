@@ -1,5 +1,22 @@
 ---
+title: Anunciando a Vite 2.0
+author:
+  - name: A Equipa da Vite
 sidebar: false
+date: 2021-02-16
+head:
+  - - meta
+    - property: og:type
+      content: website
+  - - meta
+    - property: og:title
+      content: Anunciando a Vite 2.0
+  - - meta
+    - property: og:url
+      content: https://pt.vitejs.dev/blog/announcing-vite2
+  - - meta
+    - property: og:description
+      content: Anúncio do Lançamento da Vite 2
 ---
 
 # Anunciando a Vite 2.0 {#announcing-vite-2}
