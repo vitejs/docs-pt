@@ -34,6 +34,7 @@ export const buildEnd = async (config: SiteConfig) => {
     feed.addItem({
       title: frontmatter.title,
       id: `${SITE_URL}${url}`,
+      link: `${SITE_URL}${url}`,
       description: excerpt,
       content: html,
       author: [
