@@ -1,4 +1,8 @@
 ---
+title: A Vite 4.0 foi Publicada!
+author:
+  name: A Equipa da Vite
+date: 2022-12-09
 sidebar: false
 head:
   - - meta
@@ -9,10 +13,10 @@ head:
       content: Anunciando a Vite 4
   - - meta
     - property: og:image
-      content: https://vitejs.dev/og-image-announcing-vite4.png
+      content: https://pt.vitejs.dev/og-image-announcing-vite4.png
   - - meta
     - property: og:url
-      content: https://vitejs.dev/blog/announcing-vite4
+      content: https://pt.vitejs.dev/blog/announcing-vite4
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 4
@@ -23,7 +27,7 @@ head:
 
 # A Vite 4.0 foi Publicada! {#vite-4-0-is-out}
 
-_9 de Dezembro de 2022_ - Consulte o [anúncio da Vite 5.0](./announcing-vite5.md)
+_9 de Dezembro de 2022_ - Consulte o [Anúncio da Vite 5.0](./announcing-vite5.md)
 
 A Vite 3 [foi lançada](./announcing-vite3.md) a cinco meses atrás. Os descarregamentos do npm por semana foram de 1 milhão para 2.5 milhões desde então. O ecossistema também amadureceu, e contínua a crescer. No [levantamento da Jamstack Conf](https://twitter.com/vite_js/status/1589665610119585793) deste ano, o uso entre a comunidade saltou de 14% para 32% enquanto mantêm uma alta pontuação de satisfação de 9.7. Nós vimos os lançamentos estáveis da [Astro 1.0](https://astro.build/), [Nuxt 3](https://v3.nuxtjs.org/), e outras abstrações alimentadas pela Vite que estão a inovar e colaborar: [SvelteKit](https://kit.svelte.dev/), [Solid Start](https://www.solidjs.com/blog/introducing-solidstart), [Qwik City](https://qwik.builder.io/qwikcity/overview/). A Storybook anunciou o suporte de primeira classe para Vite como uma de suas principais funcionalidades para a [Storybook 7.0](https://storybook.js.org/blog/first-class-vite-support-in-storybook/). A Deno agora [suporta a Vite](https://www.youtube.com/watch?v=Zjojo9wdvmY). A adoção da [Vitest](https://vitest.dev) está explodindo, que representará em breve metade dos descarregamentos de npm da Vite. A Nx também está investindo no ecossistema, e [suporta oficialmente a Vite](https://nx.dev/packages/vite).
 
