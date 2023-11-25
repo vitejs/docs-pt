@@ -1,4 +1,8 @@
 ---
+title: Vite 5.0 is out!
+author:
+  name: A Equipa da Vite
+date: 2023-11-16
 sidebar: false
 head:
   - - meta
@@ -9,10 +13,10 @@ head:
       content: Announcing Vite 5
   - - meta
     - property: og:image
-      content: https://vitejs.dev/og-image-announcing-vite5.png
+      content: https://pt.vitejs.dev/og-image-announcing-vite5.png
   - - meta
     - property: og:url
-      content: https://vitejs.dev/blog/announcing-vite5
+      content: https://pt.vitejs.dev/blog/announcing-vite5
   - - meta
     - property: og:description
       content: Vite 5 Release Announcement
