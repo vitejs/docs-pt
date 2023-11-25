@@ -1,4 +1,8 @@
 ---
+title: A Vite 4.3 foi Lançada!
+author:
+  name: A Equipa da Vite
+date: 2023-04-20
 sidebar: false
 head:
   - - meta
@@ -9,10 +13,10 @@ head:
       content: Anunciando a Vite 4.3
   - - meta
     - property: og:image
-      content: https://vitejs.dev/og-image-announcing-vite4-3.png
+      content: https://pt.vitejs.dev/og-image-announcing-vite4-3.png
   - - meta
     - property: og:url
-      content: https://vitejs.dev/blog/announcing-vite4-3
+      content: https://pt.vitejs.dev/blog/announcing-vite4-3
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 4.3
@@ -21,7 +25,7 @@ head:
       content: summary_large_image
 ---
 
-# Vite 4.3 foi Lançada! {#vite-4-3-is-out}
+# A Vite 4.3 foi Lançada! {#vite-4-3-is-out}
 
 _20 de Abril de 2023_
 
