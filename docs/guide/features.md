@@ -217,7 +217,7 @@ Os pseudónimos `@import` e o rebaseamento de URL também são suportados para o
 
 ### PostCSS {#postcss}
 
-Se o projeto contiver configuração de PostCSS válida (qualquer formato suportado pela [postcss-load-config](https://github.com/postcss/postcss-load-config), por exemplo, `postcss.config.js`), ele será automaticamente aplicado a todas CSS importadas.
+Se o projeto contiver configuração de PostCSS válida (qualquer formato suportado por [`postcss-load-config`](https://github.com/postcss/postcss-load-config), por exemplo, `postcss.config.js`), será automaticamente aplicado a todas as CSS importadas.
 
 ### Módulos de CSS {#css-modules}
 
