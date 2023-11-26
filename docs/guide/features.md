@@ -71,17 +71,17 @@ No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs
 
 - [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#useDefineForClassFields)
 
-A partir da Vite 2.5.0, o valor padrão será `true` se o alvo de TypeScript for `ESNext` ou `ES2022` ou mais recente. É consistente com o [comportamento da `tsc` 4.3.2 e adiante](https://github.com/microsoft/TypeScript/pull/42663). É também o comportamento de tempo de execução da ECMASCript padrão.
+Desde a Vite 2.5.0, o valor padrão será `true` se o alvo da TypeScript for a `ESNext` ou `ES2022` ou mais recente. Isto é consiste com o [comportamento da `tsc` 4.3.2 e adiante](https://github.com/microsoft/TypeScript/pull/42663). É também o comportamento de execução da ECMAScript padrão.
 
-Outros alvos de TypeScript predefinirão para `false`.
+Os outros alvos da TypeScript predefinirão para `false`.
 
-Mas pode ser contra-intuitivo para aqueles chegando de outras linguagens de programação ou versões antigas da TypeScript. Nós podemos ler mais a respeito da transição nas [notas de lançamento da TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#the-usedefineforclassfields-flag-and-the-declare-property-modifier).
+Mas pode ser contra-intuitivo para aqueles que vêm de outras linguagens de programação ou de versões mais antigas da TypeScript. Nós podemos ler mais sobre a transição nas [notas de lançamento da TypeScript 3.7](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#the-usedefineforclassfields-flag-and-the-declare-property-modifier).
 
-Se estiveres a utilizar uma biblioteca que depende fortemente de campos de classe, por favor seja cuidadoso a respeito da utilização tencionada da biblioteca dela.
+Se estivermos usando uma biblioteca que depende fortemente de campos da classe, temos que ter cuidado com o uso que a biblioteca tenciona dar-lhes.
 
-Muitas bibliotecas esperam `"useDefineForClassFields": true`, tais como [MobX](https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties).
+Muitas bibliotecas esperam `"useDefineForClassFields": true`, tais como a [MobX](https://mobx.js.org/installation.html#use-spec-compliant-transpilation-for-class-properties).
 
-Mas algumas bibliotecas não transitaram para este novo padrão ainda, incluindo [`lit-element`](https://github.com/lit/lit-element/issues/1030). Por favor defina explicitamente `useDefineForClassFields` para `false` nestes casos.
+Mas algumas bibliotecas ainda não fizeram a transição para este novo padrão, incluindo a [`lit-element`](https://github.com/lit/lit-element/issues/1030). Temos que definir explicitamente `useDefineForClassFields` para `false` nestes casos.
 
 #### `target` {#target}
 
