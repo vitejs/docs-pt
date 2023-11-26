@@ -4,47 +4,47 @@ No nível mais básico, desenvolver usando a Vite não é muito diferente de usa
 
 ## Resolução de Dependência de NPM e Pré-Empacotamento {#npm-dependency-resolving-and-pre-bundling}
 
-As importações de ECMAScript nativas não suportam importações simples de módulo com a seguinte:
+s importações nativas da ECMAScript não suportam importações simples de módulo como o seguinte:
 
 ```js
 import { someMethod } from 'my-dep'
 ```
 
-O exemplo acima lançará um erro no navegador. A Vite detetará tais importações simples de módulo em todos os ficheiros de fonte servidos e realizará o seguinte:
+O exemplo acima acionará um erro no navegador. A Vite detetará tais importações simples de módulo em todos os ficheiros do código-fonte servido e realizará o seguinte:
 
-1. [Pré-empacota](./dep-pre-bundling)-os para melhorar a velocidade de carregamento da página e converte módulos CommonJS / UMD para ESM. A etapa de pré-empacotamento é realizada com [esbuild](http://esbuild.github.io/) e torna o tempo de início frio da Vite significativamente mais rápido do que qualquer empacotador baseado em JavaScript.
+1. [Pré-empacotará](./dep-pre-bundling) os módulos para melhorar a velocidade do carregamento da página e converterá os módulos de CommonJS ou UMD em Módulo de ECMAScript. A etapa de pré-empacotamento é realizada com a [`esbuild`](http://esbuild.github.io/) e torna a inicialização fria da Vite significativamente mais rápida do que qualquer empacotador baseado na JavaScript.
 
-2. Reescreve as importações para URLs válidas como `/node_modules/.vite/deps/my-dep.js?v=f3sf2ebd` para que o navegador possa importá-los apropriadamente.
+2. Reescreverá as importações para URLs válidas como `/node_modules/.vite/deps/my-dep.js?v=f3sf2ebd` para que o navegador possa importá-los corretamente.
 
-**As Dependências são Fortemente Cacheadas**
+**As Dependências são Fortemente Armazenadas para Consulta Imediata**
 
-A Vite cacheia as requisições de dependências através de cabeçalhos de HTTP, então se desejares editar ou depurar localmente uma dependência, siga as etapas [aqui](./dep-pre-bundling#browser-cache).
+A Vite armazena para consulta imediata as requisições de dependência através dos cabeçalhos de HTTP, assim se desejarmos editar ou depurar uma dependência localmente, devemos seguir os passos que estão [nesta ligação](./dep-pre-bundling#browser-cache).
 
 ## Substituição de Módulo Instantânea {#hot-module-replacement}
 
-A Vite fornece uma [API de HMR](./api-hmr) sobre o ESM nativo. As abstrações com compatibilidades de HMR podem influenciar a API para fornecer atualizações precisas e instantâneas sem o recarregamento da página ou sem matar o estado da aplicação. A Vite oferece integrações de HMR de primeira classe para [Componentes de Ficheiro Único de Vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue) e [Atualização Rápida de React](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react). Existem também integrações oficiais para Preact através do [@prefresh/vite](https://github.com/JoviDeCroock/prefresh/tree/main/packages/vite).
+A Vite fornece uma [API de Substituição de Módulo Instantânea](./api-hmr) sobre o Módulo de ECMAScript nativo. As abstrações com as capacidades de substituição de módulo instantânea podem influenciar a API para fornecer atualizações precisas e instantâneas sem recarregar a página ou desperdiçar o estado da aplicação. A Vite fornece integrações de substituição de módulo instantânea de primeiro partido para os [Componentes de Ficheiro Único da Vue](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue) e as [Atualizações Rápidas da React](https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react). Também existem integrações oficiais para a Preact através da [`@prefresh/vite`](https://github.com/JoviDeCroock/prefresh/tree/main/packages/vite).
 
-Nota que não precisas de manualmente definir estes - quando [criares uma aplicação através de `create-vite`](./), os modelos selecionados já teriam estes pré-configurados para ti.
+Nota que não precisamos de as definir manualmente - quando [críamos uma aplicação através da `create-vite`](./), os modelos de projetos selecionados já teriam estes pré-configurados para nós.
 
 ## TypeScript {#typescript}
 
 A Vite suporta a importação de ficheiros `.ts` fora da caixa.
 
-### Tradução de Código Apenas {#transpile-only}
+### Apenas Tradução de Código {#transpile-only}
 
-Nota que a Vite apenas realiza a tradução de código sobre os ficheiros `.ts` e **NÃO** realiza a verificação de tipo. Ela presume que a verificação de tipo está sendo cuidada pela tua IDE e processo de construção.
+Nota que a Vite apenas realiza a tradução do código sobre os ficheiros `.ts` e **NÃO** realiza a verificação de tipo. Esta supõe que a verificação de tipo está sendo realizada pelo nosso ambiente de desenvolvimento integrado e processo de construção.
 
-A razão da Vite não realizar a verificação de tipo como parte do processo de transformação é porque estes dois trabalhos funcionam fundamentalmente de maneiras diferentes. A tradução de código pode funcionar sobre uma base por ficheiro e alinha perfeitamente com modelo de compilação sobre demanda da Vite. Em comparação, a verificação de tipo requer conhecimento do grafo do módulo inteiro. Calçar a verificação de tipo em uma conduta de transformação da Vite inevitavelmente comprometerá os benefícios de velocidade da Vite.
+A motivo pela qual a Vite não realiza verificação de tipo como parte do processo de transformação é porque as duas tarefas funcionam fundamentalmente de maneiras diferentes. A tradução de código pode aperfeiçoar uma base por ficheiro e alinhar-se perfeitamente com modelo de compilação sob demanda da Vite. Comparativamente, a verificação de tipo exige conhecimento do gráfico de módulo inteiro. A introdução da verificação de tipo na conduta de transformação da Vite comprometerá inevitavelmente as vantagens de velocidade da Vite.
 
-O trabalho da Vite é receber os módulos do teu código-fonte em uma forma que possa executar no navegador o mais rápido possível. Para este fim, recomendamos separar as verificações de analises estáticas da conduta de transformação da Vite. Este princípio aplica-se aos outros verificadores de analises estáticas tais como ESLint.
+O trabalho da Vite é receber os módulos do nosso código-fonte duma maneira que possa executar no navegador o mais rápido possível. Para este fim, recomendamos separar as verificações da analise estática da conduta de transformação da Vite. Este princípio aplica-se às outras verificações da analise estática, como a ESLint.
 
-- Para as construções de produção, podes executar `tsc --noEmit` em adição ao comando de construção `build` da Vite.
+- Para as construções de produção, podemos executar a `tsc --noEmit` em adição ao comando de construção da Vite.
 
-- Durante o desenvolvimento, se precisares de mais do que as sugestões da IDE, recomendamos executar `tsc --noEmit --watch` em um processo separado, ou usar [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker) se preferires ter erros de tipo diretamente reportados no navegador.
+- Durante o desenvolvimento, se precisarmos de mais do que as sugestões do ambiente de desenvolvimento integrado, recomendamos executar `tsc --noEmit --watch` num processo separado, ou usar [`vite-plugin-checker`](https://github.com/fi3ework/vite-plugin-checker) se preferirmos ter erros de tipo diretamente reportados no navegador.
 
-A Vite usa a [esbuild](https://github.com/evanw/esbuild) para traduzir o código de TypeScript para JavaScript o qual é 20~30x mais rápido do que o `tsc` puro, as atualizações de HMR podem refletir no navegador em menos de 50ms.
+A Vite usa a [`esbuild`](https://github.com/evanw/esbuild) para traduzir o código de TypeScript em JavaScript que é 20~30 vezes mais rápida do que a simples `tsc`, as atualizações da substituição de módulo instantânea podem refletir-se no navegador em menos de 50ms.
 
-Use a sintaxe de [Importações e Exportações de Tipo Apenas](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export) para evitar potenciais problemas tal como importações de tipo apenas sendo incorretamente empacotada, por exemplo:
+Usamos a sintaxe de [importações e exportações exclusivamente por tipo](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-8.html#type-only-imports-and-export) para evitar potenciais problemas como importações exclusivamente por tipo sendo incorretamente empacotadas, por exemplo:
 
 ```ts
 import type { T } from 'only/types'
@@ -53,19 +53,19 @@ export type { T }
 
 ### Opções do Compilador da TypeScript {#typescript-compiler-options}
 
-Alguns campos de configuração sob `compilerOptions` no `tsconfig.json` exige especial atenção.
+Alguns campos de configuração sob `compilerOptions` no `tsconfig.json` exigem atenção especial.
 
 #### `isolatedModules` {#isolatedmodules}
 
 - [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#isolatedModules)
 
-Deve ser definido para `true`.
+Deve ser definida para `true`.
 
-É porque `esbuild` só realiza tradução de código sem informação de tipo, ela não suporta certas funcionalidades tais como importações implícitas de apenas tipo, constantes e enumerações.
+Isto porque a `esbuild` apenas realiza a tradução de código sem a informação do tipo, esta não suporta certas funcionalidades como enumerações constantes e importações exclusivamente por tipo implícitas.
 
-Tu deves definir `"isolatedModules": true` no teu `tsconfig.json` sob `compilerOptions`, assim a TypeScript alertar-te-á contra as funcionalidades que não funcionam com a tradução de código isolada.
+Nós devemos definir `"isolatedModules": true` no nosso `tsconfig.json` sob a `compilerOptions`, para que a TypeScript avise-nos sobre as funcionalidade que não funcionam com a tradução de código isolada.
 
-No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs/core/issues/1228)) não funciona bem com `"isolatedModules": true`. Tu podes utilizar `"skipLibCheck": true` para suprimir temporariamente os erros até ser corrigido corrente acima.
+No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs/core/issues/1228)) não funcionam bem com `"isolatedModules": true`. Nós podemos usar `"skipLibCheck": true` para suprimir temporariamente os erros até serem corrigidos corrente acima.
 
 #### `useDefineForClassFields` {#usedefineforclassfields}
 
