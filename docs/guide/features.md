@@ -172,11 +172,11 @@ A Vite fornece suporte de Vue de primeira classe:
 
 ## JSX {#jsx}
 
-O ficheiros `.jsx` e `.tsx` são também suportados fora da caixa. A tradução de código JSX é também manipulada através da [esbuild](https://esbuild.github.io).
+O ficheiros `.jsx` e `.tsx` também são suportados fora da caixa. A tradução de código de JSX também é manipulada através da [`esbuild`](https://esbuild.github.io).
 
-Os utilizadores de Vue devem utilizar a extensão [@vitejs/plugin-vue-jsx](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) oficial, a qual fornece funcionalidades especificas incluindo a HMR, resolução de componente global, diretivas e ranhuras.
+Os utilizadores da Vue devem usar a extensão [`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) oficial, a qual fornece funcionalidades especificas incluindo a substituição de módulo instantânea, resolução de componente global, diretivas e ranhuras.
 
-Se não estiveres a utilizar a JSX com a React ou Vue, Os `jsxFactory` e `jsxFragment` personalizados podem ser configurados utilizando a [opção `esbuild`](/config/shared-options#esbuild). Por exemplo para a Preact:
+Se não estivermos usando a JSX com a React ou Vue, `jsxFactory` e `jsxFragment` personalizados podem ser configurados usando a [opção `esbuild`](/config/shared-options#esbuild). Por exemplo, para a Preact:
 
 ```js
 // vite.config.js
@@ -185,14 +185,14 @@ import { defineConfig } from 'vite'
 export default defineConfig({
   esbuild: {
     jsxFactory: 'h',
-    jsxFragment: 'Fragment'
-  }
+    jsxFragment: 'Fragment',
+  },
 })
 ```
 
 Mais detalhes na [documentação da esbuild](https://esbuild.github.io/content-types/#jsx).
 
-Tu podes injetar os auxiliares de JSX utilizando `jsxInject` (que é uma opção apenas de Vite) para evitar importações manuais:
+Nós podemos injetar os auxiliares de JSX usando `jsxInject` (que é uma opção apenas de Vite) para evitar as importações manuais:
 
 ```js
 // vite.config.js
@@ -200,8 +200,8 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
   esbuild: {
-    jsxInject: `import React from 'react'`
-  }
+    jsxInject: `import React from 'react'`,
+  },
 })
 ```
 
