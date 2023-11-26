@@ -87,35 +87,42 @@ Mas algumas bibliotecas ainda não fizeram a transição para este novo padrão,
 
 - [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#target)
 
-A Vite não traduz o código da TypeScript com o valor de `target` configurado por padrão, seguindo o mesmo que a `esbuild`.
+A Vite não traduz o código da TypeScript com o valor de `target` configurado por padrão, seguindo o mesmo comportamento que a `esbuild`.
 
-A opção [`esbuild.target`](/config/shared-options#esbuild) pode ser usada, o qual predefine para `esnext` para tradução de código minimalista. Nas construções, a opção [`build.target`](/config/build-options#build-target) tem maior prioridade e também pode ser definida se necessário.
+A opção [`esbuild.target`](/config/shared-options#esbuild) pode ser usada, a qual predefine para `esnext` para tradução de código minimalista. Nas construções, a opção [`build.target`](/config/build-options#build-target) tem maior prioridade e também pode ser definida se necessário.
 
 :::warning `useDefineForClassFields`
-Se `target` não for `ESNext` ou `ES2022` ou mais recente, ou se não existir nenhum ficheiro `tsconfig.json`, `useDefineForClassFields` predefinirá para `false` o que pode ser problemático com o valor de `esbuild.target` padrão de `esnext`. Esta pode traduzir o código para [blocos de inicialização estática](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility) que pode não ser suportado no nosso navegador.
+Se `target` não for `ESNext` ou `ES2022` ou mais recente, ou se não existir nenhum ficheiro `tsconfig.json`, `useDefineForClassFields` predefinirá para `false` o que pode ser problemático com o valor padrão de `esbuild.target` de `esnext`. Esta pode traduzir o código para [blocos de inicialização estática](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility) que pode não ser suportado no nosso navegador.
 
 Como tal, é recomendado definir `target` para `ESNext` ou `ES2022` ou mais recente, ou definir `useDefineForClassFields` para `true` explicitamente quando configuramos o `tsconfig.json`.
 :::
 
-#### Outras Opções do Compilador Afetando o Resultado da Construção {#other-compiler-options-affecting-the-build-result}
+#### Outras Opções do Compilador que Afetam o Resultado da Construção {#other-compiler-options-affecting-the-build-result}
 
 - [`extends`](https://www.typescriptlang.org/tsconfig#extends)
 - [`importsNotUsedAsValues`](https://www.typescriptlang.org/tsconfig#importsNotUsedAsValues)
 - [`preserveValueImports`](https://www.typescriptlang.org/tsconfig#preserveValueImports)
+- [`verbatimModuleSyntax`](https://www.typescriptlang.org/tsconfig#verbatimModuleSyntax)
+- [`jsx`](https://www.typescriptlang.org/tsconfig#jsx)
 - [`jsxFactory`](https://www.typescriptlang.org/tsconfig#jsxFactory)
 - [`jsxFragmentFactory`](https://www.typescriptlang.org/tsconfig#jsxFragmentFactory)
+- [`jsxImportSource`](https://www.typescriptlang.org/tsconfig#jsxImportSource)
+- [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators)
+- [`alwaysStrict`](https://www.typescriptlang.org/tsconfig#alwaysStrict)
 
-Se a migração da tua base de código para `"isolatedModules": true` for um esforço insuperável, talvez sejas capaz de dar a volta a isto com uma extensão de terceiro tal como [rollup-plugin-friendly-type-imports](https://www.npmjs.com/package/rollup-plugin-friendly-type-imports). No entanto, esta abordagem não é oficialmente suportada pela Vite.
+:::tip `skipLibCheck`
+Os modelos de projeto iniciais da Vite têm `"skipLibCheck": "true"` por padrão para evitar dependências de verificação de tipo, uma vez que podem escolher apenas suportar versões e configurações específicas de TypeScript. Nós podemos aprender mais em [`vuejs/vue-cli#5688`](https://github.com/vuejs/vue-cli/pull/5688).
+:::
 
 ### Tipos de Clientes {#client-types}
 
-Os tipos padrão da Vite são para a sua API de Node.js. Para calçar o ambiente de código do lado do cliente em uma aplicação de Vite, adicione um ficheiro de declaração `d.ts`:
+Os tipos padrão da Vite são para a sua API de Node.js. Para ajustar o ambiente de código do lado do cliente numa aplicação de Vite, adicionamos um ficheiro de declaração `d.ts`:
 
 ```typescript
 /// <reference types="vite/client" />
 ```
 
-Alternativamente, podes adicionar `vite/client` ao `compilerOptions.types` dentro do teu `tsconfig.json`:
+Alternativamente, podemos adicionar `vite/client` à `compilerOptions.types` dentro do nosso `tsconfig.json`:
 
 ```json
 {
@@ -125,19 +132,18 @@ Alternativamente, podes adicionar `vite/client` ao `compilerOptions.types` dentr
 }
 ```
 
-Isto fornecerá os seguintes calçados de tipo:
+Isto fornecerá os seguintes ajustes de tipo:
 
+- Importações de recurso (por exemplo, importação dum ficheiro `.svg`)
+- Tipos para as [variáveis de ambiente](./env-and-mode#env-variables) injetadas pela Vite sobre a `import.meta.env`
+- Tipos para a [API de Substituição de Módulo Instantânea](./api-hmr) sobre a `import.meta.hot`
 
-- Importações de recurso (por exemplo, importação de um ficheiro `.svg`)
-- Tipos para [variáveis de ambiente](./env-and-mode#env-variables) injetadas para Vite sobre a `import.meta.env`
-- Tipos para a [API de HMR](./api-hmr) sobre a `import.meta.hot`
+:::tip DICA
+Para sobrepor a tipificação padrão, adicionamos um ficheiro de declaração de tipo que contém as nossas tipificações. Então, adicionamos a referência de tipo antes de `vite/client`.
 
-:::tip Dica
-Para sobrepor a tipagem padrão, adicione um ficheiro de declaração de tipo que contém os teus tipos. Então adicione a referência do tipo antes de `vite/client`.
+Por exemplo, para fazer a importação padrão dum componente `*.svg` de React:
 
-Por exemplo, para fazer a importação padrão de um componente `*.svg` de React:
-
-- `vite-env-override.d.ts` (o ficheiro que contém as tuas tipos):
+- `vite-env-override.d.ts` (o ficheiro que contém as nossas tipificações):
 
  ```ts
   declare module '*.svg' {
