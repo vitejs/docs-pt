@@ -219,6 +219,8 @@ Os pseudónimos `@import` e o rebaseamento de URL também são suportados para o
 
 Se o projeto contiver configuração de PostCSS válida (qualquer formato suportado por [`postcss-load-config`](https://github.com/postcss/postcss-load-config), por exemplo, `postcss.config.js`), será automaticamente aplicado a todas as CSS importadas.
 
+Nota que a minimização de CSS será executada depois da PostCSS e usará a opção [`build.cssTarget`](/config/build-options#build-csstarget).
+
 ### Módulos de CSS {#css-modules}
 
 Qualquer ficheiro de CSS terminando com `.module.css` é considerado um [ficheiro de módulos de CSS](https://github.com/css-modules/css-modules). A importação de tal ficheiro retornará objeto de módulo correspondente:
