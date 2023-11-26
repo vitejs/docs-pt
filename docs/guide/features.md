@@ -211,9 +211,9 @@ A importação de ficheiros `.css` injetará o seu conteúdo para a página atra
 
 ### Incorporação e Rebaseamento de `@import` {at-import-inlining-and-rebasing}
 
-A Vite está pré-configurada para suportar a incorporação de `@import` de CSS através de `postcss-import`. Os pseudónimos de Vite são também respeitados pela `@import` de CSS. Além disto, todas referências de `url()` de CSS, mesmo se os ficheiros importados estiverem em diretórios diferentes, são sempre automaticamente rebaseados para garantir a correção.
+A Vite está pré-configurada para suportar a incorporação de `@import` de CSS através de `postcss-import`. Os pseudónimos de Vite também são respeitados para `@import` de CSS. Além disto, todas referências de `url()` de CSS, mesmo se os ficheiros importados estiverem em diretórios diferentes, são sempre automaticamente rebaseados para garantir a correção.
 
-Os pseudónimos `@import` e o rebaseamento de URL são também suportados para os ficheiros de Sass e Less (consulte [Pré-processadores de CSS](#css-pre-processors)).
+Os pseudónimos `@import` e o rebaseamento de URL também são suportados para os ficheiros de Sass e Less (consulte [Pré-processadores de CSS](#css-pre-processors)).
 
 ### PostCSS {#postcss}
 
