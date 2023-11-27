@@ -223,7 +223,7 @@ Nota que a minimização de CSS será executada depois da PostCSS e usará a op�
 
 ### Módulos de CSS {#css-modules}
 
-Qualquer ficheiro de CSS terminando com `.module.css` é considerado um [ficheiro de módulos de CSS](https://github.com/css-modules/css-modules). A importação de tal ficheiro retornará objeto de módulo correspondente:
+Qualquer ficheiro de CSS terminando com `.module.css` é considerado um [ficheiro dos módulos de CSS](https://github.com/css-modules/css-modules). A importação de tal ficheiro retornará o objeto do módulo correspondente:
 
 ```css
 /* example.module.css */
@@ -237,9 +237,9 @@ import classes from './example.module.css'
 document.getElementById('foo').className = classes.red
 ```
 
-O comportamento de módulos de CSS pode ser configurado através da [opção `css.modules`](/config/shared-options#css-modules).
+O comportamento dos módulos de CSS pode ser configurado através da [opção `css.modules`](/config/shared-options#css-modules).
 
-Se `css.modules.localsConvention` for definido para ativar locais em "camelCase" (por exemplo, `localsConvention: 'camelCaseOnly'`), podes também usar as importações nomeadas:
+Se `css.modules.localsConvention` for definido para ativar locais de `camelCase` (por exemplo, `localsConvention: 'camelCaseOnly'`), também podemos usar as importações nomeadas:
 
 ```js
 // .apply-color -> applyColor
