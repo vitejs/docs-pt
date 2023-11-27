@@ -64,6 +64,7 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
 })()
 
 export default defineConfig({
+  lang: 'pt-PT',
   title: `Vite${additionalTitle}`,
   description: 'Ferramental de Frontend de Nova Geração',
 
