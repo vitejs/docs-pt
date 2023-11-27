@@ -249,28 +249,28 @@ document.getElementById('foo').className = applyColor
 
 ### Pré-processadores de CSS {#css-pre-processors}
 
-Uma vez que a Vite mira os navegadores modernos apenas, é recomendado utilizar variáveis de CSS nativa com as extensões de PostCSS que implementam os rascunhos de CSSWG (por exemplo, [postcss-nesting](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting)) e escrever CSS simples em conformidade com os padrões do futuro.
+Uma vez que a Vite dirige-se apenas aos navegadores modernos, é recomendado usar as variáveis de CSS nativa com as extensões de PostCSS que implementam os rascunhos do Grupo de Trabalho da CSS (por exemplo, [`postcss-nesting`](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-nesting)) e escrever CSS simples e em conformidade com os futuros padrões.
 
-Isto dito, a Vite fornece suporte embutido para os ficheiros `.scss`, `.sass`, `.less`, `.styl` e `.stylus`. Não é necessário instalar extensões especificas de Vite para elas, mas o pré-processador correspondente por si só deve ser instalado:
+Com isto dito, a Vite fornece suporte embutido para os ficheiros `.scss`, `.sass`, `.less`, `.styl` e `.stylus`. Não existe necessidade de instalar extensões específicas de Vite para estes, mas o próprio pré-processador correspondente deve estar instalado:
 
 ```bash
-# .scss and .sass
+# .scss e .sass
 npm add -D sass
 
 # .less
 npm add -D less
 
-# .styl and .stylus
+# .styl e .stylus
 npm add -D stylus
 ```
 
-Se estiveres a utilizar componentes de ficheiro único de Vue, este também ativa automaticamente `<style lang="sass">` e outros.
+Se estivermos usando os componentes de ficheiro único da Vue, isto também ativa automaticamente `<style lang="sass">` e outros.
 
-A Vite melhora a resolução de `@import` para a Sass e Less para que os pseudónimos de Vite sejam também respeitados. Além disto, referências de `url()` relativa dentro de ficheiros Sass ou Less importados que estão em diretórios diferentes do ficheiro de raiz são também rebaseados automaticamente para garantir a correção.
+A Vite melhora a resolução de `@import` para Sass e Less para que os pseudónimos da Vite também sejam respeitados. Além disto, as referências da `url()` relativa dentro dos ficheiros de Sass ou Less importados que estão em diretórios diferentes a partir do ficheiro de raiz também são rebaseados automaticamente para garantir a correção.
 
-Os pseudónimo de `@import` e o rebaseamento de `url` não são suportados para Styles por causa das restrições da sua API.
+O pseudónimo de `@import` e o rebaseamento da URL não são suportados para a Stylus por causa das restrições da sua API.
 
-Tu podes também utilizar os módulos de CSS combinados com os pré-processadores ao adicionar `.module` antes da extensão do ficheiro, por exemplo `style.module.scss`.
+Nós também podemos usar os módulos de CSS combinados com os pré-processadores anexando `.module` à extensão do ficheiro, por exemplo, `style.module.scss`.
 
 ### Desativando a injeção de CSS para página {#disabling-css-injection-into-the-page}
 
