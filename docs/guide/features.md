@@ -305,37 +305,37 @@ Os [pré-processadores de CSS](#css-pre-processors) não são suportados quando 
 
 ## Recursos Estáticos {#static-assets}
 
-A importação de um recurso estático retornará URL pública resolvida quando ela for servida:
+A importação dum recurso estático retornará a URL pública resolvida quando esta for servida:
 
 ```js
 import imgUrl from './img.png'
 document.getElementById('hero-img').src = imgUrl
 ```
 
-Consultas especiais podem modificar como os recursos são carregados:
+As consultas especiais podem modificar como os recursos são carregados:
 
 ```js
-// Carrega explicitamente os recursos como URL
+// Carregar explicitamente os recursos como URL
 import assetAsURL from './asset.js?url'
 ```
 
 ```js
-// Carrega os recursos como sequências de caracteres
+// Carregar os recursos como sequências de caracteres
 import assetAsString from './shader.glsl?raw'
 ```
 
 ```js
-// Carrega os Operários de Web
+// Carregar os Operadores da Web
 import Worker from './worker.js?worker'
 ```
 
 ```js
-// Os Operários de Web embutidos como sequências de caracteres
-// de base64 em tempo de execução
+// Operadores da Web embutidos como sequências
+// de caracteres de base64 no momento da construção
 import InlineWorker from './worker.js?worker&inline'
 ```
 
-Mais detalhes em [Manipulação de Recurso Estático](/guide/assets).
+Mais detalhes na [Manipulação de Recurso Estático](/guide/assets).
 
 ## JSON {#json}
 
