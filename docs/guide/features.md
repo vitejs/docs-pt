@@ -287,20 +287,20 @@ As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import st
 
 ## CSS Relâmpago {#lightning-css}
 
-Desde a versão 4.4 da Vite, existe suporte experimental para [CSS Relâmpago](https://lightningcss.dev/). Tu podes optar por esta opção adicionado [`css.transformer: 'lightningcss'`](/config/shared-options#css-transformer) ao teu ficheiro de configuração e instalar a dependência [`lightningcss`](https://www.npmjs.com/package/lightningcss) opcional:
+Desde a versão 4.4 da Vite, existe suporte experimental para a [CSS Relâmpago](https://lightningcss.dev/). Nós podemos optar por testa opção adicionando [`css.transformer: 'lightningcss'`](../config/shared-options#css-transformer) ao nosso ficheiro de configuração e instalar a dependência opcional [`lightningcss`](https://www.npmjs.com/package/lightningcss):
 
 ```bash
 npm add -D lightningcss
 ```
 
-Caso ativada, os ficheiros de CSS serão processados pela CSS Relâmpago ao invés da PostCSS. Para configurá-la, podes passar as opções da CSS Relâmpago para a opção de configuração [`css.lightingcss`](/config/shared-options#css-lightningcss).
+Se for ativada, os ficheiros de CSS serão processados pela CSS Relâmpago no lugar da PostCSS. Para configurá-la, podemos passar as opções da CSS Relâmpago à opção de configuração [`css.lightingcss`](../config/shared-options#css-lightningcss).
 
-Para configurares os Módulos de CSS, usarás [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules) ao invés de [`css.modules`](/config/shared-options#css-modules) (a qual configura a maneira que a PostCSS lida com os módulos de CSS).
+Para configurar os Módulos de CSS, usaremos a [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) no lugar da [`css.modules`](/config/shared-options#css-modules) (que configura a maneira que a PostCSS manipula os módulos de CSS).
 
-Por padrão, a Vite usa a `esbuild` para minificar a CSS. A CSS Relâmpago também pode ser usada como minificador de CSS com [`build.cssMinify: 'lightningcss'`](/config/build-options#build-cssminify).
+Por padrão, a Vite usa a `esbuild` para minimizar a CSS. A CSS Relâmpago também pode ser usada como minimizadora de CSS com a [`build.cssMinify: 'lightningcss'`](../config/build-options#build-cssminify).
 
 :::tip NOTA
-Os [pré-processadores de CSS](#css-pre-processors) não são suportados quando usas a CSS relâmpago.
+Os [pré-processadores de CSS](#css-pre-processors) não são suportados quando usamos a CSS relâmpago.
 :::
 
 ## Recursos Estáticos {#static-assets}
