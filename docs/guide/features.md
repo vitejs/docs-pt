@@ -272,16 +272,17 @@ O pseudónimo de `@import` e o rebaseamento da URL não são suportados para a S
 
 Nós também podemos usar os módulos de CSS combinados com os pré-processadores anexando `.module` à extensão do ficheiro, por exemplo, `style.module.scss`.
 
-### Desativando a injeção de CSS para página {#disabling-css-injection-into-the-page}
+### Desativando a Injeção de CSS na Página {#disabling-css-injection-into-the-page}
 
-A injeção automática de conteúdos de CSS pode ser desligada através da parâmetro de consulta `?inline`. Neste caso, a sequência de caracteres da CSS processada é retornada como exportação padrão do módulo como de costume, mas os estilos não são injetados para página.
+A injeção automática dos conteúdos da CSS pode ser desligada através do parâmetro de consulta `?inline`. Neste caso, a sequência de caracteres da CSS processada é retornada como exportação padrão do modulo como de costume, mas os estilos não são injetados na página:
 
 ```js
-import otherStyles from './bar.css?inline' // não será injetado na página
+import './foo.css' // será injetado na página
+import otherStyles from './bar.css?inline' // não será injetado
 ```
 
 :::tip NOTA
-As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import style from './foo.css'`) foram removias desde a Vite 5. Use a consulta `?inline`.
+As importações padrão e nomeadas de ficheiros de CSS (por exemplo, `import style from './foo.css'`) foram removidas desde a Vite 5. Use a consulta `?inline`.
 :::
 
 ## CSS Relâmpago {#lightning-css}
