@@ -339,36 +339,35 @@ Mais detalhes na [Manipulação de Recurso Estático](/guide/assets).
 
 ## JSON {#json}
 
-Os ficheiros de JSON podem ser importados diretamente - importações nomeadas são também suportadas:
+Os ficheiros de JSON podem ser importados diretamente - importações nomeadas também são suportadas:
 
 ```js
-// importa o objeto inteiro
+// importar o objeto inteiro
 import json from './example.json'
-
-// importa um campo (field) de raiz como exportação nomeada -
-// ajuda com sacudidura de árvore!
+// importar um campo de raiz como exportação nomeada -
+// ajuda com agitação da árvore!
 import { field } from './example.json'
 ```
 
-## Importação de Glob Como {#glob-import}
+## Importação de Padrão Global {#glob-import}
 
-A Vite suporta a importação de múltiplos módulos do sistema de ficheiro através da função `import.meta.glob` especial:
+A Vite suporta a importação de vários módulos a partir do sistema de ficheiro através da função especial `import.meta.glob`:
 
 ```js
 const modules = import.meta.glob('./dir/*.js')
 ```
 
-O exemplo de cima será transformado no seguinte:
+O código acima será transformado no seguinte:
 
 ```js
 // código produzido pela vite
 const modules = {
   './dir/foo.js': () => import('./dir/foo.js'),
-  './dir/bar.js': () => import('./dir/bar.js')
+  './dir/bar.js': () => import('./dir/bar.js'),
 }
 ```
 
-Tu podes depois iterar sobre as chaves do objeto `modules` para acessar os módulos correspondente:
+Nós podemos então iterar sobre as chaves do objeto `modules` para acessar os módulos correspondentes:
 
 ```js
 for (const path in modules) {
@@ -378,14 +377,13 @@ for (const path in modules) {
 }
 ```
 
-Os ficheiros correspondidos são por padrão preguiçosamente carregados através da importação dinâmica e serão divididos em pedaços separados durante a construção. Se preferires importar todos os módulos diretamente (por exemplo, dependendo dos efeitos colaterais nestes módulos para serem aplicados primeiro), podes passar `{ eager: true }` como segundo argumento:
-
+Os ficheiros correspondidos são por padrão carregados preguiçosamente através da importação dinâmica e serão divididos em pedaços separados durante a construção. Se preferirmos importar todos os módulos diretamente (por exemplo, dependendo dos efeitos colaterais nestes módulos para serem aplicados primeiro), podemos passar `{ eager: true }` como segundo argumento:
 
 ```js
 const modules = import.meta.glob('./dir/*.js', { eager: true })
 ```
 
-O exemplo de cima será transformado no seguinte:
+O código acima será transformado no seguinte:
 
 ```js
 // código produzido pela vite
@@ -393,29 +391,29 @@ import * as __glob__0_0 from './dir/foo.js'
 import * as __glob__0_1 from './dir/bar.js'
 const modules = {
   './dir/foo.js': __glob__0_0,
-  './dir/bar.js': __glob__0_1
+  './dir/bar.js': __glob__0_1,
 }
 ```
 
-### Importação de Glob Como {#glob-import-as}
+### Importar Globalmente Como {#glob-import-as}
 
-`import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](/guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
+A `import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](/guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
 
 ```js
 const modules = import.meta.glob('./dir/*.js', { as: 'raw', eager: true })
 ```
 
-O exemplo de cima será transformado no seguinte:
+O código acima será transformado no seguinte:
 
 ```js
 // código produzido pela vite
 const modules = {
   './dir/foo.js': 'export default "foo"\n',
-  './dir/bar.js': 'export default "bar"\n'
+  './dir/bar.js': 'export default "bar"\n',
 }
 ```
 
-`{ as: 'url' }` é também suportado para de carregamento de recursos como URLs.
+`{ as: 'url' }` também é suportado para carregar os recursos como URLs.
 
 ### Padrões Diversificado {#multiple-patterns}
 
