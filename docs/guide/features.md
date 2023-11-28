@@ -644,9 +644,9 @@ import MyWorker from './worker?worker&url'
 
 Consultar as [Opções do Operário](/config/worker-options) por detalhes sobre a configuração do empacotamento de todos os operários.
 
-## Otimizações de Construção {#build-optimizations}
+## Otimizações da Construção {#build-optimizations}
 
-> As funcionalidades listadas abaixo são automaticamente aplicadas como parte do processo de construção e não precisam de configuração explícita a menos que queiras desativá-las.
+> As funcionalidades listadas abaixo são aplicadas automaticamente como parte do processo de construção e não existe necessidade para configuração explícita a menos que queiramos desativá-las.
 
 ### Separação de Código de CSS {#css-code-splitting}
 
