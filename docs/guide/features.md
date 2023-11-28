@@ -521,13 +521,13 @@ Nota que:
 
 ## Importação Dinâmica {#dynamic-import}
 
-Semelhante a [importação de glob](#glob-import), a Vite também suporta importação dinâmica com as variáveis.
+Semelhante à [importação de globo](#glob-import), a Vite também suporta a importação dinâmica com variáveis:
 
 ```ts
 const module = await import(`./dir/${file}.js`)
 ```
 
-Nota que as variáveis apenas representam os nomes de ficheiro um nível de profundidade. Se `file` for `'foo/bar'`, a importação falharia. Para utilização mais avançada, podes utilizar a funcionalidade de [importação de glob](#glob-import).
+Nota que as variáveis apenas representa nomes de ficheiros a um nível de profundidade. Se `file` for `'foo/bar'`, a importação falharia. Para uso mais avançado, podemos usar a [importação de globo](#glob-import).
 
 ## WebAssembly {#webassembly}
 
