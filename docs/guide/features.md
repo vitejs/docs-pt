@@ -4,7 +4,7 @@ No nível mais básico, desenvolver usando a Vite não é muito diferente de usa
 
 ## Resolução de Dependência de NPM e Pré-Empacotamento {#npm-dependency-resolving-and-pre-bundling}
 
-s importações nativas da ECMAScript não suportam importações simples de módulo como o seguinte:
+As importações nativas da ECMAScript não suportam importações simples de módulo como o seguinte:
 
 ```js
 import { someMethod } from 'my-dep'
@@ -349,7 +349,7 @@ import json from './example.json'
 import { field } from './example.json'
 ```
 
-## Importação de Padrão Global {#glob-import}
+## Importação de Globo {#glob-import}
 
 A Vite suporta a importação de vários módulos a partir do sistema de ficheiro através da função especial `import.meta.glob`:
 
@@ -395,7 +395,7 @@ const modules = {
 }
 ```
 
-### Importar Globalmente Como {#glob-import-as}
+### Importação de Globo Como {#glob-import-as}
 
 A `import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](/guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
 
@@ -516,7 +516,7 @@ Nota que:
 
 - Isto é uma funcionalidade exclusiva da Vite e não é um padrão da Web ou ECMAScript.
 - Os padrões de globos são tratados como especificadores de importação: estes devem ser relativos (começam com `/`) ou absolutos (começam com `/`, resolvidos em relação à raiz do projeto) ou um caminho de pseudónimo (consultar a [opção `resolve.alias`](/config/shared-options#resolve-alias)).
-- A correspondência do globo é feita através da [`fast-glob`](https://github.com/mrmlnc/fast-glob - consultar a documentação por [padrões de globos suportados](https://github.com/mrmlnc/fast-glob#pattern-syntax).
+- A correspondência do globo é feita através da [`fast-glob`](https://github.com/mrmlnc/fast-glob) - consultar a documentação por [padrões de globos suportados](https://github.com/mrmlnc/fast-glob#pattern-syntax).
 - Nós também devemos estar cientes de que todos os argumentos na `import.meta.glob` devem ser **passados como literais**. Nós NÃO podemos usar variáveis ou expressões nelas.
 
 ## Importação Dinâmica {#dynamic-import}
@@ -600,27 +600,27 @@ const main = async () => {
 main()
 ```
 
-## Operários de Web {#web-workers}
+## Operários da Web {#web-workers}
 
-### Importar com Construtores {#import-with-constructors}
+### Importações com Construtores {#import-with-constructors}
 
-Um programa de operário de web pode ser importado utilizando [`new Worker()`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker) e [`new SharedWorker()`](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker/SharedWorker). Comparado aos sufixos de operário, esta sintaxe encontra-se mais próxima dos padrões e é a maneira **recomendado** para criar operários.
+Um programa de operário da Web pode ser importado usando [`new Worker()`](https://developer.mozilla.org/en-US/docs/Web/API/Worker/Worker) e [`new SharedWorker()`](https://developer.mozilla.org/en-US/docs/Web/API/SharedWorker/SharedWorker). Comparado aos sufixos do operário, esta sintaxe aproxima-se mais dos padrões e é a maneira **recomendada** para criar os operários:
 
 ```ts
 const worker = new Worker(new URL('./worker.js', import.meta.url))
 ```
 
-O construtor operário também aceita opções, que podem ser utilizadas para criar operários de "módulo" (module, em Inglês):
+O construtor do operário também aceita opções, que podem ser usadas para criar operários de "módulo":
 
 ```ts
 const worker = new Worker(new URL('./worker.js', import.meta.url), {
-  type: 'module'
+  type: 'module',
 })
 ```
 
-### Importar com Sufixos de Consulta {#import-with-query-suffixes}
+### Importações com Sufixos de Consulta {#import-with-query-suffixes}
 
-Um programa operário de web pode ser diretamente importado adicionando `?worker` ou `?sharedworker` para a requisição de importação. A exportação padrão será um construtor de operário personalizado:
+Um programa de operário da Web pode ser importado diretamente adicionando `?worker` ou `?sharedworker` à requisição da importação. A exportação padrão será um construtor personalizado de operário:
 
 ```js
 import MyWorker from './worker?worker'
@@ -628,21 +628,21 @@ import MyWorker from './worker?worker'
 const worker = new MyWorker()
 ```
 
-O programa operário pode também utilizar declarações de `import` no lugar de `importScripts()`. **Nota**: durante o desenvolvimento isto depende do [suporte nativo do navegador](https://caniuse.com/?search=module%20worker), mas para a construção de produção é compilado fora.
+O programa do operário também pode usar declarações de `import` no lugar da `importScripts()`. **Nota**: durante o desenvolvimento isto depende do [suporte nativo do navegador](https://caniuse.com/?search=module%20worker), mas para a construção de produção é compilado ao longe.
 
-Por padrão, o programa operário será emitido como um pedaço separado na construção de produção. Se desejares embutir o operário como sequências de caracteres de base64, adicione a consulta `inline`:
+Por padrão, o programa do operário será emitido como um pedaço separado na construção de produção. Se desejamos embutir o operário como sequências de caracteres de base64, adicionamos a consulta `inline`:
 
 ```js
 import MyWorker from './worker?worker&inline'
 ```
 
-Se desejares recuperar o operário como uma URL, adicione a consulta `url`:
+Se desejamos recuperar o operário como uma URL, adicionamos a consulta `url`:
 
 ```js
 import MyWorker from './worker?worker&url'
 ```
 
-Consulte as [Opções de Operário](/config/worker-options) por detalhes a respeito da configuração do empacotamento de todos operários.
+Consultar as [Opções do Operário](/config/worker-options) por detalhes sobre a configuração do empacotamento de todos os operários.
 
 ## Otimizações de Construção {#build-optimizations}
 
