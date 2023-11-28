@@ -531,8 +531,7 @@ Nota que as variáveis apenas representa nomes de ficheiros a um nível de profu
 
 ## WebAssembly {#webassembly}
 
-Os ficheiros `.wasm` pré-compilados podem ser importados com `?init`.
-A exportação padrão será uma função de inicialização que retorna uma promessa da [`WebAssembly.Instance`](https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/Instance):
+Os ficheiros `.wasm` pré-compilados podem ser importados com `?init`. A exportação padrão será uma função de inicialização que retorna uma promessa da [`WebAssembly.Instance`](https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/Instance):
 
 ```js
 import init from './example.wasm?init'
@@ -542,25 +541,24 @@ init().then((instance) => {
 })
 ```
 
-A função de inicialização também pode receber um `ImportObject` que é passado para [`WebAssembly.instantiate`](https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/instantiate) como seu segundo argumento:
+A função de inicialização também pode receber um `importObject` que é passado para [`WebAssembly.instantiate`](https://developer.mozilla.org/en-US/docs/WebAssembly/JavaScript_interface/instantiate) como seu segundo argumento:
 
 ```js
 init({
   imports: {
     someFunc: () => {
       /* ... */
-    }
-  }
+    },
+  },
 }).then(() => {
   /* ... */
 })
 ```
 
-Na construção de produção, os ficheiros `.wasm` mas pequenos do que o `assetInlineLimit` serão embutidos como sequências de caracteres de base64. De outro modo, serão tratados como um [recurso estático](/guide/assets) e requisitado sobre demanda.
+Na construção de produção, os ficheiros `.wasm` mais pequenos do que o `assetInlineLimit` serão embutidos como sequências de caracteres de base64. De outro modo, serão tratados como [recurso estático](./assets) e requisitados sob demanda.
 
-:::warning NOTA
-[Proposta de Integração de Módulo de ECMAScript para WebAssembly](https://github.com/WebAssembly/esm-integration) não é atualmente suportada.
-Utilize [`vite-plugin-wasm`](https://github.com/Menci/vite-plugin-wasm) ou outras extensões da comunidade para lidar com isto.
+:::tip NOTA
+[Proposta de Integração do Módulo de ECMAScript para a WebAssembly](https://github.com/WebAssembly/esm-integration) não é atualmente suportada. Use [`vite-plugin-wasm`](https://github.com/Menci/vite-plugin-wasm) ou outras extensões da comunidade para lidar com isto.
 :::
 
 ### Acessando o Módulo WebAssembly {#accessing-the-webassembly-module}
