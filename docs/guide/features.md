@@ -440,7 +440,7 @@ const modules = {
 
 #### Importações Nomeadas {#named-imports}
 
-É possível apenas importar partes dos módulos com as opções `import`.
+É possível importar apenas as partes dos módulos com as opções de `import`:
 
 ```ts
 const modules = import.meta.glob('./dir/*.js', { import: 'setup' })
@@ -450,14 +450,17 @@ const modules = import.meta.glob('./dir/*.js', { import: 'setup' })
 // código produzido pela vite
 const modules = {
   './dir/foo.js': () => import('./dir/foo.js').then((m) => m.setup),
-  './dir/bar.js': () => import('./dir/bar.js').then((m) => m.setup)
+  './dir/bar.js': () => import('./dir/bar.js').then((m) => m.setup),
 }
 ```
 
-Quando combinada com `eager` é até mesmo possível ter a sacudidura de árvore ativada para aqueles módulos.
+Quando combinada com `eager` é possível até mesmo ter a agitação da árvore ativada para estes módulos:
 
 ```ts
-const modules = import.meta.glob('./dir/*.js', { import: 'setup', eager: true })
+const modules = import.meta.glob('./dir/*.js', {
+  import: 'setup',
+  eager: true,
+})
 ```
 
 ```ts
@@ -466,16 +469,16 @@ import { setup as __glob__0_0 } from './dir/foo.js'
 import { setup as __glob__0_1 } from './dir/bar.js'
 const modules = {
   './dir/foo.js': __glob__0_0,
-  './dir/bar.js': __glob__0_1
+  './dir/bar.js': __glob__0_1,
 }
 ```
 
-Definir `import` como `default` para importar a exportação padrão.
+Definimos `import` como `default` para importarmos a exportação padrão:
 
 ```ts
 const modules = import.meta.glob('./dir/*.js', {
   import: 'default',
-  eager: true
+  eager: true,
 })
 ```
 
@@ -485,7 +488,7 @@ import __glob__0_0 from './dir/foo.js'
 import __glob__0_1 from './dir/bar.js'
 const modules = {
   './dir/foo.js': __glob__0_0,
-  './dir/bar.js': __glob__0_1
+  './dir/bar.js': __glob__0_1,
 }
 ```
 
