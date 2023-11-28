@@ -580,9 +580,9 @@ main()
 
 ### Requisitando o Módulo na Node.js {#fetching-the-module-in-node-js}
 
-Na interpretação no lado do servidor, a `fetch()` acontecendo como parte da importação `?init`, pode falhar com `TypeError: Invalid URL`. Consulte a questão [Suportar `wasm` na SSR](https://github.com/vitejs/vite/issues/8882).
+Na interpretação do lado do servidor, a `fetch()` acontecendo como parte da importação `?init`, pode falhar com `TypeError: Invalid URL`. Consultar a questão [Suportar `wasm` na Interpretação do Lado do Servidor](https://github.com/vitejs/vite/issues/8882).
 
-Cá está uma alternativa, assumindo que a base do projeto é o diretório atual:
+Eis uma alternativa, assumindo que a base do projeto é o diretório atual:
 
 ```js
 import wasmUrl from 'foo.wasm?url'
