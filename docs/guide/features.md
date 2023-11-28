@@ -494,21 +494,19 @@ const modules = {
 
 #### Consultas Personalizadas {#custom-queries}
 
-Tu podes também utilizar a opção `query` para fornecer consultas personalizadas para as importações para outras extensões a consumir.
+Nós também podemos usar a opção `query` para fornecer consultas personalizadas às importações para as outras extensões consumirem:
 
 ```ts
 const modules = import.meta.glob('./dir/*.js', {
-  query: { foo: 'bar', bar: true }
+  query: { foo: 'bar', bar: true },
 })
 ```
 
 ```ts
 // código produzido pela vite
 const modules = {
-  './dir/foo.js': () =>
-    import('./dir/foo.js?foo=bar&bar=true'),
-  './dir/bar.js': () =>
-    import('./dir/bar.js?foo=bar&bar=true')
+  './dir/foo.js': () => import('./dir/foo.js?foo=bar&bar=true'),
+  './dir/bar.js': () => import('./dir/bar.js?foo=bar&bar=true'),
 }
 ```
 
