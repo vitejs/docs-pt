@@ -656,27 +656,27 @@ Se preferirmos ter todas as CSS extraídas num único ficheiro, podemos desativa
 
 ### Geração de Diretivas de Pré-Carregamento {#preload-directives-generation}
 
-A Vite gera automaticamente as diretivas `<link rel="modulepreload">` para os pedaços de entrada e suas importações direta no HTML construído:
+A Vite gera automaticamente as diretivas `<link rel="modulepreload">` para os pedaços de entrada e suas importações diretas no HTML construído.
 
-### Otimização de Carregamento de Pedaço Assíncrono {#async-chunk-loading-optimization}
+### Otimização do Carregamento do Pedaço Assíncrono {#async-chunk-loading-optimization}
 
-Nas aplicações do mundo real, a Rollup frequentemente gera pedaços "comuns" - código que é partilhado entre dois ou mais pedaços. Combinado com as importações dinâmica, é muito comum ter o seguinte cenário:
+Nas aplicações do mundo real, a Rollup muitas vezes gera os pedaços "comuns" - o código que é partilhado entre dois ou mais outros pedaços. Combinado com as importações dinâmicas, é muito comum ter o seguinte cenário:
 
 <script setup>
 import graphSvg from '../images/graph.svg?raw'
 </script>
 <svg-image :svg="graphSvg" />
 
-Nos cenários não otimizados, quando o pedaço assíncrono `A` é importado, o navegador terá de requisitar e analisar `A` antes de poder compreender que também precisa do pedaço comum `C`. Isto resultada e uma viagem de ida e volta na rede adicional:
+Nos cenários não otimizados, quando o pedaço assíncrono `A` for importado, o navegador precisará requisitar e analisar sintaticamente a `A` antes de poder compreender que também precisa do pedaço comum `C`. Isto resulta numa viagem adicional de ida e volta na rede:
 
 ```
 Entry ---> A ---> C
 ```
 
-A Vite reescreve automaticamente chamadas de importação dinâmica de separação de código com uma etapa de pré-carregamento para quando `A` for requisitada, `C` é requisitada **em paralelo**:
+A Vite reescreve automaticamente as chamadas de importação dinâmica da separação de código com uma etapa de pré-carregamento para que quando `A` for requisitado, `C` seja requisitado **em paralelo**:
 
 ```
 Entry ---> (A + C)
 ```
 
-É possível para `C` ter mais importações, que resultarão em mais viagens de ida e volta no cenário não otimizado. A otimização da Vite rastreará todas importações diretas para eliminar completamente as viagens de ida e volta independentemente da profundidade da importação.
+É possível para `C` ter importações adicionais, que resultarão em mais viagens de ida e volta no cenário não otimizado. A otimização da Vite rastreará todas as importações diretas para eliminar completamente as viagens de ida e volta independentemente da profundidade da importação.
