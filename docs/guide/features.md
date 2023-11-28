@@ -650,9 +650,9 @@ Consultar as [Opções do Operário](/config/worker-options) por detalhes sobre 
 
 ### Separação de Código de CSS {#css-code-splitting}
 
-A Vite extrai automaticamente a CSS utilizada pelos módulos em um pedaço assíncrono e gera um ficheiro separado para ela. O ficheiro de CSS é carregado automaticamente através do marcador `<link>` quando o pedaço assíncrono associado for carregado, e o pedaço assíncrono tem a garantia de apenas ser avaliada depois da CSS for carregada para evitar [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content#:~:text=A%20flash%20of%20unstyled%20content,before%20all%20information%20is%20retrieved.).
+A Vite extrai automaticamente a CSS usada pelos módulos num pedaço assíncrono e gera um ficheiro separado para esta. O ficheiro da CSS é carregado automaticamente através dum marcador `<link>` quando o pedaço assíncrono associado for carregado, e o pedaço assíncrono tiver a garantia de ser apenas avaliado depois da CSS for carregada para evitar a [Intermitência do Conteúdo Não Estilizado](https://en.wikipedia.org/wiki/Flash_of_unstyled_content#:~:text=A%20flash%20of%20unstyled%20content,before%20all%20information%20is%20retrieved.).
 
-Se preferires ter todas as CSS extraídas em um único ficheiro, podes desativar a separação de código de CSS definindo [`build.cssCodeSplit`](/config/build-options#build-csscodesplit) para `false`.
+Se preferirmos ter todas as CSS extraídas num único ficheiro, podemos desativar a separação do código de CSS definindo a [`build.cssCodeSplit`](/config/build-options#build-csscodesplit) para `false`.
 
 ### Geração de Diretivas de Pré-Carregamento {#preload-directives-generation}
 
