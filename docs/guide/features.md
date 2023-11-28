@@ -415,9 +415,9 @@ const modules = {
 
 `{ as: 'url' }` também é suportado para carregar os recursos como URLs.
 
-### Padrões Diversificado {#multiple-patterns}
+### Padrões Múltiplos {#multiple-patterns}
 
-O primeiro argumento pode ser um arranjo de globs, por exemplo:
+O primeiro argumento pode ser um vetor de globos, por exemplo:
 
 ```js
 const modules = import.meta.glob(['./dir/*.js', './another/*.js'])
@@ -425,7 +425,7 @@ const modules = import.meta.glob(['./dir/*.js', './another/*.js'])
 
 ### Padrões Negativos {#negative-patterns}
 
-Os padrões de glob negativo são também suportados (prefixados com `!`). Para ignorar alguns ficheiros do resultado, podes adicionar os padrões glob de exclusão ao primeiro argumento:
+Os padrões de globo negativo também são suportados (prefixados por `!`). Para ignorar alguns ficheiros a partir do resultado, podemos adicionar padrões de globo de exclusão ao primeiro argumento:
 
 ```js
 const modules = import.meta.glob(['./dir/*.js', '!**/bar.js'])
@@ -434,7 +434,7 @@ const modules = import.meta.glob(['./dir/*.js', '!**/bar.js'])
 ```js
 // código produzido pela vite
 const modules = {
-  './dir/foo.js': () => import('./dir/foo.js')
+  './dir/foo.js': () => import('./dir/foo.js'),
 }
 ```
 
