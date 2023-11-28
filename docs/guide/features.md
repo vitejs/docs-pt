@@ -510,14 +510,14 @@ const modules = {
 }
 ```
 
-### Advertências de Importação de Glob {#glob-import-caveats}
+### Advertências sobre a Importação de Globos {#glob-import-caveats}
 
 Nota que:
 
-- Isto é uma funcionalidade apenas para Vite e não é um padrão de Web ou ECMAScript.
-- Os padrões glob são tratados como especificadores de importação: eles deve ser tanto relativos (começar com `./`) ou absolutos (começar com `/`, resolvidos como sendo relativos a raiz do projeto) ou um caminho de pseudónimo (consulte a [opção `resolve.alias`](/config/shared-options#resolve-alias)).
-- O glob correspondente é feito através de [`fast-glob`](https://github.com/mrmlnc/fast-glob) - consulte a sua documentação por [padrões de glob suportados](https://github.com/mrmlnc/fast-glob#pattern-syntax).
-- Tu deves também estar ciente de que todos os argumentos na `import.meta.glob` devem ser **passados como literais**. Tu NÃO podes utilizar as variáveis ou as expressões nelas.
+- Isto é uma funcionalidade exclusiva da Vite e não é um padrão da Web ou ECMAScript.
+- Os padrões de globos são tratados como especificadores de importação: estes devem ser relativos (começam com `/`) ou absolutos (começam com `/`, resolvidos em relação à raiz do projeto) ou um caminho de pseudónimo (consultar a [opção `resolve.alias`](/config/shared-options#resolve-alias)).
+- A correspondência do globo é feita através da [`fast-glob`](https://github.com/mrmlnc/fast-glob - consultar a documentação por [padrões de globos suportados](https://github.com/mrmlnc/fast-glob#pattern-syntax).
+- Nós também devemos estar cientes de que todos os argumentos na `import.meta.glob` devem ser **passados como literais**. Nós NÃO podemos usar variáveis ou expressões nelas.
 
 ## Importação Dinâmica {#dynamic-import}
 
