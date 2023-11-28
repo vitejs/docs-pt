@@ -561,18 +561,17 @@ Na construção de produção, os ficheiros `.wasm` mais pequenos do que o `asse
 [Proposta de Integração do Módulo de ECMAScript para a WebAssembly](https://github.com/WebAssembly/esm-integration) não é atualmente suportada. Use [`vite-plugin-wasm`](https://github.com/Menci/vite-plugin-wasm) ou outras extensões da comunidade para lidar com isto.
 :::
 
-### Acessando o Módulo WebAssembly {#accessing-the-webassembly-module}
+### Acessando o Módulo de WebAssembly {#accessing-the-webassembly-module}
 
-Se precisarmos de acesso ao objeto `Module`, por exemplo, para instância-lo várias vezes, usaremos uma [importação de URL explícita](/guide/assets#explicit-url-imports) para resolver o recurso, e depois realizar a instanciação:
+Se precisarmos de acesso ao objeto `Module`, por exemplo, para o instanciar várias vezes, usamos uma [importação explícita de URL](/guide/assets#explicit-url-imports) para resolver o recurso, e depois executamos a instanciação:
 
 ```js
 import wasmUrl from 'foo.wasm?url'
 
 const main = async () => {
   const responsePromise = fetch(wasmUrl)
-  const { module, instance } = await WebAssembly.instantiateStreaming(
-    responsePromise,
-  )
+  const { module, instance } =
+    await WebAssembly.instantiateStreaming(responsePromise)
   /* ... */
 }
 
