@@ -1,6 +1,6 @@
 # Funcionalidades {#features}
 
-No nível mais básico, desenvolver usando a Vite não é muito diferente de usar um servidor de ficheiro estático. No entanto, a Vite fornece muitas otimizações sobre as importações nativas de Módulo de ECMAScript para suportar várias funcionalidades que são normalmente vistas nas configurações baseadas em empacotador.
+No nível mais básico, o desenvolvimento usando a Vite não é diferente de usar um servidor de ficheiro estático. No entanto, a Vite fornece muitas otimizações sobre as importações nativas de Módulo de ECMAScript para suportar várias funcionalidades que são normalmente vistas nas configurações baseadas em empacotador.
 
 ## Resolução de Dependência de NPM e Pré-Empacotamento {#npm-dependency-resolving-and-pre-bundling}
 
