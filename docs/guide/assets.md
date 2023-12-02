@@ -1,7 +1,7 @@
 # Manipulação de Recurso Estático {#static-asset-handling}
 
-- Relacionado ao: [Caminho de Base Pública](./build#public-base-path)
-- Relacionado a: [opção de configuração `assetsInclude`](/config/shared-options#assetsinclude)
+- Relacionado com: [Caminho de Base Pública](./build#public-base-path)
+- Relacionado com: [opção de configuração `assetsInclude`](/config/shared-options#assetsinclude)
 
 ## Importando o Recurso como URL {#importing-asset-as-url}
 
