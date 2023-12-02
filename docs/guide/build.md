@@ -2,20 +2,20 @@
 
 Quando for o momento de implementar a nossa aplicação em produção, simplesmente executamos o comando `vite build`. Por padrão, este usa `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequado para ser servido sobre um serviço de hospedagem estática. Consultar o [Implementando uma Aplicação Estática](./static-deploy) por orientações sobre os serviços populares.
 
-## Compatibilidade de Navegador {#browser-compatibility}
+## Compatibilidade do Navegador {#browser-compatibility}
 
-O pacote de produção presume suporte para JavaScript moderno. Por padrão, a Vite mira os navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
+O pacote de produção pressupõe suporte para JavaScript moderno. Por padrão, a Vite dirige-se aos navegadores que suportam os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
 
 - Chrome >=87
 - Firefox >=78
-- Safari >=13
+- Safari >=14
 - Edge >=88
 
-Tu podes especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
+Nós podemos especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
 
-Nota que por padrão, a Vite apenas manipula transformações de sintaxe e **não cobre "polyfills"**. Tu podes consultar [Polyfill.io](https://polyfill.io/) o qual é um serviço que gera automaticamente pacotes de "polyfill" baseado na sequência de caracteres de "UserAgent" do navegador do utilizador.
+Nota que por padrão, a Vite apenas manipula os transformações de sintaxe e **não cobre os tapa-buracos de funcionalidades**. Nós podemos consultar [Polyfill.io](https://polyfill.io/) que é um serviço que gera automaticamente pacotes de tapa-buracos baseado na sequência de caracteres do `UserAgent` do navegador do utilizador.
 
-Os navegadores legados podem ser suportados através [@vitejs/plugin-legacy](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará automaticamente pedaços legados e correspondentes aos "polyfills" da funcionalidade da linguagem de ECMAScript. Os pedaços legados são condicionalmente carregados apenas nos navegadores que não têm suporte nativo ao Módulo de ECMAScript.
+Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará os pedaços para os navegadores antigos e tapa-buracos de funcionalidade da linguagem do ECMAScript correspondente. Os pedaços para os navegadores antigos são carregados condicionalmente apenas nos navegadores que não tem suporte ao Módulo de ECMAScript nativo.
 
 ## Caminho de Base Pública {#public-base-path}
 
