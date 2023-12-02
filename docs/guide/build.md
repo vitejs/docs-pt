@@ -1,6 +1,6 @@
 # Construindo para Produção {#building-for-production}
 
-Quando for o momento de desdobrar a tua aplicação para produção, execute simplesmente o comando `vite build`. Por padrão, ele utiliza `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequada para ser servido sobre um serviço de hospedagem estática. Consulte o [Desdobrando um Sítio Estático](static-deploy) por guias a respeito dos serviços populares.
+Quando for o momento de implementar a nossa aplicação em produção, simplesmente executamos o comando `vite build`. Por padrão, este usa `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequado para ser servido sobre um serviço de hospedagem estática. Consultar o [Implementando uma Aplicação Estática](./static-deploy) por orientações sobre os serviços populares.
 
 ## Compatibilidade de Navegador {#browser-compatibility}
 
