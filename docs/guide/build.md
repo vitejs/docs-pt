@@ -19,15 +19,15 @@ Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`
 
 ## Caminho de Base Pública {#public-base-path}
 
-- Relacionado ao: [Manipulação de Recurso](assets)
+- Relacionado com: [Manipulação de Recurso](assets)
 
-Se estiveres desdobrando o teu projeto sob um caminho público encaixado, simplesmente especifique a [opção de configuração `base`](/config/shared-options#base) e todos caminhos de recurso serão sobrescritos por consequência. Esta opção também pode ser especificada como uma bandeira de linha de comando, por exemplo, `vite build --base=/my/public/path/`.
+Se estivermos implementando o nosso projeto em produção sob um caminho público encaixado, simplesmente especificamos a [opção de configuração `base`](/config/shared-options#base) e todos os caminhos do recurso serão reescritos em conformidade. Esta opção também pode ser especificada como um sinal da linha de comando, por exemplo, `vite build --base=/my/public/path/`.
 
-As URLs de recurso importado de JavaScript, referências de `url()` da CSS, e referências de recurso nos teus ficheiros `.html` são todos ajustados automaticamente para respeitar esta opção durante a construção.
+As URLs do recurso importado da JavaScript, as referências da `url()` da CSS, e as referências do recurso nos nossos ficheiros `.html` são todos automaticamente ajustados para respeitarem esta opção durante a construção.
 
-A exceção está quando precisares concatenar dinamicamente as URLs. Neste caso, podes utilizar a variável `import.meta.env.BASE_URL` injetada globalmente a qual será o caminho de base pública. Nota que esta variável é substituída estaticamente durante a construção então deve aparecer exatamente como está (por exemplo, `import.meta.env['BASE_URL']` não funcionará).
+A exceção é quando precisamos concatenar dinamicamente as URLs em tempo real. Neste caso, podemos usar a variável `import.meta.env.BASE_URL` injetado globalmente que será o caminho de base pública. Nota que esta variável é substituída estaticamente durante a construção, então deve aparecer exatamente como está (isto é, `import.meta.env['BASE_URL']` não funcionará).
 
-Para controlo de caminho de base avançado, consulte [Opções de Base Avançada](#advanced-base-options)
+Para controlo avançado do caminho de base, consultar as [Opções Avançadas da Base](#advanced-base-options).
 
 ## Personalizando a Construção {#customizing-the-build}
 
