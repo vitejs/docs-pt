@@ -46,9 +46,14 @@ DB_PASSWORD=foobar
 Apenas `VITE_SOME_KEY` será exposta como `import.meta.env.VITE_SOME_KEY` ao código-fonte do nosso cliente, mas `DB_PASSWORD` não será exposta:
 
 ```js
-console.log(import.meta.env.VITE_SOME_KEY) // 123
+console.log(import.meta.env.VITE_SOME_KEY) // "123"
 console.log(import.meta.env.DB_PASSWORD) // undefined
 ```
+
+:::tip ANALISE SINTÁTICA DA VARIÁVEL DE AMBIENTE
+
+Conforme mostrado acima, `VITE_SOME_KEY` é um número mas retorna uma sequência de caracteres quando analisada sintaticamente. O mesmo também aconteceria para as variáveis de ambiente booleanas. Temos que certificar-nos de converter ao tipo desejado quando a usa-mos no nosso código.
+:::
 
 Além disto, a Vite usa [`dotenv-expand`](https://github.com/motdotla/dotenv-expand) para expandir as variáveis fora da caixa. Para saber mais sobre a sintaxe, consulte a [sua documentação](https://github.com/motdotla/dotenv-expand#what-rules-does-the-expansion-engine-follow).
 
@@ -74,7 +79,7 @@ Se quisermos personalizar o prefixo das variáveis de ambiente, temos que consul
 
 Por padrão, a Vite fornece definições de tipo para `import.meta.env` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Embora possamos definir mais variáveis de ambiente personalizadas nos ficheiros `.env.[mode]`, talvez queiramos receber o Sensor Inteligente de TypeScript para as variáveis de ambiente definidas pelo utilizador que são prefixadas com `VITE_`.
 
-Para alcançar isto, podemos criar um ficheiro `env.d.ts` no diretório `src`, depois aumentar a `ImportMetaEnv` da seguinte maneira:
+Para alcançar isto, podemos criar um ficheiro `vite-env.d.ts` no diretório `src`, depois aumentar a `ImportMetaEnv` da seguinte maneira:
 
 ```ts
 /// <reference types="vite/client" />
@@ -97,7 +102,12 @@ Se o nosso código depender dos tipos os ambientes do navegador tais como [`DOM`
 }
 ```
 
-## Substituição de Ambiente de HTML {#html-env-replacement}
+:::warning IMPORTAÇÕES QUEBRARÃO O AUMENTO DE TIPO
+
+Se o aumento da `ImportMetaEnv` não funcionar, temos que certificar-nos de que não temos quaisquer declaração `import` no `vite-env.d.ts`. Consultar a [documentação da TypeScript](https://www.typescriptlang.org/docs/handbook/2/modules.html#how-javascript-modules-are-defined) por mais informação.
+:::
+
+## Substituição de Variável de Ambiente de HTML {#html-env-replacement}
 
 A Vite também suporta a substituição de variáveis de ambiente nos ficheiros de HTML. Quaisquer propriedades no `import.meta.env` pode ser usada nos ficheiros de HTML com a sintaxe especial `%ENV_NAME%`:
 
