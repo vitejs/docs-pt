@@ -64,6 +64,18 @@ Está estratégia também é fornecida como uma fábrica `splitVendorChunk({ cac
 Nós devemos usar a forma de função `build.rollupOptions.output.manualChunks` quando usamos esta extensão. Se forma de objeto for usada, a extensão não surtirá nenhum efeito.
 :::
 
+## Manipulação do Erro de Carregamento {#load-error-handling}
+
+A Vite emite o evento `vite:preloadError` quando não consegue carregar as importações dinâmicas. `event.payload` contém o erro de importação original. Se chamarmos `event.preventDefault()`, o erro não será lançado:
+
+```js
+window.addEventListener('vite:preloadError', (event) => {
+  window.reload() // por exemplo, atualizar a página
+})
+```
+
+Quando uma nova implementação de produção ocorre, o serviço de hospedagem pode eliminar os recursos das implementações anteriores de produção. Como resultado, um utilizador que visitou a nossa aplicação antes da nova implementação de produção pode encontrar um erro de importação. Este erro acontece porque os recursos executando sobre o dispositivo do utilizador estão desatualizados e esta tenta importar o pedaço antigo correspondente, que foi eliminado. Este evento é útil para solucionar esta situação.
+
 ## Reconstrução Sobre Mudanças de Ficheiros {#rebuild-on-files-changes}
 
 Tu podes ativar o observador de Rollup com `vite build --watch`. Ou, podes diretamente ajustar a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
