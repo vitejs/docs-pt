@@ -31,7 +31,7 @@ Para controlo avançado do caminho de base, consultar as [Opções Avançadas da
 
 ## Personalizando a Construção {#customizing-the-build}
 
-A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options.md). Especificamente, podes diretamente ajustar as [Opções de Rollup](https://rollupjs.org/configuration-options/) subjacentes através da `build.rollupOptions`:
+A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options). Especificamente, podemos ajustar diretamente as [opções de Rollup](https://rollupjs.org/configuration-options/) subjacentes através da `build.rollupOptions`:
 
 ```js
 // vite.config.js
@@ -39,12 +39,12 @@ export default defineConfig({
   build: {
     rollupOptions: {
       // https://rollupjs.org/configuration-options/
-    }
-  }
+    },
+  },
 })
 ```
 
-Por exemplo, podes especificar várias saídas de Rollup com extensões que apenas são aplicadas durante a construção.
+Por exemplo, podemos especificar várias saídas da Rollup com as extensões que apenas são aplicadas durante a construção.
 
 ## Estratégia de Fatiamento {#chunking-strategy}
 
