@@ -46,22 +46,22 @@ export default defineConfig({
 
 Por exemplo, podemos especificar várias saídas da Rollup com as extensões que apenas são aplicadas durante a construção.
 
-## Estratégia de Fatiamento {#chunking-strategy}
+## Estratégia de Fragmentação {#chunking-strategy}
 
-Tu podes configurar como os pedaços são separados utilizando a `build.rollupOptions.output.manualChunks` (consulte a [documentação da Rollup](https://rollupjs.org/configuration-options/#output-manualchunks)). Até a Vite 2.8, a estratégia de fatiamento padrão dividia os pedaços em `index` e `vendor`. É uma boa estratégia para algumas Aplicações de Página Única, mas é difícil fornecer uma solução geral para todos casos de uso alvos da Vite. Desde a Vite 2.9, `manualChunks` já não modificado por padrão. Tu podes continuar a utilizar a estratégia de Separação Ambulante de Pedaço adicionando a `splitVendorChunkPlugin` no teu ficheiro de configuração:
+Nós podemos configurar como os pedaços são separados usando a `build.rollupOptions.output.manualChunks` (consultar a [documentação da Rollup](https://rollupjs.org/configuration-options/#output-manualchunks)). Até a Vite 2.8, a estratégia de fragmentação padrão dividia os pedaços em `index` e `vendor`. É uma boa estratégia para algumas aplicações de página única, mas é difícil fornecer uma solução geral para todo caso de uso do alvo da Vite. Desde a Vite 2.9, `manualChunks` já não é modificada por padrão. Nós podemos continuar a usar a estratégia de pedaço de fornecedor dividido adicionando a `splitVendorChunkPlugin` no ficheiro de configuração:
 
 ```js
 // vite.config.js
 import { splitVendorChunkPlugin } from 'vite'
 export default defineConfig({
-  plugins: [splitVendorChunkPlugin()]
+  plugins: [splitVendorChunkPlugin()],
 })
 ```
 
-Esta estratégia também é fornecida como uma fábrica `splitVendorChunk({ cache: SplitVendorChunkCache })`, neste caso a composição com lógica personalizada se faz necessária. A `cache.reset()` precisa ser chamada no `buildStart` para o modo de observação da construção para funcionar corretamente neste caso.
+Está estratégia também é fornecida como uma fábrica `splitVendorChunk({ cache: SplitVendorChunkCache })`, no caso de ser necessária uma composição com lógica personalizada. `cache.reset()` precisa ser chamada no `buildStart` para modo de observação da construção para funcionar corretamente neste caso.
 
 :::warning AVISO
-Tu deves usar a forma da função `build.rollupOptions.output.manualChunks` quando usares esta extensão. Se a forma do objeto for usada, a extensão não surtirá nenhum efeito.
+Nós devemos usar a forma de função `build.rollupOptions.output.manualChunks` quando usamos esta extensão. Se forma de objeto for usada, a extensão não surtirá nenhum efeito.
 :::
 
 ## Reconstrução Sobre Mudanças de Ficheiros {#rebuild-on-files-changes}
