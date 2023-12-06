@@ -76,9 +76,9 @@ window.addEventListener('vite:preloadError', (event) => {
 
 Quando uma nova implementação de produção ocorre, o serviço de hospedagem pode eliminar os recursos das implementações anteriores de produção. Como resultado, um utilizador que visitou a nossa aplicação antes da nova implementação de produção pode encontrar um erro de importação. Este erro acontece porque os recursos executando sobre o dispositivo do utilizador estão desatualizados e esta tenta importar o pedaço antigo correspondente, que foi eliminado. Este evento é útil para solucionar esta situação.
 
-## Reconstrução Sobre Mudanças de Ficheiros {#rebuild-on-files-changes}
+## Reconstruir Sobre as Mudanças dos Ficheiros {#rebuild-on-files-changes}
 
-Tu podes ativar o observador de Rollup com `vite build --watch`. Ou, podes diretamente ajustar a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
+Nós podemos ativar o observador da Rollup com `vite build --watch`. Ou, podemos ajustar diretamente a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
 
 ```js
 // vite.config.js
@@ -86,12 +86,12 @@ export default defineConfig({
   build: {
     watch: {
       // https://rollupjs.org/configuration-options/#watch
-    }
-  }
+    },
+  },
 })
 ```
 
-Com a bandeira `--watch` ativada, mudanças para a `vite.config.js`, bem como para quaisquer ficheiros à serem empacotados, acionarão uma reconstrução.
+Com a opção `--watch` ativada, as mudanças ao `vite.config.js`, bem como às quaisquer ficheiros à serem empacotados, acionarão uma reconstrução.
 
 ## Aplicação de Várias Páginas {#multi-page-app}
 
