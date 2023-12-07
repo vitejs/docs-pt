@@ -95,7 +95,7 @@ Com a opção `--watch` ativada, as mudanças ao `vite.config.js`, bem como às 
 
 ## Aplicação de Várias Páginas {#multi-page-app}
 
-Suponha que tens a seguinte estrutura de código-fonte:
+Suponhamos que temos a seguinte estrutura de código-fonte:
 
 ```
 ├── package.json
@@ -107,9 +107,9 @@ Suponha que tens a seguinte estrutura de código-fonte:
     └── nested.js
 ```
 
-Durante o desenvolvimento, apenas navegar ou ligar ao `/nested/` - funciona como esperado, tal como para um servidor de ficheiro estático normal.
+Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - este funciona como esperado, tal como para um servidor de ficheiro estático normal.
 
-Durante a construção, tudo que precisas fazer é especificar vários ficheiros `.html` como pontos de entrada:
+Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
 ```js
 // vite.config.js
@@ -121,16 +121,16 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        nested: resolve(__dirname, 'nested/index.html')
-      }
-    }
-  }
+        nested: resolve(__dirname, 'nested/index.html'),
+      },
+    },
+  },
 })
 ```
 
-Se especificares uma raiz diferente, lembra-te de que `__dirname` ainda será a pasta do teu ficheiro `vite.config.js` quando estiveres resolvendo os caminhos de entrada. Portanto, precisarás adicionar a tua entrada `root` aos argumentos para a `resolve`.
+Se especificarmos uma raiz diferente, lembremos de que `__dirname` ainda será a pasta do nosso ficheiro `vite.config.js` quando resolvermos os caminhos de entrada. Portanto, precisaremos adicionar a nossa entrada `root` aos argumentos para `resolve`.
 
-Nota que para os ficheiros de HTML, a Vite ignora o nome dado para a entrada no objeto `rollupOptions.input` e ao invés disto respeita o identificador resolvido da ficheiro quando gera o recurso de HTML na pasta de distribuição. Isto garante uma estrutura consistente com a maneira que o servidor de desenvolvimento funciona.
+Nota que para os ficheiros HTML, a Vite ignora o nome dado à entrada no objeto `rollupOptions.input` e ao invés disto respeita o identificador único resolvido do ficheiro quando geramos o recurso de HTML na pasta de distribuição (`dist`). Isto garante uma estrutura consistente com a maneira que o servidor de desenvolvimento funciona.
 
 ## Modo de Biblioteca {#library-mode}
 
