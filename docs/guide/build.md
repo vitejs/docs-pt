@@ -134,9 +134,9 @@ Nota que para os ficheiros HTML, a Vite ignora o nome dado à entrada no objeto 
 
 ## Modo de Biblioteca {#library-mode}
 
-Quando estiveres desenvolvendo uma biblioteca orientada a navegador, estás provavelmente gastando a maior parte do tempo sobre a página de teste ou demonstração que importa a tua biblioteca real. Com a Vite, podes utilizar o teu `index.html` para aquele propósito de obter a agradável experiência de programação.
+Quando estivermos desenvolvimento uma biblioteca orienta ao navegador, estaremos provavelmente gastando a maior parte do tempo numa página de teste ou demonstração que importa de fato a nossa biblioteca. Com a Vite, podemos usar o nosso `index.html` para este propósito para obter uma experiência de desenvolvimento mais suave.
 
-Quando for o momento de empacotar a tua biblioteca para distribuição, utilizar a [opção de configuração `build.lib`](/config/build-options#build-lib). Certifica-te de também expor quaisquer dependências que não quiseres empacotar na tua biblioteca, por exemplo, `vue` ou `react`:
+Na hora de empacotar a nossa biblioteca para distribuição, usamos a [ opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
 
 ```js
 // vite.config.js
@@ -147,29 +147,29 @@ export default defineConfig({
   build: {
     lib: {
       // Também poderia ser um diretório ou
-      // arranjo de vários pontos de entrada
+      // vetor de vários pontos de entrada
       entry: resolve(__dirname, 'lib/main.js'),
       name: 'MyLib',
       // as extensões apropriadas serão adicionadas
-      fileName: 'my-lib'
+      fileName: 'my-lib',
     },
     rollupOptions: {
-      // certifica-te de expor as dependências que não devem
-      // ser empacotadas na tua biblioteca
+      // certificar de expor as dependências que não
+      //  devem ser empacotadas na nossa biblioteca
       external: ['vue'],
       output: {
-        // Forneça as variáveis globais para utilizar na
+        // fornecer as variáveis globais para usar na
         // construção UMD para as dependências expostas
         globals: {
-          vue: 'Vue'
-        }
-      }
-    }
-  }
+          vue: 'Vue',
+        },
+      },
+    },
+  },
 })
 ```
 
-O ficheiro de entrada conteria exportações que poderiam ser importadas pelos utilizadores do teu pacote:
+O ficheiro de entrada conteria as exportações que poderiam ser importadas pelos utilizadores do nosso pacote:
 
 ```js
 // lib/main.js
@@ -178,7 +178,7 @@ import Bar from './Bar.vue'
 export { Foo, Bar }
 ```
 
-A execução de `vite build` com esta configuração utiliza uma programação de Rollup que está orientada para entregar as bibliotecas e produzir dois formatos de pacote: `es` e `umd` (configurável através de `build.lib`):
+Executar `vite build` com esta configuração usa uma predefinição de Rollup que é orientada para bibliotecas de entrega e produz dois formatos de pacote: `es` e `umd` (configurável através de `build.lib`):
 
 ```
 $ vite build
@@ -187,7 +187,7 @@ dist/my-lib.js      0.08 kB / gzip: 0.07 kB
 dist/my-lib.umd.cjs 0.30 kB / gzip: 0.16 kB
 ```
 
-O `package.json` recomendado para a tua biblioteca:
+O `package.json` recomendado para a nossa biblioteca:
 
 ```json
 {
@@ -205,7 +205,7 @@ O `package.json` recomendado para a tua biblioteca:
 }
 ```
 
-Ou, se estiveres expondo vários pontos de entrada:
+Ou, se estivermos expondo vários pontos de entrada:
 
 ```json
 {
@@ -227,16 +227,16 @@ Ou, se estiveres expondo vários pontos de entrada:
 }
 ```
 
-:::tip Extensões de Ficheiro
-Se o `package.json` não conter a `"type": "module"`, a Vite gerará extensões de ficheiro diferentes para compatibilidade da Node.js. A `.js` tornar-se-á em `.mjs` e `.cjs` tornar-se-á em `.js`.
+:::tip EXTENSÕES DE FICHEIRO
+Se o `package.json` não contiver `"type": "module"`, a Vite gerará extensões de ficheiro diferentes para fins de compatibilidade com a Node.js. A `.js` tornar-se-á em `.mjs` e `.cjs` tornar-se-á em `.js`.
 :::
 
-:::tip Variáveis de Ambiente
-No modo de biblioteca, todas as utilizações de `import.meta.env.*` são substituídas estaticamente quando estiveres construindo para produção. No entanto, as utilizações de `process.env.*` não são, para que os consumidores da tua biblioteca possam mudá-la dinamicamente. Se isto for indesejável, podes utilizar a `define: { 'process.env.`<wbr>`NODE_ENV': '"production"' }` por exemplo para substituí-las estaticamente.
+:::tip VARIÁVEIS DE AMBIENTE
+No modo de biblioteca, todos os usos de [`import.meta.env.*`](./env-and-mode) serão substituídos estaticamente quando construirmos para produção. No entanto, os usos de `process.env.*` não são, então para que os consumidores da nossa biblioteca possam mudá-lo dinamicamente. Se isto for indesejável, podemos usar `define: { 'process.env.NODE_ENV': '"production"' }` por exemplo, os substituir estaticamente, ou usamos [`esm-env`](https://github.com/benmccann/esm-env) para melhor compatibilidade com os empacotadores e executores.
 :::
 
-:::warning Uso Avançado
-O modo de biblioteca inclui uma simples e opiniosa configuração para bibliotecas orientadas para o navegador e para abstração de JavaScript. Se estivermos a construir bibliotecas que não estão destinadas ao navegador, ou exigem fluxos de construção avançados, podemos usar diretamente a [Rollup](https://rollupjs.org) ou [esbuild](https://esbuild.github.io).
+:::warning USO AVANÇADO
+O modo de biblioteca inclui uma simples e opiniosa configuração para as bibliotecas orientadas ao navegador e para a abstração de JavaScript. Se estivermos a construir bibliotecas que não destinadas ao navegador, ou exigem fluxos de construção avançados, podemos usar diretamente a [Rollup](https://rollupjs.org) ou [esbuild](https://esbuild.github.io).
 :::
 
 ## Opções de Base Avançada {#advanced-base-options}
