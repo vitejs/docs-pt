@@ -239,20 +239,19 @@ No modo de biblioteca, todos os usos de [`import.meta.env.*`](./env-and-mode) se
 O modo de biblioteca inclui uma simples e opiniosa configuração para as bibliotecas orientadas ao navegador e para a abstração de JavaScript. Se estivermos a construir bibliotecas que não destinadas ao navegador, ou exigem fluxos de construção avançados, podemos usar diretamente a [Rollup](https://rollupjs.org) ou [esbuild](https://esbuild.github.io).
 :::
 
-## Opções de Base Avançada {#advanced-base-options}
+## Opções de Base Avançadas {#advanced-base-options}
 
 :::warning AVISO
-Esta funcionalidade é experimental. [Comente](https://github.com/vitejs/vite/discussions/13834).
+Esta funcionalidade é experimental. [Comentar](https://github.com/vitejs/vite/discussions/13834).
 :::
 
-Para casos de usos avançados, os recursos desdobrados e ficheiros públicos podem estar caminhos diferentes, por exemplo para utilizares diferentes estratégias de cache.
-Um utilizador pode escolher desdobrar em três caminhos diferentes:
+Para os casos de uso avançados, os recursos e ficheiros públicos implementados em produção podem estar em caminhos diferentes, por exemplo para usarmos diferentes estratégias de armazenamento de consulta imediata. Um utilizador pode escolher implementar em produção nestes três caminhos diferentes:
 
-- Os ficheiros de HTML de entrada gerados (os quais podem ser processados durante a SSR)
-- O recursos embaralhados gerados (JS, CSS, e outros tipos de ficheiros como imagens)
+- Os ficheiros de HTML de entrada gerados (os quais podem ser processados durante a interpretação do lado do servidor)
+- Os recursos de nome embaralhado gerados (JavaScript, CSS, e outros tipos de ficheiro como imagens)
 - Os [ficheiros públicos](assets#the-public-directory) copiados
 
-Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançada durante a construção, utilizando a `experimental.renderBuiltUrl`.
+Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançadas durante a construção, usando a `experimental.renderBuiltUrl`;
 
 ```ts
 experimental: {
@@ -266,7 +265,7 @@ experimental: {
 }
 ```
 
-Se os recursos embaralhados e ficheiros públicos não forem desdobrados juntos, as opções para cada grupo podem ser definidas de maneira independente utilizando a `type` de recurso incluído no segundo parâmetro de `context` dado para função.
+Se os recursos de nome embaralhado e os ficheiros públicos são forem implementados em produção em conjunto, as opções para grupo podem ser definidas de maneira independente usando a `type` de recurso incluída no segundo parâmetro `context` dado à função:
 
 ```ts
 experimental: {
