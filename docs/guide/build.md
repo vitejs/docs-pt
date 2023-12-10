@@ -128,7 +128,7 @@ export default defineConfig({
 })
 ```
 
-Se especificarmos uma raiz diferente, lembremos de que `__dirname` ainda será a pasta do nosso ficheiro `vite.config.js` quando resolvermos os caminhos de entrada. Portanto, precisaremos adicionar a nossa entrada `root` aos argumentos para `resolve`.
+Se especificarmos uma raiz diferente, devemos lembrar de que `__dirname` ainda será a pasta do nosso ficheiro `vite.config.js` quando resolvermos os caminhos de entrada. Portanto, precisaremos adicionar a nossa entrada `root` aos argumentos para `resolve`.
 
 Nota que para os ficheiros HTML, a Vite ignora o nome dado à entrada no objeto `rollupOptions.input` e ao invés disto respeita o identificador único resolvido do ficheiro quando geramos o recurso de HTML na pasta de distribuição (`dist`). Isto garante uma estrutura consistente com a maneira que o servidor de desenvolvimento funciona.
 
