@@ -1,4 +1,4 @@
-# Por que Vite {#why-vite}
+# Por que Vite? {#why-vite}
 
 ## Os Problemas {#the-problems}
 
