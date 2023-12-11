@@ -89,7 +89,7 @@ Nota que:
 
 ## `new URL(url, import.meta.url)` {#new-url-url-import-meta-url}
 
-[`import.meta.url`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta) é uma funcionalidade do módulo de ECMAScript nativo que expõe a URL do módulo atual. Combinado-o com o [construtor de URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) nativo, podemos obter a URL completa resolvida dum recurso estático usando caminho relativo a partir dum módulo de JavaScript:
+[`import.meta.url`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import.meta) é uma funcionalidade do módulo de ECMAScript nativo que expõe a URL do módulo atual. Combinando-o com o [construtor de URL](https://developer.mozilla.org/en-US/docs/Web/API/URL) nativo, podemos obter a URL completa resolvida dum recurso estático usando caminho relativo a partir dum módulo de JavaScript:
 
 ```js
 const imgUrl = new URL('./img.png', import.meta.url).href
