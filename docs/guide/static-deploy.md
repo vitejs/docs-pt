@@ -1,6 +1,6 @@
 # Implementando uma Aplicação Estática {#deploying-a-static-site}
 
-As seguintes orientações são baseadas nalgumas suposições partilhadas:
+As seguintes orientações são baseadas em algumas suposições partilhadas:
 
 - Nós estamos usando a localização da saída da construção padrão (`dist`). Esta localização [pode ser mudada usando `build.outDir`](/config/build-options#build-outdir), e podemos extrapolar as instruções a partir destas orientações neste caso.
 - Nós estamos usando o npm. Nós podemos usar os comandos equivalentes para executar os programas se estivermos usando Yarn ou outros gestores de pacote.
