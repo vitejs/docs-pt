@@ -1,7 +1,7 @@
 import { defineConfig, DefaultTheme } from 'vitepress'
 import { buildEnd } from './buildEnd.config'
 
-const ogDescription = 'Ferramental de Frontend de Nova Geração'
+const ogDescription = 'Ferramental de Frontend de Última Geração'
 const ogImage = 'https://pt.vitejs.dev/og-image.png'
 const ogTitle = 'Vite'
 const ogUrl = 'https://pt.vitejs.dev'
@@ -66,7 +66,7 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
 export default defineConfig({
   lang: 'pt-PT',
   title: `Vite${additionalTitle}`,
-  description: 'Ferramental de Frontend de Nova Geração',
+  description: 'Ferramental de Frontend de Última Geração',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -106,7 +106,7 @@ export default defineConfig({
 
     editLink: {
       pattern: 'https://github.com/vitejs/docs-pt/edit/main/docs/:path',
-      text: 'Sugerir mudanças para esta página',
+      text: 'Sugerir mudanças a esta página',
     },
 
     socialLinks: [
@@ -168,7 +168,7 @@ export default defineConfig({
                 link: 'https://dev.to/t/vite'
               },
               {
-                text: 'Compat de Extensões de Rollup',
+                text: 'Compatibilidade de Extensões de Rollup',
                 link: 'https://vite-rollup-plugins.patak.dev/'
               },
               {
@@ -184,7 +184,7 @@ export default defineConfig({
         ]
       },
       {
-        text: 'Versão',
+        text: 'Versões',
         items: versionLinks
       }
     ],
