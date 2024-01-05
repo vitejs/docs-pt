@@ -16,7 +16,7 @@ Se tivermos questões, a comunidade é normalmente útil no [canal da `#ssr` da 
 
 ## Projetos de Exemplo {#example-projects}
 
-A Vite oferece suporte embutido para interpretação do lado do servidor. [`create-vite-extra`](https://github.com/bluwy/create-vite-extra) contém configurações de interpretação do lado do servidor de exemplo que podemos usar como referências para este guia:
+Vite fornece suporte embutido para interpretação do lado do servidor (SSR, sigla em Inglês). A [`create-vite-extra`](https://github.com/bluwy/create-vite-extra) contém configurações de Interpretação do Lado do Servidor de exemplo que podemos usar como referência para este guia:
 
 - [Vanilla](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-vanilla)
 - [Vue](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-vue)
@@ -25,7 +25,7 @@ A Vite oferece suporte embutido para interpretação do lado do servidor. [`crea
 - [Svelte](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-svelte)
 - [Solid](https://github.com/bluwy/create-vite-extra/tree/master/template-ssr-solid)
 
-Nós também podemos estruturar estes projetos localmente [executando `create-vite`](./#scaffolding-your-first-vite-project) e escolhendo `Others > create-vite-extra` sob a opção de abstração.
+Nós também podemos estruturar estes projetos localmente [executando `create-vite`](./index#scaffolding-your-first-vite-project) e escolher `Others > create-vite-extra` sob a opção de abstração.
 
 ## Estrutura da Fonte {#source-structure}
 
