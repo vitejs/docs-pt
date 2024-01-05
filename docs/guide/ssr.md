@@ -1,17 +1,17 @@
-# Interpretação no Lado do Servidor {#server-side-rendering}
+# Interpretação do Lado do Servidor {#server-side-rendering}
 
 :::tip NOTA
-A Interpretação no Lado do Servidor (SSR, sigla em Inglês) refere-se especificamente as abstrações de front-end (por exemplo, React, Preact, Vue, e a Svelte) que suportam a execução da mesma aplicação na Node.js, pré-interpretando-a para HTML, e finalmente hidratando-a no cliente. Se estiveres procurando pela integração com as abstrações do lado do servidor tradicionais, consulta o [guia de Integração de Backend](./backend-integration).
+A Interpretação do Lado do Servidor refere-se especialmente às abstrações de front-end (por exemplo, React, Preact, Vue, e a Svelte) que suportam executar a mesma aplicação na Node.js, pré-interpretando-a a HTML, e finalmente hidratando-a no cliente. Se estivermos procurando por integração com abstrações do lado do servidor tradicionais, consultar o [guia de Integração do Backend](./backend-integration).
 
-O seguinte guia também presume experiência prévia trabalhando com a SSR na tua abstração de escolha, e apenas se focará sobre os detalhes de integração especifico de Vite.
+O seguinte guia também presume prévia trabalhando com a Interpretação do Lado do Servidor na nossa abstrações de escolha, e apenas focar-se-á sobre os detalhes de integração específicos da Vite.
 :::
 
-:::warning API de Baixo Nível
-Isto é uma API de baixo nível destinada para os autores de bibliotecas e abstrações, Se o teu objetivo for criar uma aplicação, certifica-te de consultar primeiro as ferramentas e extensões de SSR de alto nível na [secção da SSR da Awesome Vite](https://github.com/vitejs/awesome-vite#ssr).
+:::warning API DE BAIXO NÍVEL
+Isto é uma API de baixo nível destinada aos autores de biblioteca e abstração. Se o nosso objetivo for criar uma aplicação, devemos consultar primeiro as extensões de Interpretação do Lado do Servidor de nível superior e ferramentas na [seção da Interpretação do Lado do Servidor da Awesome Vite](https://github.com/vitejs/awesome-vite#ssr).
 :::
 
-:::tip Ajuda
-Se tiveres questões, a comunidade é usualmente útil no [canal de #ssr da Discord da Vite](https://discord.gg/PkbxgzPhJv).
+:::tip APOIO
+Se tivermos questões, a comunidade é normalmente útil no [canal da `#ssr` da Discord da Vite](https://discord.gg/PkbxgzPhJv).
 :::
 
 ## Projetos de Exemplo {#example-projects}
