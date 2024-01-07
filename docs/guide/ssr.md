@@ -27,27 +27,27 @@ Vite fornece suporte embutido para interpretação do lado do servidor (SSR, sig
 
 Nós também podemos estruturar estes projetos localmente [executando `create-vite`](./index#scaffolding-your-first-vite-project) e escolher `Others > create-vite-extra` sob a opção de abstração.
 
-## Estrutura da Fonte {#source-structure}
+## Estrutura do Código-Fonte {#source-structure}
 
-Um aplicação de SSR normal terá a seguinte estrutura de ficheiro de fonte:
+Uma aplicação de Interpretação do Lado do Servidor normal terá a seguinte estrutura de ficheiro de código-fonte:
 
 ```
 - index.html
-- server.js # o servidor da aplicação principal
+- server.js # servidor da aplicação principal
 - src/
   - main.js          # exporta o código da aplicação agnóstica de ambiente (universal)
-  - entry-client.js  # monta a aplicação à um elemento do DOM
-  - entry-server.js  # interpreta a aplicação utilizando a API de SSR da abstração
+  - entry-client.js  # monta a aplicação a um elemento do DOM
+  - entry-server.js  # interpreta a aplicação usando a API da Interpretação do Lado do Servidor da abstração
 ```
 
-O `index.html` precisará referenciar o `entry-client.js` e incluir um segurador de lugar onde a marcação interpretada pelo servidor deve ser injetada:
+O `index.html` precisará referenciar o `entry-client.js` e incluir um marcador de posição onde a marcação interpretada pelo servidor deveria ser injetada:
 
 ```html
 <div id="app"><!--ssr-outlet--></div>
 <script type="module" src="/src/entry-client.js"></script>
 ```
 
-Tu podes utilizar qualquer segurador de lugar que preferires ao invés de `<!--ssr-outlet-->`, enquanto puder ser substituído precisamente.
+Nós podemos usar qualquer marcador de posição que preferirmos no lugar de `<!--ssr-outlet-->`, desde que este possa ser substituído precisamente.
 
 ## Lógica Condicional {#conditional-logic}
 
