@@ -63,7 +63,7 @@ Isto é substituído estaticamente durante a construção, assim esta permitirá
 
 ## Configurando o Servidor de Desenvolvimento {#setting-up-the-dev-server}
 
-Quando estiveres construindo uma aplicação de SSR, provavelmente queres ter o controlo total sobre o teu servidor principal e separar a Vite do ambiente de produção. É portanto recomendado utilizar a Vite no modo de intermediário. Aqui está um exemplo com a [express](https://expressjs.com/):
+Quando construirmos uma aplicação de Interpretação do Lado do Servidor, provavelmente queremos ter controlo total sobre o nosso servidor principal e dissociar a Vite do ambiente de produção. É portanto recomendado usar a Vite no modo intermediário. Eis um exemplo com a [express](https://expressjs.com/):
 
 **server.js**
 
@@ -79,21 +79,27 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 async function createServer() {
   const app = express()
 
-  // Cria o servidor de Vite no mode de intermediário e configura o tipo da
-  // aplicação como 'custom', desativando a lógica de serviço de HTML
-  // própria da Vite assim o servidor pode tomar o controlo.
+  // Criar servidor da Vite no modo intermediário e
+  // configurar o tipo da aplicação como 'custom',
+  // desativando a lógica de serviço de HTML da própria
+  // Vite, assim o servidor pai pode assumir o controlo
   const vite = await createViteServer({
     server: { middlewareMode: true },
     appType: 'custom'
   })
 
-  // utilize a instância de conexão da vite como intermediário
-  // Se utilizares o teu próprio roteador de express ("express.Router()")
-  // deves utilizar "router.use"
+  // Usar a instância conectar da vite como intermediário.
+  // Se usarmos o nosso próprio roteador da express (
+  // `express.Router()`), deveríamos usar `router.use`
+  // Quando o servidor reiniciar (por exemplo, depois do
+  // utilizador modificar `vite.config.js`), `vite.middlewares`
+  // continua a ser a mesma referência (com uma nova pilha
+  // interna da Vite e intermediários injetados pela extensão).
+  // O seguinte é válido mesmo depois de reiniciar.
   app.use(vite.middlewares)
 
   app.use('*', async (req, res) => {
-    // sirva "index.html" - nós lidaremos com isto a seguir
+    // servir `index.html` - abordaremos isto mais tarde
   })
 
   app.listen(5173)
@@ -102,51 +108,58 @@ async function createServer() {
 createServer()
 ```
 
-Aqui a `vite` é uma instância de [ViteDevServer](./api-javascript#vitedevserver). A `vite.middlewares` é uma instância de [Connect](https://github.com/senchalabs/connect) que pode ser utilizada como um intermediário em qualquer abstração de Node.js compatível com a `connect`.
+Neste exemplo a `vite` é uma instância de [`ViteDevServer`](./api-javascript#vitedevserver). A `vite.middlewares` é uma instância de [`Connect`](https://github.com/senchalabs/connect) que pode ser usada como um intermediário em qualquer abstração de Node.js compatível com a `connect`.
 
-O etapa a seguir é a implementação de um manipulador de `*` para servir o HTML interpretado no servidor:
+A próxima etapa está implementando o manipulador `*` para servir o HTML interpretado pelo servidor:
 
 ```js
 app.use('*', async (req, res, next) => {
   const url = req.originalUrl
 
   try {
-    // 1. Lê a "index.html"
+    // 1. Ler o `index.html`
     let template = fs.readFileSync(
       path.resolve(__dirname, 'index.html'),
-      'utf-8'
+      'utf-8',
     )
 
-    // 2. Aplica as transformações de HTML da Vite. Isto injeta o cliente de HMR da Vite,
-    //    e também aplica as transformações de HTML das extensões de Vite, por exemplo
-    //    preâmbulos globais do "@vitejs/plugin-react"
+    // 2. Aplicar as transformações de HTML da Vite.
+    // Isto injeta o cliente da substituição de módulo
+    // instantânea da Vite, e também aplica as
+    // transformações a partir das extensões da Vite,
+    // por exemplo, os preâmbulos globais de
+    // `@vitejs/plugin-react`
     template = await vite.transformIndexHtml(url, template)
 
-    // 3. Carrega a entrada do servidor. A "vite.ssrLoadModule" transforma
-    //    automaticamente o teu código-fonte de ESM para ser utilizável na Node.js!
-    //    Não é necessário o empacotamento, e fornece invalidação eficiente similar a HMR.
+    // 3. Carregar a entrada do servidor. `ssrLoadModule`
+    // transforma automaticamente o código-fonte do módulo
+    // de ECMAScript para ser usável na Node.js! Não existe
+    // nenhum empacotamento obrigatório, e fornece
+    // invalidação eficiente semelhante à substituição de
+    // módulo instantânea.
     const { render } = await vite.ssrLoadModule('/src/entry-server.js')
 
-    // 4. interpreta a HTML da aplicação. Isto presume que a função `render` exportada do
-    //    "entry-server.js" chama as APIs da SSR da abstração apropriada,
-    //    por exemplo "ReactDOMServer.renderToString()"
+    // 4. Interpretar o HTML da aplicação. Isto presume que
+    // a função `render` exportada do `entry-server.js` chama
+    // as APIs da Interpretação do Lado do Servidor corretas,
+    // por exemplo, `ReactDOMServer.renderToString()`
     const appHtml = await render(url)
 
-    // 5. Injeta o HTML interpretado pela aplicação no modelo de marcação
-    const html = template.replace(`<!--ssr-outlet-->`, appHtml)
+    // 5. Injetar o HTML interpretado pela aplicação no modelo.
+    const html = template.replace('<!--ssr-outlet-->', appHtml)
 
-    // 6. Envia o HTML interpretado de volta.
+    // 6. Enviar o HTML interpretado de volta.
     res.status(200).set({ 'Content-Type': 'text/html' }).end(html)
-  } catch (e) {
-    // Se um error for capturado, deixa a Vite corrigir o traço da pilha
-    // assim mapeia de volta para o teu código-fonte real.
-    vite.ssrFixStacktrace(e)
+  } catch(e) {
+    // Se um erro for capturado, permitir a Vite corrigir o vestígio
+    // da pilha, assim esta mapeia de volta ao nosso código-fonte.
+    vite.ssrFixStackTrace(e)
     next(e)
   }
 })
 ```
 
-O programa `dev` no `package.json` também deve ser mudado para utilizar o programa de servidor:
+O programa `dev` no `package.json` também deve ser alterado para usar o programa do servidor:
 
 ```diff
   "scripts": {
