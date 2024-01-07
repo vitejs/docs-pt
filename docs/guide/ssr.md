@@ -51,15 +51,15 @@ Nós podemos usar qualquer marcador de posição que preferirmos no lugar de `<!
 
 ## Lógica Condicional {#conditional-logic}
 
-Se precisares de realizar a lógica condicional com base em SSR versus cliente, podes utilizar:
+Se precisarmos de realizar a lógica condicional baseada na Interpretação do Lado do Servidor vs. cliente, podemos usar:
 
 ```js
 if (import.meta.env.SSR) {
-  // ... lógica apenas de servidor
+  // ... apenas a lógica do servidor
 }
 ```
 
-Isto é estaticamente substituído durante a construção assim permitirá a sacudidura de árvore dos ramos que não são utilizados.
+Isto é substituído estaticamente durante a construção, assim esta permitirá a agitação da árvore dos ramos não usados.
 
 ## Configurando o Servidor de Desenvolvimento {#setting-up-the-dev-server}
 
