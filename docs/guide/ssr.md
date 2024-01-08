@@ -170,34 +170,34 @@ O programa `dev` no `package.json` também deve ser alterado para usar o program
 
 ## Construindo para Produção {#building-for-production}
 
-Para entregar um projeto de SSR para produção, precisamos de:
+Para entregar um projeto de Interpretação do Lado do Servidor para produção, precisamos:
 
-1. Produzir uma construção de cliente como normal;
-2. Produzir uma construção de SSR, a qual pode ser diretamente carregada através de `import()` para que não tenhamos que passar pela `ssrLoadModule` da Vite;
+1. Produzir uma construção do cliente como normal;
+2. Produzir uma construção da Interpretação do Lado do Servidor, que pode ser diretamente carregada através da `import()` para que não tenhamos passar pela `ssrLoadModule` da Vite;
 
-Os nossos programas no `package.json` se parecerão com isto:
+Os nossos programas no `package.json` parecer-se-ão com isto:
 
 ```json
 {
   "scripts": {
     "dev": "node server",
     "build:client": "vite build --outDir dist/client",
-    "build:server": "vite build --outDir dist/server --ssr src/entry-server.js "
+    "build:server": "vite build --outDir dist/server --ssr src/entry-server.js"
   }
 }
 ```
 
-Nota que a bandeira `--ssr` a qual indica que isto é uma construção de SSR. Ela também deve especificar a entrada de SSR.
+Nota que a opção `--ssr`, a qual indica que isto é uma construção da Interpretação do Lado do Servidor. Esta também deve especificar a entrada da Interpretação do Lado do Servidor.
 
-Então, no `server.js` precisamos adicionar alguma lógica especifica de produção verificando `process.env.`<wbr>`NODE_ENV`:
+Depois, no `server.js` precisamos adicionar alguma lógica específica de produção verificando `process.env.NODE_ENV`:
 
-- No lugar de ler o `index.html` da raiz, utilize o `dist/client/index.html` como modelo de marcação, já que ele contém as ligações de recurso corretas para a construção de cliente.
+- Ao invés de ler o `index.html` da raiz, usamos o `dist/client/index.html` como modelo de marcação, já que este contém as ligações corretas do recurso à construção do cliente.
 
-- No lugar de `await vite.ssrLoadModule('/src/entry-server.js')`, utilize `import('./dist/server/entry-server.js')` (este ficheiro é o resultado da construção de SSR).
+- Ao invés de `await vite.ssrLoadModule('/src/entry-server.js')`, usamos `import('./dist/server/entry-server.js')` (este ficheiro é o resultado da construção da Interpretação do Lado do Servidor).
 
-- Mova a criação e toda utilização do servidor de desenvolvimento da `vite` para trás os ramos condicionais de apenas desenvolvimento, depois adicione os intermediários de serviço de ficheiro estático para servir os ficheiros a partir do `dist/client`.
+- Movemos a criação e todo uso do servidor de desenvolvimento da `vite` atrás dos ramos condicionais exclusivos de desenvolvimento, depois adicionamos intermediários de serviço de ficheiro estático para servir os ficheiros a partir da `dist/client`.
 
-Consulte os [projetos de exemplo](#example-projects) por uma configuração em funcionamento.
+Consultar os [projetos de exemplo](#example-projects) por uma configuração que funciona.
 
 ## Gerando Diretivas de Pré-Carregamento {#generating-preload-directives}
 
