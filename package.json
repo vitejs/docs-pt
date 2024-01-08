@@ -45,7 +45,7 @@
   },
   "homepage": "https://github.com/vitejs/docs-pt#readme",
   "dependencies": {
-    "vitepress": "1.0.0-rc.35"
+    "vitepress": "1.0.0-rc.36"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
