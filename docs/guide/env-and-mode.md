@@ -94,7 +94,7 @@ interface ImportMeta {
 }
 ```
 
-Se o nosso código depender dos tipos os ambientes do navegador tais como [`DOM`](https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts) e [`WebWorker`](https://github.com/microsoft/TypeScript/blob/main/lib/lib.webworker.d.ts), podemos atualizar o campo [`lib`](https://www.typescriptlang.org/tsconfig#lib) no `tsconfig.json`:
+Se o nosso código depender dos tipos dos ambientes do navegador tais como [`DOM`](https://github.com/microsoft/TypeScript/blob/main/lib/lib.dom.d.ts) e [`WebWorker`](https://github.com/microsoft/TypeScript/blob/main/lib/lib.webworker.d.ts), podemos atualizar o campo [`lib`](https://www.typescriptlang.org/tsconfig#lib) no `tsconfig.json`:
 
 ```json
 {
