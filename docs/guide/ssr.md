@@ -201,47 +201,48 @@ Consultar os [projetos de exemplo](#example-projects) por uma configuração que
 
 ## Gerando Diretivas de Pré-Carregamento {#generating-preload-directives}
 
-O `vite build` suporta a bandeira `--ssrManifest` que gerará o `.vite/ssr-manifest.json` na diretório de saída da construção:
+O `vite build` suporta a opção `--ssrManifest` que gerará o `.vite/ssr-manifest.json` no diretório de saída da construção:
 
 ```diff
 - "build:client": "vite build --outDir dist/client",
 + "build:client": "vite build --outDir dist/client --ssrManifest",
 ```
 
-O programa acima agora gerará `dist/client/.vite/ssr-manifest.json` para a construção de cliente (Sim, o manifesto de SSR é gerado a partir da construção de cliente porque queremos mapear os IDs do módulo para os ficheiros do cliente). O manifesto contém mapeamentos de IDs do módulo para os seus pedaços associados e ficheiros de recurso.
+O programa acima agora gerará o `dist/client/.vite/ssr-manifest.json` para a construção do cliente (Sim, o manifesto da Interpretação do Lado do Servidor é gerado a partir da construção do cliente porque queremos mapear os identificadores do módulo aos ficheiros do cliente). O manifesto contém os mapeamentos dos identificadores do módulos aos seus pedaços associados e ficheiros de recurso.
 
-Para influenciar o manifesto, as abstrações precisam fornecer uma maneira de coletar os IDs do módulo dos componentes que foram utilizados durante uma chamada do interpretador do servidor.
+Para influenciar o manifesto, as abstrações precisam fornecer uma maneira reunir os identificadores do módulo dos componentes que foram usados durante a chamada de interpretação do servidor.
 
-O `@vitejs/plugin-vue` suporta isto fora da caixa e regista automaticamente os IDs do módulo do componente utilizado para o contexto de SSR de Vue associado:
+A `@vitejs/plugin-vue` suporta isto fora da caixa e regista automaticamente os identificadores do módulo do componente usados no contexto da Interpretação do Lado do Servidor da Vue associado:
 
 ```js
 // src/entry-server.js
 const ctx = {}
 const html = await vueServerRenderer.renderToString(app, ctx)
-// "ctx.modules" é agora um conjunto de IDs de módulo que foram utilizados durante a interpretação
+// `ctx.modules` agora é um conjunto de identificadores do
+// módulo que foram usados durante a interpretação
 ```
 
-No ramo de produção do `server.js` precisamos ler e passar o manifesto para a função `render` exportada pelo `src/entry-server.js`. Isto nos forneceria informação suficiente para interpretar os diretórios de pré-carregamento pelos ficheiros utilizados pelas rotas assíncronas! Consulte a [fonte da demonstração](https://github.com/vitejs/vite-plugin-vue/blob/main/playground/ssr-vue/src/entry-server.js) por um exemplo completo.
+No ramo da produção do `server.js` precisamos ler e passar o manifesto à função `render` exportada pelo `src/entry-server.js`. Isto forneceria-nos informação suficiente para interpretar as diretivas de pré-carregamento para os ficheiros usados pelas rotas assíncronas! Consultar o [código-fonte da demonstração](https://github.com/vitejs/vite-plugin-vue/blob/main/playground/ssr-vue/src/entry-server.js) por um exemplo completo. Nós também podemos usar esta informação para as [Sugestões Prematuras 103](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/103).
 
-## Pré-Interpretação / SSG {#pre-rendering-ssg}
+## Pré-Interpretação ou Geração de Aplicação Estática {#pre-rendering-ssg}
 
-Se as rotas e dos dados necessários para certas rotas forem reconhecidas antes do momento marcado, podemos pré-interpretar estas rotas para HTML estático utilizando a mesma lógica que a SSR de produção. Isto também pode ser considerado de uma forma de Geração de Sítio Estático (SSG, sigla em Inglês). Consulte o [programa de pré-interpretação de demonstração](https://github.com/vitejs/vite-plugin-vue/blob/main/playground/ssr-vue/prerender.js) por exemplo funcionando.
+Se as rotas e os dados necessários para certas rotas forem reconhecidas antes do tempo, podemos pré-interpretar estas rotas em HTML estático usando a mesma lógica que a Interpretação do Lado do Servidor de produção. Isto também pode ser considerado uma forma de Geração de Aplicação Estática (SSG, sigla em Inglês). Consultar o [programa da pré-interpretação de demonstração](https://github.com/vitejs/vite-plugin-vue/blob/main/playground/ssr-vue/prerender.js) por exemplo que funciona.
 
-## Os Exteriores da SSR {#ssr-externals}
+## Os Exteriores da Interpretação do Lado do Servidor {#ssr-externals}
 
-As dependências são "expostas" a partir do sistema de módulo de transformação de SSR da Vite por padrão quando estiveres executando a SSR. Isto acelera ambos o desenvolvimento e a construção.
+As dependências são "expostas" a partir do sistema de módulo de transformação da Interpretação do Lado do Servidor da Vite por padrão quando executamos a Interpretação do Lado do Servidor. Isto acelera ambos desenvolvimento e construção.
 
-Se uma dependência precisa ser transformada pela conduta da Vite, por exemplo, uma vez que as funcionalidades da Vite são utilizadas com seu código não traduzido nelas, elas podem ser adicionadas ao [`ssr.noExternal`](../config/ssr-options.md#ssr-noexternal).
+Se uma dependência precisar ser transformada pela conduta da Vite, por exemplo, uma vez que as funcionalidades da Vite são usadas sem serem traduzidas nestas, estas podem ser adicionadas à [`ssr.noExternal`](../config/ssr-options#ssr-noexternal).
 
-Para as dependências ligadas, não são expostas por padrão para tirarem vantagem da HMR da Vite. Se isto não for desejado, por exemplo, para testar as dependências como se elas não estivessem ligadas, podes adicioná-lo ao [`ssr.external`](../config/ssr-options.md#ssr-external).
+Para as dependências ligadas, estas não são expostas por padrão para aproveitarem-se da Substituição de Módulo Instantânea da Vite. Se isto não for desejado, por exemplo, para testar as dependências como se estas não estivessem ligadas, podemos adicionar à [`ssr.external`](../config/ssr-options#ssr-external).
 
-:::warning Trabalhando com Pseudónimos
-Se tiveres pseudónimos configurados que redirecionam um pacote para um outro, podes querer atribuir pseudónimo aos pacotes do `node_modules` ao  invés de fazê-lo funcionar para as dependências expostas de SSR. Ambos [yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a definição de pseudónimos através do prefixo `npm:`.
+:::warning TRABALHANDO COM PSEUDÓNIMOS
+Se tivermos pseudónimos configurados que redirecionam um pacote a um outro, podemos querer atribuir um pseudónimo aos pacotes da `node_modules` ao invés de fazê-la funcionar para as dependências expostas da Interpretação do Lado do Servidor. Ambas [Yarn](https://classic.yarnpkg.com/en/docs/cli/add/#toc-yarn-add-alias) e [pnpm](https://pnpm.io/aliases/) suportam a definição de pseudónimos através do prefixo `npm:`.
 :::
 
-## Lógica de Extensão Específica de SSR {#ssr-specific-plugin-logic}
+## Lógica de Extensão Específica da Interpretação do Lado do Servidor {#ssr-specific-plugin-logic}
 
-Algumas abstrações tais como Vue ou Svelte compilam os componentes para formatos diferentes baseado no cliente versus SSR. Para suportar transformações condicionais, a Vite passa uma propriedade `ssr` adicional no objeto `options` dos seguintes gatilhos de extensão:
+Algumas abstrações tais como a Vue ou a Svelte compilam os componentes para diferentes formatos baseado no cliente vs. a Interpretação do Lado do Servidor. Para suportar transformações condicionais, a Vite passa uma propriedade `ssr` adicional no objeto `options` das seguintes funções gatilhos de extensão:
 
 - `resolveId`
 - `load`
@@ -255,39 +256,40 @@ export function mySSRPlugin() {
     name: 'my-ssr',
     transform(code, id, options) {
       if (options?.ssr) {
-        // realiza a transformação específica de ssr...
+        // realizar transformação específica da
+        // interpretação do lado do servidor...
       }
-    }
+    },
   }
 }
 ```
 
-O objeto de opções no `load` e `transform` é opcional, a Rollup não está atualmente utilizando este objeto mas pode estender estes gatilhos com metadados adicionais no futuro.
+O objeto de opções na `load` e `transform` é opcional, a `rollup` atualmente não está usando este objeto mas pode estender estas funções gatilhos com metadados adicionais no futuro.
 
 :::tip NOTA
-Antes da Vite 2.7, isto era informado aos gatilhos de extensão com um parâmetro `ssr` posicional no lugar da utilização do objeto `options`. A maioria das abstrações e extensões estão atualizadas mas podes encontrar publicações desatualizadas utilizando a API anterior.
+Antes da Vite 2.7, isto era informado às funções gatilhos de extensão com um parâmetro `ssr` posicional ao invés de usar o objeto `options`. Todas as principais abstrações e extensão estão atualizadas mas podemos encontrar publicações desatualizadas usando a API anterior.
 :::
 
-## Alvo da SSR {#ssr-target}
+## Alvo da Interpretação do Lado do Servidor {#ssr-target}
 
-O alvo padrão para a construção de SSR é um ambiente de Node, mas também podes executar o servidor um Operário de Web (Web Worker, em Inglês). A resolução da entrada de pacotes é diferente para cada plataforma. Tu podes configurar o alvo para ser um Operário de Web utilizando a `ssr.target` definida para `'webworker'`.
+O alvo padrão para a construção da Interpretação do Lado do Servidor é um ambiente da `node`, mas também podemos executar o servidor num Operário da Web. A resolução da entrada dos pacotes é diferente para cada plataforma. Nós podemos configurar o alvo para ser um Operário da Web usando a `ssr.target` definida para `'webworker'`.
 
-## Pacote da SSR {#ssr-bundle}
+## Pacote da Interpretação do Lado do Servidor {#ssr-bundle}
 
-Em alguns casos como executores de `webworker`, podes querer empacotar a tua construção de SSR em um único ficheiro de JavaScript. Tu podes ativar este comportamento definindo a `ssr.noExternal` para `true`. Isto fará duas coisas:
+Em alguns casos como as execuções do `webworker`, podemos querer empacotar a nossa construção da Interpretação do Lado do Servidor num único ficheiro de JavaScript. Nós podemos ativar este comportamento definindo `ssr.noExternal` a `true`. Isto fará duas coisas:
 
-- Trata todas dependências como `noExternal`
-- Lança um erro se quaisquer embutidos de Node.js forem importados
+- Tratar todas as dependências como `noExternal`
+- Lançar um erro se quaisquer funcionalidades embutidas da Node.js forem importadas
 
 ## Condições de Resolução da Interpretação do Lado do Servidor {#ssr-resolve-conditions}
 
 Por padrão a resolução da entrada de pacote usará as condições definidas na
-[`resolve.conditions`](../config/shared-options#resolve-conditions) para a construção da interpretação no lado do servidor. Nós podemos usar [`ssr.resolve.conditions`](../config/ssr-options#ssr-resolve-conditions) e [`ssr.resolve.externalConditions`](../config/ssr-options#ssr-resolve-externalconditions) para personalizar este comportamento.
+[`resolve.conditions`](../config/shared-options#resolve-conditions) para a construção da Interpretação do Lado do Servidor. Nós podemos usar [`ssr.resolve.conditions`](../config/ssr-options#ssr-resolve-conditions) e [`ssr.resolve.externalConditions`](../config/ssr-options#ssr-resolve-externalconditions) para personalizar este comportamento.
 
 ## Interface da Linha de Comando da Vite {#vite-cli}
 
-Os comandos de Linha de Comando `$ vite dev` e `$ vite preview` também podem ser utilizados para aplicações de SSR. Tu podes adicionar os teus intermediários de SSR ao servidor de desenvolvimento com [`configureServer`](/guide/api-plugin#configureserver) e ao servidor de pré-visualização com [`configurePreviewServer`](/guide/api-plugin#configurepreviewserver).
+Os comandos da Interface da Linha de Comando `$ vite dev` e `$ vite preview` também podem ser usados para as aplicações de Interpretação do Lado do Servidor. Nós podemos adicionar os nossos intermediários da Interpretação do Lado do Servidor ao servidor de desenvolvimento com [`configureServer`](/guide/api-plugin#configureserver) e ao servidor de pré-visualização com [`configurePreviewServer`](/guide/api-plugin#configurepreviewserver).
 
 :::tip NOTA
-Utilize um gatilho de publicação para o teu intermediário de SSR executar _depois_ dos intermediários da Vite.
+Nós usamos uma função gatilho de publicação para que o nosso intermediário da Interpretação do Lado do Servidor execute _depois_ dos intermediários da Vite.
 :::
