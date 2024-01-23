@@ -212,17 +212,12 @@ Especifica opções à passar aos pré-processadores de CSS. As extensões de fi
 - `less` - [Opções](https://lesscss.org/usage/#less-options).
 - `styl`/`stylus` - Apenas a opção [`define`](https://stylus-lang.com/docs/js#define-name-node) é suportada, a qual pode ser passada como um objeto.
 
-Todos as opções dos pré-processadores também suportam a opção `additionalData`, a qual pode ser usada para injetar código adicional para cada conteúdo de estilo. Nota que se incluirmos os estilos verdadeiros e não apenas variáveis, estes estilos serão duplicados no pacote final.
-
-Por exemplo:
+**Por exemplo:**
 
 ```js
 export default defineConfig({
   css: {
     preprocessorOptions: {
-      scss: {
-        additionalData: `$injectedColor: orange;`,
-      },
       less: {
         math: 'parens-division',
       },
@@ -236,9 +231,37 @@ export default defineConfig({
 })
 ```
 
+### `css.preprocessorOptions[extension].additionalData` {#css-preprocessoroptions-extension-additionaldata}
+
+- **Tipo:** `string | ((source: string, filename: string) => (string | { content: string; map?: SourceMap }))`
+
+Esta opção pode ser usada para injetar código adicional para cada conteúdo de estilo. Nota que se incluirmos os estilos de fato e não apenas variáveis, estes estilos serão duplicados no pacote final.
+
+**Exemplo:**
+
+```js
+export default defineConfig({
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `$injectedColor: orange;`,
+      },
+    },
+  },
+})
+```
+
+## `css.preprocessorMaxWorkers` {#css-preprocessormaxworkers}
+
+- **Experimental:** [Comentar](TODO: update)
+- **Tipo:** `number | true`
+- **Predefinido como:** `0` (não cria quaisquer operários e executa na linha principal)
+
+Se esta opção for definida, os pré-processadores da CSS executarão nos operários quando possível. `true` significa que o número das CPUs menos 1.
+
 ## `css.devSourcemap` {#css-devsourcemap}
 
-- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13845)
+- **Experimental:** [Comentar](https://github.com/vitejs/vite/discussions/13845)
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
 
