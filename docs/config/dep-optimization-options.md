@@ -2,7 +2,7 @@
 
 - **Relacionado ao:** [Pré-Empacotamento de Dependência](/guide/dep-pre-bundling)
 
-## optimizeDeps.entries {#optimizedeps-entries}
+## `optimizeDeps.entries` {#optimizedeps-entries}
 
 - **Tipo:** `string | string[]`
 
@@ -10,7 +10,7 @@ Por padrão, a Vite rastreará todos os teus ficheiros `.html` para detetar depe
 
 Se nenhum destes adequado as tuas necessidades, podes especificar entradas personalizadas utilizando esta opção - o valor deve ser um [padrão `fast-glob`](https://github.com/mrmlnc/fast-glob#basic-syntax) ou um arranjo de padrões que são relativos da raiz do projeto de Vite. Isto sobrescreverá as inferências de entradas padrão. Apenas as pastas `node_modules` e `build.outDir` serão ignoradas por padrão quando a `optimizeDeps.entries` for explicitamente definidas. Se outras pastas precisarem ser ignoradas, podes utilizar um padrão de ignorar como parte da lista de entradas, marcado com um `!` inicial.
 
-## optimizeDeps.exclude {#optimizedeps-exclude}
+## `optimizeDeps.exclude` {#optimizedeps-exclude}
 
 - **Tipo:** `string[]`
 
@@ -29,7 +29,7 @@ export default defineConfig({
 
 :::
 
-## optimizeDeps.include {#optimizedeps-include}
+## `optimizeDeps.include` {#optimizedeps-include}
 
 - **Tipo:** `string[]`
 
@@ -45,7 +45,7 @@ export default defineConfig({
 })
 ```
 
-## optimizeDeps.esbuildOptions {#optimizedeps-esbuildoptions}
+## `optimizeDeps.esbuildOptions` {#optimizedeps-esbuildoptions}
 
 - **Tipo:** [`EsbuildBuildOptions`](https://esbuild.github.io/api/#simple-options)
 
@@ -56,27 +56,28 @@ Certas opções são omitidas visto que a mudança delas não seria compatível 
 - `external` também é omitida, utilize a opção `optimizeDeps.exclude` da Vite
 - `plugins` são combinadas com a extensão de dependência da Vite
 
-## optimizeDeps.force {#optimizedeps-force}
+## `optimizeDeps.force` {#optimizedeps-force}
 
 - **Tipo:** `boolean`
 
 Defina para `true` para forçar o pré-empacotamento de dependência, ignorando as dependências otimizadas cacheadas previamente.
 
-## optimizeDeps.disabled {#optimizedeps-disabled}
+## `optimizeDeps.disabled` {#optimizedeps-disabled}
 
-- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13839)
+- **Depreciada**
+- **Experimental:** [Comentar](https://github.com/vitejs/vite/discussions/13839)
 - **Tipo:** `boolean | 'build' | 'dev'`
 - **Predefinido como:** `'build'`
 
-Desativa as otimizações de dependências, `true` desativa o otimizador durante a construção e desenvolvimento. Passe `'build'` ou `'dev'` para apenas desativar o otimizador em um dos modos. A otimização de dependência está desligada por padrão apenas no desenvolvimento.
+Esta opção está depreciada. Na Vite 5.1, o pré-empacotamento das dependências durante a construção não foi removida. Definir `optimizeDeps.disabled` para `true` ou `'dev'` desativa o otimizador, e configurada para `false` ou `'build'` deixa o otimizador durante o desenvolvimento ativado.
+
+Para desativar o otimizador completamente, usamos `optimizeDeps.noDiscovery: true` para não permitir a descoberta automática de dependências e deixar `optimizeDeps.include` indefinido ou vazio.
 
 :::warning AVISO
-A otimização de dependências no modo de construção é **experimental**. Se ativada, remove uma das diferenças mais significativas entre o desenvolvimento e produção. O [`@rollup/plugin-commonjs`](https://github.com/rollup/plugins/tree/master/packages/commonjs) já não é necessário neste caso já que a esbuild converte dependências que estão apenas CJS para ESM.
-
-Se quiseres testar esta estratégia de construção, podes usar `optimizeDeps.disabled: false`. `@rollup/plugin-commonjs` pode ser removido passando `build.commonjsOptions: { include: [] }`.
+A otimização de dependências durante o momento da construção foi uma funcionalidade **experimental**. Os projetos que experimentaram esta estratégia também removeram `@rollup/plugin-commonjs` utilizando `build.commonjsOptions: { include: [] }`. Se fizermos isso, um aviso nos guiará a reativá-lo para suportar apenas pacotes CJS durante o empacotamento.
 :::
 
-## optimizeDeps.needsInterop {#optimizedeps-needsinterop}
+## `optimizeDeps.needsInterop` {#optimizedeps-needsinterop}
 
 - **Experimental**
 - **Tipo:** `string[]`
