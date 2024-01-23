@@ -161,7 +161,7 @@ A Vite 5 usa a `esbuild` 0.19 e remove a camada de compatibilidade para `esbuild
     // Definir `true` se usarmos decoradores
     "experimentalDecorators": true,
     // Definir `true` se vermos erros de analise no navegador
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
   }
 }
 ```

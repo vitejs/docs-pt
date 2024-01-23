@@ -1,6 +1,6 @@
 {
   "name": "vite-docs-pt",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Documentação Oficial da Vite em Português",
   "type": "module",
   "main": "docs/index.md",
@@ -16,12 +16,7 @@
     "peerDependencyRules": {
       "allowedVersions": {
         "react": "18"
-      },
-      "ignoreMissing": [
-        "search-insights",
-        "postcss",
-        "@algolia/client-search"
-      ]
+      }
     }
   },
   "repository": {
@@ -38,20 +33,26 @@
     "vitejs-docs-pt-br",
     "vitejs-docs-pt-pt"
   ],
-  "author": "Nazaré da Piedade",
+  "author": {
+    "name": "Nazaré da Piedade",
+    "email": "nazarepiedady@gmail.com",
+    "url": "https://github.com/nazarepiedady"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/vitejs/docs-pt/issues"
   },
   "homepage": "https://github.com/vitejs/docs-pt#readme",
   "dependencies": {
-    "vitepress": "1.0.0-rc.40"
+    "search-insights": "^2.6.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.15",
-    "@types/node": "^20.0.0",
+    "feed": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "feed": "^4.2.2"
+    "@types/node": "^20.11.5",
+    "@types/react": "^18.0.15",
+    "vitepress": "^1.0.0-rc.40",
+    "@algolia/client-search": "^4.13.1"
   }
 }
