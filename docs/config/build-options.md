@@ -83,12 +83,14 @@ Especifica o diretório para encaixar os recursos gerados sob (relativo ao `buil
 
 ## `build.assetsInlineLimit` {#build-assetsinlinelimit}
 
-- **Tipo:** `number`
+- **Tipo:** `number` | `((filePath: string, content: Buffer) => boolean | undefined)`
 - **Predefinido como:** `4096` (4 KiB)
 
 Recursos importados ou referenciados que são menores do que este limiar serão embutidos como URLs de base64 para evitar requisições de http adicionais. Defina para `0` para desativar completamente este processo de embutir.
 
-Os seguradores de lugares do Sistema de Ficheiro Grande de Git (Git LFS, em Inglês) são automaticamente excluídos do processo de embutir porque eles não contém o conteúdo do ficheiro que eles representam.
+Se uma função de resposta for passada, um valor booleano pode ser retornado para ativar ou desativar a opção. Se nada for retornado, aplica-se a lógica padrão.
+
+Os seguradores de lugares do Sistema de Ficheiro Grande de Git são automaticamente excluídos do processo de embutir porque eles não contém o conteúdo do ficheiro que eles representam.
 
 :::tip Nota
 Se especificares `build.lib`, `build.assetsInlineLimit` será ignorado e os recursos serão sempre embutidos, independentemente do tamanho de ficheiro ou de ser um segurador de lugar de Sistema de Ficheiro Grande de Git (Git LFS, em Inglês).
