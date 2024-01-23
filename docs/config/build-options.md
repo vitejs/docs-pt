@@ -190,7 +190,7 @@ Durante a construção do lado do servidor, os recursos estáticos não são emi
 ## `build.minify` {#build-minify}
 
 - **Tipo:** `boolean | 'terser' | 'esbuild'`
-- **Predefinido como:** `'esbuild'`
+- **Predefinido como:** `'esbuild'` para construção do cliente, `false` para construção da interpretação do lado do servidor
 
 Define para `false` para desativar a minificação, ou especifique o minificador a usar. O padrão é [esbuild](https://github.com/evanw/esbuild) o qual é 20 ~ 40x mais rápido do que o terser e apenas 1 ~ 2% pior em compressão. [Pontos de Referências](https://github.com/privatenumber/minification-benchmarks).
 
