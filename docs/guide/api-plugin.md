@@ -425,13 +425,13 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
   O gatilho pode escolher:
 
-  - Filtrar e reduzir a lista de módulo afetado para a atualização de módulo instantânea ou (HMR, sigla em Inglês) ser mais precisa.
+  - Filtrar e reduzir a lista de módulo afetado para a atualização de módulo instantânea ser mais precisa.
 
-  - Retornar um arranjo vazio e realizar a manipulação completa da atualização de módulo instantânea personalizada enviando eventos personalizados para o cliente:
+  - Retornar um vetor vazio e realizar a manipulação completa da atualização de módulo instantânea personalizada enviando eventos personalizados para o cliente (o exemplo usa `server.hot` que foi introduzido na Vite 5.1, é recomendado para também usar `server.ws` se suportarmos versões inferiores):
 
     ```js
     handleHotUpdate({ server }) {
-      server.ws.send({
+      server.hot.send({
         type: 'custom',
         event: 'special-update',
         data: {}
@@ -440,7 +440,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
     }
     ```
 
-    O código do cliente deve registar o manipulador correspondente usando a [API HMR](./api-hmr) (isto poderia ser injetado pelo mesmo gatilho `transform` da extensão):
+    O código do cliente deve registar o manipulador correspondente usando a [API da Substituição de Módulo Instantânea](./api-hmr) (isto poderia ser injetado pelo mesmo gatilho `transform` da extensão):
 
     ```js
     if (import.meta.hot) {
@@ -528,9 +528,9 @@ normalizePath('foo\\bar') // 'foo/bar'
 normalizePath('foo/bar') // 'foo/bar'
 ```
 
-## Filtragem, padrão `include`/`exclude` {#filtering-include-exclude-pattern}
+## Filtragem, padrão `include` ou `exclude` {#filtering-include-exclude-pattern}
 
-A Vite expõe a função [`createFilter` do `@rollup/pluginutils`](https://github.com/rollup/plugins/tree/master/packages/pluginutils#createfilter) para encorajar extensões específicas de Vite e integrações a usar o padrão de filtragem `include`/`exclude` padrão, que também é usado no próprio núcleo da Vite.
+A Vite expõe a função [`createFilter` do `@rollup/pluginutils`](https://github.com/rollup/plugins/tree/master/packages/pluginutils#createfilter) para encorajar extensões específicas de Vite e integrações a usar o padrão de filtragem `include`ou `exclude` padrão, que também é usado no próprio núcleo da Vite.
 
 ## Comunicação Cliente-Servidor {#client-server-communication}
 
@@ -538,7 +538,7 @@ Desde a Vite 2.9, fornecemos alguns utilitários para extensões para ajudar a m
 
 ### Servidor ao Cliente {#server-to-client}
 
-No lado da extensão, poderíamos usar o `server.ws.send` para difundir os eventos para todos os clientes:
+No lado da extensão, poderíamos usar o `server.hot.send` (desde a Vite 5.1) ou `server.ws.send` para difundir os eventos a todos os clientes:
 
 ```js
 // vite.config.js
@@ -547,10 +547,13 @@ export default defineConfig({
     {
       // ...
       configureServer(server) {
-        server.ws.send('my:greetings', { msg: 'hello' })
-      }
-    }
-  ]
+        // Exemplo: esperar um cliente conectar antes de enviar uma mensagem
+        server.hot.on('connection', () => {
+          server.hot.send('my:greetings', { msg: 'hello' })
+        })
+      },
+    },
+  ],
 })
 ```
 
@@ -580,7 +583,7 @@ if (import.meta.hot) {
 }
 ```
 
-Depois use `server.ws.on` e oiça os eventos no lado do servidor:
+Depois usamos `server.hot.on` (desde a Vite 5.1) ou `server.ws.on` e ouvimos os eventos no lado do servidor:
 
 ```js
 // vite.config.js
@@ -589,7 +592,7 @@ export default defineConfig({
     {
       // ...
       configureServer(server) {
-        server.ws.on('my:from-client', (data, client) => {
+        server.hot.on('my:from-client', (data, client) => {
           console.log('Message from client:', data.msg) // Hey!
           // responder apenas ao cliente (se necessário)
           client.send('my:ack', { msg: 'Hi! I got your message!' })
