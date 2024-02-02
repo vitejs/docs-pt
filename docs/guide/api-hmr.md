@@ -1,14 +1,12 @@
 # API da HMR {#hmr-api}
 
 :::tip NOTA
-HMR é a sigla para o termo Hot Module Replacement em Inglês, que traduz-se para Substituição de Módulo Instantânea em Português.
+Esta é a API da HMR do cliente. Para a manipulação da substituição de módulo instantânea nas extensões, consultar a [`handleHotUpdate`](./api-plugin#handlehotupdate).
 
-Esta é a API da HMR do cliente. Para a manipulação da HMR nas extensões, consulte a [handleHotUpdate](./api-plugin#handlehotupdate).
-
-O manual da API da HMR está principalmente destinada para os autores de abstração e ferramental. Como um utilizador final, a HMR já está provavelmente resolvida ou configurada para ti nos modelos de arranque especifico de abstração.
+O manual da API da substituição de módulo instantânea é principalmente destinada aos autores de abstrações e ferramentas. Como um utilizador final, é provável que a substituição de módulo instantânea já esteja resolvida para nós nos modelos de ponto de partida de projetos específicos da abstração.
 :::
 
-A Vite expõe o manual da sua API de HMR através do objeto especial `import.meta.hot`:
+A Vite expõe o manual da sua API de substituição de módulo instantânea através do objeto especial `import.meta.hot`:
 
 ```ts
 interface ImportMeta {
@@ -27,14 +25,15 @@ interface ViteHotContext {
   accept(dep: string, cb: (mod: ModuleNamespace | undefined) => void): void
   accept(
     deps: readonly string[],
-    cb: (mods: Array<ModuleNamespace | undefined>) => void
+    cb: (mods: Array<ModuleNamespace | undefined>) => void,
   ): void
 
   dispose(cb: (data: any) => void): void
-  decline(): void
-  invalidate(): void
+  prune(cb: (data: any) => void): void
+  invalidate(message?: string): void
 
-  // `InferCustomEventPayload` fornece tipos para eventos de Vite embutidos
+  // `InferCustomEventPayload` fornece os tipos para
+  // os eventos embutidos da Vite
   on<T extends string>(
     event: T,
     cb: (payload: InferCustomEventPayload<T>) => void,
