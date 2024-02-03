@@ -56,11 +56,13 @@ if (import.meta.hot) {
 }
 ```
 
-## Sensor Inteligente para TypeScript
+## Sensor Inteligente para TypeScript {#intellisense-for-typescript}
 
-A Vite fornece definições de tipo para `import.meta.hot` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Nós podemos criar um `env.d.ts` no diretório `src`, assim a TypeScript escolhe as definições de tipo:
+A Vite fornece definições de tipo para a `import.meta.hot` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Nós podemos criar um `env.d.ts` no diretório `src` para que a TypeScript pegue as definições de tipo:
 
-## `hot.accept(cb)`
+```ts
+/// <reference types="vite/client" />
+```
 
 Para um módulo aceitar-se, utilize a `import.meta.hot.accept` com uma resposta que receba o módulo atualizado:
 
