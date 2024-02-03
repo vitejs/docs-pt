@@ -46,9 +46,9 @@ interface ViteHotContext {
 }
 ```
 
-## Guarda Condicional Obrigatória
+## Guarda Condicional Obrigatória {#required-conditional-guard}
 
-Primeiro de todo, certifica-te de guardar todas as utilizações da API de HMR com um bloco condicional para que o código possa ter a árvore sacudida em produção:
+Em primeiro lugar, temos que nos certificar de proteger todos os usos da API de substituição de módulo instantânea com um bloco condicional para o código poder ser agitado em produção:
 
 ```js
 if (import.meta.hot) {
