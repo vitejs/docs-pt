@@ -64,7 +64,9 @@ A Vite fornece definições de tipo para a `import.meta.hot` no [`vite/client.d.
 /// <reference types="vite/client" />
 ```
 
-Para um módulo aceitar-se, utilize a `import.meta.hot.accept` com uma resposta que receba o módulo atualizado:
+## `hot.accept(cb)` {#hot-accept-cb}
+
+Para um módulo aceitar-se a si mesmo, usamos a `import.meta.hot.accept` com uma função de resposta que recebe o módulo atualizado:
 
 ```js
 export const count = 1
@@ -72,18 +74,18 @@ export const count = 1
 if (import.meta.hot) {
   import.meta.hot.accept((newModule) => {
     if (newModule) {
-      // "newModule" é "não definido" quando "SyntaxError" aconteceu
+      // "newModule" é indefinido quando ocorre "SyntaxError"
       console.log('updated: count is now ', newModule.count)
     }
   })
 }
 ```
 
-Um módulo que "aceita" atualizações instantâneas é considerado uma **fronteira de HMR**.
+Um módulo que "aceita" atualizações instantâneas é considerado um **limite da substituição de módulo instantânea**.
 
-A HMR da Vite na realidade não troca o módulo originalmente importado: se um módulo de fronteira de HMR reexportar as importações de uma dependência, então é responsável para atualização destas reexportações (e estas exportações devem estar a usar `let`). Além disto, os importadores ao longo da cadeia do módulo de fronteira não serão notificados da mudança. Esta implementação simplificada da HMR é suficiente para a maioria dos casos de uso de desenvolvimento, enquanto permite-nos ignorar o trabalho dispendioso da geração de módulos de delegação.
+A substituição de módulo instantânea da Vite não troca o módulo originalmente importado: se um módulo do limite da substituição de módulo instantânea reexportar novamente as importações duma dependência, então este é responsável por atualizar reexportações (e estas exportações devem estar usando `let`). Além disto, os importadores acima da cadeia a partir do módulo de limite não serão notificados da mudança. Esta implementação simplificada da substituição de módulo instantânea é o suficiente para a maioria dos casos de uso de desenvolvimento, enquanto permite-nos saltar o trabalho dispendioso de gerar módulos de delegação.
 
-A Vite exige que a chamada para esta função apareça como `import.meta.hot.accept(` (sensível aos espaços em branco) no código-fonte em ordem para módulo aceitar atualizar. Este é um requisito da analise estática que a Vite faz para ativar o suporte da HMR para um módulo.
+A Vite exige que a chamada para esta função apareça como `import.meta.hot.accept` (sensível a espaços em branco) no código-fonte para o módulo aceitar a atualização. Isto é um requisito da analise estática que a Vite faz para ativar o suporte a substituição de módulo instantânea para um módulo.
 
 ## `hot.accept(deps, cb)`
 
