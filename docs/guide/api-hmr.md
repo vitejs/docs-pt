@@ -134,9 +134,9 @@ if (import.meta.hot) {
 }
 ```
 
-## `hot.prune(cb)`
+## `hot.prune(cb)` {#hot-prune-cb}
 
-Regista uma função de resposta que chamará quando o módulo já não for importado na página. Comparado à `hot.dispose`, esta pode ser usada se o código-fonte limpar os efeitos colaterais sozinho sobre as atualizações e apenas precisamos limpar quando for removida da página. A Vite atualmente usa isto para importações de `.css`:
+Regista uma função de resposta que chamar-se-á quando o módulo não for mais importado na página. Comparado com a `hot.dispose`, esta pode ser usada se o código-fonte limpa os efeitos colaterais por si só sobre as atualizações e apenas precisamos limpar quando for removida da página. A Vite atualmente usa isto para as importações de ficheiros `.css`:
 
 ```js
 function setupOrReuseSideEffect() {}
