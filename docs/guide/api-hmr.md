@@ -184,21 +184,22 @@ import.meta.hot.accept((module) => {
 })
 ```
 
-## `hot.on(event, cb)`
+## `hot.on(event, cb)` {#hot-on-event-cb}
 
-Ouve um evento de HMR
+Ouve um evento de substituição de módulo instantânea
 
-Os seguintes eventos de HMR são despachados pela Vite automaticamente:
+Os seguintes eventos da substituição de módulo instantânea são despachados pela Vite automaticamente:
 
-- `'vite:beforeUpdate'` quando uma atualização estiver para ser aplicada (por exemplo, um módulo será substituído)
-- `'vite:beforeFullReload'` quando um recarregamento completo estiver para ocorrer
-- `'vite:beforePrune'` quando os módulos que não são mais necessários estiverem para ser  cortados
-- `'vite:invalidate'` quando um módulo for invalidado com `import.meta.hot.invalidate()`
-- `'vite:error'` quando um erro ocorrer (por exemplo, erro de sintaxe)
-- `'vite:ws:disconnect'` quando a conexão de websocket for perdida
-- `'vite:ws:connect'` quando a conexão de websocket for reestabelecida
+- `'vite:beforeUpdate'` quando uma atualização está prestes a ser aplicada (por exemplo, um módulo será substituído)
+- `'vite:afterUpdate'` quando uma atualização acaba de ser aplicada (por exemplo, um módulo foi substituído)
+- `'vite:beforeFullReload'` quando uma recarga completa está prestes a ocorrer
+- `'vite:beforePrune'` quando os módulos que já não são necessários estão prestes a ser eliminados
+- `'vite:invalidate'` quando um módulo é invalidado com `import.meta.hot.invalidate()`
+- `'vite:error'` quando ocorre um erro (por exemplo, erro de sintaxe)
+- `'vite:ws:disconnect'` quando a conexão da tomada da Web é perdida (tomada da Web, são os "WebSocket")
+- `'vite:ws:connect'` quando a conexão da tomada da Web é re(estabelecida)
 
-Os eventos de HMR personalizados também podem ser enviados a partir das extensões. Consulta a [handleHotUpdate](./api-plugin#handlehotupdate) para mais detalhes.
+Os eventos personalizados da substituição de módulo instantânea também podem ser enviados a partir das extensões. Consultar o [`handleHotUpdate`](./api-plugin#handlehotupdate) por mais detalhes.
 
 ## `hot.off(event, cb)`
 
