@@ -87,9 +87,9 @@ A substituição de módulo instantânea da Vite não troca o módulo originalme
 
 A Vite exige que a chamada para esta função apareça como `import.meta.hot.accept` (sensível a espaços em branco) no código-fonte para o módulo aceitar a atualização. Isto é um requisito da analise estática que a Vite faz para ativar o suporte a substituição de módulo instantânea para um módulo.
 
-## `hot.accept(deps, cb)`
+## `hot.accept(deps, cb)` {#hot-accept-deps-cb}
 
-Um módulo também pode aceitar atualizações de dependências diretas sem recarregar-se a si mesmo:
+Um módulo também pode aceitar atualizações das dependências diretas sem recarregar-se a si mesmo:
 
 ```js
 import { foo } from './foo.js'
@@ -98,15 +98,21 @@ foo()
 
 if (import.meta.hot) {
   import.meta.hot.accept('./foo.js', (newFoo) => {
-    // a resposta recebe o módulo './foo.js' atualizado
+    // a função de resposta recebe o módulo
+    // './foo.js' atualizado
     newFoo?.foo()
   })
 
-  // Também pode aceitar um arranjo de módulos de dependência:
+  // Também pode aceitar um vetor de
+  // módulos de dependência:
   import.meta.hot.accept(
     ['./foo.js', './bar.js'],
     ([newFooModule, newBarModule]) => {
-      // a resposta recebe os módulos atualizados num Arranjo (ou Array)
+      // A função de resposta recebe um vetor
+      // apenas o módulo atualizado não é nulo.
+      // Se a atualização não foi bem sucedida
+      // (erro de sintaxe por exemplo),
+      // o vetor está vazio
     }
   )
 }
