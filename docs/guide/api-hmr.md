@@ -118,9 +118,9 @@ if (import.meta.hot) {
 }
 ```
 
-## `hot.dispose(cb)`
+## `hot.dispose(cb)` {#hot-dispose-cb}
 
-Um módulo de auto-aceitação ou um módulo que espera ser aceitado por outros pode utilizar `hot.dispose` para limpar quaisquer efeitos colaterais persistente criado pela sua cópia atualizada:
+Um módulo que se aceita a si mesmo ou um módulo que espera ser aceito por outros pode usar `hot.dispose` para limpar quaisquer efeitos colaterais persistentes criados por sua cópia atualizada:
 
 ```js
 function setupSideEffect() {}
@@ -130,7 +130,7 @@ setupSideEffect()
 if (import.meta.hot) {
   import.meta.hot.dispose((data) => {
     // limpar o efeito colateral
-  })
+ })
 }
 ```
 
