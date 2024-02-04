@@ -150,11 +150,11 @@ if (import.meta.hot) {
 }
 ```
 
-## `hot.data`
+## `hot.data` {#hot-data}
 
-O objeto `import.meta.hot.data` é persistido através de diferentes instâncias do mesmo módulo atualizado. Ele pode ser utilizado para transmitir informação de uma versão anterior do módulo para a próxima.
+O objeto `import.meta.hot.data` é persistido em diferentes instâncias do mesmo módulo atualizado. Este pode ser usado para passar informações duma versão anterior do módulo para a próxima.
 
-Nota que a re-atribuição de `data` em si não é suportada. No lugar disto, devemos modificar as propriedades do objeto `data`, assim as informações adicionadas a partir dos outros manipuladores são preservadas:
+Nota que a reatribuição do próprio `data` não é suportada. Em vez disso, devemos alterar as propriedades do objeto `data` para que as informações adicionados por outros manipuladores sejam preservadas:
 
 ```js
 // ok
