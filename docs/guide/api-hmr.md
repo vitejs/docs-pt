@@ -201,7 +201,7 @@ Os seguintes eventos da substituição de módulo instantânea são despachados 
 
 Os eventos personalizados da substituição de módulo instantânea também podem ser enviados a partir das extensões. Consultar o [`handleHotUpdate`](./api-plugin#handlehotupdate) por mais detalhes.
 
-## `hot.off(event, cb)`
+## `hot.off(event, cb)` {#hot-off-event-cb}
 
 Remove a função de resposta dos ouvintes de evento.
 
