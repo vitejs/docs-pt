@@ -164,9 +164,9 @@ import.meta.hot.data.someValue = 'hello'
 import.meta.hot.data = { someValue: 'hello' }
 ```
 
-## `hot.decline()`
+## `hot.decline()` {#hot-decline}
 
-A chamada de `import.meta.hot.decline()` indica que este módulo não atualizável de maneira instantânea, e que o navegador deve realizar um recarregamento completo se este módulo for encontrado enquanto estiver propagando as atualizações de HMR,
+Atualmente, isto é um nulo, e existe para compatibilidade com as versões anteriores. Isto poderia mudar no futuro se existir um novo uso para isto. Para indicar que o módulo não é instantaneamente atualizável, usamos `hot.invalidate()`.
 
 ## `hot.invalidate()`
 
