@@ -168,18 +168,19 @@ import.meta.hot.data = { someValue: 'hello' }
 
 Atualmente, isto é um nulo, e existe para compatibilidade com as versões anteriores. Isto poderia mudar no futuro se existir um novo uso para isto. Para indicar que o módulo não é instantaneamente atualizável, usamos `hot.invalidate()`.
 
-## `hot.invalidate()`
+## `hot.invalidate(message?: string)` {#hot-invalidate-message-string}
 
-Um módulo de auto-aceitação pode aperceber-se de que durante o tempo de execução que não pode lidar com uma atualização de HMR, e assim a atualização precisa ser energicamente propagada para os importadores. Ao chamar `import.meta.hot.invalidate()`, o servidor de HMR invalidará os importadores do chamador, como se o chamador não fosse de auto-aceitação.
+Um módulo que aceita-se a si mesmo pode aperceber-se, durante a execução, de que não consegue lidar com uma atualização da substituição de módulo instantânea, pelo que a atualização tem que ser propagada à força aos importadores. Ao chamar `import.meta.hot.invalidate()`, o servidor da substituição de módulo instantânea invalidará os importadores do chamador, como se o chamador não se aceitasse a si mesmo. Isto registará uma mensagem na consola do navegador e no terminal. Nós podemos passar uma mensagem para dar algum contexto sobre o motivo da invalidação.
 
-Nota que deves sempre chamar `import.meta.hot.accept` mesmo se planeias chamar `invalidate` imediatamente mais tarde, ou então o cliente de HMR não ouvirá as futuras mudanças para o módulo de auto-aceitação. Para comunicar a tua intenção de maneira clara, recomendamos a chamada de `invalidade` dentro da resposta de `accept` desta maneira:
+Nota que devemos sempre chamar `import.meta.hot.accept` mesmo se planeamos chamar `invalidate` imediatamente depois, ou então o cliente da substituição de módulo instantânea não ouvirá futuras mudanças no módulo de auto-aceitação. Para comunicar a nossa intenção claramente, recomendamos chamar `invalidate` dento da função de resposta de `accept` desta maneira:
 
-```ts
-import.meta.hot.accept(module => {
-  // Tu podes utilizar a nova instância do módulo para decidir se invalida.
+```js
+import.meta.hot.accept((module) => {
+  // Podemos usar a nova instância do módulo para
+  // decidir se a invalidação deve ser efetuada.
   if (cannotHandleUpdate(module)) {
     import.meta.hot.invalidate()
-    }
+  }
 })
 ```
 
