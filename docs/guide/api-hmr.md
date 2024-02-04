@@ -205,10 +205,10 @@ Os eventos personalizados da substituição de módulo instantânea também pode
 
 Remove a função de resposta dos ouvintes de evento.
 
-## `hot.send(event, data)`
+## `hot.send(event, data)` {#hot-send-event-data}
 
-Envia os eventos personalizados de volta para o servidor de desenvolvimento da Vite.
+Envia os eventos personalizados de volta ao servidor de desenvolvimento da Vite.
 
-Se chamado antes de conectado, o dado será armazenado temporariamente e enviado uma vez que a conexão for estabelecida.
+Se chamada antes da conexão, o dado será amortecido e enviado assim que a conexão for estabelecida.
 
-Consulte a [Comunicação Cliente-Servidor](/guide/api-plugin.html#comunicação-cliente-servidor) para mais detalhes.
+Consultar a [Comunicação cliente-servidor](/guide/api-plugin#client-server-communication) por mais detalhes.
