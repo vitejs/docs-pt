@@ -131,13 +131,21 @@ app.use('*', async (req, res, next) => {
     // `@vitejs/plugin-react`
     template = await vite.transformIndexHtml(url, template)
 
-    // 3. Carregar a entrada do servidor. `ssrLoadModule`
+    // 3a. Carregar a entrada do servidor. `ssrLoadModule`
     // transforma automaticamente o código-fonte do módulo
     // de ECMAScript para ser usável na Node.js! Não existe
     // nenhum empacotamento obrigatório, e fornece
     // invalidação eficiente semelhante à substituição de
     // módulo instantânea.
     const { render } = await vite.ssrLoadModule('/src/entry-server.js')
+    // 3b. Desde a Vite 5.1, podemos usar a API `createViteRuntime`.
+    // Esta suporta completamente a substituição de módulo instantânea
+    // e funciona duma maneira semelhante a `ssrLoadModule`.
+    // O caso de uso mais avançado seria criar uma execução numa linha
+    // separada ou mesmo numa máquina diferente usando a classe
+    // `ViteRuntime`
+    const runtime = await vite.createRuntime(server)
+    const { render } = await runtime.executeEntrypoint('/src/entry-server.js')
 
     // 4. Interpretar o HTML da aplicação. Isto presume que
     // a função `render` exportada do `entry-server.js` chama
@@ -173,7 +181,7 @@ O programa `dev` no `package.json` também deve ser alterado para usar o program
 Para entregar um projeto de Interpretação do Lado do Servidor para produção, precisamos:
 
 1. Produzir uma construção do cliente como normal;
-2. Produzir uma construção da Interpretação do Lado do Servidor, que pode ser diretamente carregada através da `import()` para que não tenhamos passar pela `ssrLoadModule` da Vite;
+2. Produzir uma construção da Interpretação do Lado do Servidor, que pode ser diretamente carregada através da `import()` para que não tenhamos que passar pela `ssrLoadModule` ou `runtime.executeEntrypoint` da Vite;
 
 Os nossos programas no `package.json` parecer-se-ão com isto:
 
@@ -193,7 +201,7 @@ Depois, no `server.js` precisamos adicionar alguma lógica específica de produ�
 
 - Ao invés de ler o `index.html` da raiz, usamos o `dist/client/index.html` como modelo de marcação, já que este contém as ligações corretas do recurso à construção do cliente.
 
-- Ao invés de `await vite.ssrLoadModule('/src/entry-server.js')`, usamos `import('./dist/server/entry-server.js')` (este ficheiro é o resultado da construção da Interpretação do Lado do Servidor).
+- Ao invés de `await vite.ssrLoadModule('/src/entry-server.js')` ou `await runtime.executeEntryPoint('/src/entry-server.js')`, usamos `import('./dist/server/entry-server.js')` (este ficheiro é o resultado da construção da Interpretação do Lado do Servidor).
 
 - Movemos a criação e todo uso do servidor de desenvolvimento da `vite` atrás dos ramos condicionais exclusivos de desenvolvimento, depois adicionamos intermediários de serviço de ficheiro estático para servir os ficheiros a partir da `dist/client`.
 

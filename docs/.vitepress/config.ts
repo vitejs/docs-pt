@@ -132,7 +132,7 @@ export default defineConfig({
 
     footer: {
       message: `Lançada sob a Licença MIT. (${commitRef})`,
-      copyright: 'Direitos de Autor © 2019-present Evan You & Colaboradores da Vite',
+      copyright: 'Direitos de Autor © 2019-presente Evan You & Colaboradores da Vite',
     },
 
     nav: [
@@ -280,7 +280,11 @@ export default defineConfig({
               link: '/guide/api-javascript'
             },
             {
-              text: 'Referência de Configuração',
+              text: 'API de Execução da Vite',
+              link: '/guide/api-vite-runtime'
+            },
+            {
+              text: 'Referência da Configuração',
               link: '/config/'
             }
           ]
