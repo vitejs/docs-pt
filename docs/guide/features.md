@@ -618,6 +618,8 @@ const worker = new Worker(new URL('./worker.js', import.meta.url), {
 })
 ```
 
+A deteção do operário apenas funcionará se o construtor `new URL()` for usado diretamente dentro da declaração `new Worker()`. Adicionalmente, todos os parâmetros de opções devem ser valores estáticos (isto é, literais de sequência de caracteres).
+
 ### Importações com Sufixos de Consulta {#import-with-query-suffixes}
 
 Um programa de operário da Web pode ser importado diretamente adicionando `?worker` ou `?sharedworker` à requisição da importação. A exportação padrão será um construtor personalizado de operário:
