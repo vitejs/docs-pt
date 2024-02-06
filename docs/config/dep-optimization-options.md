@@ -6,24 +6,24 @@
 
 - **Tipo:** `string | string[]`
 
-Por padrão, a Vite rastreará todos os teus ficheiros `.html` para detetar dependências que precisam ser pré-empacotadas (ignorando a `node_modules`, `build.outDir`, `__tests__` e `coverage`). Se `build.rollupOptions.input` for especificado, a Vite rastreará estes pontos de entrada.
+Por padrão, a Vite rastreará todos os nossos ficheiros `.html` para detetar as dependências que precisam ser pré-empacotadas (ignorando a `node_modules`, `build.outDir`, `__tests__` e `coverage`). Se a `build.rollupOptions.input` for especificada, a Vite rastreará estes pontos de entrada.
 
-Se nenhum destes adequado as tuas necessidades, podes especificar entradas personalizadas utilizando esta opção - o valor deve ser um [padrão `fast-glob`](https://github.com/mrmlnc/fast-glob#basic-syntax) ou um arranjo de padrões que são relativos da raiz do projeto de Vite. Isto sobrescreverá as inferências de entradas padrão. Apenas as pastas `node_modules` e `build.outDir` serão ignoradas por padrão quando a `optimizeDeps.entries` for explicitamente definidas. Se outras pastas precisarem ser ignoradas, podes utilizar um padrão de ignorar como parte da lista de entradas, marcado com um `!` inicial.
+Se nenhuma destas opções se adequar às nossas necessidades, podemos especificar entradas personalizadas usando esta opção - o valor deve ser um [padrão `fast-glob`](https://github.com/mrmlnc/fast-glob#basic-syntax) ou um vetor de padrões que são relativos à raiz do projeto da Vite. Isto sobrescreverá a inferência das entradas padrão. Só as pastas `node_modules` e `build.outDir` serão ignoradas por padrão quando `optimizeDeps.entries` for explicitamente definida. Se as outras pastas precisarem de ser ignoradas, podemos usar um padrão de ignorar como parte da lista de entradas, marcada com uma `!` inicial.
 
 ## `optimizeDeps.exclude` {#optimizedeps-exclude}
 
 - **Tipo:** `string[]`
 
-Dependências à excluir do pré-empacotamento.
+Dependências a excluir do pré-empacotamento.
 
-:::warning Aviso sobre a CommonJS
-As dependências da CommonJS não devem ser excluídas da otimização. Se uma dependência de Módulo de ECMAScript for excluída da otimização, mas tiver uma dependência de CommonJS encaixada, a dependência de CommonJS deve ser adicionada ao `optimizeDeps.include`. Por exemplo:
+:::warning CommonJS
+As dependências de CommonJS não devem ser excluídas da otimização. Se uma dependência de Módulo de ECMAScript for excluída da otimização, mas tem uma dependência de CommonJS encaixada, a dependência de CommonJS devem ser adicionadas a `optimizeDeps.include`. Exemplo:
 
 ```js
 export default defineConfig({
   optimizeDeps: {
-    include: ['esm-dep > cjs-dep']
-  }
+    include: ['esm-dep > cjs-dep'],
+  },
 })
 ```
 
@@ -33,13 +33,13 @@ export default defineConfig({
 
 - **Tipo:** `string[]`
 
-Por padrão, pacotes ligados que não estão dentro da `node_modules` não são pré-empacotados. Utilize esta opção para forçar com que um pacote ligado seja pré-empacotado.
+Por padrão, os pacotes ligados que não estão dentro da `node_modules` não são pré-empacotados. Usamos esta opção para forçar um pacote ligado a ser pré-empacotado.
 
-**Experimental:** Se estiveres a usar uma biblioteca com muitas importações profundas, podes também especificar um padrão global final para pré-empacotar todas as importações de uma vez. Isto evitará pré-empacotar constantemente sempre que uma importação profunda for usada. Por exemplo:
+**Experimental:** Se estivermos usando uma biblioteca com muitas importações profundas, também podemos especificar um padrão de globo à direita para pré-empacotar todas as importações de uma só vez. Isto evitará o pré-empacotamento constante sempre que uma nova importação profunda for usada. Por exemplo:
 
 ```js
 export default defineConfig({
-  otimizeDeps: {
+  optimizeDeps: {
     include: ['my-lib/components/**/*.vue'],
   },
 })
@@ -49,11 +49,11 @@ export default defineConfig({
 
 - **Tipo:** [`EsbuildBuildOptions`](https://esbuild.github.io/api/#simple-options)
 
-Opções para passar para esbuild durante o exame e otimização de dependência.
+Opções a passar à `esbuild` durante a verificação e otimização de dependência.
 
-Certas opções são omitidas visto que a mudança delas não seria compatível com otimização de dependência da Vite.
+Certas opções estão omitidas porque a sua alteração não seria compatível com a otimização de dependência da Vite.
 
-- `external` também é omitida, utilize a opção `optimizeDeps.exclude` da Vite
+- `external` também está omitida, usamos a opção `optimizeDeps.exclude` da Vite
 - `plugins` são combinadas com a extensão de dependência da Vite
 
 ## `optimizeDeps.force` {#optimizedeps-force}
@@ -77,12 +77,12 @@ Quando ativado, segurará os primeiros resultados das dependências otimizadas a
 - **Tipo:** `boolean | 'build' | 'dev'`
 - **Predefinido como:** `'build'`
 
-Esta opção está depreciada. Na Vite 5.1, o pré-empacotamento das dependências durante a construção não foi removida. Definir `optimizeDeps.disabled` para `true` ou `'dev'` desativa o otimizador, e configurada para `false` ou `'build'` deixa o otimizador durante o desenvolvimento ativado.
+Esta opção foi depreciada. Na Vite 5.1, o pré-empacotamento das dependências durante a construção foi removido. Definir `optimizeDeps.disabled` como `true` ou `'dev'` desativa o otimizador, e configurada como `false` ou `'build'` deixa o otimizador durante o desenvolvimento ativado.
 
-Para desativar o otimizador completamente, usamos `optimizeDeps.noDiscovery: true` para não permitir a descoberta automática de dependências e deixar `optimizeDeps.include` indefinido ou vazio.
+Para desativar completamente o otimizador, usamos `optimizeDeps.noDiscovery: true`  para não permitir a descoberta automática de dependências e deixar `optimizeDeps.include` indefinido ou vazio.
 
 :::warning AVISO
-A otimização de dependências durante o momento da construção foi uma funcionalidade **experimental**. Os projetos que experimentaram esta estratégia também removeram `@rollup/plugin-commonjs` utilizando `build.commonjsOptions: { include: [] }`. Se fizermos isso, um aviso nos guiará a reativá-lo para suportar apenas pacotes CJS durante o empacotamento.
+A otimização de dependências durante a construção era uma funcionalidade **experimental**. Os projetos que experimentaram esta estratégia também removeram `@rollup/plugin-commonjs` usando `build.commonjsOptions: { include: [] }`. Se o fizermos, um aviso guiar-nos-á para o reativarmos para suportar apenas pacotes de CommonJS durante o empacotamento.
 :::
 
 ## `optimizeDeps.needsInterop` {#optimizedeps-needsinterop}
@@ -90,4 +90,4 @@ A otimização de dependências durante o momento da construção foi uma funcio
 - **Experimental**
 - **Tipo:** `string[]`
 
-Força a interoperação de Módulo de ECMAScript quando estiver a importar estas dependências. A Vite é capaz de detetar apropriadamente quando uma dependência precisa interoperar, assim esta opção geralmente não é necessária. No entanto, combinações diferentes de dependências poderia fazer algumas delas serem pré-empacotadas de maneira diferente. Adicionar estes pacotes ao `needsInterop` pode acelerar o arranque a frio evitando recarregamentos da página inteira. Receberás um aviso se este for o caso para uma das tuas dependências, sugerindo adicionar o nome do pacote para este arranjo na tua configuração.
+Força a interoperabilidade do Módulo de ECMAScript ao importar estas dependências. A Vite é capaz de detetar corretamente quando uma dependência precisa de interoperabilidade, portanto, esta opção geralmente não é necessária. No entanto, diferentes combinações de dependências poderiam fazer algumas destas serem pré-empacotadas de maneira diferente. Adicionar estes pacotes ao `needsInterop` pode acelerar a inicialização fria, evitando recargas de página inteira. Receberemos um aviso se este for o caso duma das nossas dependências, sugerindo que adicionemos o nome do pacote a este vetor na nossa configuração.
