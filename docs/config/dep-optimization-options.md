@@ -60,7 +60,15 @@ Certas opções são omitidas visto que a mudança delas não seria compatível 
 
 - **Tipo:** `boolean`
 
-Defina para `true` para forçar o pré-empacotamento de dependência, ignorando as dependências otimizadas cacheadas previamente.
+Defina como `true` para forçar o pré-empacotamento de dependência, ignorando as dependências otimizadas previamente armazenadas para consulta imediata.
+
+## `optimizeDeps.holdUntilCrawlEnd` {#optimizedeps-holduntilcrawlend}
+
+- **Experimental**
+- **Tipo:** `boolean`
+- **Predefinido como:** `true`
+
+Quando ativado, segurará os primeiros resultados das dependências otimizadas até que todas as importações estáticas serem rastreadas na inicialização fria. Isto evita a necessidade de recarregar a página inteira quando são descobertas novas dependências e estas acionam a geração de novos pedaços comuns. Se todas as dependências forem encontradas pelo verificador mais aquelas explicitamente definidas na `include`, é melhor desativar esta opção para deixar o navegador processar mais requisições em paralelo.
 
 ## `optimizeDeps.disabled` {#optimizedeps-disabled}
 
