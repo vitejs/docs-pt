@@ -395,26 +395,6 @@ const modules = {
 }
 ```
 
-### Importação de Globo Como {#glob-import-as}
-
-A `import.meta.glob` também suporta a importação de ficheiros como sequências de caracteres (semelhante a [Importação de Recurso como Sequência de Caracteres](/guide/assets#importing-asset-as-string)) com a sintaxe de [Reflexão de Importação](https://github.com/tc39/proposal-import-reflection):
-
-```js
-const modules = import.meta.glob('./dir/*.js', { as: 'raw', eager: true })
-```
-
-O código acima será transformado no seguinte:
-
-```js
-// código produzido pela vite
-const modules = {
-  './dir/foo.js': 'export default "foo"\n',
-  './dir/bar.js': 'export default "bar"\n',
-}
-```
-
-`{ as: 'url' }` também é suportado para carregar os recursos como URLs.
-
 ### Padrões Múltiplos {#multiple-patterns}
 
 O primeiro argumento pode ser um vetor de globos, por exemplo:
@@ -494,20 +474,37 @@ const modules = {
 
 #### Consultas Personalizadas {#custom-queries}
 
-Nós também podemos usar a opção `query` para fornecer consultas personalizadas às importações para as outras extensões consumirem:
+Nós também podemos usar a opção `query` para fornecer consultas personalizadas às importações, por exemplo, importar recursos [como uma sequência de caracteres](/guide/assets#importing-asset-as-string) ou [como uma URL](/guide/assets#importing-asset-as-url):
 
 ```ts
-const modules = import.meta.glob('./dir/*.js', {
-  query: { foo: 'bar', bar: true },
+const moduleStrings = import.meta.glob('./dir/*.svg', {
+  query: '?raw',
+  import: 'default',
+})
+const moduleUrls = import.meta.glob('./dir/*.svg', {
+  query: '?url',
+  import: 'default',
 })
 ```
 
 ```ts
 // código produzido pela vite
-const modules = {
-  './dir/foo.js': () => import('./dir/foo.js?foo=bar&bar=true'),
-  './dir/bar.js': () => import('./dir/bar.js?foo=bar&bar=true'),
+const moduleStrings = {
+  './dir/foo.svg': () => import('./dir/foo.js?raw').then((m) => m['default']),
+  './dir/bar.svg': () => import('./dir/bar.js?raw').then((m) => m['default']),
 }
+const moduleUrls = {
+  './dir/foo.svg': () => import('./dir/foo.js?url').then((m) => m['default']),
+  './dir/bar.svg': () => import('./dir/bar.js?url').then((m) => m['default']),
+}
+```
+
+Nós também podemos fornecer consultas personalizadas para outras extensões consumirem:
+
+```ts
+const modules = import.meta.glob('./dir/*.js', {
+  query: { foo: 'bar', bar: true },
+})
 ```
 
 ### Advertências sobre a Importação de Globos {#glob-import-caveats}
