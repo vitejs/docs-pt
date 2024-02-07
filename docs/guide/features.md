@@ -293,7 +293,7 @@ Desde a versão 4.4 da Vite, existe suporte experimental para a [CSS Relâmpago]
 npm add -D lightningcss
 ```
 
-Se for ativada, os ficheiros de CSS serão processados pela CSS Relâmpago no lugar da PostCSS. Para configurá-la, podemos passar as opções da CSS Relâmpago à opção de configuração [`css.lightingcss`](../config/shared-options#css-lightningcss).
+Se for ativada, os ficheiros de CSS serão processados pela CSS Relâmpago no lugar da PostCSS. Para configurá-la, podemos passar as opções da CSS Relâmpago à opção de configuração [`css.lightningcss`](../config/shared-options#css-lightningcss).
 
 Para configurar os Módulos de CSS, usaremos a [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) no lugar da [`css.modules`](/config/shared-options#css-modules) (que configura a maneira que a PostCSS manipula os módulos de CSS).
 
