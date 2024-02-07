@@ -94,7 +94,7 @@ async function createServer() {
   // Quando o servidor reiniciar (por exemplo, depois do
   // utilizador modificar `vite.config.js`), `vite.middlewares`
   // continua a ser a mesma referência (com uma nova pilha
-  // interna da Vite e intermediários injetados pela extensão).
+  // interna da Vite e intermediários injetados por extensões).
   // O seguinte é válido mesmo depois de reiniciar.
   app.use(vite.middlewares)
 
