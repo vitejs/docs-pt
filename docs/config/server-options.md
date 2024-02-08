@@ -196,7 +196,7 @@ export default defineConfig({
 
 - **Tipo:** `object | null`
 
-Opções do observador do sistema de ficheiro para passar para o [`chokidar`](https://github.com/paulmillr/chokidar#api).
+Opções do observador do sistema de ficheiro para passar ao [`chokidar`](https://github.com/paulmillr/chokidar#api).
 
 O observador do servidor da Vite observa o `root` e ignora os diretórios `.git/`, `node_modules/`, e os diretórios `cacheDir` e `build.outDir` da Vite por padrão. Quando atualizamos um ficheiro observado, a Vite aplicará substituição de módulo instantânea e atualizar a página apenas se necessário.
 
@@ -221,7 +221,7 @@ Para corrigir isto, poderias tanto:
 
 :::
 
-## `server.middlewareMode` {#server-middlewareMode}
+## `server.middlewareMode` {#server-middlewaremode}
 
 - **Tipo:** `boolean`
 - **Predefinido como:** `false`
