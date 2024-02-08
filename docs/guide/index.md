@@ -83,24 +83,22 @@ pnpm create vite my-vue-app --template vue
 bun create vite my-vue-app --template vue
 ```
 
-Consulte p [`create-vite`](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes sobre modelo de projeto suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
+Consultar a [`create-vite`](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes sobre modelo de projeto suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
 
 ## Modelos de Projeto da Comunidade {#community-templates}
 
-`create-vite` é uma ferramenta para iniciar rapidamente um projeto a partir dum modelo de projeto básico para as abstrações populares. Consulte o repositório [`awesome-vite`](https://github.com/vitejs/awesome-vite) por [modelos de projeto mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluem outras ferramentas ou dirigem-se à abstrações diferentes. Nós podemos usar uma ferramenta como [`degit`](https://github.com/Rich-Harris/degit) para estruturar o nosso projeto com um dos modelos de projeto:
+A `create-vite` é uma ferramenta que permite começar rapidamente um projeto a partir dum modelo de projeto básico para abstrações populares. Consultar a Awesome Vite por [modelos de projeto mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluem outras ferramentas ou se destinam a abstrações diferentes.
+
+Para um modelo de projeto em `https://github.com/user/project`, podemos testá-lo ao vivo usando `https://github.stackblitz.com/user/project` (adicionando `.stackblitz` após `github` ao URL do projeto).
+
+Também podemos usar uma ferramenta como [`degit`](https://github.com/Rich-Harris/degit) para estruturar o nosso projeto com um dos modelos de projeto. Assumindo que o projeto está na GitHub e usa `main` como ramo padrão, podemos usar uma cópia local usando:
 
 ```bash
-npx degit user/project my-project
+npx degit user/project#main my-project
 cd my-project
 
 npm install
 npm run dev
-```
-
-Se o projeto usa o `main` como ramo padrão, sufixe o repositório do projeto com `#main`:
-
-```bash
-npx degit user/project#main my-project
 ```
 
 ## `index.html` e a Raiz do Projeto {#index-html-and-project-root}
