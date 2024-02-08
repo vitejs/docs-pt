@@ -74,7 +74,7 @@ window.addEventListener('vite:preloadError', (event) => {
 })
 ```
 
-Quando uma nova implementação de produção ocorre, o serviço de hospedagem pode eliminar os recursos das implementações anteriores de produção. Como resultado, um utilizador que visitou a nossa aplicação antes da nova implementação de produção pode encontrar um erro de importação. Este erro acontece porque os recursos executando sobre o dispositivo do utilizador estão desatualizados e esta tenta importar o pedaço antigo correspondente, que foi eliminado. Este evento é útil para solucionar esta situação.
+Quando uma nova implementação de produção ocorre, o serviço de hospedagem pode eliminar os recursos das implementações anteriores da produção. Como resultado, um utilizador que visitou a nossa aplicação antes da nova implementação de produção pode encontrar um erro de importação. Este erro acontece porque os recursos executando sobre o dispositivo do utilizador estão desatualizados e esta tenta importar o pedaço antigo correspondente, que foi eliminado. Este evento é útil para solucionar esta situação.
 
 ## Reconstruir Sobre as Mudanças dos Ficheiros {#rebuild-on-files-changes}
 
