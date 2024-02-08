@@ -5,18 +5,17 @@
 - **Tipo:** `string | boolean`
 - **Predefinido como:** `'localhost'`
 
-Especifica quais endereços de IP o servidor deveria ouvir.
-Defina isto para `0.0.0.0` ou `true` para ouvir todos endereços, incluindo os endereços privados e públicos.
+Especifica quais endereços de IP o servidor deveria ouvir. Defina isto como `0.0.0.0` ou `true` para ouvir todos endereços, incluindo os endereços privados e públicos.
 
-Iso pode definido através da Linha de Comando utilizando `--host 0.0.0.0` ou `--host`.
+Iso pode ser definido através da interface da linha de comando usando `--host 0.0.0.0` ou `--host`.
 
 :::tip NOTA
 
-Existem casos onde outros servidores podem responder no lugar da Vite.
+Há casos onde outros servidores podem responder no lugar da Vite.
 
-O primeiro caso é quando `localhost` é usado. A Node.js abaixo da v17 reorganiza o resultado dos endereços de DNS resolvidos por padrão. Quando estiveres acessando o `localhost`, os navegadores utilizam o DNS para resolver o endereço e aquele endereço pode diferir do endereço que a Vita está ouvindo. A Vite imprime o endereço resolvido quando ele difere.
+O primeiro caso é quando `localhost` é usado. A Node.js na versão 17 reordena o resultado dos endereços resolvidos pelo sistema de nomes de domínios (DNS) por padrão. Quando acessamos o `localhost`, os navegadores usam o sistema de nomes de domínios para resolver o endereço e esse endereço pode ser diferente do endereço que a Vite está ouvindo. A Vite imprime o endereço resolvido quando este é diferente.
 
-Tu podes definir o [`dns.setDefaultResultOrder('verbatim')`](https://nodejs.org/api/dns.html#dns_dns_setdefaultresultorder_order) para desativar o comportamento de reorganização. A Vite imprimirá então o endereço como `localhost`.
+Nós podemos definir [`dns.setDefaultResultOrder('verbatim')`](https://nodejs.org/api/dns.html#dns_dns_setdefaultresultorder_order) para desativar o comportamento de reordenação. A Vite então imprimirá o endereço como `localhost`.
 
 ```js
 // vite.config.js
@@ -30,15 +29,13 @@ export default defineConfig({
 })
 ```
 
-O segundo caso é quando os hospedeiros de asterisco (ou "wildcard") (por exemplo, `0.0.0.0`) são utilizados. Isto é porque os servidores ouvindo hospedeiros sem asterisco ficam com a prioridade sobre aqueles ouvindo hospedeiros com o asterisco.
+O segundo caso é quando são usados hospedeiros universais (por exemplo, `0.0.0.0`). Isto deve-se ao fato de os servidores que ouvem os hospedeiros que não são de carácter universal terem prioridade sobre os que ouvem em hospedeiros de carácter universal.
 
 :::
 
-:::tip Acessando o Servidor no Subsistema de Windows para Linux 2 a partir da tua rede local
+:::tip Acessar o Servidor no Subsistema de Windows para Linux 2 a partir da Nossa Rede Local
 
-Quando executas a Vite no WSL2, não é suficiente definir `host: true` para acessar o servidor a partir da tua rede local.
-
-Consulte [o documento do Subsistema de Windows para Linux](https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-a-wsl-2-distribution-from-your-local-area-network-lan) por mais detalhes.
+Quando executamos a Vite no Subsistema de Windows para Linux versão 2, não é suficiente definir `host: true` para acessar o servidor a partir da nossa rede local. Consultar [o documento do Subsistema de Windows para Linux](https://learn.microsoft.com/en-us/windows/wsl/networking#accessing-a-wsl-2-distribution-from-your-local-area-network-lan) por mais detalhes.
 
 :::
 
