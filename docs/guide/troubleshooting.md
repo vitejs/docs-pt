@@ -13,7 +13,7 @@ A construção de CJS da API de Node da Vite está depreciada e será removida n
 Num projeto de Vite básico, devemos nos certificar de que:
 
 1. O conteúdo do ficheiro `vite.config.js` está a usar a sintaxe de ESM.
-2. O ficheiro `package.json` mais próximo tem `"type": "module`, ou usa a extensão `.mjs`, por exemplo, `vite.config.mjs`.
+2. O ficheiro `package.json` mais próximo tem `"type": "module`, ou usa a extensão `.mjs` ou `.mts`, por exemplo, `vite.config.mjs` ou `vite.config.mts`.
 
 Para os outros projetos, existem algumas abordagens gerais:
 

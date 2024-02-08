@@ -24,7 +24,7 @@ A API da Node de CJS da Vite está depreciada. Quando chamamos `require('vite')`
 Num projeto de Vite básico, devemos certificar-nos de que:
 
 1. O conteúdo do ficheiro `vite.config.js` está a usar a sintaxe de módulo de ECMAScript.
-2. O ficheiro `package.json` mais próximo tem `"type": "module"`, ou devemos usar a extensão `.mjs`, por exemplo `vite.config.mjs`.
+2. O ficheiro `package.json` mais próximo tem `"type": "module"`, ou devemos usar a extensão `.mjs` ou `.mts`, por exemplo `vite.config.mjs` ou `vite.config.mts`.
 
 Para outros projetos, existem algumas abordagens gerais:
 
