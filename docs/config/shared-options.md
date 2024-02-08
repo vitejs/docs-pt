@@ -168,21 +168,31 @@ A ativação desta definição faz com que a Vite determine a identidade do fich
 
   ```ts
   interface CSSModulesOptions {
+    getJSON?: (
+      cssFileName: string,
+      json: Record<string, string>,
+      outputFileName: string,
+    ) => void
     scopeBehaviour?: 'global' | 'local'
     globalModulePaths?: RegExp[]
+    exportGlobals?: boolean
     generateScopedName?:
       | string
       | ((name: string, filename: string, css: string) => string)
     hashPrefix?: string
     /**
-     * default: null
+     * default: undefined
      */
     localsConvention?:
       | 'camelCase'
       | 'camelCaseOnly'
       | 'dashes'
       | 'dashesOnly'
-      | null
+      | ((
+          originalClassName: string,
+          generatedClassName: string,
+          inputFile: string,
+        ) => string)
   }
   ```
 
@@ -277,7 +287,7 @@ Seleciona o motor usado para o processamento de CSS. Consulte a [CSS Relâmpago]
 
 ## `css.lightningcss` {#css-lightningcss}
 
-- **Experimental:** [Comente](https://github.com/vitejs/vite/discussions/13835)
+- **Experimental:** [Comentar](https://github.com/vitejs/vite/discussions/13835)
 - **Tipo:**
 
 ```js
