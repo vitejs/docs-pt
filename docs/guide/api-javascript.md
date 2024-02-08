@@ -2,7 +2,7 @@
 
 As APIs de JavaScript da Vite são completamente tipadas, e é recomendado utilizar a TypeScript ou ativar a verificação de tipo de JavaScript no Visual Studio Code para influenciar o sensor inteligente e a validação.
 
-## `createServer`
+## `createServer` {#createserver}
 
 **Assinatura de Tipo:**
 
@@ -20,13 +20,13 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
 ;(async () => {
   const server = await createServer({
-    // quaisquer opções de configuração de utilizador válido,
+    // quaisquer opções válidas de configuração do utilizador,
     // mais `mode` e `configFile`
     configFile: false,
     root: __dirname,
     server: {
-      port: 1337
-    }
+      port: 1337,
+    },
   })
   await server.listen()
 
@@ -36,24 +36,61 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 ```
 
 :::tip NOTA
-Quando estiveres utilizando `createServer` e `build` no mesmo processo de Node.js, ambas funções dependem de `process.env.`<wbr>`NODE_ENV` para funcionarem apropriadamente, o que também depende da opção de configuração `mode`. Para prevenir comportamento contraditório, defina `process.env.`<wbr>`NODE_ENV` ou o `mode` das duas APIs para `development`. Caso contrário, podes gerar um processo filho para executar as APIs separadamente.
+Quando usamos `createServer` e `build` no mesmo processo da Node.js, ambas funções dependem da `process.env.NODE_ENV` para funcionarem corretamente, que também dependem da opção de configuração `mode`. Para evitar comportamento conflituosos, definimos `process.env.NODE_ENV` ou a `mode` das duas APIs como `development`. Caso contrário, é possível gerar um processo filho para executar as APIs separadamente.
 :::
 
-## `InlineConfig`
+:::tip NOTA
+Quando usamos o [modo intermediário](/config/server-options#server-middlewaremode) combinado com a [configuração da delegação para tomada da Web](/config/server-options#server-proxy), o servidor de HTTP pai deve ser fornecido em `middlewareMode` para ligar a delegação corretamente:
+
+<details>
+<summary>Exemplo</summary>
+
+```ts
+import http from 'http'
+import { createServer } from 'vite'
+
+const parentServer = http.createServer() // or express, koa, etc.
+
+const vite = await createServer({
+  server: {
+    // Ativar o modo intermediário
+    middlewareMode: {
+      // Fornecer o servidor de HTTP pai para
+      // tomada da Web (WebSocket)
+      server: parentServer,
+    },
+  },
+  proxy: {
+    '/ws': {
+      target: 'ws://localhost:3000',
+      // Delegando a tomada da Web
+      ws: true,
+    },
+  },
+})
+
+parentServer.use(vite.middlewares)
+```
+
+</details>
+
+:::
+
+## `InlineConfig` {#inlineconfig}
 
 A interface `InlineConfig` estende o `UserConfig` com propriedades adicionais:
 
 - `configFile`: especifica o ficheiro de configuração à utilizar. Se não for definido, a Vite tentará automaticamente resolver aquele a partir da raiz do projeto. Defina para `false` para desativar a resolução automática.
 - `envFile`: defina para `false` para desativar os ficheiros `.env`.
 
-## `ResolvedConfig`
+## `ResolvedConfig` {#resolvedconfig}
 
 A interface `ResolvedConfig` tem todas as mesmas propriedade de uma `UserConfig`, exceto que a maioria das propriedades são resolvidas e não definidas. Ela também contém serviços como:
 
 - `config.assetsInclude`: Uma função para verificar se um `id` é considerado um recurso.
 - `config.logger`: O objeto do registador interno da Vite.
 
-## `ViteDevServer`
+## `ViteDevServer` {#vitedevserver}
 
 ```ts
 interface ViteDevServer {
@@ -89,7 +126,7 @@ interface ViteDevServer {
    */
   ws: WebSocketServer
   /**
-   * Contentor da extensão de Rollup que pode executar gatilhos da
+   * Contentor da extensão da Rollup que pode executar gatilhos da
    * extensão em um dado ficheiro.
    */
   pluginContainer: PluginContainer
@@ -109,24 +146,36 @@ interface ViteDevServer {
    */
   transformRequest(
     url: string,
-    options?: TransformOptions
+    options?: TransformOptions,
   ): Promise<TransformResult | null>
   /**
    * Aplica as transformações de HTML embutida de Vite e
    * quaisquer transformações de HTML de extensão.
    */
-  transformIndexHtml(url: string, html: string): Promise<string>
+  transformIndexHtml(
+    url: string,
+    html: string,
+    originalUrl?: string,
+  ): Promise<string>
   /**
    * Carrega uma dada URL como um módulo instanciado para SSR.
    */
   ssrLoadModule(
     url: string,
-    options?: { fixStacktrace?: boolean }
+    options?: { fixStacktrace?: boolean },
   ): Promise<Record<string, any>>
   /**
    * Corrige o erro de "stacktrace" da ssr.
    */
   ssrFixStacktrace(e: Error): void
+  /**
+   * Aciona a substituição de módulo instantânea no
+   * gráfico de módulo. Nós podemos usar a API
+   * `server.moduleGraph` para recuperar o módulo
+   * a ser recarregado. Se `hmr` for falso,
+   * trata-se duma operação nula.
+  */
+  reloadModule(module: ModuleNode): Promise<void>
   /**
    * Inicia o servidor.
    */
@@ -135,7 +184,7 @@ interface ViteDevServer {
    * Reinicia o servidor.
    *
    * @param forceOptimize - força o otimizador à reempacotar,
-   * o mesmo que bandeira --force da linha de comando.
+   * o mesmo a opção --force da linha de comando.
    */
   restart(forceOptimize?: boolean): Promise<void>
   /**
@@ -149,13 +198,13 @@ interface ViteDevServer {
 }
 ```
 
-## `build`
+## `build` {#build}
 
 **Assinatura de Tipo:**
 
 ```ts
 async function build(
-  inlineConfig?: InlineConfig
+  inlineConfig?: InlineConfig,
 ): Promise<RollupOutput | RollupOutput[]>
 ```
 
@@ -175,13 +224,13 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
     build: {
       rollupOptions: {
         // ...
-      }
-    }
+      },
+    },
   })
 })()
 ```
 
-## `preview`
+## `preview` {#preview}
 
 **Assinatura de Tipo:**
 
@@ -195,12 +244,12 @@ async function preview(inlineConfig?: InlineConfig): Promise<PreviewServer>
 import { preview } from 'vite'
 ;(async () => {
   const previewServer = await preview({
-    // quaisquer opções de configuração de utilizador válida,
-    // mias `mode` e `configFile`
+    // quaisquer opções de configuração válidas do utilizador,
+    // mais `mode` e `configFile`
     preview: {
       port: 8080,
-      open: true
-    }
+      open: true,
+    },
   })
 
   previewServer.printUrls()
@@ -208,18 +257,10 @@ import { preview } from 'vite'
 })()
 ```
 
-## `PreviewServer`
+## `PreviewServer` {#previewserver}
 
 ```ts
-interface PreviewServer extends PreviewServerForHook {
-  resolvedUrls: ResolvedServerUrls
-}
-```
-
-## `PreviewServerForHook`
-
-```ts
-interface PreviewServerForHook {
+interface PreviewServer {
   /**
    * The resolved vite config object
    */
@@ -238,7 +279,8 @@ interface PreviewServerForHook {
    */
   httpServer: http.Server
   /**
-   * The resolved urls Vite prints on the CLI
+   * The resolved urls Vite prints on the CLI.
+   * null before server is listening.
    */
   resolvedUrls: ResolvedServerUrls | null
   /**
@@ -246,13 +288,13 @@ interface PreviewServerForHook {
    */
   printUrls(): void
   /**
-   * Vincular atalhos da interface da linha de comando
+   * Bind CLI shortcuts
    */
   bindCLIShortcuts(options?: BindCLIShortcutsOptions<PreviewServer>): void
 }
 ```
 
-## `resolveConfig`
+## `resolveConfig` {#resolveconfig}
 
 **Assinatura de Tipo:**
 
@@ -261,13 +303,14 @@ async function resolveConfig(
   inlineConfig: InlineConfig,
   command: 'build' | 'serve',
   defaultMode = 'development',
+  defaultNodeEnv = 'development',
   isPreview = false,
 ): Promise<ResolvedConfig>
 ```
 
 O valor de `command` é `serve` em desenvolvimento e pré-visualização, e `build` em construção.
 
-## `mergeConfig`
+## `mergeConfig` {#mergeconfig}
 
 **Assinatura de Tipo:**
 
@@ -275,7 +318,7 @@ O valor de `command` é `serve` em desenvolvimento e pré-visualização, e `bui
 function mergeConfig(
   defaults: Record<string, any>,
   overrides: Record<string, any>,
-  isRoot = true
+  isRoot = true,
 ): Record<string, any>
 ```
 
@@ -288,24 +331,24 @@ Tu podes usar a auxiliar `defineConfig` para combinar uma configuração na form
 
 ```ts
 export default defineConfig((configEnv) =>
-  mergeConfig(configAsCallback(configEnv), configAsObject)
+  mergeConfig(configAsCallback(configEnv), configAsObject),
 )
 ```
 
 :::
 
-## `searchForWorkspaceRoot`
+## `searchForWorkspaceRoot` {#searchforworkspaceroot}
 
 **Assinatura de Tipo:**
 
 ```ts
 function searchForWorkspaceRoot(
   current: string,
-  root = searchForPackageRoot(current)
+  root = searchForPackageRoot(current),
 ): string
 ```
 
-**Relacionado ao:** [server.fs.allow](/config/server-options.md#server-fs-allow)
+**Relacionado ao:** [`server.fs.allow`](/config/server-options#server-fs-allow)
 
 Procura pela raiz do potencial espaço de trabalho se cumprir as seguintes condições, caso contrário recuaria para o `root`:
 
@@ -314,7 +357,7 @@ Procura pela raiz do potencial espaço de trabalho se cumprir as seguintes condi
   - `lerna.json`
   - `pnpm-workspace.yaml`
 
-## `loadEnv`
+## `loadEnv` {#loadenv}
 
 **Assinatura de Tipo:**
 
@@ -322,15 +365,15 @@ Procura pela raiz do potencial espaço de trabalho se cumprir as seguintes condi
 function loadEnv(
   mode: string,
   envDir: string,
-  prefixes: string | string[] = 'VITE_'
+  prefixes: string | string[] = 'VITE_',
 ): Record<string, string>
 ```
 
-**Relacionado ao:** [Ficheiros `.env`](./env-and-mode.md#os-ficheiros-env)
+**Relacionado ao:** [Ficheiros `.env`](./env-and-mode#env-files)
 
 Carrega os ficheiros `.env` dentro de `envDir` por padrão, só as variáveis de ambiente prefixadas com a `VITE_` são carregadas, a menos que `prefixes` seja modificada.
 
-## `normalizePath`
+## `normalizePath` {#normalizepath}
 
 **Assinatura de Tipo:**
 
@@ -338,11 +381,11 @@ Carrega os ficheiros `.env` dentro de `envDir` por padrão, só as variáveis de
 function normalizePath(id: string): string
 ```
 
-**Relacionado ao:** [Normalização do Caminho](./api-plugin.md#normalização-do-caminho)
+**Relacionado ao:** [Normalização do Caminho](./api-plugin#path-normalization)
 
 Normaliza um caminho para operar internamente entre as extensões de Vite.
 
-## `transformWithEsbuild`
+## `transformWithEsbuild` {#transformwithesbuild}
 
 **Assinatura de Tipo:**
 
@@ -351,13 +394,13 @@ async function transformWithEsbuild(
   code: string,
   filename: string,
   options?: EsbuildTransformOptions,
-  inMap?: object
+  inMap?: object,
 ): Promise<ESBuildTransformResult>
 ```
 
-Transforma a JavaScript ou TypeScript com a esbuild. Útil para extensões que preferem harmonização com transformação de esbuild interna da Vite.
+Transforma a JavaScript ou TypeScript com a `esbuild`. Útil para extensões que preferem harmonização com transformação da `esbuild` interna da Vite.
 
-## `loadConfigFromFile`
+## `loadConfigFromFile` {#loadconfigfromfile}
 
 **Assinatura de Tipo:**
 
@@ -366,7 +409,7 @@ async function loadConfigFromFile(
   configEnv: ConfigEnv,
   configFile?: string,
   configRoot: string = process.cwd(),
-  logLevel?: LogLevel
+  logLevel?: LogLevel,
 ): Promise<{
   path: string
   config: UserConfig
@@ -374,4 +417,4 @@ async function loadConfigFromFile(
 } | null>
 ```
 
-Carrega um ficheiro de configuração de Vite manualmente com a esbuild.
+Carrega manualmente um ficheiro de configuração de Vite com a `esbuild`.
