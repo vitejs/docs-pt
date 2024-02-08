@@ -1,18 +1,26 @@
 # Opções da Interpretação do Lado do Servidor {#ssr-options}
 
-## `ssr.external `{#ssr-external}
+## `ssr.external` {#ssr-external}
 
-- **Tipo:** `string[]`
-- **Relacionado aos:** [Aspetos Externos da Interpretação do Lado do Servidor](/guide/ssr#ssr-externals)
+- **Tipo:** `string[] | true`
+- **Relacionado aos:** [O Exterior da Interpretação do Lado do Servidor](/guide/ssr#ssr-externals)
 
-Força a exposição de dependências para a interpretação do lado do servidor.
+Exterioriza as dependências dadas e suas dependências transitivas para a interpretação do lado do servidor. Por padrão, todas as dependências são exteriorizadas exceto para dependências ligadas (para substituição de módulo instantânea). Se preferirmos exteriorizar a dependência ligada, podemos passar o seu nome a esta opção.
+
+Se `true`, todas as dependências, incluindo as dependências ligadas, são exteriorizadas.
+
+Nota que as dependências listadas explicitamente (usando o tipo `string[]`) sempre terão prioridade se também estiverem listadas em `ssr.noExternal` (usando qualquer tipo).
 
 ## `ssr.noExternal` {#ssr-noexternal}
 
 - **Tipo:** `string | RegExp | (string | RegExp)[] | true`
-- **Relacionado aos:** [Aspetos Externos da Interpretação do Lado do Servidor](/guide/ssr#ssr-externals)
+- **Relacionado aos:** [O Exterior da Interpretação do Lado do Servidor](/guide/ssr#ssr-externals)
 
-Impede as dependências listadas de serem expostas externamente para a interpretação do lado do servidor. Se for `true`, nenhuma dependência é exposta externamente.
+Impedi as dependências listadas de serem exteriorizadas para interpretação do lado do servidor, que serão empacotadas na construção. Por padrão, apenas as dependências ligadas não são exteriorizadas (para substituição de módulo instantânea). Se preferirmos exteriorizar a dependência ligada, podemos passar o seu nome à opção `ssr.external`.
+
+Se `true`, nenhuma dependência é exteriorizada. No entanto, dependências explicitamente listadas em `ssr.external` (usando o tipo `string[]`) podem ter prioridade e ainda assim serem exteriorizadas.
+
+Nota que se ambas `ssr.noExternal: true` e `ssr.external: true` forem configuradas, `ssr.noExternal` tem prioridade e nenhuma dependência é exteriorizada.
 
 ## `ssr.target` {#ssr-target}
 
