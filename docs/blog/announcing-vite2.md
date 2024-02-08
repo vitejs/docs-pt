@@ -21,6 +21,8 @@ head:
 
 # Anunciando a Vite 2.0 {#announcing-vite-2}
 
+_16 de Fevereiro de 2021_ - Consultar o [anúncio da Vite 3.0](./announcing-vite3)
+
 <p style="text-align:center">
   <img src="/logo.svg" style="height:200px">
 </p>
