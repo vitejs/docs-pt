@@ -135,6 +135,12 @@ Na Vite 4, os ficheiros de manifesto ([`build.manifest`](/config/build-options#b
 
 Na Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão. Esta mudança ajuda desfazer o conflito os ficheiros públicos com os mesmos nomes de ficheiro de manifesto quando são copiados ao `build.outDir`.
 
+### Os ficheiros de CSS correspondentes não são listados como entradas de alto nível no ficheiro `manifest.json` {#corresponding-css-files-are-not-listed-as-top-level-entry-in-manifest-json-file}
+
+Na Vite 4, o ficheiro de CSS correspondente para um ponto de entrada de JavaScript também era listado como uma entrada de alto nível no ficheiro de manifesto ([`build.manifest`](/config/build-options#build-manifest)). Estas entradas foram adicionadas de forma não intencional e só funcionavam para casos simples.
+
+Na Vite 5, os ficheiros de CSS correspondentes só podem ser encontrados dentro da seção do ficheiro de entrada de JavaScript. Quando injetamos o ficheiro de JavaScript, os ficheiros de CSS correspondentes [devem ser injetados](/guide/backend-integration.md#:~:text=%3C!%2D%2D%20if%20production%20%2D%2D%3E%0A%3Clink%20rel%3D%22stylesheet%22%20href%3D%22/assets/%7B%7B%20manifest%5B%27main.js%27%5D.css%20%7D%7D%22%20/%3E%0A%3Cscript%20type%3D%22module%22%20src%3D%22/assets/%7B%7B%20manifest%5B%27main.js%27%5D.file%20%7D%7D%22%3E%3C/script%3E). Quando o CSS deve ser injetado separadamente, deve ser adicionado como um ponto de entrada separado.
+
 ### Atalhos da Interface da Linha de Comando Exigem Uma Pressão de `Enter` Adicional {#cli-shortcuts-require-an-additional-enter-press}
 
 Os atalhos da interface da linha de comando, como `r` para reiniciar o servidor de desenvolvimento, agora exige uma pressão de `Enter` adicional para acionar o atalho. Por exemplo, `r + Enter` para reiniciar o servidor de desenvolvimento.
@@ -231,6 +237,8 @@ Além disto, existem outras mudanças de rutura que apenas afetam alguns utiliza
   - `resolve.browserField` foi depreciada desde a Vite 3 em favor duma predefinição atualizada de `['browser', 'module', 'jsnext:main', 'jsnext']` para [`resolve.mainFields`](/config/shared-options#resolve-mainfields).
 - [[#14855] feat!: add isPreview to ConfigEnv and resolveConfig](https://github.com/vitejs/vite/pull/14855)
   - `ssrBuild` renomeado para `isSsrBuild` no objeto `ConfigEnv`.
+  - [[#14945] fix(css): correctly set manifest source name and emit CSS file](https://github.com/vitejs/vite/pull/14945)
+  - Os nomes de ficheiro de CSS agora são gerados baseados no nome do pedaço.
 
 ## Migração da Versão 3 {#migration-from-v3}
 
