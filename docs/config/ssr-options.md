@@ -36,11 +36,11 @@ Alvo da construção para o servidor da interpretação do lado do servidor.
 
 Predefine para a [`resolve.conditions`](./shared-options#resolve-conditions) de raiz.
 
-Estas condições são usadas na conduta de extensão, e apenas afetam dependências não externalizadas durante a construção da interpretação no lado do servidor. Use `ssr.resolve.externalConditions` para afetar as importações externalizadas.
+Estas condições são usadas na conduta de extensão, e apenas afetam as dependências não são exteriorizadas durante a construção da interpretação do lado do servidor. Usamos `ssr.resolve.externalConditions` para afetar as importações exteriorizadas.
 
 ## `ssr.resolve.externalConditions` {#ssr-resolve-externalconditions}
 
 - **Tipo:** `string[]`
 - **Predefinido como:** `[]`
 
-Condições que são usadas durante a importação da interpretação do lado do servidor (incluindo `ssrLoadModule`) das dependências externalizadas.
+Condições usadas durante a importação da interpretação do lado do servidor (incluindo `ssrLoadModule`) das dependências exteriorizadas.
