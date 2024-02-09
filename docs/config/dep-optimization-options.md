@@ -35,7 +35,7 @@ export default defineConfig({
 
 Por padrão, os pacotes ligados que não estão dentro da `node_modules` não são pré-empacotados. Usamos esta opção para forçar um pacote ligado a ser pré-empacotado.
 
-**Experimental:** Se estivermos usando uma biblioteca com muitas importações profundas, também podemos especificar um padrão de globo à direita para pré-empacotar todas as importações de uma só vez. Isto evitará o pré-empacotamento constante sempre que uma nova importação profunda for usada. Por exemplo:
+**Experimental:** Se estivermos usando uma biblioteca com muitas importações profundas, também podemos especificar um padrão de globo à direita para pré-empacotar todas as importações de uma só vez. Isto evitará o pré-empacotamento constante sempre que uma nova importação profunda for usada. [Comentar nas Discussões](https://github.com/vitejs/vite/discussions/15833). Por exemplo:
 
 ```js
 export default defineConfig({
@@ -64,7 +64,7 @@ Defina como `true` para forçar o pré-empacotamento de dependência, ignorando 
 
 ## `optimizeDeps.holdUntilCrawlEnd` {#optimizedeps-holduntilcrawlend}
 
-- **Experimental**
+- **Experimental:** [Comentar nas Discussões](https://github.com/vitejs/vite/discussions/15834)
 - **Tipo:** `boolean`
 - **Predefinido como:** `true`
 
