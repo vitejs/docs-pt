@@ -57,7 +57,6 @@ vite build [root]
 | `--minify [minifier]`          | Ativar/desativar a minificação, ou especificar o minificador a usar (predefinido: `"esbuild"`) (`boolean \| "terser" \| "esbuild"`) |
 | `--manifest [name]`            | Emitir o JSON do manifesto da construção (`boolean \| string`)      |
 | `--ssrManifest [name]`         | Emitir o JSON do manifesto da interpretação no lado do servidor (`boolean \| string`)                        |
-| `--force`                      | Forçar o otimizador a ignorar o cache e re-empacotar (experimental)(`boolean`) |
 | `--emptyOutDir`                | Forçar a limpeza do `outDir` quando estiver fora da raiz (`boolean`)            |
 | `-w, --watch`                  | Reconstruir quando os módulos tiver sido modificado no disco (`boolean`) |
 | `-c, --config <file>`          | Usar o ficheiro de configuração especificado (`string`)             |
