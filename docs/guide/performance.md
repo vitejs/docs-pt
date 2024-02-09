@@ -64,9 +64,9 @@ export * from './dom.js'
 export * from './slash.js'
 ```
 
-Quando apenas importamos uma API individual, por exemplo `import { slash } from './utils'`, todos os ficheiros que neste ficheiro de embarricamento precisam de ser trazidos e transformados, uma vez que podem conter a API `slash` e também podem conter efeitos colaterais que executam durante a inicialização. Isto significa que estamos a carregar mais ficheiros do que o necessário no carregamento inicial da página, resultando num carregamento de página mais lento.
+Quando apenas importamos uma API individual, por exemplo `import { slash } from './utils.js'`, todos os ficheiros que neste ficheiro de embarricamento precisam de ser trazidos e transformados, uma vez que podem conter a API `slash` e também podem conter efeitos colaterais que executam durante a inicialização. Isto significa que estamos a carregar mais ficheiros do que o necessário no carregamento inicial da página, resultando num carregamento de página mais lento.
 
-Se possível, devemos evitar ficheiros embarricados e importar as APIs individuais diretamente, por exemplo `import { slash } from './utils/slash'`. Nós podemos ler o [problema #8237](https://github.com/vitejs/vite/issues/8237) por mais informação.
+Se possível, devemos evitar ficheiros embarricados e importar as APIs individuais diretamente, por exemplo `import { slash } from './utils/slash.js'`. Nós podemos ler o [problema #8237](https://github.com/vitejs/vite/issues/8237) por mais informação.
 
 ## Aquecer os Ficheiros Usado Frequentemente {#warm-up-frequently-used-files}
 
@@ -106,3 +106,20 @@ export default defineConfig({
 Nota que apenas podemos aquecer os ficheiros que são frequentemente usados para não sobrecarregar o servidor de desenvolvimento da Vite durante a inicialização. Consulte a opção [`server.warmup`](/config/server-options#server-warmup) por mais informação.
 
 O uso de [`--open` ou `server.open`](/config/server-options#server-open) também fornece um aumento de desempenho, uma vez que a Vite aquecerá automaticamente o ponto de entrada da nossa aplicação ou a URL fornecida à abrir.
+
+# Usar Ferramentas Mais Pequenas ou Nativas {#use-lesser-or-native-tooling}
+
+Manter a Vite rápida com uma base de código em crescimento é reduzir a quantidade de trabalho para os ficheiros de código-fonte (JS/TS/CSS).
+
+Exemplos de como fazer menos trabalho:
+
+- Usar a CSS ao invés de Sass/Less/Stylus quando possível (o encaixamento pode ser manipulado por PostCSS)
+- Não transformar os SVG em componentes de abstrações de interface (React, Vue, etc). No lugar disto, as importamos como sequências de caracteres ou URLS.
+- Quando usarmos `@vitejs/plugin-react`, evitamos configurar as opções da Babel, para que ela pule a transformação durante a compilação (apenas a `esbuild` será usada).
+
+Exemplos de uso de ferramentas nativas:
+
+Usar ferramentas nativas acarreta frequentemente um tamanho de instalação maior e, como tal, não é o padrão ao começar um novo projeto de Vite. Mas pode valer a pena o custo para aplicação maiores.
+
+- Teste o suporte experimental para [LightningCSS](https://github.com/vitejs/vite/discussions/13835)
+- Use [`@vitejs/plugin-react-swc`](https://github.com/vitejs/vite-plugin-react-swc) no lugar de `@vitejs/plugin-react`.
