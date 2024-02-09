@@ -59,9 +59,9 @@ Os ficheiros embarricados são ficheiros que re-exportam as APIs dos outros fich
 
 ```js
 // src/utils/index.js
-export * from './color'
-export * from './dom'
-export * from './string'
+export * from './color.js'
+export * from './dom.js'
+export * from './slash.js'
 ```
 
 Quando apenas importamos uma API individual, por exemplo `import { slash } from './utils'`, todos os ficheiros que neste ficheiro de embarricamento precisam de ser trazidos e transformados, uma vez que podem conter a API `slash` e também podem conter efeitos colaterais que executam durante a inicialização. Isto significa que estamos a carregar mais ficheiros do que o necessário no carregamento inicial da página, resultando num carregamento de página mais lento.
