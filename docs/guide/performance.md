@@ -6,9 +6,11 @@ Embora a Vite seja rápida por padrão, problemas de desempenho podem infiltrare
 - Lentidão no carregamento da página
 - Lentidão durante a construção do projeto
 
-## Evitar Extensões do Navegador {#avoid-browser-extensions}
+## Revisar Nossa Configuração do Navegador {#review-your-browser-setup}
 
 Algumas extensões do navegador podem interferir com as requisições e desacelerar os tempos de inicialização e recarga de aplicações de grande porte, especialmente quando se usa as ferramentas de programação do navegador. Nós recomendamos criar um perfil exclusivo de desenvolvimento sem extensões, ou mudar para o modo de navegação anónima, enquanto usamos o servidor de desenvolvimento da Vite nestes casos. O modo de navegação anónima também deve ser mais rápido do que perfil normal sem as extensões.
+
+O servidor de desenvolvimento da Vite faz o armazenamento rígido das dependências pré-empacotadas para consulta imediata e implementa respostas de 304 rápidas para o código-fonte. Desativar o armazenamento de consulta imediata enquanto as ferramentas de programação do navegador estão abertas pode ter um grande impacto nos tempos de inicialização e de renovação da página inteira. Precisamos verificar se a opção **Disable Cache** não está ativada enquanto trabalhamos com o servidor da Vite.
 
 ## Auditar as Extensões de Vite Configuradas {#audit-configured-vite-plugins}
 
