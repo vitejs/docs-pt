@@ -176,7 +176,7 @@ O ficheiros `.jsx` e `.tsx` também são suportados fora da caixa. A tradução 
 
 Os utilizadores da Vue devem usar a extensão [`@vitejs/plugin-vue-jsx`](https://github.com/vitejs/vite-plugin-vue/tree/main/packages/plugin-vue-jsx) oficial, a qual fornece funcionalidades especificas incluindo a substituição de módulo instantânea, resolução de componente global, diretivas e ranhuras.
 
-Se não estivermos usando a JSX com a React ou Vue, `jsxFactory` e `jsxFragment` personalizados podem ser configurados usando a [opção `esbuild`](/config/shared-options#esbuild). Por exemplo, para a Preact:
+Se estivermos usando JSX sem a React ou Vue, `jsxFactory` e `jsxFragment` personalizados podem ser configurados usando a [opção `esbuild`](/config/shared-options.md#esbuild). Por exemplo, para Preact:
 
 ```js
 // vite.config.js
