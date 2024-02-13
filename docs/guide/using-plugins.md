@@ -34,7 +34,7 @@ As extensões falsas serão ignoradas, as quais podem ser usadas para ativar e d
 A Vite tem por objetivo fornecer suporte fora da caixa para os padrões de desenvolvimento da Web comuns. Antes de procurarmos por uma extensão compatível com a Vite ou com a Rollup, devemos consultar o [Guia de Funcionalidades](../guide/features). Muitos casos onde uma extensão seria necessária num projeto de Rollup já são cobertos pela Vite.
 :::
 
-Consulte a [seção de Extensões](../plugins/) por informação sobre a extensões oficiais. As extensões da comunidade são listadas no [`awesome-vite`](https://github.com/vitejs/awesome-vite#plugins). Para extensões de Rollup compatíveis, consulte as [Extensões de Rollup da Vite](https://vite-rollup-plugins.patak.dev) por uma lista de extensões de Rollup oficiais compatíveis com instruções de uso ou a [seção de Compatibilidade de Extensão de Rollup](../guide/api-plugin#rollup-plugin-compatibility) no caso que não estiver listada por lá.
+Consulte a [seção de Extensões](../plugins/) por informação sobre a extensões oficiais. As extensões da comunidade são listadas no [`awesome-vite`](https://github.com/vitejs/awesome-vite#plugins).
 
 Nós também podemos encontrar extensões que seguem as [convenções recomendadas](./api-plugin#conventions) usando um [`npm search` por `vite-plugin`](https://www.npmjs.com/search?q=vite-plugin&ranking=popularity) para extensões de Vite ou um [`npm search` por `rollup-plugin`](https://www.npmjs.com/search?q=rollup-plugin&ranking=popularity) para extensões de Rollup.
 
@@ -61,7 +61,7 @@ export default defineConfig({
 })
 ```
 
-Consulte o [Guia da API de Extensões](./api-plugin.md#plugin-ordering) por informação detalhada, e vê o rótulo `enforce` e as instruções de uso para extensões populares na listagem de compatibilidade das [Extensões de Rollup da Vite](https://vite-rollup-plugins.patak.dev).
+Consulte o [Guia da API de Extensões](./api-plugin.md#plugin-ordering) por informação detalhada.
 
 ## Aplicação Condicional {#conditional-application}
 

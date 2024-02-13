@@ -513,8 +513,6 @@ export default defineConfig({
 })
 ```
 
-Consulte as [Extensões de Rollup de Vite](https://vite-rollup-plugins.patak.dev) para teres acesso a uma lista de extensões de Rollup oficial compatíveis com instruções de uso.
-
 ## Normalização do Caminho {#path-normalization}
 
 A Vite normaliza caminhos enquanto resolve os identificadores para usar os separadores POSIX ( / ) enquanto preserva o volume no Windows. Por outro lado, a Rollup preserva os caminhos resolvidos intocáveis por padrão, assim os identificadores resolvidos têm separadores de Win32 ( \\ ) no Windows. No entanto, as extensões de Rollup usam uma [função utilitária `normalizePath`](https://github.com/rollup/plugins/tree/master/packages/pluginutils#normalizepath) de `@rollup/pluginutils` internamente, que converte os separadores para POSIX antes da realização de comparações. Isto significa que quando estas extensões são usadas na Vite, no padrão de configuração `include` e `exclude` e outros caminhos similares contra comparações de identificadores resolvidos funcionam corretamente.
