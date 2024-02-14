@@ -2,12 +2,12 @@
 layout: home
 
 title: Vite
-titleTemplate: Ferramental de Frontend de Última Geração
+titleTemplate: Ferramentas de Frontend Modernas
 
 hero:
   name: Vite
-  text: Ferramental de Frontend de Última Geração
-  tagline: Prepara-se para um ambiente de desenvolvimento que pode finalmente acompanhá-lo.
+  text: Ferramentas de Frontend Modernas
+  tagline: Um ecossistema que adapta-se as nossas necessidades.
   image:
     src: /logo-with-shadow.png
     alt: Vite
