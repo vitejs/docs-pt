@@ -138,7 +138,8 @@ app.use('*', async (req, res, next) => {
     // invalidação eficiente semelhante à substituição de
     // módulo instantânea.
     const { render } = await vite.ssrLoadModule('/src/entry-server.js')
-    // 3b. Desde a Vite 5.1, podemos usar a API `createViteRuntime`.
+    // 3b. Desde a Vite 5.1, podemos usar a API `createViteRuntime`
+    // experimental.
     // Esta suporta completamente a substituição de módulo instantânea
     // e funciona duma maneira semelhante a `ssrLoadModule`.
     // O caso de uso mais avançado seria criar uma execução numa linha
