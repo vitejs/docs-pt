@@ -212,3 +212,9 @@ Envia os eventos personalizados de volta ao servidor de desenvolvimento da Vite.
 Se chamada antes da conexão, o dado será amortecido e enviado assim que a conexão for estabelecida.
 
 Consultar a [Comunicação cliente-servidor](/guide/api-plugin#client-server-communication) por mais detalhes.
+
+## Leitura Complementar {#further-reading}
+
+Se quisermos saber mais sobre como usar a API da HMR e como funciona nos bastidores. Nós podemos consultar estes recursos:
+
+- [Hot Module Replacement is Easy](https://bjornlu.com/blog/hot-module-replacement-is-easy)

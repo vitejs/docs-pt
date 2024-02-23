@@ -406,6 +406,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 ### `handleHotUpdate` {#handle-hot-update}
 
 - **Tipo:** `(ctx: HmrContext) => Array<ModuleNode> | void | Promise<Array<ModuleNode> | void>`
+- **Consultar também:** [API da HMR](./api-hmr)
 
   Realizar a manipulação da atualização instantânea ou (HMR, sigla em Inglês) personalizada. O gatilho recebe o objeto de contexto com o seguinte assinatura:
 
@@ -427,10 +428,33 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
   - Filtrar e reduzir a lista de módulo afetado para a atualização de módulo instantânea ser mais precisa.
 
-  - Retornar um vetor vazio e realizar a manipulação completa da atualização de módulo instantânea personalizada enviando eventos personalizados para o cliente (o exemplo usa `server.hot` que foi introduzido na Vite 5.1, é recomendado para também usar `server.ws` se suportarmos versões inferiores):
+  - Retornar um vetor vazio e realizar uma recarga completa:
+
+    ```js
+    handleHotUpdate({ server, modules, timestamp }) {
+      // Usar também `server.ws.send` para suportar a Vite <5.1
+      // se necessário
+      server.hot.send({ type: 'full-reload' })
+      // Invalidar manualmente os módulos
+      const invalidatedModules = new Set()
+      for (const mod of modules) {
+        server.moduleGraph.invalidateModule(
+          mod,
+          invalidatedModules,
+          timestamp,
+          true
+        )
+      }
+      return []
+    }
+    ```
+
+    - Retornar um vetor vazio e realizar uma manipulação completa e personalizada da HMR, enviando eventos personalizados ao cliente:
 
     ```js
     handleHotUpdate({ server }) {
+      // Usar também `server.ws.send` para suportar a Vite <5.1
+      // se necessário
       server.hot.send({
         type: 'custom',
         event: 'special-update',
