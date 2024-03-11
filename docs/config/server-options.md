@@ -148,6 +148,8 @@ Desativa ou configura a conexão da HMR (nos casos onde a websocket da HMR deve 
 
 Defina `server.hmr.overlay` para `false` para desativar o cobertura de erro do servidor.
 
+A `protocol` define o protocolo de tomada da Web usado para a conexão da substituição de módulo instantânea: `ws` (tomada da Web) ou `wss` (tomada da Web segura).
+
 A `clientPort` é uma opção avançada que sobrepõe a porta apenas no lado do cliente, permitindo-te servir o websocket sobre uma porta diferente da que o código do cliente procura.
 
 Quando `server.hmr.server` é definida, a Vite processará as requisições da conexão da HMR através do servidor fornecido. Se não for no modo intermediário, a Vite tentará processar as requisições da conexão da HMR através do servidor existente. Isto pode ser útil quando estiveres utilizando certificados auto-assinados ou quando quiseres expor a Vite sobre uma rede em uma única porta.
