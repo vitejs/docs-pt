@@ -4,7 +4,7 @@
 
 ### `vite` {#vite}
 
-Inicia o servidor de desenvolvimento da Vite no diretório atual.
+Inicia o servidor de desenvolvimento da Vite no diretório atual. O `vite dev` e o `vite serve` são pseudónimos para `vite`.
 
 #### Uso {#vite-usage}
 

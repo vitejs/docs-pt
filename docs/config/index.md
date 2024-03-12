@@ -65,7 +65,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
 })
 ```
 
-É importante notar que na API da Vite o valor de `command` é `serve` durante o desenvolvimento (na interface da linha de comando `vite`, `vite dev`, e `vite serve` são pseudónimos), e `build` quando construímos para produção (`vite build`).
+É importante notar que na API da Vite o valor de `command` é `serve` durante o desenvolvimento (na interface da linha de comando [`vite`](/guide/cli#vite), `vite dev`, e `vite serve` são pseudónimos), e `build` quando construímos para produção ([`vite build`](/guide/cli#vite-build)).
 
 A `isSsrBuild` e `isPreview` são opções opcionais condicionais para diferenciar os tipos de comandos `build` e `serve` respetivamente. Algumas ferramentas que carregam a configuração da Vite não suportam estas opções e passarão `undefined`. Por isto, é recomendado usar comparação explícita contra `true` e `false`.
 
