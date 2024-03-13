@@ -18,7 +18,7 @@ Nota que as dependências listadas explicitamente (usando o tipo `string[]`) sem
 
 Impedi as dependências listadas de serem exteriorizadas para interpretação do lado do servidor, que serão empacotadas na construção. Por padrão, apenas as dependências ligadas não são exteriorizadas (para substituição de módulo instantânea). Se preferirmos exteriorizar a dependência ligada, podemos passar o seu nome à opção `ssr.external`.
 
-Se `true`, nenhuma dependência é exteriorizada. No entanto, dependências explicitamente listadas em `ssr.external` (usando o tipo `string[]`) podem ter prioridade e ainda assim serem exteriorizadas.
+Se `true`, nenhuma dependência é exteriorizada. No entanto, dependências explicitamente listadas em `ssr.external` (usando o tipo `string[]`) podem ter prioridade e ainda assim serem exteriorizadas. Se `ssr.target: 'node'` for definida, os embutidos da Node.js também serão exteriorizados por padrão.
 
 Nota que se ambas `ssr.noExternal: true` e `ssr.external: true` forem configuradas, `ssr.noExternal` tem prioridade e nenhuma dependência é exteriorizada.
 
