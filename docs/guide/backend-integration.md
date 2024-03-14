@@ -85,10 +85,48 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    - Para os pedaços que não forem de entrada, a chave é nome da base do ficheiro gerado prefixado com `_`.
    - Os pedaços conterão informação sobre as suas importações estáticas e dinâmicas (ambas são chaves que mapeiam para o pedaço correspondente no manifesto), e também os seus ficheiros de CSS e recursos correspondentes (se existirem).
 
-   Nós podemos usar este ficheiro para desenhar as ligações ou pré-carregar as diretivas com nomes de ficheiros compostos por caracteres pseudo-aleatórios (nota: a sintaxe aqui é apenas para explicação, porque iremos substituir pela linguagem de modelação de marcação de hipertexto do servidor):
+4. Nós podemos usar este ficheiro para desenhar as ligações ou pré-carregar as diretivas com nomes de ficheiros compostos por caracteres pseudo-aleatórios.
+
+  Eis um exemplo de modelo de marcação de HTML para desenhar as ligações corretamente. A sintaxe aqui é apenas para explicação, substitua com a nossa linguagem de modelo de marcação de servidor. A função `importedChunks` é uma função ilustrativa e não é fornecida pela Vite:
+
+  ```html
+   <!-- se for em produção -->
+
+   <!-- para o cssFile do manifest[name].css -->
+   <link rel="stylesheet" href="/{{ cssFile }}" />
+
+   <!-- para o pedaço de importedChunks(manifest, name) -->
+   <!-- para o cssFile de chunk.css -->
+   <link rel="stylesheet" href="/{{ cssFile }}" />
+
+   <script type="module" src="/{{ manifest[name].file }}"></script>
+
+   <!-- para o pedaço de importedChunks(manifest, name) -->
+   <link rel="modulepreload" src="/{{ chunk.file }}" />
+   ```
+
+   Especificamente, um backend que gera HTML deve incluir os seguintes marcadores, dado um ficheiro de manifesto e um ponto de entrada:
+
+   - Um marcador `<link rel="stylesheet">` para cada ficheiro na lista `css` do ponto de entrado do pedaço.
+   - Segue recursivamente todos os pedaços na lista `imports` do ponto de entrada e inclui um marcador `<link rel="stylesheet">` para cada ficheiro de CSS de cada pedaço importado.
+   - Um marcador para a chave `file` do pedaço de ponto de entrada (`<script type="moudle">` para JavaScript, ou `<link rel="stylesheet">` para CSS).
+   - Opcionalmente, o marcador `<link rel="modulepreload">` para o `file` de cada pedaço de JavaScript importado, novamente seguindo recursivamente as importações a partir do pedaço de ponto de entrada.
+
+   Seguindo o exemplo de manifesto acima, para o ponto de entrada `main.js` as seguintes marcadores devem ser incluídos em produção:
 
    ```html
-   <!-- if production -->
-   <link rel="stylesheet" href="/assets/{{ manifest['main.js'].css }}" />
-   <script type="module" src="/assets/{{ manifest['main.js'].file }}"></script>
+   <link rel="stylesheet" href="assets/main.b82dbe22.css" />
+   <link rel="stylesheet" href="assets/shared.a834bfc3.css" />
+   <script type="module" src="assets/main.4889e940.js"></script>
+   <!-- opcional -->
+   <link rel="modulepreload" src="assets/shared.83069a53.js" />
+   ```
+
+  Enquanto o seguinte deve ser incluído para o ponto de entrada `views/foo.js`:
+
+  ```html
+   <link rel="stylesheet" href="assets/shared.a834bfc3.css" />
+   <script type="module" src="assets/foo.869aea0d.js"></script>
+   <!-- opcional -->
+   <link rel="modulepreload" src="assets/shared.83069a53.js" />
    ```
