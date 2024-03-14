@@ -223,7 +223,7 @@ export default defineConfig({
               link: '/guide/build'
             },
             {
-              text: 'Implementando uma Aplicação Estática',
+              text: 'Implantação duma Aplicação Estática',
               link: '/guide/static-deploy'
             },
             {

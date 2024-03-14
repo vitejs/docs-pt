@@ -1,4 +1,4 @@
-# Implementando uma Aplicação Estática {#deploying-a-static-site}
+# Implantação duma Aplicação Estática {#deploying-a-static-site}
 
 As seguintes orientações são baseadas em algumas suposições partilhadas:
 
@@ -102,24 +102,24 @@ Agora o comando `preview` lançará o servidor na `http://localhost:8080`.
          - name: Checkout
            uses: actions/checkout@v4
          - name: Set up Node
-           uses: actions/setup-node@v3
+           uses: actions/setup-node@v4
            with:
-             node-version: 18
+             node-version: 20
              cache: 'npm'
          - name: Install dependencies
-           run: npm install
+           run: npm ci
          - name: Build
            run: npm run build
          - name: Setup Pages
-           uses: actions/configure-pages@v3
+           uses: actions/configure-pages@v4
          - name: Upload artifact
-           uses: actions/upload-pages-artifact@v2
+           uses: actions/upload-pages-artifact@v3
            with:
-             # Carregar o repositório de distribuição
+             # Carregar a pasta de distribuição
              path: './dist'
          - name: Deploy to GitHub Pages
            id: deployment
-           uses: actions/deploy-pages@v2
+           uses: actions/deploy-pages@v4
    ```
 
 ## GitLab Pages e GitLab CI {#gitlab-pages-and-gitlab-ci}
