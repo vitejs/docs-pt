@@ -162,6 +162,13 @@ A ativação desta definição faz com que a Vite determine a identidade do fich
 
 - **Relacionado ao:** [esbuild#preserve-symlinks](https://esbuild.github.io/api/#preserve-symlinks), [webpack#resolve.symlinks](https://webpack.js.org/configuration/resolve/#resolvesymlinks)
 
+## `html.cspNonce` {#html-cspnonce}
+
+- **Tipo:** `string`
+- **Relacionada a:** [Política de Segurança de Conteúdo (CSP)](/guide/features#content-security-policy-csp)
+
+Um marcador de posição do valor de código de acesso que será usado ao gerar marcadores de programa ou estilo. A definição deste valor também gerará uma marcador de meta com o valor de código de acesso.
+
 ## `css.modules` {#css-modules}
 
 - **Tipo:**
@@ -198,7 +205,7 @@ A ativação desta definição faz com que a Vite determine a identidade do fich
 
 Configura o comportamento dos módulos de CSS. As opções são passadas ao [`postcss-modules`](https://github.com/css-modules/postcss-modules).
 
-Esta opção não surte qualquer feito quando usamos [CSS Relâmpago](../guide/features.md#lightning-css). Se ativada, [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) deve ser usado.
+Esta opção não surte qualquer feito quando usamos [CSS Relâmpago](../guide/features#lightning-css). Se ativada, [`css.lightningcss.cssModules`](https://lightningcss.dev/css-modules.html) deve ser usado.
 
 ## `css.postcss` {#css-postcss}
 

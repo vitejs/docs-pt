@@ -643,6 +643,28 @@ import MyWorker from './worker?worker&url'
 
 Consultar as [Opções do Operário](/config/worker-options) por detalhes sobre a configuração do empacotamento de todos os operários.
 
+## Política de Segurança de Conteúdo (CSP) {#content-security-policy-csp}
+
+Para implantar a política de segurança de conteúdo, certas diretivas ou configurações devem ser definidas por causa dos componentes internos da Vite.
+
+### [`'nonce-{RANDOM}'`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#nonce-base64-value) {#nonce-random}
+
+Quando [`html.cspNonce`](/config/shared-options#html-cspnonce) é definida, a Vite adiciona um atributo de código de acesso com o valor especificado ao marcador de programa de saída e ao marcador de ligação para folhas de estilo. Notemos que a Vite não adicionará um atributo de código de acesso aos outros marcadores, como `<style>`. Adicionalmente, quando esta opção é definida, a Vite injetará um marcador de meta (`<meta property="csp-nonce" nonce="PLACEHOLDER" />`).
+
+O valor de código de acesso dum marcador de meta como `property="csp-nonce"` será usado pela Vita sempre que necessário, tanto durante o desenvolvimento quanto após a construção.
+
+:::warning AVISO
+Precisamos de garantir que substituímos o marcador de posição por um valor único para cada requisição. Isto é importante para evitar o contorno da política dum recurso, o que pode ser feito facilmente.
+:::
+
+### [`data:`](<https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#scheme-source:~:text=schemes%20(not%20recommended).-,data%3A,-Allows%20data%3A>) {#data}
+
+Por padrão, durante a construção, a Vite incorpora pequenos recursos como identificadores uniformes de recurso de dados. É necessário permitir `data:` para diretivas relacionadas (por exemplo, [`img-src`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/img-src), [`font-src`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/font-src)), ou, desativá-la definindo [`build.assetsInlineLimit: 0`](/config/build-options#build-assetsinlinelimit).
+
+:::warning AVISO
+Não devemos permitir `data:` para [`script-src`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/script-src). Isto permitirá a injeção de programas arbitrários.
+:::
+
 ## Otimizações da Construção {#build-optimizations}
 
 > As funcionalidades listadas abaixo são aplicadas automaticamente como parte do processo de construção e não existe necessidade para configuração explícita a menos que queiramos desativá-las.
