@@ -70,7 +70,7 @@ A Vite emite o evento `vite:preloadError` quando não consegue carregar as impor
 
 ```js
 window.addEventListener('vite:preloadError', (event) => {
-  window.reload() // por exemplo, atualizar a página
+  window.location.reload() // por exemplo, atualizar a página
 })
 ```
 
