@@ -63,9 +63,9 @@ Deve ser definida para `true`.
 
 Isto porque a `esbuild` apenas realiza a tradução de código sem a informação do tipo, esta não suporta certas funcionalidades como enumerações constantes e importações exclusivamente por tipo implícitas.
 
-Nós devemos definir `"isolatedModules": true` no nosso `tsconfig.json` sob a `compilerOptions`, para que a TypeScript avise-nos sobre as funcionalidade que não funcionam com a tradução de código isolada.
+Nós devemos definir `"isolatedModules": true` no nosso `tsconfig.json` sob a `compilerOptions`, para que a TypeScript avise-nos sobre as funcionalidade que não funcionam com a tradução isolada de código.
 
-No entanto, algumas bibliotecas (por exemplo, a [`vue`](https://github.com/vuejs/core/issues/1228)) não funcionam bem com `"isolatedModules": true`. Nós podemos usar `"skipLibCheck": true` para suprimir temporariamente os erros até serem corrigidos corrente acima.
+Se uma dependência não funcionar bem com a `"isolatedModules": true`. Nós podemos usar `"skipLibCheck": true` para suprimir temporariamente os erros até serem corrigidos corrente acima.
 
 #### `useDefineForClassFields` {#usedefineforclassfields}
 
