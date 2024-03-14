@@ -32,7 +32,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
 2. Para o desenvolvimento, injetamos o seguinte no modelo de marcação de HTML do nosso servidor (substituímos `http://localhost:5173` pela URL local em que a Vite está ser executada):
 
    ```html
-   <!-- if development -->
+   <!-- se for em desenvolvimento -->
    <script type="module" src="http://localhost:5173/@vite/client"></script>
    <script type="module" src="http://localhost:5173/main.js"></script>
    ```
@@ -80,7 +80,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    }
    ```
 
-   - O manifesto tem uma estrutura de `Record<name, chunk>` (ou `Registo<nome, pedaço>`)
+   - O manifesto tem uma estrutura de `Record<name, chunk>`
    - Para a entrada ou pedaços de entrada dinâmica, a chave é o caminho de origem relativo a partir da raiz do projeto.
    - Para os pedaços que não forem de entrada, a chave é nome da base do ficheiro gerado prefixado com `_`.
    - Os pedaços conterão informação sobre as suas importações estáticas e dinâmicas (ambas são chaves que mapeiam para o pedaço correspondente no manifesto), e também os seus ficheiros de CSS e recursos correspondentes (se existirem).
@@ -109,7 +109,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
 
    - Um marcador `<link rel="stylesheet">` para cada ficheiro na lista `css` do ponto de entrado do pedaço.
    - Segue recursivamente todos os pedaços na lista `imports` do ponto de entrada e inclui um marcador `<link rel="stylesheet">` para cada ficheiro de CSS de cada pedaço importado.
-   - Um marcador para a chave `file` do pedaço de ponto de entrada (`<script type="moudle">` para JavaScript, ou `<link rel="stylesheet">` para CSS).
+   - Um marcador para a chave `file` do pedaço de ponto de entrada (`<script type="module">` para JavaScript, ou `<link rel="stylesheet">` para CSS).
    - Opcionalmente, o marcador `<link rel="modulepreload">` para o `file` de cada pedaço de JavaScript importado, novamente seguindo recursivamente as importações a partir do pedaço de ponto de entrada.
 
    Seguindo o exemplo de manifesto acima, para o ponto de entrada `main.js` as seguintes marcadores devem ser incluídos em produção:
