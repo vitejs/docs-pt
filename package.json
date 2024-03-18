@@ -1,6 +1,6 @@
 {
   "name": "vite-docs-pt",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Documentação Oficial da Vite em Português",
   "type": "module",
   "main": "docs/index.md",
@@ -8,9 +8,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs"
+    "dev": "vitepress dev docs",
+    "build": "vitepress build docs",
+    "serve": "vitepress serve docs"
   },
   "pnpm": {
     "peerDependencyRules": {
@@ -52,7 +52,10 @@
     "react-dom": "^18.2.0",
     "@types/node": "^20.11.5",
     "@types/react": "^18.0.15",
-    "vitepress": "^1.0.0-rc.40",
-    "@algolia/client-search": "^4.13.1"
+    "vitepress": "^1.0.0-rc.45",
+    "@algolia/client-search": "^4.13.1",
+    "@shikijs/vitepress-twoslash": "^1.1.7",
+    "@types/express": "^4.17.21",
+    "vue": "^3.4.21"
   }
 }
