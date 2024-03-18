@@ -7,7 +7,9 @@
 
 A importação dum recurso estático retornará a URL pública resolvida quando esta for servida:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 import imgUrl from './img.png'
 document.getElementById('hero-img').src = imgUrl
 ```
@@ -33,7 +35,9 @@ O comportamento é semelhante ao `file-loader` da Webpack. A diferença é que a
 :::tip Incorporação de SVGs através da `url()`
 Quando passamos um localizador uniforme de recursos de gráficos vetoriais escaláveis a uma `url()` construída manualmente por JavaScript, a variável deve ser envolvida entre aspas duplas.
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 import imgUrl from './img.svg'
 document.getElementById('hero-img').style.background = `url("${imgUrl}")`
 ```
@@ -44,7 +48,9 @@ document.getElementById('hero-img').style.background = `url("${imgUrl}")`
 
 Os recursos que não estão incluídos na lista interna ou na `assetsInclude`, podem ser explicitamente importados como uma URL usando o sufixo `?url`. Isto é útil, para por exemplo, importar os [Painéis de Trabalho de Pintura da Houdini](https://houdini.how/usage):
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 import workletURL from 'extra-scalloped-border/worklet.js?url'
 CSS.paintWorklet.addModule(workletURL)
 ```
@@ -53,7 +59,9 @@ CSS.paintWorklet.addModule(workletURL)
 
 Os recursos podem ser importados como sequências de caracteres usando o sufixo `?raw`:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 import shaderString from './shader.glsl?raw'
 ```
 
@@ -61,19 +69,25 @@ import shaderString from './shader.glsl?raw'
 
 Os programas podem ser importados como operários da Web com o sufixo `?worker` ou `?sharedworker`:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 // Separar pedaço na construção de produção
 import Worker from './shader.js?worker'
 const worker = new Worker()
 ```
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 // sharedworker
 import SharedWorker from './shader.js?sharedworker'
 const sharedWorker = new SharedWorker()
 ```
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 // Embutido como sequências de caracteres de base64
 import InlineWorker from './shader.js?worker&inline'
 ```

@@ -53,7 +53,9 @@ Nós podemos usar qualquer marcador de posição que preferirmos no lugar de `<!
 
 Se precisarmos de realizar a lógica condicional baseada na Interpretação do Lado do Servidor vs. cliente, podemos usar:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 if (import.meta.env.SSR) {
   // ... apenas a lógica do servidor
 }
@@ -67,10 +69,10 @@ Quando construirmos uma aplicação de Interpretação do Lado do Servidor, prov
 
 **server.js**
 
-```js{15-18}
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+```js{15-18} twoslash
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { createServer as createViteServer } from 'vite'
 
@@ -112,7 +114,18 @@ Neste exemplo a `vite` é uma instância de [`ViteDevServer`](./api-javascript#v
 
 A próxima etapa está implementando o manipulador `*` para servir o HTML interpretado pelo servidor:
 
-```js
+```js twoslash
+// @noErrors
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+
+/** @type {import('express').Express} */
+var app
+/** @type {import('vite').ViteDevServer}  */
+var vite
+
+// ---cut---
 app.use('*', async (req, res, next) => {
   const url = req.originalUrl
 
@@ -259,7 +272,9 @@ Algumas abstrações tais como a Vue ou a Svelte compilam os componentes para di
 
 **Exemplo:**
 
-```js
+```js twoslash
+/** @type {() => import('vite').Plugin} */
+// ---cut---
 export function mySSRPlugin() {
   return {
     name: 'my-ssr',

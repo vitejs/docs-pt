@@ -50,7 +50,9 @@ A Vite também suporta diretamente os ficheiros de configuração de TypeScript.
 
 Se a configuração precisa determinar condicionalmente as opções baseadas no comando (`serve` ou `build`), no [modo](/guide/env-and-mode) a ser usado, ou se for uma construção da interpretação do lado do servidor (`isSsrBuild`), ou é uma pré-visualização da construção (`isPreview`), esta pode exportar uma função:
 
-```js
+```js twoslash
+import { defineConfig } from 'vite'
+// ---cut---
 export default defineConfig(({ command, mode, ssrBuild }) => {
   if (command === 'serve') {
     return {
@@ -73,7 +75,9 @@ A `isSsrBuild` e `isPreview` são opções opcionais condicionais para diferenci
 
 Se a configuração precisar de chamar funções assíncronas, pode exportar uma função assíncrona. E esta função assíncrona também pode ser passada através da `defineConfig` para o suporte de sensor inteligente melhorado:
 
-```js
+```js twoslash
+import { defineConfig } from 'vite'
+// ---cut---
 export default defineConfig(async ({ command, mode }) => {
   const data = await asyncFunction()
   return {
@@ -88,7 +92,7 @@ As variáveis de ambiente podem ser obtidas a partir de `process.env` como de co
 
 Nota que a Vite não carrega os ficheiros `.env` por padrão visto que os ficheiros à carregar apenas podem ser determinados depois de avaliar a configuração da Vite, por exemplo, as opções `root` e `envDir` afetam o comportamento do carregamento. No entanto, podemos usar a auxiliar `loadEnv` exportada para carregar o ficheiro `.env` especifico se necessário:
 
-```js
+```js twoslash
 import { defineConfig, loadEnv } from 'vite'
 
 export default defineConfig(({ command, mode }) => {

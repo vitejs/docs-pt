@@ -41,7 +41,9 @@ Numa configuração de mono-repositório, uma dependência pode ser um pacote li
 
 No entanto, isto exige que a dependência ligada seja exportada como Módulo de ECMAScript. Se não, podemos adicionar a dependência à [`optimizeDeps.include`](/config/dep-optimization-options#optimizedeps-include) e [`build.commonjsOptions.include`](/config/build-options#build-commonjsoptions) na nossa configuração:
 
-```js
+```js twoslash
+import { defineConfig } from 'vite'
+// ---cut---
 export default defineConfig({
   optimizeDeps: {
     include: ['linked-dep'],

@@ -34,7 +34,6 @@ Para controlo avançado do caminho de base, consultar as [Opções Avançadas da
 A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options). Especificamente, podemos ajustar diretamente as [opções de Rollup](https://rollupjs.org/configuration-options/) subjacentes através da `build.rollupOptions`:
 
 ```js
-// vite.config.js
 export default defineConfig({
   build: {
     rollupOptions: {
@@ -68,7 +67,7 @@ Nós devemos usar a forma de função `build.rollupOptions.output.manualChunks` 
 
 A Vite emite o evento `vite:preloadError` quando não consegue carregar as importações dinâmicas. `event.payload` contém o erro de importação original. Se chamarmos `event.preventDefault()`, o erro não será lançado:
 
-```js
+```js twoslash
 window.addEventListener('vite:preloadError', (event) => {
   window.location.reload() // por exemplo, atualizar a página
 })
@@ -80,7 +79,7 @@ Quando uma nova implementação de produção ocorre, o serviço de hospedagem p
 
 Nós podemos ativar o observador da Rollup com `vite build --watch`. Ou, podemos ajustar diretamente a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
 
-```js
+```js twoslash
 // vite.config.js
 export default defineConfig({
   build: {
@@ -111,7 +110,7 @@ Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - e
 
 Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
-```js
+```js twoslash
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -138,7 +137,7 @@ Quando estivermos desenvolvimento uma biblioteca orienta ao navegador, estaremos
 
 Na hora de empacotar a nossa biblioteca para distribuição, usamos a [ opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
 
-```js
+```js twoslash
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -253,32 +252,43 @@ Para os casos de uso avançados, os recursos e ficheiros públicos implementados
 
 Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançadas durante a construção, usando a `experimental.renderBuiltUrl`;
 
-```ts
+<!-- prettier-ignore-start -->
+```ts twoslash
+import type { UserConfig } from 'vite'
+const config: UserConfig = {
+// ---cut-before---
 experimental: {
-  renderBuiltUrl(filename: string, { hostType }: { hostType: 'js' | 'css' | 'html' }) {
+  renderBuiltUrl(filename, { hostType }) {
     if (hostType === 'js') {
       return { runtime: `window.__toCdnUrl(${JSON.stringify(filename)})` }
     } else {
       return { relative: true }
     }
-  }
+  },
+},
+// ---cut-after---
 }
 ```
+<!-- prettier-ignore-end -->
 
 Se os recursos de nome embaralhado e os ficheiros públicos são forem implementados em produção em conjunto, as opções para grupo podem ser definidas de maneira independente usando a `type` de recurso incluída no segundo parâmetro `context` dado à função:
 
-```ts
-experimental: {
-  renderBuiltUrl(filename: string, { hostId, hostType, type }: { hostId: string, hostType: 'js' | 'css' | 'html', type: 'public' | 'asset' }) {
-    if (type === 'public') {
-      return 'https://www.domain.com/' + filename
-    }
-    else if (path.extname(hostId) === '.js') {
-      return { runtime: `window.__assetsPath(${JSON.stringify(filename)})` }
-    }
-    else {
-      return 'https://cdn.domain.com/assets/' + filename
-    }
-  }
+```ts twoslash
+import type { UserConfig } from 'vite'
+import path from 'node:path'
+const config: UserConfig = {
+  // ---cut-before---
+  experimental: {
+    renderBuiltUrl(filename, { hostId, hostType, type }) {
+      if (type === 'public') {
+        return 'https://www.domain.com/' + filename
+      } else if (path.extname(hostId) === '.js') {
+        return { runtime: `window.__assetsPath(${JSON.stringify(filename)})` }
+      } else {
+        return 'https://cdn.domain.com/assets/' + filename
+      }
+    },
+  },
+  // ---cut-after---
 }
 ```

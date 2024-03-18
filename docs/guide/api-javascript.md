@@ -12,27 +12,25 @@ async function createServer(inlineConfig?: InlineConfig): Promise<ViteDevServer>
 
 **Exemplo de Utilização:**
 
-```js
-import { fileURLToPath } from 'url'
+```ts twoslash
+import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-;(async () => {
-  const server = await createServer({
-    // quaisquer opções válidas de configuração do utilizador,
-    // mais `mode` e `configFile`
-    configFile: false,
-    root: __dirname,
-    server: {
-      port: 1337,
-    },
-  })
-  await server.listen()
+const server = await createServer({
+  // quaisquer opções válidas de configuração do utilizador,
+  // mais `mode` e `configFile`
+  configFile: false,
+  root: __dirname,
+  server: {
+    port: 1337,
+  },
+})
+await server.listen()
 
-  server.printUrls()
-  server.bindCLIShortcuts({ print: true })
-})()
+server.printUrls()
+server.bindCLIShortcuts({ print: true })
 ```
 
 :::tip NOTA
@@ -45,7 +43,7 @@ Quando usamos o [modo intermediário](/config/server-options#server-middlewaremo
 <details>
 <summary>Exemplo</summary>
 
-```ts
+```ts twoslash
 import http from 'http'
 import { createServer } from 'vite'
 
@@ -59,16 +57,17 @@ const vite = await createServer({
       // tomada da Web (WebSocket)
       server: parentServer,
     },
-  },
-  proxy: {
-    '/ws': {
-      target: 'ws://localhost:3000',
-      // Delegando a tomada da Web
-      ws: true,
+    proxy: {
+      '/ws': {
+        target: 'ws://localhost:3000',
+        // Delegando a tomada da Web
+        ws: true,
+      },
     },
   },
 })
 
+// @noErrors: 2339
 parentServer.use(vite.middlewares)
 ```
 
@@ -222,24 +221,22 @@ async function build(
 
 **Exemplo de Utilização:**
 
-```js
-import path from 'path'
-import { fileURLToPath } from 'url'
+```ts twoslash
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { build } from 'vite'
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url))
 
-;(async () => {
-  await build({
-    root: path.resolve(__dirname, './project'),
-    base: '/foo/',
-    build: {
-      rollupOptions: {
-        // ...
-      },
+await build({
+  root: path.resolve(__dirname, './project'),
+  base: '/foo/',
+  build: {
+    rollupOptions: {
+      // ...
     },
-  })
-})()
+  },
+})
 ```
 
 ## `preview` {#preview}
@@ -252,21 +249,20 @@ async function preview(inlineConfig?: InlineConfig): Promise<PreviewServer>
 
 **Exemplo de Utilização:**
 
-```js
+```ts twoslash
 import { preview } from 'vite'
-;(async () => {
-  const previewServer = await preview({
-    // quaisquer opções de configuração válidas do utilizador,
-    // mais `mode` e `configFile`
-    preview: {
-      port: 8080,
-      open: true,
-    },
-  })
 
-  previewServer.printUrls()
-  previewServer.bindCLIShortcuts({ print: true })
-})()
+const previewServer = await preview({
+  // quaisquer opções de configuração válidas do utilizador,
+  // mais `mode` e `configFile`
+  preview: {
+    port: 8080,
+    open: true,
+  },
+})
+
+previewServer.printUrls()
+previewServer.bindCLIShortcuts({ print: true })
 ```
 
 ## `PreviewServer` {#previewserver}
@@ -341,7 +337,17 @@ Combina profundamente duas configurações de Vite. `isRoot` representa o nível
 
 Tu podes usar a auxiliar `defineConfig` para combinar uma configuração na forma de função de resposta com uma outra configuração:
 
-```ts
+```ts twoslash
+import {
+  defineConfig,
+  mergeConfig,
+  type UserConfigFnObject,
+  type UserConfig,
+} from 'vite'
+declare const configAsCallback: UserConfigFnObject
+declare const configAsObject: UserConfig
+
+// ---cut---
 export default defineConfig((configEnv) =>
   mergeConfig(configAsCallback(configEnv), configAsObject),
 )

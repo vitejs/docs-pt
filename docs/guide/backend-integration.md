@@ -8,7 +8,9 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
 
 1. Na nossa configuração de Vite, configuramos uma entrada e ativamos o manifeste de construção:
 
-   ```js
+   ```js twoslash
+   import { defineConfig } from 'vite'
+   // ---cut---
    // vite.config.js
    export default defineConfig({
      build: {

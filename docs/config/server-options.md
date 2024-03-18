@@ -17,7 +17,7 @@ O primeiro caso é quando `localhost` é usado. A Node.js na versão 17 reordena
 
 Nós podemos definir [`dns.setDefaultResultOrder('verbatim')`](https://nodejs.org/api/dns.html#dns_dns_setdefaultresultorder_order) para desativar o comportamento de reordenação. A Vite então imprimirá o endereço como `localhost`.
 
-```js
+```js twoslash
 // vite.config.js
 import { defineConfig } from 'vite'
 import dns from 'dns'
@@ -234,7 +234,7 @@ Cria um servidor de Vite no modo intermediário.
 
 - **Exemplo:**
 
-```js
+```js twoslash
 import express from 'express'
 import { createServer as createViteServer } from 'vite'
 
@@ -352,7 +352,13 @@ export default defineConfig({
   server: {
     // Isto é o valor padrão, e adicionará todos os ficheiros com
     // `node_modules` nos seus caminhos para lista de ignorância.
-    sourcemapIgnoreList: (sourcePath, sourcemapPath) => sourcePath.includes('node_modules')
-  }
+    sourcemapIgnoreList(sourcePath, sourcemapPath) {
+      return sourcePath.includes('node_modules')
+    },
+  },
 })
 ```
+
+:::tip Nota
+[`server.sourcemapIgnoreList`](#server-sourcemapignorelist) e [`build.rollupOptions.output.sourcemapIgnoreList`](https://rollupjs.org/configuration-options/#output-sourcemapignorelist) precisam ser definidas de maneira independente. `server.sourcemapIgnoreList` é uma configuração exclusiva do servidor e não recebe o seu valor padrão das opções definidas da rollup.
+:::

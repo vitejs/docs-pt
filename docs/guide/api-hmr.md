@@ -8,13 +8,13 @@ O manual da API da substituição de módulo instantânea é principalmente dest
 
 A Vite expõe o manual da sua API de substituição de módulo instantânea através do objeto especial `import.meta.hot`:
 
-```ts
+```ts twoslash
+import type { ModuleNamespace } from 'vite/types/hot.d.ts'
+import type { InferCustomEventPayload } from 'vite/types/customEvent.d.ts'
+
+// ---cut---
 interface ImportMeta {
   readonly hot?: ViteHotContext
-}
-
-type ModuleNamespace = Record<string, any> & {
-  [Symbol.toStringTag]: 'Module'
 }
 
 interface ViteHotContext {
@@ -32,8 +32,6 @@ interface ViteHotContext {
   prune(cb: (data: any) => void): void
   invalidate(message?: string): void
 
-  // `InferCustomEventPayload` fornece os tipos para
-  // os eventos embutidos da Vite
   on<T extends string>(
     event: T,
     cb: (payload: InferCustomEventPayload<T>) => void,
@@ -68,7 +66,9 @@ A Vite fornece definições de tipo para a `import.meta.hot` no [`vite/client.d.
 
 Para um módulo aceitar-se a si mesmo, usamos a `import.meta.hot.accept` com uma função de resposta que recebe o módulo atualizado:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 export const count = 1
 
 if (import.meta.hot) {
@@ -91,7 +91,13 @@ A Vite exige que a chamada para esta função apareça como `import.meta.hot.acc
 
 Um módulo também pode aceitar atualizações das dependências diretas sem recarregar-se a si mesmo:
 
-```js
+```js twoslash
+// @filename: /foo.d.ts
+export declare const foo: () => void
+
+// @filename: /example.js
+import 'vite/client'
+// ---cut---
 import { foo } from './foo.js'
 
 foo()
@@ -122,7 +128,9 @@ if (import.meta.hot) {
 
 Um módulo que se aceita a si mesmo ou um módulo que espera ser aceito por outros pode usar `hot.dispose` para limpar quaisquer efeitos colaterais persistentes criados por sua cópia atualizada:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 function setupSideEffect() {}
 
 setupSideEffect()
@@ -138,7 +146,9 @@ if (import.meta.hot) {
 
 Regista uma função de resposta que chamar-se-á quando o módulo não for mais importado na página. Comparado com a `hot.dispose`, esta pode ser usada se o código-fonte limpa os efeitos colaterais por si só sobre as atualizações e apenas precisamos limpar quando for removida da página. A Vite atualmente usa isto para as importações de ficheiros `.css`:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 function setupOrReuseSideEffect() {}
 
 setupOrReuseSideEffect()
@@ -156,7 +166,9 @@ O objeto `import.meta.hot.data` é persistido em diferentes instâncias do mesmo
 
 Nota que a reatribuição do próprio `data` não é suportada. Em vez disso, devemos alterar as propriedades do objeto `data` para que as informações adicionados por outros manipuladores sejam preservadas:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 // ok
 import.meta.hot.data.someValue = 'hello'
 
@@ -174,7 +186,9 @@ Um módulo que aceita-se a si mesmo pode aperceber-se, durante a execução, de 
 
 Nota que devemos sempre chamar `import.meta.hot.accept` mesmo se planeamos chamar `invalidate` imediatamente depois, ou então o cliente da substituição de módulo instantânea não ouvirá futuras mudanças no módulo de auto-aceitação. Para comunicar a nossa intenção claramente, recomendamos chamar `invalidate` dento da função de resposta de `accept` desta maneira:
 
-```js
+```js twoslash
+import 'vite/client'
+// ---cut---
 import.meta.hot.accept((module) => {
   // Podemos usar a nova instância do módulo para
   // decidir se a invalidação deve ser efetuada.
