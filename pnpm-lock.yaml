@@ -14,7 +14,7 @@ devDependencies:
     specifier: ^4.13.1
     version: 4.22.1
   '@shikijs/vitepress-twoslash':
-    specifier: ^1.1.7
+    specifier: ^1.2.0
     version: 1.2.0(typescript@5.4.2)
   '@types/express':
     specifier: ^4.17.21
@@ -68,9 +68,6 @@ packages:
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
-    peerDependenciesMeta:
-      '@algolia/client-search':
-        optional: true
     dependencies:
       '@algolia/autocomplete-shared': 1.9.3(@algolia/client-search@4.22.1)(algoliasearch@4.22.1)
       '@algolia/client-search': 4.22.1
@@ -82,9 +79,6 @@ packages:
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
-    peerDependenciesMeta:
-      '@algolia/client-search':
-        optional: true
     dependencies:
       '@algolia/client-search': 4.22.1
       algoliasearch: 4.22.1
