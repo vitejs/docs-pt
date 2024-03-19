@@ -19,9 +19,9 @@ Dependências a excluir do pré-empacotamento.
 :::warning CommonJS
 As dependências de CommonJS não devem ser excluídas da otimização. Se uma dependência de Módulo de ECMAScript for excluída da otimização, mas tem uma dependência de CommonJS encaixada, a dependência de CommonJS devem ser adicionadas a `optimizeDeps.include`. Exemplo:
 
-```js twoslash
+```js
 import { defineConfig } from 'vite'
-// ---cut---
+
 export default defineConfig({
   optimizeDeps: {
     include: ['esm-dep > cjs-dep'],
@@ -39,9 +39,9 @@ Por padrão, os pacotes ligados que não estão dentro da `node_modules` não s�
 
 **Experimental:** Se estivermos usando uma biblioteca com muitas importações profundas, também podemos especificar um padrão de globo à direita para pré-empacotar todas as importações de uma só vez. Isto evitará o pré-empacotamento constante sempre que uma nova importação profunda for usada. [Comentar nas Discussões](https://github.com/vitejs/vite/discussions/15833). Por exemplo:
 
-```js twoslash
+```js
 import { defineConfig } from 'vite'
-// ---cut---
+
 export default defineConfig({
   optimizeDeps: {
     include: ['my-lib/components/**/*.vue'],
