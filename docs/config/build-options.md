@@ -49,22 +49,18 @@ type ResolveModulePreloadDependenciesFn = (
 
 A função `resolveDependencies` será chamada para cada importação dinâmica com uma lista dos pedaços sobre os quais ele depende, e será também chamado para cada pedaço importado nos ficheiros de HTML entrada. Um novo arranjo de dependências pode ser retornado com estes filtrados ou mais dependências injetadas, e seus caminhos modificados. Os caminhos de `deps` são relativos ao `build.outDir`. O retorno de um caminho relativo para o `hostId` para `hostType === 'js'` é permitido, naquele caso que `new URL(dep, import.meta.url)` é usado para obter um caminho absoluto quando injetamos este módulo pré-carregado no cabeçalho da HTML.
 
-<!-- prettier-ignore-start -->
-```js twoslash
+```js
 /** @type {import('vite').UserConfig} */
 const config = {
   build: {
-// ---cut-before---
-modulePreload: {
-  resolveDependencies: (filename, deps, { hostId, hostType }) => {
-    return deps.filter(condition)
-  },
-},
-// ---cut-after---
+    modulePreload: {
+      resolveDependencies: (filename, deps, { hostId, hostType }) => {
+        return deps.filter(condition)
+      },
+    },
   },
 }
 ```
-<!-- prettier-ignore-end -->
 
 Os caminhos de dependência resolvida podem ser ainda modificados usando [`experimental.renderBuiltUrl`](../guide/build#advanced-base-options).
 
