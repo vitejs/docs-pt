@@ -416,7 +416,7 @@ Ajusta a verbosidade da saída da consola. O padrão é `'info'`.
 
 Usa um registador personalizado para registar mensagens. Nós podemos usar a API `createLogger` da Vite para obter o registador padrão e personalizá-lo para, por exemplo, mudar a mensagem ou filtrar certos avisos.
 
-```ts twoslash
+```ts
 import { createLogger, defineConfig } from 'vite'
 
 const logger = createLogger()
