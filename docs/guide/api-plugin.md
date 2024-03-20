@@ -585,9 +585,9 @@ Nós recomendação **sempre prefixar** os nomes do teu evento para evitar colis
 
 No lado do cliente, use o [`hot.on`](/guide/api-hmr.html#hot-on-event-cb) para ouvir os eventos:
 
-```ts twoslash
+```ts
 import 'vite/client'
-// ---cut---
+
 // lado do cliente
 if (import.meta.hot) {
   import.meta.hot.on('my:greetings', (data) => {
