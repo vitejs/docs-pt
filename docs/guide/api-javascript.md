@@ -12,7 +12,7 @@ async function createServer(inlineConfig?: InlineConfig): Promise<ViteDevServer>
 
 **Exemplo de Utilização:**
 
-```ts twoslash
+```ts
 import { fileURLToPath } from 'node:url'
 import { createServer } from 'vite'
 
@@ -43,7 +43,7 @@ Quando usamos o [modo intermediário](/config/server-options#server-middlewaremo
 <details>
 <summary>Exemplo</summary>
 
-```ts twoslash
+```ts
 import http from 'http'
 import { createServer } from 'vite'
 
@@ -221,7 +221,7 @@ async function build(
 
 **Exemplo de Utilização:**
 
-```ts twoslash
+```ts
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { build } from 'vite'
@@ -249,7 +249,7 @@ async function preview(inlineConfig?: InlineConfig): Promise<PreviewServer>
 
 **Exemplo de Utilização:**
 
-```ts twoslash
+```ts
 import { preview } from 'vite'
 
 const previewServer = await preview({
@@ -337,7 +337,7 @@ Combina profundamente duas configurações de Vite. `isRoot` representa o nível
 
 Tu podes usar a auxiliar `defineConfig` para combinar uma configuração na forma de função de resposta com uma outra configuração:
 
-```ts twoslash
+```ts
 import {
   defineConfig,
   mergeConfig,
