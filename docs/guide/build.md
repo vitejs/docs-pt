@@ -67,7 +67,7 @@ Nós devemos usar a forma de função `build.rollupOptions.output.manualChunks` 
 
 A Vite emite o evento `vite:preloadError` quando não consegue carregar as importações dinâmicas. `event.payload` contém o erro de importação original. Se chamarmos `event.preventDefault()`, o erro não será lançado:
 
-```js twoslash
+```js
 window.addEventListener('vite:preloadError', (event) => {
   window.location.reload() // por exemplo, atualizar a página
 })
@@ -79,7 +79,7 @@ Quando uma nova implementação de produção ocorre, o serviço de hospedagem p
 
 Nós podemos ativar o observador da Rollup com `vite build --watch`. Ou, podemos ajustar diretamente a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
 
-```js twoslash
+```js
 // vite.config.js
 export default defineConfig({
   build: {
@@ -110,7 +110,7 @@ Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - e
 
 Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
-```js twoslash
+```js
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -137,7 +137,7 @@ Quando estivermos desenvolvimento uma biblioteca orienta ao navegador, estaremos
 
 Na hora de empacotar a nossa biblioteca para distribuição, usamos a [ opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
 
-```js twoslash
+```js
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -253,7 +253,7 @@ Para os casos de uso avançados, os recursos e ficheiros públicos implementados
 Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançadas durante a construção, usando a `experimental.renderBuiltUrl`;
 
 <!-- prettier-ignore-start -->
-```ts twoslash
+```ts
 import type { UserConfig } from 'vite'
 const config: UserConfig = {
 // ---cut-before---
@@ -273,7 +273,7 @@ experimental: {
 
 Se os recursos de nome embaralhado e os ficheiros públicos são forem implementados em produção em conjunto, as opções para grupo podem ser definidas de maneira independente usando a `type` de recurso incluída no segundo parâmetro `context` dado à função:
 
-```ts twoslash
+```ts
 import type { UserConfig } from 'vite'
 import path from 'node:path'
 const config: UserConfig = {
