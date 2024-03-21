@@ -41,9 +41,9 @@ Numa configuração de mono-repositório, uma dependência pode ser um pacote li
 
 No entanto, isto exige que a dependência ligada seja exportada como Módulo de ECMAScript. Se não, podemos adicionar a dependência à [`optimizeDeps.include`](/config/dep-optimization-options#optimizedeps-include) e [`build.commonjsOptions.include`](/config/build-options#build-commonjsoptions) na nossa configuração:
 
-```js twoslash
+```js
 import { defineConfig } from 'vite'
-// ---cut---
+
 export default defineConfig({
   optimizeDeps: {
     include: ['linked-dep'],
@@ -85,7 +85,7 @@ Se por alguma razão quisermos forçar a Vite à re-empacotar as dependências, 
 
 ### Armazenamento de Consulta Imediata do Navegador {#browser-cache}
 
-As requisições de dependência resolvidas são fortemente armazenadas para consulta imediata com os cabeçalhos de HTTP `max-age=31536000,immutable` para melhorar o desempenho do recarregamento da página durante o desenvolvimento. Uma vez armazenada, estas requisições nunca atingirão o servidor novamente. Elas são invalidadas automaticamente pela consulta da versão anexada se uma versão diferente estiver instalada (conforme refletida no ficheiro de fechadura do nosso gestor de pacote). Se quisermos depurar as nossas dependências fazendo edições locais, podemos:
+As requisições de dependência resolvidas são fortemente armazenadas para consulta imediata com os cabeçalhos de HTTP `max-age=31536000,immutable` para melhorar o desempenho da recarga da página durante o desenvolvimento. Uma vez armazenada, estas requisições nunca atingirão o servidor novamente. Elas são invalidadas automaticamente pela consulta da versão anexada se uma versão diferente estiver instalada (conforme refletida no ficheiro de fechadura do nosso gestor de pacote). Se quisermos depurar as nossas dependências fazendo edições locais, podemos:
 
 1. Desativar temporariamente o armazenamento de consulta imediata através da aba de Rede da ferramenta de programação do nosso navegador;
 2. Reiniciar o servidor de desenvolvimento da Vite com a opção de linha de comando `--force` para re-empacotar as dependências;
