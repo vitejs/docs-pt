@@ -6,11 +6,11 @@ A Vite pode ser estendida usando extensões, que são baseadas na interface de e
 
 Para usar uma extensão, esta precisa ser adicionada à `devDependencies` do projeto e incluída no vetor de `plugins` no ficheiro de configuração `vite.config.js`. Por exemplo, para fornecer suporte aos navegadores antigos, o pacote [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial pode ser usado:
 
-```
+```sh
 $ npm add -D @vitejs/plugin-legacy
 ```
 
-```js twoslash
+```js
 // vite.config.js
 import legacy from '@vitejs/plugin-legacy'
 import { defineConfig } from 'vite'
@@ -34,7 +34,7 @@ As extensões falsas serão ignoradas, as quais podem ser usadas para ativar e d
 A Vite tem por objetivo fornecer suporte fora da caixa para os padrões de desenvolvimento da Web comuns. Antes de procurarmos por uma extensão compatível com a Vite ou com a Rollup, devemos consultar o [Guia de Funcionalidades](../guide/features). Muitos casos onde uma extensão seria necessária num projeto de Rollup já são cobertos pela Vite.
 :::
 
-Consulte a [seção de Extensões](../plugins/) por informação sobre a extensões oficiais. As extensões da comunidade são listadas no [`awesome-vite`](https://github.com/vitejs/awesome-vite#plugins).
+Consulte a [secção de Extensões](../plugins/) por informação sobre a extensões oficiais. As extensões da comunidade são listadas no [`awesome-vite`](https://github.com/vitejs/awesome-vite#plugins).
 
 Nós também podemos encontrar extensões que seguem as [convenções recomendadas](./api-plugin#conventions) usando um [`npm search` por `vite-plugin`](https://www.npmjs.com/search?q=vite-plugin&ranking=popularity) para extensões de Vite ou um [`npm search` por `rollup-plugin`](https://www.npmjs.com/search?q=rollup-plugin&ranking=popularity) para extensões de Rollup.
 
@@ -46,7 +46,7 @@ Para compatibilidade com algumas extensões de Rollup, pode ser necessário for�
 - `default`: invoca a extensão depois das extensões principais da Vite
 - `post`: invoca a extensão depois das extensões de construção da Vite
 
-```js twoslash
+```js
 // vite.config.js
 import image from '@rollup/plugin-image'
 import { defineConfig } from 'vite'
@@ -67,7 +67,7 @@ Consulte o [Guia da API de Extensões](./api-plugin.md#plugin-ordering) por info
 
 Por padrão, as extensões são invocadas por ambos comandos `serve` e `build`. Nos casos onde uma extensão precisa ser condicionalmente aplicada apenas durante a execução do comando `serve` ou `build`, usamos a propriedade `apply` para apenas invocá-las durante o `'build'` ou `'serve'`;
 
-```js twoslash
+```js
 // vite.config.js
 import typescript2 from 'rollup-plugin-typescript2'
 import { defineConfig } from 'vite'
@@ -84,4 +84,4 @@ export default defineConfig({
 
 ## Construindo Extensões {#building-plugins}
 
-Consulte o [Guia da API de Extensões](./api-plugin) pela documentação sobre a criação de extensões.
+Consultar o [Guia da API de Extensões](./api-plugin) pela documentação sobre a criação de extensões.
