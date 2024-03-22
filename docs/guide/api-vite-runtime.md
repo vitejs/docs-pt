@@ -12,7 +12,7 @@ Todas as APIs podem ser importadas de `vite/runtime` a menos que seja indicado o
 
 ## `ViteRuntime` {#viteruntime}
 
-**Type Signature:**
+**Assinatura de Tipo:**
 
 ```ts
 export class ViteRuntime {
@@ -22,42 +22,46 @@ export class ViteRuntime {
     private debug?: ViteRuntimeDebugger,
   ) {}
   /**
-   * URL to execute. Accepts file path, server path, or id relative to the root.
+   * Localizador uniforme de recurso a executar. Aceita o caminho do ficheiro, caminho do servidor,
+   * ou identificador relativo à raiz.
    */
   public async executeUrl<T = any>(url: string): Promise<T>
   /**
-   * Entry point URL to execute. Accepts file path, server path or id relative to the root.
-   * In the case of a full reload triggered by HMR, this is the module that will be reloaded.
-   * If this method is called multiple times, all entry points will be reloaded one at a time.
+   * Localizador uniforme de recurso de ponto de entrada a executar. Aceita o caminho do ficheiro,
+   * caminho do servidor ou identificador relativo à raiz. No caso duma recarga completa acionada
+   * pela substituição de módulo instantânea, este é o módulo que será recarregado. Se este método
+   * for chamado várias vezes, todos os pontos de entrada serão recarregados um de cada vez.
    */
   public async executeEntrypoint<T = any>(url: string): Promise<T>
   /**
-   * Clear all caches including HMR listeners.
+   * Limpa todas as memórias, incluindo os ouvintes da substituição de módulo
+   * instantânea.
    */
   public clearCache(): void
   /**
-   * Clears all caches, removes all HMR listeners, and resets source map support.
-   * This method doesn't stop the HMR connection.
+   * Limpa todas as memórias, remove todos ouvintes da substituição de módulo
+   * instantânea, e redefine o suporte do mapa de código-fonte. Este método não
+   * interrompe a conexão da substituição de módulo instantânea.
    */
   public async destroy(): Promise<void>
   /**
-   * Returns `true` if the runtime has been destroyed by calling `destroy()` method.
+   * Retorna `true` se a execução foi destruída pela chamada do método `destroy()`.
    */
   public isDestroyed(): boolean
 }
 ```
 
-::: tip Advanced Usage
-If you are just migrating from `server.ssrLoadModule` and want to support HMR, consider using [`createViteRuntime`](#createviteruntime) instead.
+:::tip Uso Avançado
+Se estivermos apenas migrando de `server.ssrLoadModule` e queremos suportar a substituição de módulo instantânea, precisamos considerar a [`createViteRuntime`](#createviteruntime).
 :::
 
-The `ViteRuntime` class requires `root` and `fetchModule` options when initiated. Vite exposes `ssrFetchModule` on the [`server`](/guide/api-javascript) instance for easier integration with Vite SSR. Vite also exports `fetchModule` from its main entry point - it doesn't make any assumptions about how the code is running unlike `ssrFetchModule` that expects the code to run using `new Function`. This can be seen in source maps that these functions return.
+A classe `ViteRuntime` requer as opções `root` e `fetchModule` quando inicializada. A Vite expõe `ssrFetchModule` sobre a instância [`server`](/guide/api-javascript) para facilitar a integração com a interpretação do lado do servidor da Vite. A Vite também exporta `fetchModule` a partir do seu principal ponto de entrada - esta não faz nenhuma suposição sobre como o código está sendo executado, ao contrário de `ssrFetchModule` que espera que o código seja executado usando `new Function`. Isto pode ser visto nos mapas do código-fonte que estas funções retornam.
 
-Runner in `ViteRuntime` is responsible for executing the code. Vite exports `ESModulesRunner` out of the box, it uses `new AsyncFunction` to run the code. You can provide your own implementation if your JavaScript runtime doesn't support unsafe evaluation.
+O executor na `ViteRuntime` é responsável pela execução do código. A Vite exporta `ESModulesRunner` fora da caixa, este usa `new AsyncFunction` para executar o código. Nós podemos fornecer a nossa própria implementação se a nossa execução da JavaScript não suportar avaliação insegura.
 
-The two main methods that runtime exposes are `executeUrl` and `executeEntrypoint`. The only difference between them is that all modules executed by `executeEntrypoint` will be reexecuted if HMR triggers `full-reload` event. Be aware that Vite Runtime doesn't update `exports` object when this happens (it overrides it), you would need to run `executeUrl` or get the module from `moduleCache` again if you rely on having the latest `exports` object.
+Os dois principais métodos que a execução expõe são `executeUrl` e `executeEntrypoint`. A única diferença entre eles é que todos os módulos executados por `executeEntrypoint` serão executados novamente se a substituição de módulo instantânea acionar o evento `full-reload`. Precisamos estar cientes de que a execução da Vite não atualiza o objeto `exports` quando isto acontece (esta o substitui), precisaríamos executar a `executeUrl` ou obter o módulo do `moduleCache` novamente se dependêssemos de ter o objeto `exports` mais recente.
 
-**Example Usage:**
+**Exemplo de Uso:**
 
 ```js
 import { ViteRuntime, ESModulesRunner } from 'vite/runtime'
@@ -67,7 +71,8 @@ const runtime = new ViteRuntime(
   {
     root,
     fetchModule,
-    // you can also provide hmr.connection to support HMR
+    // também podemos fornecer `hmr.connection` para
+    // suportar a substituição de módulo instantânea
   },
   new ESModulesRunner(),
 )
