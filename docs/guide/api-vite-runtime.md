@@ -128,7 +128,7 @@ export interface ViteRuntimeOptions {
 
 ## `ViteModuleRunner` {#vitemodulerunner}
 
-**Type Signature:**
+**Assinatura de Tipo:**
 
 ```ts
 export interface ViteModuleRunner {
@@ -151,7 +151,7 @@ export interface ViteModuleRunner {
 }
 ```
 
-Vite exports `ESModulesRunner` that implements this interface by default. It uses `new AsyncFunction` to run code, so if the code has inlined source map it should contain an [offset of 2 lines](https://tc39.es/ecma262/#sec-createdynamicfunction) to accommodate for new lines added. This is done automatically by `server.ssrFetchModule`. If your runner implementation doesn't have this constraint, you should use `fetchModule` (exported from `vite`) directly.
+A Vite exporta o `ESModulesRunner` que implementa esta interface por padrão. Esta usa `new AsyncFunction` para executar o código, então se o código tiver um mapa de código fonte incorporado, este deve conter um [deslocamento de 2 linhas](https://tc39.es/ecma262/#sec-createdynamicfunction) para acomodar as novas linhas adicionadas. Isto é feito automaticamente pela `server.ssrFetchModule`. Se a implementação do nosso executor não tiver esta restrição, devemos usar `fetchModule` (exportado da `vite`) diretamente.
 
 ## `HMRRuntimeConnection` {#hmrruntimeconnection}
 
