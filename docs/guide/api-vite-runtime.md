@@ -22,30 +22,26 @@ export class ViteRuntime {
     private debug?: ViteRuntimeDebugger,
   ) {}
   /**
-   * Localizador uniforme de recurso a executar. Aceita o caminho do ficheiro, caminho do servidor,
-   * ou identificador relativo à raiz.
+   * URL to execute. Accepts file path, server path, or id relative to the root.
    */
   public async executeUrl<T = any>(url: string): Promise<T>
   /**
-   * Localizador uniforme de recurso de ponto de entrada a executar. Aceita o caminho do ficheiro,
-   * caminho do servidor ou identificador relativo à raiz. No caso duma recarga completa acionada
-   * pela substituição de módulo instantânea, este é o módulo que será recarregado. Se este método
-   * for chamado várias vezes, todos os pontos de entrada serão recarregados um de cada vez.
+   * Entry point URL to execute. Accepts file path, server path or id relative to the root.
+   * In the case of a full reload triggered by HMR, this is the module that will be reloaded.
+   * If this method is called multiple times, all entry points will be reloaded one at a time.
    */
   public async executeEntrypoint<T = any>(url: string): Promise<T>
   /**
-   * Limpa todas as memórias, incluindo os ouvintes da substituição de módulo
-   * instantânea.
+   * Clear all caches including HMR listeners.
    */
   public clearCache(): void
   /**
-   * Limpa todas as memórias, remove todos ouvintes da substituição de módulo
-   * instantânea, e redefine o suporte do mapa de código-fonte. Este método não
-   * interrompe a conexão da substituição de módulo instantânea.
+   * Clears all caches, removes all HMR listeners, and resets source map support.
+   * This method doesn't stop the HMR connection.
    */
   public async destroy(): Promise<void>
   /**
-   * Retorna `true` se a execução foi destruída pela chamada do método `destroy()`.
+   * Returns `true` if the runtime has been destroyed by calling `destroy()` method.
    */
   public isDestroyed(): boolean
 }
