@@ -189,7 +189,7 @@ A função de resposta é enfileirada e aguardará que a atualização atual sej
 
 ## `createViteRuntime` {#createviteruntime}
 
-**Type Signature:**
+**Assinatura do Tipo:**
 
 ```ts
 async function createViteRuntime(
@@ -198,7 +198,7 @@ async function createViteRuntime(
 ): Promise<ViteRuntime>
 ```
 
-**Example Usage:**
+**Exemplo de Uso:**
 
 ```js
 import { createServer } from 'vite'
@@ -216,7 +216,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url))
 })()
 ```
 
-This method serves as an easy replacement for `server.ssrLoadModule`. Unlike `ssrLoadModule`, `createViteRuntime` provides HMR support out of the box. You can pass down [`options`](#mainthreadruntimeoptions) to customize how SSR runtime behaves to suit your needs.
+Este método serve como um substituto fácil para `server.ssrLoadModule`. Ao contrário do `ssrLoadModule`, o `createViteRuntime` fornece suporta a substituição de módulo instantânea fora da caixa. Nós podemos passar [`options`](#mainthreadruntimeoptions) para personalizar como a execução da interpretação do lado do servidor se comporta para atender às nossas necessidades.
 
 ## `MainThreadRuntimeOptions` {#mainthreadruntimeoptions}
 
