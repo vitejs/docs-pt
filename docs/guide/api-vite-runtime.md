@@ -155,7 +155,7 @@ A Vite exporta o `ESModulesRunner` que implementa esta interface por padrão. Es
 
 ## `HMRRuntimeConnection` {#hmrruntimeconnection}
 
-**Type Signature:**
+**Assinatura do Tipo:**
 
 ```ts
 export interface HMRRuntimeConnection {
@@ -175,9 +175,9 @@ export interface HMRRuntimeConnection {
 }
 ```
 
-This interface defines how HMR communication is established. Vite exports `ServerHMRConnector` from the main entry point to support HMR during Vite SSR. The `isReady` and `send` methods are usually called when the custom event is triggered (like, `import.meta.hot.send("my-event")`).
+Esta interface define como a comunicação da substituição de módulo instantânea é estabelecida. A Vite exporta o `ServerHMRConnector` do ponto de entrada principal para suportar a substituição de módulo instantânea durante a interpretação do lado do servidor da Vite. Os métodos `isReady` e `send` são normalmente chamados quando o evento personalizado é acionado (como, `import.meta.hot.send("my-event")`).
 
-`onUpdate` is called only once when the new runtime is initiated. It passed down a method that should be called when connection triggers the HMR event. The implementation depends on the type of connection (as an example, it can be `WebSocket`/`EventEmitter`/`MessageChannel`), but it usually looks something like this:
+O `onUpdate` é chamado apenas uma vez quando a nova execução é iniciada. Este passa um método que deve ser chamado quando a conexão aciona o evento de substituição de módulo instantânea. A implementação depende do tipo de conexão (por exemplo, pode ser `WebSocket`/`EventEmitter`/`MessageChannel`), mas normalmente é algo neste sentido:
 
 ```js
 function onUpdate(callback) {
@@ -185,7 +185,7 @@ function onUpdate(callback) {
 }
 ```
 
-The callback is queued and it will wait for the current update to be resolved before processing the next update. Unlike the browser implementation, HMR updates in Vite Runtime wait until all listeners (like, `vite:beforeUpdate`/`vite:beforeFullReload`) are finished before updating the modules.
+A função de resposta é enfileirada e aguardará que a atualização atual seja resolvida antes de passar a próxima atualização. Ao contrário da implementação do navegador, as atualizações da substituição de módulo instantânea na execução da Vite esperam até que todos os ouvintes (como `vite:beforeUpdate`/`vite:beforeFullReload`) sejam finalizados antes de atualizar os módulos.
 
 ## `createViteRuntime` {#createviteruntime}
 
