@@ -263,10 +263,10 @@ export default defineConfig({
         {
           text: 'APIs',
           items: [
-            // {
-            //   text: 'API de Extensão',
-            //   link: '/guide/api-plugin'
-            // },
+            {
+              text: 'API de Extensão',
+              link: '/guide/api-plugin'
+            },
             {
               text: 'API da Substituição de Módulo Instantânea',
               link: '/guide/api-hmr'
