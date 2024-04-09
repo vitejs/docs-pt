@@ -104,7 +104,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    <script type="module" src="/{{ manifest[name].file }}"></script>
 
    <!-- para o pedaço de importedChunks(manifest, name) -->
-   <link rel="modulepreload" src="/{{ chunk.file }}" />
+   <link rel="modulepreload" href="/{{ chunk.file }}" />
    ```
 
    Especificamente, um backend que gera HTML deve incluir os seguintes marcadores, dado um ficheiro de manifesto e um ponto de entrada:
@@ -121,7 +121,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    <link rel="stylesheet" href="assets/shared.a834bfc3.css" />
    <script type="module" src="assets/main.4889e940.js"></script>
    <!-- opcional -->
-   <link rel="modulepreload" src="assets/shared.83069a53.js" />
+   <link rel="modulepreload" href="assets/shared.83069a53.js" />
    ```
 
   Enquanto o seguinte deve ser incluído para o ponto de entrada `views/foo.js`:
@@ -130,5 +130,5 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    <link rel="stylesheet" href="assets/shared.a834bfc3.css" />
    <script type="module" src="assets/foo.869aea0d.js"></script>
    <!-- opcional -->
-   <link rel="modulepreload" src="assets/shared.83069a53.js" />
+   <link rel="modulepreload" href="assets/shared.83069a53.js" />
    ```
