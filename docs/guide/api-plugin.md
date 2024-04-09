@@ -486,6 +486,8 @@ A extensão da Vite podem adicionalmente especificar uma propriedade `enforce` (
 - Extensões do utilizador com `enforce: 'post'`
 - Extensões de construção da publicação de Vite (minificar, manifestar, reportagem)
 
+Notemos que isto está separado da ordem das funções gatilhos, que ainda estão sujeitas separadamente ao seu atributo `order` [como o habitual para as funções gatilhos da Rollup](https://rollupjs.org/plugin-development/#build-hooks).
+
 ## Aplicação Condicional {#application-conditional}
 
 Por padrão as extensões são invocadas para ambos servir e construir. Nestes casos onde uma extensão precisa ser condicionalmente aplicada apenas durante o servir ou construir, use a propriedade `apply` para apenas invocá-los durante o `'build'` ou `'serve'`:
