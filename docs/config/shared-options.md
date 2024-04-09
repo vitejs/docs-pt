@@ -292,6 +292,10 @@ Se for verdadeiro ativa os mapas de código-fonte durante o desenvolvimento.
 
 Seleciona o motor usado para o processamento de CSS. Consulte a [CSS Relâmpago](../guide/features#lightning-css) por mais informação.
 
+:::info Duplicação de `@import`
+Notemos que `postcss` (`postcss-import`) tem um comportamento diferente com `@import` duplicado a partir dos navegadores. Consultar [`postcss/postcss-import#462`](https://github.com/postcss/postcss-import/issues/462).
+:::
+
 ## `css.lightningcss` {#css-lightningcss}
 
 - **Experimental:** [Comentar](https://github.com/vitejs/vite/discussions/13835)
