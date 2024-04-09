@@ -148,6 +148,10 @@ export default defineConfig({
           {
             items: [
               {
+                text: 'Mastodon',
+                link: 'https://elk.zone/m.webtoo.ls/@vite',
+              },
+              {
                 text: 'X (Twitter)',
                 link: 'https://x.com/vite_js'
               },
