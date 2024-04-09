@@ -47,21 +47,7 @@ Por exemplo, podemos especificar várias saídas da Rollup com as extensões que
 
 ## Estratégia de Fragmentação {#chunking-strategy}
 
-Nós podemos configurar como os pedaços são separados usando a `build.rollupOptions.output.manualChunks` (consultar a [documentação da Rollup](https://rollupjs.org/configuration-options/#output-manualchunks)). Até a Vite 2.8, a estratégia de fragmentação padrão dividia os pedaços em `index` e `vendor`. É uma boa estratégia para algumas aplicações de página única, mas é difícil fornecer uma solução geral para todo caso de uso do alvo da Vite. Desde a Vite 2.9, `manualChunks` já não é modificada por padrão. Nós podemos continuar a usar a estratégia de pedaço de fornecedor dividido adicionando a `splitVendorChunkPlugin` no ficheiro de configuração:
-
-```js
-// vite.config.js
-import { splitVendorChunkPlugin } from 'vite'
-export default defineConfig({
-  plugins: [splitVendorChunkPlugin()],
-})
-```
-
-Está estratégia também é fornecida como uma fábrica `splitVendorChunk({ cache: SplitVendorChunkCache })`, no caso de ser necessária uma composição com lógica personalizada. `cache.reset()` precisa ser chamada no `buildStart` para modo de observação da construção para funcionar corretamente neste caso.
-
-:::warning AVISO
-Nós devemos usar a forma de função `build.rollupOptions.output.manualChunks` quando usamos esta extensão. Se forma de objeto for usada, a extensão não surtirá nenhum efeito.
-:::
+Nós podemos configurar como os pedaços são separados usando `build.rollupOptions.output.manualChunks` (consultar [documentação da Rollup](https://rollupjs.org/configuration-options/#output-manualchunks)). Se usarmos uma abstração, precisamos consultar a sua documentação pela configuração de como os pedaços são separados.
 
 ## Manipulação do Erro de Carregamento {#load-error-handling}
 
