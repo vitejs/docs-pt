@@ -698,7 +698,7 @@ Para implantar a política de segurança de conteúdo, certas diretivas ou confi
 
 ### [`'nonce-{RANDOM}'`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/Sources#nonce-base64-value) {#nonce-random}
 
-Quando [`html.cspNonce`](/config/shared-options#html-cspnonce) é definida, a Vite adiciona um atributo de código de acesso com o valor especificado ao marcador de programa de saída e ao marcador de ligação para folhas de estilo. Notemos que a Vite não adicionará um atributo de código de acesso aos outros marcadores, como `<style>`. Adicionalmente, quando esta opção é definida, a Vite injetará um marcador de meta (`<meta property="csp-nonce" nonce="PLACEHOLDER" />`).
+Quando [`html.cspNonce`](/config/shared-options#html-cspnonce) é definida, a Vite adiciona um atributo de código de acesso com o valor especificado a quaisquer marcadores `<script>` e `<style>`, bem como os marcadores `<link>` para folhas de estilo e pré-carregamento de módulo. Adicionalmente, quando esta opção é definida, a Vite injetará um marcador meta (`<meta property="csp-nonce" nonce="PLACEHOLDER" />`).
 
 O valor de código de acesso dum marcador de meta como `property="csp-nonce"` será usado pela Vita sempre que necessário, tanto durante o desenvolvimento quanto após a construção.
 
