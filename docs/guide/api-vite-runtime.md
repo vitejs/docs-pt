@@ -1,7 +1,9 @@
 # API de Execução da Vite {#vite-runtime-api}
 
 :::warning API de Baixo Nível
-Esta API foi introduzida na Vite 5.1 como uma funcionalidade experimental. Esta foi adicionada para [recolher comentários](https://github.com/vitejs/vite/discussions/15774). Provavelmente haverão mudanças significativas na Vite 5.2, então temos que certificar-nos de fixar a versão da Vite em `~5.1.0` quando a usámos. Esta é uma API de baixo nível destinada aos autores de bibliotecas e abstrações. Se o nosso objetivo é criar uma aplicação, devemos certificar-nos de consultar primeiro as extensões e ferramentas de alto nível da interpretação do lado do servidor na [seção da Interpretação do Lado do Servidor da Awesome Vite](https://github.com/vitejs/awesome-vite#ssr).
+Esta API foi introduzida na Vite 5.1 como uma funcionalidade experimental. Esta foi adicionada para [recolher comentários](https://github.com/vitejs/vite/discussions/15774). Provavelmente haverão mudanças significativas, então temos que certificar-nos de fixar a versão da Vite em `~5.1.0` quando a usámos. Esta é uma API de baixo nível destinada aos autores de bibliotecas e abstrações. Se o nosso objetivo for criar uma aplicação, devemos certificar-nos de primeiro consultar as extensões e ferramentas de alto nível da interpretação do lado do servidor na [secção da Interpretação do Lado do Servidor da Awesome Vite](https://github.com/vitejs/awesome-vite#ssr).
+
+Atualmente, a API está sendo revisada como [API de Ambiente](https://github.com/vitejs/vite/discussions/16358) que é lançada na `^6.0.0-alpha.0`.
 :::
 
 A "Execução da Vite" é uma ferramenta que permite executar qualquer código, processando-o primeiro com as extensões da Vite. Esta é diferente de `server.ssrLoadModule` porque a implementação da execução é dissociada do servidor. Isto permite os autores de bibliotecas e abstrações implementarem sua própria camadas de comunicação entre o servidor e a execução.
