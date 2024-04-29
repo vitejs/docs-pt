@@ -2,17 +2,17 @@
 
 ## Variáveis de Ambiente {#env-variables}
 
-A Vite expõe as variáveis de ambiente sobre o objeto especial **`import.meta.env`**. Algumas variáveis embutidas estão disponíveis em todos os casos:
+A Vite expõe as variáveis de ambiente sobre o objeto especial **`import.meta.env`**, as quais são substituídas estaticamente em tempo de construção. Algumas variáveis embutidas estão disponíveis em todos os casos:
 
-- **`import.meta.env.MODE`**: {sequência de caracteres} o [modo](#modes) no qual a aplicação executa.
+- **`import.meta.env.MODE`**: `{string}` o [modo](#modes) no qual a aplicação executa.
 
-- **`import.meta.env.BASE_URL`**: {sequência de caracteres} a URL de base a partir da qual a aplicação é servida. Isto é determinado pela [opção de configuração `base`](/config/shared-options#base).
+- **`import.meta.env.BASE_URL`**: `{string}` a URL de base a partir da qual a aplicação é servida. Isto é determinado pela [opção de configuração `base`](/config/shared-options#base).
 
-- **`import.meta.env.PROD`**: {booleano} se a aplicação executa em produção (executa o servidor de desenvolvimento com `NODE_ENV='production'` ou executa uma aplicação construída com `NODE_ENV='production'`).
+- **`import.meta.env.PROD`**: `{boolean}` se a aplicação executa em produção (executa o servidor de desenvolvimento com `NODE_ENV='production'` ou executa uma aplicação construída com `NODE_ENV='production'`).
 
-- **`import.meta.env.DEV`**: {booleano} se a aplicação executa em desenvolvimento (sempre o oposto de `import.meta.env.PROD`)
+- **`import.meta.env.DEV`**: `{boolean}` se a aplicação executa em desenvolvimento (sempre o oposto de `import.meta.env.PROD`)
 
-- **`import.meta.env.SSR`**: {booleano} se a aplicação executa no [servidor](./ssr#conditional-logic).
+- **`import.meta.env.SSR`**: `{boolean}` se a aplicação executa no [servidor](./ssr#conditional-logic).
 
 ## Os Ficheiros `.env` {#env-files}
 
