@@ -31,17 +31,17 @@ _8 de Fevereiro de 2024_
 
 ![Imagem de Capa do Anúncio da Vite 5.1](/og-image-announcing-vite5-1.png)
 
-Vite 5 [was released](./announcing-vite5.md) last November, and it represented another big leap for Vite and the ecosystem. A few weeks ago we celebrated 10 million weekly npm downloads and 900 contributors to the Vite repo. Today, we're excited to announce the release of Vite 5.1.
+A Vite 5 [foi lançada](./announcing-vite5.md) em Novembro passado, e representou um outro grande salto para a Vite e o ecossistema. Há algumas semanas, comemoramos 10 milhões de descargas semanais da npm e 900 colaboradores ao repositório da Vite. Hoje, temos o prazer de anunciar o lançamento da Vite 5.1.
 
-Quick links: [Docs](/), [Changelog](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#510-2024-02-08)
+Hiperligações rápidas: [Documentação](/), [Registo de Alterações](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#510-2024-02-08)
 
-Docs in other languages: [简体中文](https://cn.vitejs.dev/), [日本語](https://ja.vitejs.dev/), [Español](https://es.vitejs.dev/), [Português](https://pt.vitejs.dev/), [한국어](https://ko.vitejs.dev/), [Deutsch](https://de.vitejs.dev/)
+Documentação em outros idiomas: [简体中文](https://cn.vitejs.dev/), [日本語](https://ja.vitejs.dev/), [Español](https://es.vitejs.dev/), [Português](https://pt.vitejs.dev/), [한국어](https://ko.vitejs.dev/), [Deutsch](https://de.vitejs.dev/)
 
-Try Vite 5.1 online in StackBlitz: [vanilla](https://vite.new/vanilla-ts), [vue](https://vite.new/vue-ts), [react](https://vite.new/react-ts), [preact](https://vite.new/preact-ts), [lit](https://vite.new/lit-ts), [svelte](https://vite.new/svelte-ts), [solid](https://vite.new/solid-ts), [qwik](https://vite.new/qwik-ts).
+Nós podemos experimentar a Vite 5.1 online na StackBlitz: [vanilla](https://vite.new/vanilla-ts), [vue](https://vite.new/vue-ts), [react](https://vite.new/react-ts), [preact](https://vite.new/preact-ts), [lit](https://vite.new/lit-ts), [svelte](https://vite.new/svelte-ts), [solid](https://vite.new/solid-ts), [qwik](https://vite.new/qwik-ts).
 
-If you're new to Vite, we suggest reading first the [Getting Started](/guide/) and [Features](/guide/features) guides.
+Para os que forem novos na Vite, sugere-se primeiramente a leitura dos guias [Começar](/guide/) e [Funcionalidades](/guide/features).
 
-To stay up to date, follow us on [X](https://x.com/vite_js) or [Mastodon](https://webtoo.ls/@vite).
+Para atualizar-nos, seguimos a [X](https://x.com/vite_js) ou [Mastodon](https://webtoo.ls/@vite).
 
 ## Interface de Programação de Execução da Vite {#vite-runtime-api}
 
