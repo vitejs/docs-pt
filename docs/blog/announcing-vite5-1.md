@@ -45,18 +45,19 @@ Para atualizar-nos, seguimos a [X](https://x.com/vite_js) ou [Mastodon](https://
 
 ## Interface de Programação de Execução da Vite {#vite-runtime-api}
 
-Vite 5.1 adds experimental support for a new Vite Runtime API. It allows running any code by processing it with Vite plugins first. It is different from `server.ssrLoadModule` because the runtime implementation is decoupled from the server. This lets library and framework authors implement their own layer of communication between the server and the runtime. This new API is intended to replace Vite's current SSR primitives once it is stable.
+A Vite 5.1 adiciona suporte experimental para uma nova interface de programação do tempo de execução da Vite. Esta permite executar qualquer código processando-o primeiro com as extensões da Vite. É diferente de `server.ssrLoadModule` porque a implementação do tempo de execução é separada do servidor. Isto permite que os autores de bibliotecas e abstrações implementem a sua própria camada de comunicação entre o servidor e o tempo de execução. Esta nova interface de programação destina-se a substituir as atuais primitivas da interpretação do lado do servidor da Vite quando estiver estável.
 
-The new API brings many benefits:
+A nova interface de programação traz muitos benefícios:
 
-- Support for HMR during SSR.
-- It is decoupled from the server, so there is no limit on how many clients can use a single server - every client has its own module cache (you can even communicate with it how you want - using message channel/fetch call/direct function call/websocket).
-- It doesn't depend on any node/bun/deno built-in APIs, so it can run in any environment.
-- It's easy to integrate with tools that have their own mechanism to run code (you can provide a runner to use `eval` instead of `new AsyncFunction` for example).
+- Suporte à substituição de módulo instantânea durante a interpretação do lado do servidor.
+- É separada do servidor, pelo que não existe limite ao número de clientes que podem usar um único servidor
+- Cada cliente tem a sua própria memória transitória de módulos (podemos até comunicar com esta da maneira que quisermos - usando canais de mensagens/chamada de busca/chamada direta de função/tomada da Web).
+- Não depende de nenhuma interface de programação embutida da Node/Deno, pelo que pode ser executada em qualquer ambiente.
+- É fácil de integrar com ferramentas que têm o seu próprio mecanismo para executar código (podemos fornecer um executor para usar `eval` ao invés de `new AsyncFunction`, por exemplo).
 
-The initial idea [was proposed by Pooya Parsa](https://github.com/nuxt/vite/pull/201) and implemented by [Anthony Fu](https://github.com/antfu) as the [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) package to [power Nuxt 3 Dev SSR](https://antfu.me/posts/dev-ssr-on-nuxt) and later also used as the base for [Vitest](https://vitest.dev). So the general idea of vite-node has been battle-tested for quite some time now. This is a new iteration of the API by [Vladimir Sheremet](https://github.com/sheremet-va), who had already re-implemented vite-node in Vitest and took the learnings to make the API even more powerful and flexible when adding it to Vite Core. The PR was one year in the makings, you can see the evolution and discussions with ecosystem maintainers [here](https://github.com/vitejs/vite/issues/12165).
+A ideia inicial [foi proposto por Pooya Parsa](https://github.com/nuxt/vite/pull/201) e implementada por [Anthony Fu](https://github.com/antfu) como o pacote [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) para [alimentar a interpretação do lado do servidor de desenvolvimento da Nuxt 3](https://antfu.me/posts/dev-ssr-on-nuxt) e mais tarde também usada como base para [Vitest](https://vitest.dev). Portanto, a ideia geral do [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) foi testada em batalha por algum tempo. Esta é uma nova iteração da interface da programação por [Vladimir Sheremet](https://github.com/sheremet-va), que já havia re-implementado o [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) na [Vitest](https://vitest.dev) e aproveitou os aprendizados para tornar a interface de programação ainda mais poderosa e flexível ao adicioná-la ao Núcleo da Vite. O pedido de atualização de repositório esteve um ano em preparação, podemos ver a evolução e as discussões com os responsáveis do ecossistema [neste hiperligação](https://github.com/vitejs/vite/issues/12165).
 
-Read more in the [Vite Runtime API guide](/guide/api-vite-runtime) and [give us feedback](https://github.com/vitejs/vite/discussions/15774).
+Nós podemos ler mais no [guia da interface de programação da execução da Vite](/guide/api-vite-runtime) e [dar a nossa opinião](https://github.com/vitejs/vite/discussions/15774).
 
 ## Funcionalidades {#features}
 
