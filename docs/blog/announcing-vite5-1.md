@@ -63,54 +63,54 @@ Nós podemos ler mais no [guia da interface de programação da execução da Vi
 
 ### Suporte Melhorado para `.css?url` {#improved-support-for-css-url}
 
-Import CSS files as URLs now works reliably and correctly. This was the last remaining hurdle in Remix's move to Vite. See ([#15259](https://github.com/vitejs/vite/issues/15259)).
+A importação de ficheiros de CSS como URLs funciona agora de maneira fiável e correta. Este era o último obstáculo que faltava na mudança da Remix para a Vite. Consultar ([#15259](https://github.com/vitejs/vite/issues/15259)).
 
 ### `build.assetsInlineLimit` agora suporta uma função retorno de chamada {#build-assetsinlinelimit-now-supports-a-callback}
 
-Users can now [provide a callback](/config/build-options.html#build-assetsinlinelimit) that returns a boolean to opt-in or opt-out of inlining for specific assets. If `undefined` is returned, the defalt logic applies. See ([#15366](https://github.com/vitejs/vite/issues/15366)).
+Os utilizadores podem agora [fornecer uma função de retorno de chamada](/config/build-options#build-assetsinlinelimit) que retorna um booleano para ativar ou desativar a incorporação para recursos específicos. Se `undefined` for retornado, a lógica padrão aplica-se. Consultar ([#15366](https://github.com/vitejs/vite/issues/15366)).
 
-### "HMR" Melhorada para Importação Circular {#improved-hmr-for-circular-import}
+### Substituição de módulo instantânea melhorada para importação circular {#improved-hmr-for-circular-import}
 
-In Vite 5.0, accepted modules within circular imports always triggered a full page reload even if they can be handled fine in the client. This is now relaxed to allow HMR to apply without a full page reload, but if any error happens during HMR, the page will be reloaded. See ([#15118](https://github.com/vitejs/vite/issues/15118)).
+Na Vite 5.0, os módulos aceites dentro das importações circulares acionavam sempre uma recarga da página inteira, mesmo que pudessem ser manipulados sem problemas no cliente. Esta situação é agora flexibilizada para permitir que a substituição de módulo instantânea seja aplicada sem uma recarga completa da página, mas se ocorrer algum erro durante a substituição de módulo instantânea, a página será recarregada. Consultar ([#15118](https://github.com/vitejs/vite/issues/15118)).
 
-### Suportar `ssr.external: true` para exteriorizar todos os pacotes da "SSR" {#support-ssr-external-true-to-externalize-all-ssr-packages}
+### Suportar `ssr.external: true` para exteriorizar todos os pacotes da interpretação do lado do servidor {#support-ssr-external-true-to-externalize-all-ssr-packages}
 
-Historically, Vite externalizes all packages except for linked packages. This new option can be used to force externalize all packages including linked packages too. This is handy in tests within monorepos where we want to emulate the usual case of all packages externalized, or when using `ssrLoadModule` to load an arbitrary file and we want to always external packages as we don't care about HMR. See ([#10939](https://github.com/vitejs/vite/issues/10939)).
+Historicamente, a Vite exteriorizar todos os pacotes, exceto os pacotes ligados. Esta nova opção pode ser usada para forçar a exteriorização de todos os pacotes, incluindo também os pacotes ligados. Isto é útil em testes dentro de mono-repositórios onde queremos emular o caso habitual de todos os pacotes exteriorizados, ou quando usamos `ssrLoadModule` para carregar um ficheiro arbitrário e queremos sempre pacotes externos já que não nos preocupamos com a substituição de módulo de instantânea. Consultar ([#10939](https://github.com/vitejs/vite/issues/10939)).
 
 ### Expõe o método `close` no servidor de pré-visualização {#expose-close-method-in-the-preview-server}
 
-The preview server now exposes a `close` method, which will properly teardown the server including all opened socket connections. See ([#15630](https://github.com/vitejs/vite/issues/15630)).
+O servidor de pré-visualização agora expõe um método `close`, que desmontará corretamente o servidor incluindo todas as conexões de tomadas abertas. Consultar ([#15630](https://github.com/vitejs/vite/issues/15630)).
 
 ### Melhorias de Desempenho {#performance-improvements}
 
-Vite keeps getting faster with each release, and Vite 5.1 is packed with performance improvements. We measured the loading time for 10K modules (25 level deep tree) using [vite-dev-server-perf](https://github.com/yyx990803/vite-dev-server-perf) for all minor versions from Vite 4.0. This is a good benchmark to meassure the effect of Vite's bundle-less approach. Each module is a small TypeScript file with a counter and imports to other files in the tree, so this mostly meassuring the time it takes to do the requests a separate modules. In Vite 4.0, loading 10K modules took 8 seconds on a M1 MAX. We had a breakthrough in [Vite 4.3 were we focused on performance](./announcing-vite4-3.md), and we were able to load them in 6.35 seconds. In Vite 5.1, we managed to do another performance leap. Vite is now serving the 10K modules in 5.35 seconds.
+A Vita continua a ficar mais rápida a cada lançamento, e a Vite 5.1 está repleto de melhorias de desempenho. Medimos o tempo de carregamento de 10K módulos (árvore de 25 níveis de profundidade) usando [vite-dev-server-perf](https://github.com/yyx990803/vite-dev-server-perf) para todas as versões menores da Vite 4.0. Trata-se duma boa referência para medir o efeito da abordagem sem pacotes da Vite. Cada módulo é um pequeno ficheiro de TypeScript com um contador e importações para outros ficheiros na árvore, o que significa que é necessário medir o tempo que demora a fazer as requisições em módulos separados. Na Vite 4.0, o carregamento de 10k módulos demorava 8 segundos num M1 MAX. Na Vite 4.3, fizemos um grande avanço quando nos concentrámos no desempenho e conseguimos carregá-los em 6,35 segundos. Na Vite 5.1, conseguimos dar mais um salto de desempenho. A Vite está agora a servir os 10k módulos em 5,35 segundos.
 
-![Vite 10K Modules Loading time progression](/vite5-1-10K-modules-loading-time.png)
+![Progressão do tempo de carregamento de 10k módulos da Vite](/vite5-1-10K-modules-loading-time.png)
 
-The results of this benchmark run on Headless Puppeteer and are a good way to compare versions. They don't represent the time as experienced by users though. When running the same 10K modules in an Incognito window is Chrome, we have:
+Os resultados deste comparativo são executados no Puppeteer desgovernado e são uma boa maneira de comparar versões. No entanto, não representam o tempo vivido pelos utilizadores. Quando executamos os mesmos 10K módulos numa janela anónima no Chrome, temos:
 
-| 10K Modules           | Vite 5.0 | Vite 5.1 |
+| 10K Módulos           | Vite 5.0 | Vite 5.1 |
 | --------------------- | :------: | :------: |
-| Loading time          |  2892ms  |  2765ms  |
-| Loading time (cached) |  2778ms  |  2477ms  |
-| Full reload           |  2003ms  |  1878ms  |
-| Full reload (cached)  |  1682ms  |  1604ms  |
+| Tempo de carregamento          |  2892ms  |  2765ms  |
+| Tempo de carregamento (em memória transitória) |  2778ms  |  2477ms  |
+| Recarga completa           |  2003ms  |  1878ms  |
+| Recarga completa (em memória transitória)  |  1682ms  |  1604ms  |
 
 ### Executa pré-processadores de CSS nas linhas de processamento {#run-css-preprocessors-in-threads}
 
-Vite now has opt-in support for running CSS preprocessors in threads. You can enable it using [`css.preprocessorMaxWorkers: true`](/config/shared-options.html#css-preprocessormaxworkers). For a Vuetify 2 project, dev startup time was reduced by 40% with this feature enabled. There is [performance comparison for others setups in the PR](https://github.com/vitejs/vite/pull/13584#issuecomment-1678827918). See ([#13584](https://github.com/vitejs/vite/issues/13584)). [Give Feedback](https://github.com/vitejs/vite/discussions/15835).
+A Vite agora tem suporte opcional para executar os pré-processadores de CSS em linhas de processamento. Nós podemos ativá-la usando [`css.preprocessorMaxWorkers: true`](/config/shared-options#css-preprocessormaxworkers). Para um projeto de Vuetify 2, o tempo de inicialização do desenvolvimento foi reduzido em 40% com esta funcionalidade ativada. Existe uma [comparação de desempenho para outros configurações no pedido de atualização de repositório](https://github.com/vitejs/vite/pull/13584#issuecomment-1678827918). Consultar ([#13584](https://github.com/vitejs/vite/issues/13584)). [Opinar](https://github.com/vitejs/vite/discussions/15835).
 
 ### Novas opções para melhorar inicializações frias do servidor {#new-options-to-improve-server-cold-starts}
 
-You can set `optimizeDeps.holdUntilCrawlEnd: false` to switch to a new strategy for deps optimization that may help in big projects. We're considering switching to this strategy by default in the future. [Give Feedback](https://github.com/vitejs/vite/discussions/15834). ([#15244](https://github.com/vitejs/vite/issues/15244))
+Nós podemos definir `optimizeDeps.holdUntilCrawlEnd: false` para alternar para uma nova estratégia de otimização de dependência que pode ajudar em grandes projetos. Estamos a considerar mudar para esta estratégia por padrão no futuro. [Opinar](https://github.com/vitejs/vite/discussions/15834). Consultar ([#15244](https://github.com/vitejs/vite/issues/15244)).
 
 ### Resolução mais rápida com verificações provisionadas {#faster-resolving-with-cached-checks}
 
-The `fs.cachedChecks` optimization is now enabled by default. In Windows, `tryFsResolve` was ~14x faster with it, and resolving ids overall got a ~5x speed up in the triangle benchmark. ([#15704](https://github.com/vitejs/vite/issues/15704))
+A otimização de `fs.cachedChecks` agora é ativada por padrão. No Windows, `tryFsResolve` foi ~14x mais rápido com este, e a resolução de identificadores em geral teve uma velocidade ~5x maior triângulo comparativo. Consultar ([#15704](https://github.com/vitejs/vite/issues/15704)).
 
 ### Melhorias de desempenho interno {#internal-performance-improvements}
 
-The dev server had several incremental performance gains. A new middleware to short-circuit on 304 ([#15586](https://github.com/vitejs/vite/issues/15586)). We avoided `parseRequest` in hot paths ([#15617](https://github.com/vitejs/vite/issues/15617)). Rollup is now properly lazy loaded ([#15621](https://github.com/vitejs/vite/issues/15621))
+O servidor de desenvolvimento teve vários ganhos incrementais de desempenho. Um novo intermediário para curto-circuito no 304 ([#15586](https://github.com/vitejs/vite/issues/15586)). Evitámos `parseRequest` nos caminhos quentes ([#15617](https://github.com/vitejs/vite/issues/15617)). A Rollup é agora corretamente carregada preguiçosamente ([#15621](https://github.com/vitejs/vite/issues/15621)).
 
 ## Depreciações {#deprecations}
 
