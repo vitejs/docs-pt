@@ -350,3 +350,7 @@ Implantamos a nossa aplicação estática usando a [Hospedagem da AWS Amplify](h
 ## Hospedagem de Aplicação Estática da Kinsta {#kinsta-static-site-hosting}
 
 Nós podemos implantar a nossa aplicação de Vite como uma Aplicação Estática na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
+
+## Hospedagem de Aplicação Estática da xmit {#xmit-static-site-hosting}
+
+Implantamos a nossa aplicação estática usando [xmit](https://xmit.co) seguindo este [guia](https://xmit.dev/posts/vite-quickstart/).
