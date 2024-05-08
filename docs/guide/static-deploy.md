@@ -339,6 +339,18 @@ Por padrão, qualquer nova atualização empurrada ao ramo especificado acionar�
 
 Nós também podemos adicionar um [domínio personalizado](https://render.com/docs/custom-domains) ao nosso projeto.
 
+<!--
+  NOTE: The sections below are reserved for more deployment platforms not listed above.
+  Feel free to submit a PR that adds a new section with a link to your platform's
+  deployment guide, as long as it meets these criteria:
+  1. Users should be able to deploy their site for free.
+  2. Free tier offerings should host the site indefinitely and are not time-bound.
+     Offering a limited number of computation resource or site counts in exchange is fine.
+  3. The linked guides should not contain any malicious content.
+  The Vite team may change the criteria and audit the current list from time to time.
+  If a section is removed, we will ping the original PR authors before doing so.
+-->
+
 ## Flightcontrol {#flightcontrol}
 
 Implantamos a nossa aplicação estática usando a [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
@@ -349,7 +361,7 @@ Implantamos a nossa aplicação estática usando a [Hospedagem da AWS Amplify](h
 
 ## Hospedagem de Aplicação Estática da Kinsta {#kinsta-static-site-hosting}
 
-Nós podemos implantar a nossa aplicação de Vite como uma Aplicação Estática na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
+Implantamos a nossa aplicação estática usando [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
 
 ## Hospedagem de Aplicação Estática da xmit {#xmit-static-site-hosting}
 
