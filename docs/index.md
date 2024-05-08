@@ -45,3 +45,16 @@ features:
     title: APIs Completamente Tipificadas
     details: APIs programáticas flexíveis com tipos completos de TypeScript.
 ---
+
+<script setup>
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const urlParams = new URLSearchParams(window.location.search)
+  if (urlParams.get('uwu') != null) {
+    const img = document.querySelector('.VPHero .VPImage.image-src')
+    img.src = '/logo-uwu.png'
+    img.alt = 'Logótipo Kawaii da Vite por @icarusgkx'
+  }
+})
+</script>
