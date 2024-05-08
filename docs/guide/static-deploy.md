@@ -65,7 +65,7 @@ Agora o comando `preview` lançará o servidor na `http://localhost:8080`.
 2. Vamos para a configuração da nossa GitHub Pages na página de definições (ou configurações) do repositório e escolhemos a fonte da implementação como "GitHub Actions", isto levar-nos-á à criar um fluxo de trabalho que constrói e implementa o nosso projeto, um fluxo de trabalho de exemplo que instala as dependências e constrói o projeto usando o npm é fornecido:
 
    ```yml
-   # Fluxo de trabalho simples para implementar
+   # Fluxo de trabalho simples para implantar
    # conteúdo estático na GitHub Pages
    name: Deploy static content to Pages
 
@@ -160,7 +160,7 @@ Agora o comando `preview` lançará o servidor na `http://localhost:8080`.
 
 1. Instalamos a [Interface da Linha de Comando da Netlify](https://cli.netlify.com/).
 2. Críamos uma nova aplicação usando `ntl init`.
-3. Implementamos usando `ntl deploy`:
+3. Implantamos usando `ntl deploy`:
 
 ```bash
 # Instalar a Interface da Linha de Comando da Netlify
@@ -194,7 +194,7 @@ Depois do nosso projeto ter sido importado e implementado, todas as atualizaçõ
 
 ### Vercel CLI {#vercel-cli}
 
-1. Instalamos a [Interface da Linha de Comando da Vercel](https://vercel.com/cli) e executamos `vercel` para implementar.
+1. Instalamos a [Interface da Linha de Comando da Vercel](https://vercel.com/cli) e executamos `vercel` para implantar.
 2. A Vercel detetará que estamos usando a Vite e ativará as definições (ou configurações) corretas para a nossa implementação.
 3. A aplicação está implementada! (por exemplo, [vite-vue-template.vercel.app](https://vite-vue-template.vercel.app/)):
 
@@ -224,7 +224,7 @@ Aprenda mais a respeito da [Integração de Git](https://vercel.com/docs/concept
 1. Instalamos a [Interface da Linha de Comando da Wrangler](https://developers.cloudflare.com/workers/wrangler/get-started/).
 2. Autenticamos a Wrangler com a nossa conta da Cloudflare usando `wrangler login`.
 3. Executamos o nosso comando de construção.
-4. Implementamos usando `npx wrangler pages deploy dist`.
+4. Implantamos usando `npx wrangler pages deploy dist`.
 
 ```bash
 # Instalar a interface da linha de comando da Wrangler
@@ -248,7 +248,7 @@ Depois dos nossos recursos estiverem carregados, a Wrangler dar-nos-á uma URL d
 1. Empurramos o nosso código ao nosso repositório (GitHub, GitLab).
 2. Entramos no painel de controlo da Cloudflare e selecionamos a nossa conta em **Página Inicial da Conta (ou _Account Home_)** > **Páginas (ou _Pages_)**.
 3. Selecionamos **Criar um novo Projeto (ou _Create a new Project_)** e a opção **Conectar Git (ou _Connect Git_)**.
-4. Selecionamos o projeto de Git que queremos implementar e clicamos em **Iniciar configuração (ou _Begin setup_)**.
+4. Selecionamos o projeto de Git que queremos implantar e clicamos em **Iniciar configuração (ou _Begin setup_)**.
 5. Selecionamos pré-definição (ou pré-configuração) da abstração correspondente nas definições (ou configurações) de construção dependendo da abstração de Vite que selecionamos.
 6. Depois guardamos e implementamos!
 7. A nossa aplicação está implementada! (por exemplo, `https://<PROJECTNAME>.pages.dev/`)
@@ -298,13 +298,13 @@ Nós também podemos adicionar domínios personalizados e manipular as definiç�
 
 2. Executamos `npm run build`.
 
-3. Implementamos à surge digitando `surge dist`.
+3. Implantamos à surge digitando `surge dist`.
 
-Nós também podemos implementar para um [domínio personalizado](http://surge.sh/help/adding-a-custom-domain) adicionando `surge dist yourdomain.com`.
+Nós também podemos implantar para um [domínio personalizado](http://surge.sh/help/adding-a-custom-domain) adicionando `surge dist yourdomain.com`.
 
 ## Azure Static Web Apps {#azure-static-web-apps}
 
-Nós podemos implementar rapidamente a nossa aplicação de Vite com o serviço de [Aplicações da Web Estáticas](https://aka.ms/staticwebapps) da Microsoft Azure. Nós precisamos:
+Nós podemos implantar rapidamente a nossa aplicação de Vite com o serviço de [Aplicações da Web Estáticas](https://aka.ms/staticwebapps) da Microsoft Azure. Nós precisamos:
 
 - Duma conta da Azure e uma chave de subscrição. Nós podemos criar uma [conta gratuita da Azure nesta ligação](https://azure.microsoft.com/free).
 - Que o código da nossa aplicação seja empurrado à [GitHub](https://github.com).
@@ -314,11 +314,11 @@ Instalamos a extensão no VS Code e navegamos à raiz da nossa aplicação. Abri
 
 Seguimos o assistente (ou wizard ou feiticeiro se preferirmos) iniciado pela extensão para darmos um nome à nossa aplicação, escolhemos uma pré-definição (ou pré-configuração) de abstração, e designamos a raiz da aplicação (normalmente `/`) e a localização do ficheiro construído `/dist`. O assistente executará e criará uma ação de GitHub no nosso repositório numa pasta `.github`.
 
-A ação trabalhará para implementar a nossa aplicação (observamos o seu progresso na aba Ações (ou Actions)) e, quando concluída com sucesso, podemos visualizar a nossa aplicação no endereço fornecido na janela de progresso da extensão clicando no botão 'Olhar Aplicação' (ou 'Browse Website') que aparece quando a ação de GitHub é executada.
+A ação trabalhará para implantar a nossa aplicação (observamos o seu progresso na aba Ações (ou Actions)) e, quando concluída com sucesso, podemos visualizar a nossa aplicação no endereço fornecido na janela de progresso da extensão clicando no botão 'Olhar Aplicação' (ou 'Browse Website') que aparece quando a ação de GitHub é executada.
 
 ## Render {#render}
 
-Nós podemos implementar a nossa aplicação de Vite como uma Aplicação Estática na [Render](https://render.com/):
+Nós podemos implantar a nossa aplicação de Vite como uma Aplicação Estática na [Render](https://render.com/):
 
 1. Críamos uma [conta da Render](https://dashboard.render.com/register).
 
@@ -341,12 +341,12 @@ Nós também podemos adicionar um [domínio personalizado](https://render.com/do
 
 ## Flightcontrol {#flightcontrol}
 
-Implementamos a nossa aplicação estática usando a [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
+Implantamos a nossa aplicação estática usando a [Flightcontrol](https://www.flightcontrol.dev/?ref=docs-vite), seguindo estas [instruções](https://www.flightcontrol.dev/docs/reference/examples/vite?ref=docs-vite).
 
 ## Hospedagem da AWS Amplify {#aws-amplify-hosting}
 
-Implementamos a nossa aplicação estática usando a [Hospedagem da AWS Amplify](https://aws.amazon.com/amplify/hosting/), seguindo estas [instruções](https://docs.amplify.aws/guides/hosting/vite/q/platform/js/).
+Implantamos a nossa aplicação estática usando a [Hospedagem da AWS Amplify](https://aws.amazon.com/amplify/hosting/), seguindo estas [instruções](https://docs.amplify.aws/guides/hosting/vite/q/platform/js/).
 
 ## Hospedagem de Aplicação Estática da Kinsta {#kinsta-static-site-hosting}
 
-Nós podemos implementar a nossa aplicação de Vite como uma Aplicação Estática na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
+Nós podemos implantar a nossa aplicação de Vite como uma Aplicação Estática na [Kinsta](https://kinsta.com/static-site-hosting/) seguindo estas [instruções](https://kinsta.com/docs/react-vite-example/).
