@@ -48,11 +48,11 @@
   },
   "devDependencies": {
     "feed": "^4.2.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "@types/node": "^20.11.5",
-    "@types/react": "^18.0.15",
-    "vitepress": "^1.1.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "@types/node": "^20.12.11",
+    "@types/react": "^18.3.1",
+    "vitepress": "^1.1.4",
     "@algolia/client-search": "^4.13.1"
   }
 }
