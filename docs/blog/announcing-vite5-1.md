@@ -122,7 +122,7 @@ A norma passou aos [Atributos de Importação](https://github.com/tc39/proposal-
 
 ### Pré-empacotamento de tempo de construção experimental removido {#removed-experimental-build-time-pre-bundling}
 
-Build-time pre-bundling, an experimental feature added in Vite 3, is removed. With Rollup 4 switching its parser to native, and Rolldown being worked on, both the performance and the dev-vs-build inconsistency story for this feature are no longer valid. We want to continue improving dev/build consistency, and have concluded that using Rolldown for "prebundling during dev" and "production builds" is the better bet moving forward. Rolldown may also implement caching in a way that is a lot more efficient during build than deps prebundling. See ([#15184](https://github.com/vitejs/vite/issues/15184)).
+O pré-empacotamento do tempo de construção, uma funcionalidade experimental adicionada na Vite 3, foi removida. Com a Rollup 4 a mudar o seu analisador sintático para nativo e a Rolldown a ser trabalhada, tanto a história do desempenho como a da inconsistência entre o desenvolvimento e a construção para esta funcionalidade já não são válidas. Queremos continuar a melhorar a consistência entre o desenvolvimento e compilação, e concluímos que usar a Rolldown para o “pré-empacotamento durante o desenvolvimento” e “construções de produção” é a melhor aposta para o futuro. A Rolldon também pode implementar o armazenamento transitório duma maneira que é muito mais eficiente durante a construção do que o pré-empacotamento de dependências. Consultar ([#15184](https://github.com/vitejs/vite/issues/15184)).
 
 ## Participar {#get-involved}
 
