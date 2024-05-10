@@ -126,7 +126,7 @@ O pré-empacotamento do tempo de construção, uma funcionalidade experimental a
 
 ## Participar {#get-involved}
 
-We are grateful to the [900 contributors to Vite Core](https://github.com/vitejs/vite/graphs/contributors), and the maintainers of plugins, integrations, tools, and translations that keeps pushing the ecosystem forward. If you're enjoying Vite, we invite you to participate and help us. Check out our [Contributing Guide](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md), and jump into [triaging issues](https://github.com/vitejs/vite/issues), [reviewing PRs](https://github.com/vitejs/vite/pulls), answering questions at [GitHub Discussions](https://github.com/vitejs/vite/discussions) and helping others in the community in [Vite Land](https://chat.vitejs.dev).
+Estamos gratos aos [900 colaboradores do núcleo da Vite](https://github.com/vitejs/vite/graphs/contributors), e aos responsáveis de extensões, integrações, ferramentas e traduções que continuam a impulsionar o ecossistema. Se gosta da Vite, o convidamos a participar e a ajudar-nos. Consultar o nosso [Guia de Colaboração](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md), começar a fazer [triagem de problemas](https://github.com/vitejs/vite/issues), [revisar os PRs](https://github.com/vitejs/vite/pulls), responder perguntas nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) e a ajudar outras pessoas da comunidade na [Vite Land](https://chat.vitejs.dev).
 
 ## Agradecimentos {#acknowledgments}
 
