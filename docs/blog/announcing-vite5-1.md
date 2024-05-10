@@ -118,7 +118,7 @@ Continuamos a reduzir a superfície da interface de programação de aplicação
 
 ### Opção `as` na `import.meta.glob` depreciada {#deprecated-as-option-in-import-meta-glob}
 
-The standard moved to [Import Attributes](https://github.com/tc39/proposal-import-attributes), but we don't plan to replace `as` with a new option at this point. Instead, it is recommended that the user switches to `query`. See ([#14420](https://github.com/vitejs/vite/issues/14420)).
+A norma passou aos [Atributos de Importação](https://github.com/tc39/proposal-import-attributes), mas não planeamos substituir `as` por uma nova opção neste altura. Em vez disto, recomenda-se que o utilizador mude para `query`. Consultar ([#14420](https://github.com/vitejs/vite/issues/14420)).
 
 ### Pré-empacotamento de tempo de construção experimental removido {#removed-experimental-build-time-pre-bundling}
 
