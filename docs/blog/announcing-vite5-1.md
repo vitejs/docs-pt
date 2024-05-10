@@ -114,7 +114,7 @@ O servidor de desenvolvimento teve vários ganhos incrementais de desempenho. Um
 
 ## Depreciações {#deprecations}
 
-We continue to reduce Vite's API surface where possible to make the project manintainable long term.
+Continuamos a reduzir a superfície da interface de programação de aplicação da Vite sempre que possível para tornar o projeto sustentável a longo prazo.
 
 ### Opção `as` na `import.meta.glob` depreciada {#deprecated-as-option-in-import-meta-glob}
 
