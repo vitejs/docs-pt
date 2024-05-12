@@ -1,7 +1,7 @@
 ---
-title: A Vite 5.1 está disponível!
+title: A Vite 5.1 está Disponível!
 author:
-  name: The Vite Team
+  name: A Equipa da Vite
 date: 2024-02-08
 sidebar: false
 head:
@@ -13,10 +13,10 @@ head:
       content: Anúncio da Vite 5.1
   - - meta
     - property: og:image
-      content: https://vitejs.dev/og-image-announcing-vite5-1.png
+      content: https://pt.vitejs.dev/og-image-announcing-vite5-1.png
   - - meta
     - property: og:url
-      content: https://vitejs.dev/blog/announcing-vite5-1
+      content: https://pt.vitejs.dev/blog/announcing-vite5-1
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 5.1
