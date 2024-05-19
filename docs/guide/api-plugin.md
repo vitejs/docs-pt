@@ -600,7 +600,7 @@ if (import.meta.hot) {
 
 ### Cliente ao Servidor {#client-to-server}
 
-Para enviar os eventos do cliente para o servidor, podemos usar o [`hot.send`](/guide/api-hmr.html#hot-send-event-payload):
+Para enviar os eventos do cliente para o servidor, podemos usar o [`hot.send`](/guide/api-hmr#hot-send-event-payload):
 
 ```ts
 // lado do cliente
@@ -632,15 +632,40 @@ export default defineConfig({
 ### TypeScript para Eventos Personalizados {#typescript-for-custom-events}
 
 É possível para atribuir tipos aos eventos personalizados estendendo a interface `CustomEventMap`:
+Internamente, a Vite infere o tipo duma carga a partir da interface `CustomEventMap`, é possível tipificar eventos personalizados ao estender a interface:
+
+:::tip NOTA
+Temos de nos certificar de incluir a extensão `.d.ts` quando especificarmos os ficheiros de declaração da TypeScript. Caso contrário, a TypeScript pode não reconhecer qual ficheiro o módulo tenta estender.
+:::
 
 ```ts
 // events.d.ts
-import 'vite/types/customEvent'
+import 'vite/types/customEvent.d.ts'
 
-declare module 'vite/types/customEvent' {
+declare module 'vite/types/customEvent.d.ts' {
   interface CustomEventMap {
     'custom:foo': { msg: string }
     // 'event-key': payload
   }
 }
+```
+
+Esta extensão de interface é utilizada pelo `InferCustomEventPayload<T>` para inferir o tipo da carga para o evento `T`. Para mais informação sobre como esta interface é utilizada, consultar a [Documentação da API da HMR](./api-hmr#hmr-api).
+
+```ts
+import 'vite/client'
+import type { InferCustomEventPayload } from 'vite/types/customEvent.d.ts'
+declare module 'vite/types/customEvent.d.ts' {
+  interface CustomEventMap {
+    'custom:foo': { msg: string }
+  }
+}
+// ---cut---
+type CustomFooPayload = InferCustomEventPayload<'custom:foo'>
+import.meta.hot?.on('custom:foo', (payload) => {
+  // O tipo da carga será `{ msg: string }`
+})
+import.meta.hot?.on('unknown:event', (payload) => {
+  // O tipo da carga será `any`
+})
 ```

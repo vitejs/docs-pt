@@ -224,7 +224,7 @@ Envia os eventos personalizados de volta ao servidor de desenvolvimento da Vite.
 
 Se chamada antes da conexão, o dado será amortecido e enviado assim que a conexão for estabelecida.
 
-Consultar a [Comunicação cliente-servidor](/guide/api-plugin#client-server-communication) por mais detalhes.
+Consultar a [Comunicação cliente-servidor](/guide/api-plugin#client-server-communication) por mais detalhes, incluindo a secção sobre [Tipificação de Eventos Personalizados](/guide/api-plugin#typescript-for-custom-events).
 
 ## Leitura Complementar {#further-reading}
 
