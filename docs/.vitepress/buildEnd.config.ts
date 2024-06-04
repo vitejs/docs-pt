@@ -1,7 +1,8 @@
-import path from 'path'
-import { writeFileSync } from 'fs'
 import { Feed } from 'feed'
-import { createContentLoader, type SiteConfig } from 'vitepress'
+import path from 'node:path'
+import { writeFileSync } from 'node:fs'
+import type { SiteConfig } from 'vitepress'
+import { createContentLoader } from 'vitepress'
 
 
 const SITE_URL = 'https://pt.vitejs.dev'
@@ -10,13 +11,13 @@ const BLOG_URL = `${SITE_URL}/blog`
 export const buildEnd = async (config: SiteConfig) => {
   const feed = new Feed({
     title: 'Vite',
-    description: 'Ferramental de Frontend de Nova Geração',
+    description: 'Ferramentas de Frontend Modernas',
     id: BLOG_URL,
     link: BLOG_URL,
     language: 'pt',
     image: 'https://pt.vitejs.dev/og-image.png',
     favicon: 'https://pt.vitejs.dev/logo.svg',
-    copyright: 'Direitos de Autor © 2019-present Evan You & Colaboradores da Vite',
+    copyright: 'Direitos de Autor © 2019-presente Evan You & Colaboradores da Vite',
   })
 
   const posts = await createContentLoader('blog/*.md', {
