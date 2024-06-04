@@ -1,7 +1,9 @@
-import { defineConfig, DefaultTheme } from 'vitepress'
+import { defineConfig } from 'vitepress'
 import { buildEnd } from './buildEnd.config'
+import type { DefaultTheme } from 'vitepress'
+import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 
-const ogDescription = 'Ferramental de Frontend de Última Geração'
+const ogDescription = 'Ferramentas de Frontend Modernas'
 const ogImage = 'https://pt.vitejs.dev/og-image.png'
 const ogTitle = 'Vite'
 const ogUrl = 'https://pt.vitejs.dev'
@@ -66,7 +68,7 @@ const versionLinks = ((): DefaultTheme.NavItemWithLink[] => {
 export default defineConfig({
   lang: 'pt-PT',
   title: `Vite${additionalTitle}`,
-  description: 'Ferramental de Frontend de Última Geração',
+  description: 'Ferramentas de Frontend Modernas',
 
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg' }],
@@ -172,11 +174,11 @@ export default defineConfig({
                 link: 'https://dev.to/t/vite'
               },
               {
-                text: 'Relatório de Mudança',
+                text: 'Registo de Alterações',
                 link: 'https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md'
               },
               {
-                text: 'Contribuição',
+                text: 'Colaboração',
                 link: 'https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md',
               }
             ]
@@ -211,7 +213,7 @@ export default defineConfig({
               link: '/guide/cli'
             },
             {
-              text: 'Usando Extensões',
+              text: 'Usar Extensões',
               link: '/guide/using-plugins'
             },
             {
@@ -223,7 +225,7 @@ export default defineConfig({
               link: '/guide/assets'
             },
             {
-              text: 'Construindo para Produção',
+              text: 'Construir para Produção',
               link: '/guide/build'
             },
             {
@@ -335,15 +337,18 @@ export default defineConfig({
     }
   },
   transformPageData(pageData) {
-    const canonicalURL = `${ogUrl}/${pageData.relativePath}`
+    const canonicalUrl = `${ogUrl}/${pageData.relativePath}`
       .replace(/\/index\.md$/, '/')
       .replace(/\.md$/, '/')
     pageData.frontmatter.head ??= []
-    pageData.frontmatter.head.unshift([
-      'link',
-      { rel: 'canonical', href: canonicalURL },
-    ])
+    pageData.frontmatter.head.unshift(
+      ['link', { rel: 'canonical', href: canonicalUrl }],
+      ['meta', { property: 'og:title', content: pageData.title }],
+    )
     return pageData
+  },
+  markdown: {
+    codeTransformers: [transformerTwoslash()],
   },
   buildEnd,
 })
