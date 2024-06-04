@@ -53,7 +53,7 @@ Nós podemos configurar como os pedaços são separados usando `build.rollupOpti
 
 A Vite emite o evento `vite:preloadError` quando não consegue carregar as importações dinâmicas. `event.payload` contém o erro de importação original. Se chamarmos `event.preventDefault()`, o erro não será lançado:
 
-```js twoslash
+```js
 window.addEventListener('vite:preloadError', (event) => {
   window.location.reload() // por exemplo, atualizar a página
 })
@@ -96,7 +96,7 @@ Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - e
 
 Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
-```js twoslash
+```js
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -121,9 +121,9 @@ Nota que para os ficheiros HTML, a Vite ignora o nome dado à entrada no objeto 
 
 Quando estivermos desenvolvimento uma biblioteca orienta ao navegador, estaremos provavelmente gastando a maior parte do tempo numa página de teste ou demonstração que importa de fato a nossa biblioteca. Com a Vite, podemos usar o nosso `index.html` para este propósito para obter uma experiência de desenvolvimento mais suave.
 
-Na hora de empacotar a nossa biblioteca para distribuição, usamos a [ opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
+Na hora de empacotar a nossa biblioteca para distribuição, usamos a [opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
 
-```js twoslash
+```js
 // vite.config.js
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
@@ -140,7 +140,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // certificar de expor as dependências que não
-      //  devem ser empacotadas na nossa biblioteca
+      // devem ser empacotadas na nossa biblioteca
       external: ['vue'],
       output: {
         // fornecer as variáveis globais para usar na
@@ -221,7 +221,7 @@ No modo de biblioteca, todos os usos de [`import.meta.env.*`](./env-and-mode) se
 :::
 
 :::warning USO AVANÇADO
-O modo de biblioteca inclui uma simples e opiniosa configuração para as bibliotecas orientadas ao navegador e para a abstração de JavaScript. Se estivermos a construir bibliotecas que não destinadas ao navegador, ou exigem fluxos de construção avançados, podemos usar diretamente a [Rollup](https://rollupjs.org) ou [esbuild](https://esbuild.github.io).
+O modo de biblioteca inclui uma simples e opinativa configuração para as bibliotecas orientadas ao navegador e para a abstração de JavaScript. Se estivermos a construir bibliotecas que não destinadas ao navegador, ou exigem fluxos de construção avançados, podemos usar diretamente a [Rollup](https://rollupjs.org) ou [esbuild](https://esbuild.github.io).
 :::
 
 ## Opções de Base Avançadas {#advanced-base-options}
@@ -238,7 +238,7 @@ Para os casos de uso avançados, os recursos e ficheiros públicos implementados
 
 Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançadas durante a construção, usando a `experimental.renderBuiltUrl`.
 
-```ts twoslash
+```ts
 import type { UserConfig } from 'vite'
 // prettier-ignore
 const config: UserConfig = {
@@ -246,9 +246,13 @@ const config: UserConfig = {
 experimental: {
   renderBuiltUrl(filename, { hostType }) {
     if (hostType === 'js') {
-      return { runtime: `window.__toCdnUrl(${JSON.stringify(filename)})` }
+      return {
+        runtime: `window.__toCdnUrl(${JSON.stringify(filename)})`
+      }
     } else {
-      return { relative: true }
+      return {
+        relative: true
+      }
     }
   },
 },
@@ -258,7 +262,7 @@ experimental: {
 
 Se os recursos de nome embaralhado e os ficheiros públicos são forem implementados em produção em conjunto, as opções para grupo podem ser definidas de maneira independente usando a `type` de recurso incluída no segundo parâmetro `context` dado à função:
 
-```ts twoslash
+```ts
 import type { UserConfig } from 'vite'
 import path from 'node:path'
 // prettier-ignore
@@ -269,7 +273,9 @@ experimental: {
     if (type === 'public') {
       return 'https://www.domain.com/' + filename
     } else if (path.extname(hostId) === '.js') {
-      return { runtime: `window.__assetsPath(${JSON.stringify(filename)})` }
+      return {
+        runtime: `window.__assetsPath(${JSON.stringify(filename)})`
+      }
     } else {
       return 'https://cdn.domain.com/assets/' + filename
     }
