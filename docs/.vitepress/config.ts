@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { buildEnd } from './buildEnd.config'
 import type { DefaultTheme } from 'vitepress'
-import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
+// import { transformerTwoslash } from '@shikijs/vitepress-twoslash'
 
 const ogDescription = 'Ferramentas de Frontend Modernas'
 const ogImage = 'https://pt.vitejs.dev/og-image.png'
@@ -347,8 +347,8 @@ export default defineConfig({
     )
     return pageData
   },
-  markdown: {
-    codeTransformers: [transformerTwoslash()],
-  },
+  // markdown: {
+  //   codeTransformers: [transformerTwoslash()],
+  // },
   buildEnd,
 })
