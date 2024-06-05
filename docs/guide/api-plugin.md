@@ -432,9 +432,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
     ```js
     handleHotUpdate({ server, modules, timestamp }) {
-      // Usar também `server.ws.send` para suportar a Vite <5.1
-      // se necessário
-      server.hot.send({ type: 'full-reload' })
+      server.ws.send({ type: 'full-reload' })
       // Invalidar manualmente os módulos
       const invalidatedModules = new Set()
       for (const mod of modules) {
@@ -453,9 +451,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
     ```js
     handleHotUpdate({ server }) {
-      // Usar também `server.ws.send` para suportar a Vite <5.1
-      // se necessário
-      server.hot.send({
+      server.ws.send({
         type: 'custom',
         event: 'special-update',
         data: {}
@@ -562,7 +558,7 @@ Desde a Vite 2.9, fornecemos alguns utilitários para extensões para ajudar a m
 
 ### Servidor ao Cliente {#server-to-client}
 
-No lado da extensão, poderíamos usar o `server.hot.send` (desde a Vite 5.1) ou `server.ws.send` para difundir os eventos a todos os clientes:
+No lado da extensão, poderíamos usar a `server.ws.send` para difundir os eventos ao cliente:
 
 ```js
 // vite.config.js
@@ -571,9 +567,8 @@ export default defineConfig({
     {
       // ...
       configureServer(server) {
-        // Exemplo: esperar um cliente conectar antes de enviar uma mensagem
-        server.hot.on('connection', () => {
-          server.hot.send('my:greetings', { msg: 'hello' })
+        server.ws.on('connection', () => {
+          server.ws.send('my:greetings', { msg: 'hello' })
         })
       },
     },
@@ -609,7 +604,7 @@ if (import.meta.hot) {
 }
 ```
 
-Depois usamos `server.hot.on` (desde a Vite 5.1) ou `server.ws.on` e ouvimos os eventos no lado do servidor:
+Depois usamos `server.ws.on` e ouvimos os eventos do lado do servidor:
 
 ```js
 // vite.config.js
@@ -618,7 +613,7 @@ export default defineConfig({
     {
       // ...
       configureServer(server) {
-        server.hot.on('my:from-client', (data, client) => {
+        server.ws.on('my:from-client', (data, client) => {
           console.log('Message from client:', data.msg) // Hey!
           // responder apenas ao cliente (se necessário)
           client.send('my:ack', { msg: 'Hi! I got your message!' })
