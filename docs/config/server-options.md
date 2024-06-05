@@ -86,7 +86,7 @@ export default defineConfig({
 
 Configura regras de delegação personalizadas para o servidor de desenvolvimento. Espera um objeto de pares `{ chave: opções }`. Se a chave começar com `^`, ela será interpretada como uma `RegExp` (Expressão Regular). A opção `configure` pode ser utilizada para acessar a instância de delegação.
 
-Estende a [`http-proxy`](https://github.com/http-party/node-http-proxy#options). As opções adicionais [estão aqui](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/middlewares/proxy.ts#L13).
+Estende a [`http-proxy`](https://github.com/http-party/node-http-proxy#options). As opções adicionais [estão aqui](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/middlewares/proxy.ts#L13). Notemos que [ao contrário da `http-proxy`](https://github.com/http-party/node-http-proxy/issues/1669), a opção `changeOrigin` alterará ambos, hospedeiro e cabeçalhos de origem para corresponder ao alvo.
 
 Em alguns casos, podes também querer configurar o servidor de desenvolvimento subjacente (por exemplo, para adicionar intermediários personalizados para aplicação [`connect`](https://github.com/senchalabs/connect) interna). Para fazer isto, precisas escrever a tua própria [extensão](/guide/using-plugins) e utilizar a função [configureServer](/guide/api-plugin#configureserver).
 
