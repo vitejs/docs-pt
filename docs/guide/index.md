@@ -85,6 +85,8 @@ bun create vite my-vue-app --template vue
 
 Consultar a [`create-vite`](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes sobre modelo de projeto suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
 
+Nós podemos usar `.` para o nome do projeto para estruturar no diretório atual.
+
 ## Modelos de Projeto da Comunidade {#community-templates}
 
 A `create-vite` é uma ferramenta que permite começar rapidamente um projeto a partir dum modelo de projeto básico para abstrações populares. Consultar a Awesome Vite por [modelos de projeto mantidos pela comunidade](https://github.com/vitejs/awesome-vite#templates) que incluem outras ferramentas ou se destinam a abstrações diferentes.
