@@ -12,7 +12,7 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2
       vitepress:
-        specifier: ^1.2.2
+        specifier: ^1.2.3
         version: 1.2.3(@algolia/client-search@4.23.3)(@types/node@20.14.1)(@types/react@18.3.3)(postcss@8.4.38)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.14.0)(typescript@5.4.5)
       vue:
         specifier: ^3.4.27
