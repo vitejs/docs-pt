@@ -85,7 +85,7 @@ bun create vite my-vue-app --template vue
 
 Consultar a [`create-vite`](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes sobre modelo de projeto suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
 
-Nós podemos usar `.` para o nome do projeto para estruturar no diretório atual.
+Nós podemos usar `.` para o nome do projeto para estruturar o projeto no diretório atual.
 
 ## Modelos de Projeto da Comunidade {#community-templates}
 
@@ -102,6 +102,43 @@ cd my-project
 npm install
 npm run dev
 ```
+
+## Instalação Manual {#manual-installation}
+
+No nosso projeto, podemos instalar a interface da linha de comando da `vite` usando:
+
+```bash [NPM]
+$ npm install -D vite
+```
+
+```bash [Yarn]
+$ yarn add -D vite
+```
+
+```bash [PNPM]
+$ pnpm add -D vite
+```
+
+```bash [Bun]
+$ bun add -D vite
+```
+
+:::
+
+E criar um ficheiro `index.html` como este:
+
+
+```html
+<p>Hello Vite!</p>
+```
+
+Depois, executar a interface da linha de comando da `vite` no nosso terminal:
+
+```bash
+vite
+```
+
+O `index.html` será servido no `http://localhost:5173`.
 
 ## `index.html` e a Raiz do Projeto {#index-html-and-project-root}
 
