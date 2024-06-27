@@ -41,7 +41,7 @@ Na Vite 4, as funcionalidades [`define`](/config/shared-options#define) e [`impo
 - No desenvolvimento, ambas funcionalidades são injetadas como variáveis globais ao `globalThis` e `import.meta` respetivamente.
 - Na construção, ambas funcionalidades são estaticamente substituídas por uma expressão regular.
 
-Isto resulta num inconsistência de desenvolvimento e construção quando tentamos acessar as variáveis, e algumas vezes até levava a construção à falhar. Por exemplo:
+Isto resulta numa inconsistência de desenvolvimento e construção quando tentamos acessar as variáveis, e algumas vezes até levava a construção à falhar. Por exemplo:
 
 ```js
 // vite.config.js
@@ -186,7 +186,7 @@ As APIs `resolvePackageEntry` e `resolvePackageData` foram removidas uma vez que
 - `resolvePackageData`: O mesmo que o de cima, e rastreie o diretório do pacote para obter o `package.json` da raiz. Ou use o pacote [`vitefu`](https://github.com/svitejs/vitefu) da comunidade.
 
 ```js
-import { resolve } from 'import-meta-env'
+import { resolve } from 'import-meta-resolve'
 import { findDepPkgJsonPath } from 'vitefu'
 import fs from 'node:fs'
 
