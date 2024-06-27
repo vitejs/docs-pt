@@ -13,9 +13,9 @@ O pacote de produção pressupõe suporte para JavaScript moderno. Por padrão, 
 
 Nós podemos especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
 
-Nota que por padrão, a Vite apenas manipula os transformações de sintaxe e **não cobre os tapa-buracos de funcionalidades**. Nós podemos consultar [Polyfill.io](https://polyfill.io/) que é um serviço que gera automaticamente pacotes de tapa-buracos baseado na sequência de caracteres do `UserAgent` do navegador do utilizador.
+Nota que por padrão, a Vite apenas manipula os transformações de sintaxe e **não cobre os enchimentos de polietileno de funcionalidades**. Nós podemos consultar [Polyfill JS](https://cdnjs.cloudflare.com/polyfill/) que é um serviço que gera automaticamente pacotes de enchimentos de polietileno baseado na sequência de caracteres do `UserAgent` do navegador do utilizador.
 
-Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará os pedaços para os navegadores antigos e tapa-buracos de funcionalidade da linguagem do ECMAScript correspondente. Os pedaços para os navegadores antigos são carregados condicionalmente apenas nos navegadores que não tem suporte ao Módulo de ECMAScript nativo.
+Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy), que gerará os pedaços para os navegadores antigos e enchimentos de polietileno de funcionalidade da linguagem do ECMAScript correspondente. Os pedaços para os navegadores antigos são carregados condicionalmente apenas nos navegadores que não tem suporte ao Módulo de ECMAScript nativo.
 
 ## Caminho de Base Pública {#public-base-path}
 
