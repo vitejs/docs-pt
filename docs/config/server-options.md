@@ -86,9 +86,9 @@ export default defineConfig({
 
 Configura regras de delegação personalizadas para o servidor de desenvolvimento. Espera um objeto de pares `{ chave: opções }`. Se a chave começar com `^`, ela será interpretada como uma `RegExp` (Expressão Regular). A opção `configure` pode ser utilizada para acessar a instância de delegação.
 
-Estende a [`http-proxy`](https://github.com/http-party/node-http-proxy#options). As opções adicionais [estão aqui](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/middlewares/proxy.ts#L13). Notemos que [ao contrário da `http-proxy`](https://github.com/http-party/node-http-proxy/issues/1669), a opção `changeOrigin` alterará ambos, hospedeiro e cabeçalhos de origem para corresponder ao alvo.
+Estende a [`http-proxy`](https://github.com/http-party/node-http-proxy#options). As opções adicionais estão [neste endereço](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/middlewares/proxy.ts#L13).
 
-Em alguns casos, podes também querer configurar o servidor de desenvolvimento subjacente (por exemplo, para adicionar intermediários personalizados para aplicação [`connect`](https://github.com/senchalabs/connect) interna). Para fazer isto, precisas escrever a tua própria [extensão](/guide/using-plugins) e utilizar a função [configureServer](/guide/api-plugin#configureserver).
+Em alguns casos, podemos também querer configurar o servidor de desenvolvimento subjacente (por exemplo, para adicionar intermediários personalizados à aplicação interna de [`connect`](https://github.com/senchalabs/connect)). Para isto, precisamos de escrever a nossa própria [extensão](/guide/using-plugins) e usar a função [`configureServer`](/guide/api-plugin#configureserver):
 
 **Exemplo:**
 
@@ -96,21 +96,24 @@ Em alguns casos, podes também querer configurar o servidor de desenvolvimento s
 export default defineConfig({
   server: {
     proxy: {
-      // abreviação de sequência de caracteres
+      // abreviação de sequência de caracteres:
+      // http://localhost:5173/foo -> http://localhost:4567/foo
       '/foo': 'http://localhost:4567',
-      // com opções
+      // com opções:
+      // http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
       '/api': {
         target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
-      // com RegEx (Expressões Regulares)
+      // com expressões regulares:
+      // http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
       '^/fallback/.*': {
         target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/fallback/, '')
       },
-      // Utilizando a instância de delegação
+      // Utilizar a instância da delegação
       '/api': {
         target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
@@ -118,10 +121,15 @@ export default defineConfig({
           // a delegação será uma instância de 'http-proxy'
         }
       },
-      // Delegando websockets ou socket.io
+      // Delegar tomadas de conexão da Web ou socket.io:
+      // ws://localhost:5173/socket.io -> ws://localhost:5174/socket.io
+      // Exercer cuidado ao usar `rewriteWsOrigin`, porque isto pode
+      // deixar a delegação vulnerável ataques de falsificação de
+      // requisições entre sítios ou aplicações.
       '/socket.io': {
         target: 'ws://localhost:5173',
         ws: true
+        rewriteWsOrigin: true,
       }
     }
   }
