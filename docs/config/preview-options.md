@@ -46,7 +46,7 @@ Define para `true` para sair se a porta já estiver em uso, no lugar de tentar a
 
 ## `preview.https` {#preview-https}
 
-- **Tipo:** `boolean | https.ServerOptions`
+- **Tipo:** `https.ServerOptions`
 - **Predefinido como:** [`server.https`](./server-options#server-https)
 
 Ativa TLS + HTTP/2. Nota que isto despromove para TLS apenas quando a [opção `server.proxy`](./server-options#server-proxy) também for utiliza.
