@@ -68,7 +68,7 @@ export const core = [
     avatar: 'https://github.com/ArnaudBarre.png',
     name: 'Arnaud Barré',
     title: 'Desenvolvedor Frontend',
-    desc: 'Apaixonado pelo uso de ferramentas de TypeScript e React.',
+    desc: 'Apaixonado por ferramentas em torno da TypeScript e React.',
     links: [
       { icon: 'github', link: 'https://github.com/ArnaudBarre' },
       { icon: 'twitter', link: 'https://twitter.com/_ArnaudBarre' },
@@ -91,27 +91,13 @@ export const core = [
     avatar: 'https://github.com/sheremet-va.png',
     name: 'Vladimir',
     title: 'Membro da Equipa Principal da Vitest & Vite',
-    desc: 'Um desenvolvedor de pilha completa de código-aberto',
+    desc: 'Um desenvolvedor versátil de código-aberto',
     links: [
       { icon: 'github', link: 'https://github.com/sheremet-va' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@sheremet_va' },
       { icon: 'twitter', link: 'https://twitter.com/sheremet_va' },
     ],
     sponsor: 'https://github.com/sponsors/sheremet-va',
-  },
-  {
-    avatar: 'https://github.com/sodatea.png',
-    name: 'Haoqun Jiang',
-    title: 'Desenvolvedor',
-    org: 'Vue.js',
-    orgLink: 'https://vuejs.org/',
-    desc: 'Membro da Equipa Principal da Vue/Vite. Trabalha com Código-Aberto em Tempo Integral.',
-    links: [
-      { icon: 'github', link: 'https://github.com/sodatea' },
-      { icon: 'twitter', link: 'https://twitter.com/haoqunjiang' },
-      { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@haoqun' },
-    ],
-    sponsor: 'https://github.com/sponsors/sodatea',
   },
 ]
 
@@ -188,5 +174,19 @@ export const emeriti = [
       { icon: 'mastodon', link: 'https://elk.zone/mas.to/@Shini92' },
     ],
     sponsor: 'https://github.com/sponsors/Shinigami92',
+  },
+  {
+    avatar: 'https://github.com/sodatea.png',
+    name: 'Haoqun Jiang',
+    title: 'Desenvolvedor',
+    org: 'Vue.js',
+    orgLink: 'https://vuejs.org/',
+    desc: 'Membro da Equipa Principal da Vue/Vite. Trabalha com Código-Aberto em Tempo Integral.',
+    links: [
+      { icon: 'github', link: 'https://github.com/sodatea' },
+      { icon: 'twitter', link: 'https://twitter.com/haoqunjiang' },
+      { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@haoqun' },
+    ],
+    sponsor: 'https://github.com/sponsors/sodatea',
   },
 ]
