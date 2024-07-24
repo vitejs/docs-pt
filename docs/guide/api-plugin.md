@@ -403,6 +403,10 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
   }
   ```
 
+  :::warning AVISO
+  Esta função gatilho não será chamada se usarmos uma abstração que tem manipulação personalizada dos ficheiros de entrada (por exemplo, a [SvelteKit](https://github.com/sveltejs/kit/discussions/8269#discussioncomment-4509145)).
+  :::
+
 ### `handleHotUpdate` {#handle-hot-update}
 
 - **Tipo:** `(ctx: HmrContext) => Array<ModuleNode> | void | Promise<Array<ModuleNode> | void>`
@@ -480,13 +484,13 @@ A extensão da Vite podem adicionalmente especificar uma propriedade `enforce` (
 - Extensões do utilizador sem o valor de `enforce`
 - Extensões de construção da Vite
 - Extensões do utilizador com `enforce: 'post'`
-- Extensões de construção da publicação de Vite (minificar, manifestar, reportagem)
+- Extensões de construção da publicação de Vite (minimizar, manifestar, reportagem)
 
 Notemos que isto está separado da ordem das funções gatilhos, que ainda estão sujeitas separadamente ao seu atributo `order` [como o habitual para as funções gatilhos da Rollup](https://rollupjs.org/plugin-development/#build-hooks).
 
 ## Aplicação Condicional {#application-conditional}
 
-Por padrão as extensões são invocadas para ambos servir e construir. Nestes casos onde uma extensão precisa ser condicionalmente aplicada apenas durante o servir ou construir, use a propriedade `apply` para apenas invocá-los durante o `'build'` ou `'serve'`:
+Por padrão as extensões são invocadas para ambos servir e construir. Nestes casos onde uma extensão precisa ser condicionalmente aplicada apenas durante o servir ou construir, usamos a propriedade `apply` para apenas invocá-los durante o `'build'` ou `'serve'`:
 
 ```js
 function myPlugin() {
@@ -517,7 +521,7 @@ Em geral, enquanto uma extensão de Rollup cumprir os seguintes critérios entã
 
 Se a extensão de Rollup apenas fazer sentido para a fase de construção, então ela pode ser especificada sob `build.rollupOptions.plugins`. Ela funcionará da mesma maneira que uma extensão de Vite com `enforce: 'post'` e `apply: 'build'`.
 
-Tu também podes aumentar uma extensão de Rollup existente com as propriedades exclusivas de Vite:
+Também podemos aumentar uma extensão de Rollup existente com as propriedades exclusivas de Vite:
 
 ```js
 // vite.config.js
@@ -577,10 +581,10 @@ export default defineConfig({
 ```
 
 :::tip NOTA
-Nós recomendação **sempre prefixar** os nomes do teu evento para evitar colisões com outras extensões.
+Recomendamos a **sempre prefixar** os nomes do nosso evento para evitar colisões com outras extensões.
 :::
 
-No lado do cliente, use o [`hot.on`](/guide/api-hmr.html#hot-on-event-cb) para ouvir os eventos:
+No lado do cliente, usamos a [`hot.on`](/guide/api-hmr#hot-on-event-cb) para ouvir os eventos:
 
 ```ts
 import 'vite/client'
