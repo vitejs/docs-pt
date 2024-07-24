@@ -65,23 +65,30 @@ $ bun create vite
 
 :::
 
-Depois seguimos os prontos!
+Depois seguimos as instruções!
 
 Nós também podemos especificar diretamente o nome do projeto e o modelo que queremos usar através das opções adicionais da linha de comando. Por exemplo, para gerar um projeto Vite + Vue, executamos:
 
-```bash
-# npm 7+, o duplo travessão adicional é obrigatório:
-npm create vite@latest my-vue-app -- --template vue
+::: code-group
 
-# yarn
-yarn create vite my-vue-app --template vue
-
-# pnpm
-pnpm create vite my-vue-app --template vue
-
-# bun
-bun create vite my-vue-app --template vue
+```bash [NPM]
+# npm 7+, o travessão duplo adicional é necessário:
+$ npm create vite@latest my-vue-app -- --template vue
 ```
+
+```bash [Yarn]
+$ yarn create vite my-vue-app --template vue
+```
+
+```bash [PNPM]
+$ pnpm create vite my-vue-app --template vue
+```
+
+```bash [Bun]
+$ bun create vite my-vue-app --template vue
+```
+
+:::
 
 Consultar a [`create-vite`](https://github.com/vitejs/vite/tree/main/packages/create-vite) por mais detalhes sobre modelo de projeto suportado: `vanilla`, `vanilla-ts`, `vue`, `vue-ts`, `react`, `react-ts`, `react-swc`, `react-swc-ts`, `preact`, `preact-ts`, `lit`, `lit-ts`, `svelte`, `svelte-ts`, `solid`, `solid-ts`, `qwik`, `qwik-ts`.
 
