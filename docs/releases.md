@@ -1,6 +1,6 @@
 # Lançamentos {#releases}
 
-Os lançamentos da Vite seguem o [Padrão de Definição de Versão Semântica](https://semver.org/). Nós podemos ver a versão estável mais recente da Vite na [página do pacote de npm da Vite](https://www.npmjs.com/package/vite).
+Os lançamentos da Vite seguem o [Padrão de Definição de Versão Semântica](https://semver.org/). Podemos ver a versão estável mais recente da Vite na [página do pacote de npm da Vite](https://www.npmjs.com/package/vite).
 
 Um relatório completo de mudanças dos lançamentos passados encontra-se [disponível na GitHub](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md).
 
@@ -8,15 +8,27 @@ Um relatório completo de mudanças dos lançamentos passados encontra-se [dispo
 
 A Vite não tem um ciclo de lançamento fixo.
 
-- **Remendo**: estes lançamentos são realizados quando necessário.
-- **Secundários**: estes lançamentos sempre contêm novas funcionalidades e também são realizados quando necessários.
-- **Principais**: estes lançamentos geralmente alinham-se com a [agenda do FIM DA EXPECTATIVA DE VIDA da Node.js](https://endoflife.date/nodejs), e serão anunciados com antecedência. Estes lançamentos passaram por uma fase prévia de discussão, e por ambas fases de pré-lançamento alfa e beta.
+- **Remendo**: estes lançamentos são realizados quando necessário (normalmente todas as semanas).
+- **Secundários**: estes lançamentos sempre contêm novas funcionalidades e também são realizados quando necessários. Os lançamentos secundários sempre terão uma fase de pré-lançamento beta (normalmente todos os meses).
+- **Principais**: estes lançamentos geralmente alinham-se com a [agenda do FIM DA VIDA da Node.js](https://endoflife.date/nodejs), e serão anunciados com antecedência. Estes lançamentos passaram por discussões de longo prazo com o ecossistema, e terão fases de pré-lançamentos alfa e beta (normalmente todos os anos).
 
-As anteriores versões principais da Vite continuarão a receber correções e remendos de segurança importantes. Depois disto, apenas receberiam atualizações se houverem razões de segurança. Nós recomendamos atualizar a Vite regularmente. Consulte o [Guia de Migração](/guide/migration) quando atualizares para cada versão principal.
+Os intervalos de versões da Vite que são suportados pela equipa da Vite são automaticamente determinados por:
 
-Os parceiros da equipa da Vite com projetos principais no ecossistema para testar as novas versões da Vite antes de serem lançadas através do [projeto `vite-ecosystem-ci`](https://github.com/vitejs/vite-ecosystem-ci). A maioria dos projetos usando a Vite devem ser capazes de oferecer rapidamente suporte ou migrar para as novas versões assim que forem lançadas.
+- Pela **atual versão secundária** que recebe correções regulares.
+- Pela **anterior versão primária** (apenas para suas versões secundárias mais recentes) e a **anterior versão secundária** que recebem correções e remendos de segurança importantes.
+- Pela **penúltima versão primária** (apenas para suas versões secundárias mais recentes) e a **penúltima versão secundária** que recebem remendos de segurança.
+- Todas as versões anteriores a estas já não são suportadas.
 
-## Casos Extremos do Padrão de Definição de Versão Semântica {#semantic-versioning-edge-cases}
+Como um exemplo, se a versão mais recente da Vite estiver na 5.3.10:
+
+- Os remendos regulares são lançados por `vite@5.3`.
+- As correções e remendos de segurança importantes são aplicados a `vite@4` e `vite@5.2`.
+- Os remendos de segurança também são aplicados a `vite@3`, e `vite@5.1`.
+- A `vite@2` e `vite@5.0` já não são suportados. Os utilizadores devem atualizar para receberem atualizações.
+
+Recomendamos atualizar a Vite regularmente. Podemos consultar o [Guia de Migração](/guide/migration) quando atualizarmos para cada versão primária. A equipa da Vite trabalha em estreita colaboração com os principais projetos do ecossistema para garantir a qualidade das novas versões. Testamos as novas versões da Vite antes de as lançarmos através do projeto [`vite-ecosystem-ci`](https://github.com/vitejs/vite-ecosystem-ci). A maioria dos projetos que utilizam a Vite devem ser capazes de oferecer rapidamente suporte ou migrar para novas versões assim que estas forem lançadas.
+
+## Casos Extremos do Padrão da Definição de Versão Semântica {#semantic-versioning-edge-cases}
 
 ### Definições de TypeScript {#typescript-definitions}
 
