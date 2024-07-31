@@ -50,6 +50,7 @@
     "react-dom": "^18.3.1",
     "@types/node": "20.14.13",
     "@types/react": "^18.3.3",
+    "@types/express": "^4.17.21",
     "@algolia/client-search": "^4.13.1",
     "@shikijs/vitepress-twoslash": "^1.12.0"
   }
