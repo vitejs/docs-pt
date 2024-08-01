@@ -259,7 +259,7 @@ Com isto dito, a Vite fornece suporte embutido para os ficheiros `.scss`, `.sass
 
 ```bash
 # .scss e .sass
-npm add -D sass
+npm add -D sass-embedded # ou sass
 
 # .less
 npm add -D less

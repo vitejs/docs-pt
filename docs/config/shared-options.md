@@ -225,7 +225,7 @@ Nota que se uma configuração em linha for fornecida, a Vite são procurará po
 
 Especifica opções a passar aos pré-processadores de CSS. As extensões de ficheiro são usadas como chaves para as opções. As opções suportadas para cada pré-processador pode ser encontrada na sua respetiva documentação:
 
-- `sass`/`scss` - a opção de alto nível `api: "legacy" | "modern"` (predefinida como: `"legacy"`) permite mudar qual interface de programação de aplicação de Sass usar. [Opções (legado)](https://sass-lang.com/documentation/js-api/interfaces/LegacyStringOptions), [Opções (moderno)](https://sass-lang.com/documentation/js-api/interfaces/stringoptions/).
+- `sass`/`scss` - a opção de alto nível `api: "legacy" | "modern" | "modern-compiler"` (predefinida como: `"legacy"`) permite mudar qual interface de programação de aplicação de Sass usar. Para o melhor desempenho, é recomendado usar a `api: "modern-compiler"` com o pacote `sass-embedded`. [Opções (legado)](https://sass-lang.com/documentation/js-api/interfaces/LegacyStringOptions), [Opções (moderno)](https://sass-lang.com/documentation/js-api/interfaces/stringoptions/).
 - `less` - [Opções](https://lesscss.org/usage/#less-options).
 - `styl`/`stylus` - Apenas a opção [`define`](https://stylus-lang.com/docs/js#define-name-node) é suportada, a qual pode ser passada como um objeto.
 
@@ -244,7 +244,7 @@ export default defineConfig({
         },
       },
       scss: {
-        api: 'modern', // ou "legacy"
+        api: 'modern-compiler', // ou "modern", "legacy"
         importers: [
           // ...
         ],
