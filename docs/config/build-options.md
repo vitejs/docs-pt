@@ -3,7 +3,7 @@
 ## `build.target` {#build-target}
 
 - **Tipo:** `string | string[]`
-- **Predefinido como:** `'modules'`
+- **Predefinida como:** `'modules'`
 - **Relacionado ao:** [Compatibilidade de Navegador](/guide/build#browser-compatibility)
 
 Alvo da compatibilidade de navegador para o pacote final. O valor padrão é um valor especial de Vite, `'modules'`, que aponta navegadores com [Módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e suporte ao [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). A Vite substituirá `'modules'` por `['es2020', 'edge88', 'firefox78', 'chrome87', 'safari14']`
@@ -14,14 +14,14 @@ Um outro valor especial é `'esnext'` - que presume o suporte de importações d
 - Se a opção [`build.minify`](#build-minify) for `'terser'` e a versão de Terser instalada estiver abaixo de 5.16.0, `'esnext'` será forçada até `'es2021'`.
 - Em outros casos, ele não realizará nenhuma tradução de código.
 
-A transformação é realizada com `esbuild` e o valor deve ser uma [opção `target` da `esbuild`](https://esbuild.github.io/api/#target) válida. Os alvos personalizados pode ser tanto uma versão de ECMAScript (por exemplo, `es2015`), um navegador com aversão (por exemplo, `chrome58`), ou um arranjo de várias sequências de caracteres de alvos.
+A transformação é realizada com `esbuild` e o valor deve ser uma [opção `target` da `esbuild`](https://esbuild.github.io/api/#target) válida. Os alvos personalizados pode ser tanto uma versão de ECMAScript (por exemplo, `es2015`), um navegador com aversão (por exemplo, `chrome58`), ou um vetor de várias sequências de caracteres de alvos.
 
 Nota que a construção falhará se o código conter funcionalidades que não podem ser traduzidas com segurança pelo esbuild. Consulte a [documentação do esbuild](https://esbuild.github.io/content-types/#javascript) por mais detalhes.
 
 ## `build.modulePreload` {#build-modulepreload}
 
 - **Tipo:** `boolean | { polyfill?: boolean, resolveDependencies?: ResolveModulePreloadDependenciesFn }`
-- **Predefinido como:** `{ polyfill: true }`
+- **Predefinida como:** `{ polyfill: true }`
 
 Por padrão, um ["polyfill" de pré-carregamento de módulo](https://guybedford.com/es-module-preloading-integrity#modulepreload-polyfill) é automaticamente injetado. O "polyfill" é injetado automaticamente no módulo de delegação de cada entrada `index.html`. Se a construção for configurada para usar uma entrada personalizada de não HTML através de `build.rollupOptions.input`, então é necessário importar manualmente o "polyfill" na tua entrada personalizada:
 
@@ -42,12 +42,13 @@ type ResolveModulePreloadDependenciesFn = (
   url: string,
   deps: string[],
   context: {
-    importer: string
+    hostId: string
+    hostType: 'html' | 'js'
   }
 ) => string[]
 ```
 
-A função `resolveDependencies` será chamada para cada importação dinâmica com uma lista dos pedaços sobre os quais ele depende, e será também chamado para cada pedaço importado nos ficheiros de HTML entrada. Um novo arranjo de dependências pode ser retornado com estes filtrados ou mais dependências injetadas, e seus caminhos modificados. Os caminhos de `deps` são relativos ao `build.outDir`. O retorno de um caminho relativo para o `hostId` para `hostType === 'js'` é permitido, naquele caso que `new URL(dep, import.meta.url)` é usado para obter um caminho absoluto quando injetamos este módulo pré-carregado no cabeçalho da HTML.
+A função `resolveDependencies` será chamada para cada importação dinâmica com uma lista dos pedaços sobre os quais ele depende, e será também chamado para cada pedaço importado nos ficheiros de HTML entrada. Um novo vetor de dependências pode ser retornado com estes filtrados ou mais dependências injetadas, e seus caminhos modificados. Os caminhos de `deps` são relativos a `build.outDir`. O valor de retorno deve ser um caminho relativo à `build.outDir`.
 
 ```js
 /** @type {import('vite').UserConfig} */
@@ -67,7 +68,7 @@ Os caminhos de dependência resolvida podem ser ainda modificados usando [`exper
 ## `build.polyfillModulePreload` {#build-polyfillmodulepreload}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `true`
+- **Predefinida como:** `true`
 - **Depreciado** use `build.modulePreload.polyfill`
 
 Caso precisares injetar automaticamente um ["polyfill" de pré-carregamento de módulo](https://guybedford.com/es-module-preloading-integrity#modulepreload-polyfill).
@@ -75,21 +76,21 @@ Caso precisares injetar automaticamente um ["polyfill" de pré-carregamento de m
 ## `build.outDir` {#build-outdir}
 
 - **Tipo:** `string`
-- **Predefinido como:** `dist`
+- **Predefinida como:** `dist`
 
 Especifica o diretório de saída (relativo à [raiz do projeto](/guide/#index-html-and-project-root)).
 
 ## `build.assetsDir` {#build-assetsdir}
 
 - **Tipo:** `string`
-- **Predefinido como:** `assets`
+- **Predefinida como:** `assets`
 
 Especifica o diretório para encaixar os recursos gerados sob (relativo ao `build.outDir`. Isto não é usado no [Modo de Biblioteca](/guide/build#library-mode)).
 
 ## `build.assetsInlineLimit` {#build-assetsinlinelimit}
 
 - **Tipo:** `number` | `((filePath: string, content: Buffer) => boolean | undefined)`
-- **Predefinido como:** `4096` (4 KiB)
+- **Predefinida como:** `4096` (4 KiB)
 
 Recursos importados ou referenciados que são menores do que este limiar serão embutidos como URLs de base64 para evitar requisições de http adicionais. Defina para `0` para desativar completamente este processo de embutir.
 
@@ -104,7 +105,7 @@ Se especificares `build.lib`, `build.assetsInlineLimit` será ignorado e os recu
 ## `build.cssCodeSplit` {#build-csscodesplit}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `true`
+- **Predefinida como:** `true`
 
 Ativa ou desativa a separação de código de CSS. Quando ativada, a CSS importada nos pedaços assíncronos serão preservados como pedaços e trazidos juntos quando o pedaço for requisitado.
 
@@ -117,7 +118,7 @@ Se especificares `build.lib`, `build.cssCodeSplit` será `false` como padrão.
 ## `build.cssTarget` {#build-csstarget}
 
 - **Tipo:** `string | string[]`
-- **Predefinido como:** o mesmo que [`build.target`](#build-target)
+- **Predefinida como:** o mesmo que [`build.target`](#build-target)
 
 Esta opção permite os utilizadores definir um alvo de navegador diferente para a minificação de CSS daquela usada para a tradução de código de JavaScript.
 
@@ -126,14 +127,14 @@ Ela deve apenas ser usada quando estiveres mirando um navegador fora dos padrão
 ## `build.cssMinify` {#build-cssminify}
 
 - **Tipo:**
-- **Predefinido como:** o mesmo que [`build.minify`](#build-minify)
+- **Predefinida como:** o mesmo que [`build.minify`](#build-minify)
 
 Esta opção permite os utilizadores sobrepor a especificamente a minificação de CSS no lugar de padronizar para `build.minify`, assim podes configurar a minificação para código de JavaScript e CSS separadamente. A Vite usa a `esbuild` por padrão para minificar a CSS. Defina a opção para `'lightningcss'` para usar a [CSS relâmpago](https://lightningcss.dev/minification.html). Caso selecionada, pode ser configurada usando [`css.lightningcss`](./shared-options#css-lightningcss).
 
 ## `build.sourcemap` {#build-sourcemap}
 
 - **Tipo:** `boolean | 'inline' | 'hidden'`
-- **Predefinido como:** `false`
+- **Predefinida como:** `false`
 
 Gera os mapas da fonte de produção. Se for `true`, um ficheiro de mapa de fonte separado será criado. Se for `'inline'`, o mapa de fonte será anexado ao ficheiro de saída resultante como uma URI de dados. O `'hidden'` funciona de maneira parecida que `true` exceto que os comentários de mapa de fonte correspondente nos ficheiros empacotadas são suprimidos.
 
@@ -166,7 +167,7 @@ Constrói como uma biblioteca. `entry` é obrigatório visto que a biblioteca n�
 ## `build.manifest` {#build-manifest}
 
 - **Tipo:** `boolean | string`
-- **Predefinido como:** `false`
+- **Predefinida como:** `false`
 - **Relacionado ao:** [Integração de Backend](/guide/backend-integration)
 
 Quando definido para `true`, a construção também gerará um ficheiro `.vite/manifest.json` que contém um mapeamento de nomes de ficheiros de recurso não embaralhado para as suas versões embaralhadas, as quais podem então ser usadas por uma abstração de servidor para interpretar as ligações de recurso correta. Quando o valor é uma sequência de caracteres, será usada como nome do ficheiro de manifesto.
@@ -174,7 +175,7 @@ Quando definido para `true`, a construção também gerará um ficheiro `.vite/m
 ## `build.ssrManifest` {#build-ssrmanifest}
 
 - **Tipo:** `boolean | string`
-- **Predefinido como:** `false`
+- **Predefinida como:** `false`
 - **Relacionado ao:** [Interpretação no Lado do Servidor](/guide/ssr)
 
 Quando definido para `true`, a construção também gerará um manifesto de SSR para a determinação de ligações de estilo e diretivas de pré-carregamento de recurso em produção. Quando o valor for uma sequência de caracteres, será usada como nome do ficheiro de manifesto.
@@ -182,7 +183,7 @@ Quando definido para `true`, a construção também gerará um manifesto de SSR 
 ## `build.ssr` {#build-ssr}
 
 - **Tipo:** `boolean | string`
-- **Predefinido como:** `false`
+- **Predefinida como:** `false`
 - **Relacionado ao:** [Interpretação no Lado do Servidor](/guide/ssr)
 
 Produz a construção orientada pela SSR. O valor pode ser uma sequência de caracteres para diretamente especificar a entrada da SSR, ou `true`, o qual exige a especificação da entrada de SSR através de `rollupOptions.input`.
@@ -190,14 +191,14 @@ Produz a construção orientada pela SSR. O valor pode ser uma sequência de car
 ## `build.ssrEmitAssets` {#build-ssremitassets}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `false`
+- **Predefinida como:** `false`
 
 Durante a construção do lado do servidor, os recursos estáticos não são emitidos, uma vez que se assume que seriam emitidos como parte da construção do cliente. Esta opção permite a abstração forçar a emissão deles em ambas construções do cliente e do servidor. É responsabilidade da abstração combinar os recursos com uma etapa pós-construção.
 
 ## `build.minify` {#build-minify}
 
 - **Tipo:** `boolean | 'terser' | 'esbuild'`
-- **Predefinido como:** `'esbuild'` para construção do cliente, `false` para construção da interpretação do lado do servidor
+- **Predefinida como:** `'esbuild'` para construção do cliente, `false` para construção da interpretação do lado do servidor
 
 Define para `false` para desativar a minificação, ou especifique o minificador a usar. O padrão é [esbuild](https://github.com/evanw/esbuild) o qual é 20 ~ 40x mais rápido do que o terser e apenas 1 ~ 2% pior em compressão. [Pontos de Referências](https://github.com/privatenumber/minification-benchmarks).
 
@@ -220,42 +221,42 @@ Além disto, também podemos passar uma opção `maxWorkers: number` para especi
 ## `build.write` {#build-write}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `true`
+- **Predefinida como:** `true`
 
 Defina para `false` para desativar a escrita do pacote no disco. Isto é na maior parte das vezes usada nas [chamadas de `build()` programáticas](/guide/api-javascript#build) onde mais adiante o processamento posterior do pacote é necessário antes da escrita em disco.
 
 ## `build.emptyOutDir` {#build-emptyoutdir}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `true` se `outDir` estiver dentro do `root`
+- **Predefinida como:** `true` se `outDir` estiver dentro do `root`
 
 Por padrão, a Vite esvaziará o `outDir` na construção se estiver dentro da raiz do projeto. Ele emitirá um aviso se `outDir` está fora da raiz para evitar remover acidentalmente ficheiros importantes. Tu podes definir explicitamente esta opção para suprimir o aviso. Isto também está disponível através da linha de comando como `--emptyOutDir`.
 
 ## `build.copyPublicDir` {#build-copypublicdir}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `true`
+- **Predefinida como:** `true`
 
 Por padrão, Vite copiará os ficheiros da `publicDir` para a `outDir` na construção. Defina para `false` para desativar isto.
 
 ## `build.reportCompressedSize` {#build-reportcompressedsize}
 
 - **Tipo:** `boolean`
-- **Predefinido como:** `true`
+- **Predefinida como:** `true`
 
 Ativa e desativa a reportagem do tamanho compactado em GZip. A compactação de ficheiros de saída grande pode ser lento, assim a desativação disto pode aumentar o desempenho da construção para projetos grandes.
 
 ## `build.chunkSizeWarningLimit` {#build-chunksizewarninglimit}
 
 - **Tipo:** `number`
-- **Predefinido como:** `500`
+- **Predefinida como:** `500`
 
 Limite para avisos do tamanho do pedaço (em kB). É comparada contra o tamanho do pedaço não compactado visto que o [próprio tamanho da JavaScript está relacionado ao tempo de execução](https://v8.dev/blog/cost-of-javascript-2019).
 
 ## `build.watch` {#build-watch}
 
 - **Tipo:** [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch)`| null`
-- **Predefinido como:** `null`
+- **Predefinida como:** `null`
 
 Defina para `{}` para ativar o observador de Rollup. Isto é na maior parte das vezes usado nos casos que envolve extensões de apenas construção ou processos de integrações.
 
