@@ -436,7 +436,6 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
 
     ```js
     handleHotUpdate({ server, modules, timestamp }) {
-      server.ws.send({ type: 'full-reload' })
       // Invalidar manualmente os módulos
       const invalidatedModules = new Set()
       for (const mod of modules) {
@@ -447,6 +446,7 @@ As extensões de Vite também podem fornecer gatilhos que servem aos propósitos
           true
         )
       }
+      server.ws.send({ type: 'full-reload' })
       return []
     }
     ```
