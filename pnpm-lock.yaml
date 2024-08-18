@@ -17,7 +17,7 @@ importers:
         version: 5.0.0
       '@shikijs/vitepress-twoslash':
         specifier: ^1.12.1
-        version: 1.14.0(typescript@5.5.4)
+        version: 1.14.1(typescript@5.5.4)
       '@types/express':
         specifier: ^4.17.21
         version: 4.17.21
@@ -399,17 +399,17 @@ packages:
   '@shikijs/core@1.13.0':
     resolution: {integrity: sha512-Mj5NVfbAXcD1GnwOTSPl8hBn/T8UDpfFQTptp+p41n/CbUcJtOq98WaRD7Lz3hCglYotUTHUWtzu3JhK6XlkAA==}
 
-  '@shikijs/core@1.14.0':
-    resolution: {integrity: sha512-fqDTSjszMvIe8Pjs3FA8xwFeH4XyUj6jJPHCI+orRxsySivm6mU4Ef7kqoyUudz6ei6U/EdhqtSho8IpuR9YYA==}
+  '@shikijs/core@1.14.1':
+    resolution: {integrity: sha512-KyHIIpKNaT20FtFPFjCQB5WVSTpLR/n+jQXhWHWVUMm9MaOaG9BGOG0MSyt7yA4+Lm+4c9rTc03tt3nYzeYSfw==}
 
   '@shikijs/transformers@1.13.0':
     resolution: {integrity: sha512-51aLIT6a93rVGoTxl2+p6hb7ILbTA4p/unoibEAjnPMzHto4cqxhuHyDVgtQur5ANpGsL3ihSGKaZDrpcWH8vQ==}
 
-  '@shikijs/twoslash@1.14.0':
-    resolution: {integrity: sha512-gGHML2C60+B6eP5a2AIXS6cXJLYbMwgMeEg69KYORTqXZFEaHLILvqkJGKPRegt0hacMvcX8A2xWrQX0whWSRQ==}
+  '@shikijs/twoslash@1.14.1':
+    resolution: {integrity: sha512-b0krVIqVCpdh9Gji+gTSJp0n2KyepPmnjKEDs+dUb765MUcyfN9qK/vRr7fA/YdAJxab8IDpz1GbLl0GuzAyFQ==}
 
-  '@shikijs/vitepress-twoslash@1.14.0':
-    resolution: {integrity: sha512-qvrZhbQFzx+Vgr2NnLdO/2WSNJWII3Bc0m/TtVP6E7t7pjf2R1ANTQDb2rNwenSE1r4b/rb8MBmMLacCtMn9Mw==}
+  '@shikijs/vitepress-twoslash@1.14.1':
+    resolution: {integrity: sha512-LgNRK3Ls8sbydonMFNOxz0R2WGscUa6HI6kcS7VeiMaoqPWs0PF8XHTNSyo+hCdIRa6jhlx4FbD2EbY4UpK6ZQ==}
 
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
@@ -880,8 +880,8 @@ packages:
   shiki@1.13.0:
     resolution: {integrity: sha512-e0dWfnONbEv6xl7FJy3XIhsVHQ/65XHDZl92+6H9+4xWjfdo7pmkqG7Kg47KWtDiEtzM5Z+oEfb4vtRvoZ/X9w==}
 
-  shiki@1.14.0:
-    resolution: {integrity: sha512-ggQlEp56aE3mOSujzDvHfjbkWQ7rpJuC3ZqLKazCGLAZavsYTmcwBjnye3w65PLpOroAoU+rOy2atD76KPAHRw==}
+  shiki@1.14.1:
+    resolution: {integrity: sha512-FujAN40NEejeXdzPt+3sZ3F2dx1U24BY2XTY01+MG8mbxCiA2XukXdcbyMyLAHJ/1AUUnQd1tZlvIjefWWEJeA==}
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
@@ -1317,7 +1317,7 @@ snapshots:
     dependencies:
       '@types/hast': 3.0.4
 
-  '@shikijs/core@1.14.0':
+  '@shikijs/core@1.14.1':
     dependencies:
       '@types/hast': 3.0.4
 
@@ -1325,22 +1325,22 @@ snapshots:
     dependencies:
       shiki: 1.13.0
 
-  '@shikijs/twoslash@1.14.0(typescript@5.5.4)':
+  '@shikijs/twoslash@1.14.1(typescript@5.5.4)':
     dependencies:
-      '@shikijs/core': 1.14.0
+      '@shikijs/core': 1.14.1
       twoslash: 0.2.9(typescript@5.5.4)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  '@shikijs/vitepress-twoslash@1.14.0(typescript@5.5.4)':
+  '@shikijs/vitepress-twoslash@1.14.1(typescript@5.5.4)':
     dependencies:
-      '@shikijs/twoslash': 1.14.0(typescript@5.5.4)
+      '@shikijs/twoslash': 1.14.1(typescript@5.5.4)
       floating-vue: 5.2.2(vue@3.4.38(typescript@5.5.4))
       mdast-util-from-markdown: 2.0.1
       mdast-util-gfm: 3.0.0
       mdast-util-to-hast: 13.2.0
-      shiki: 1.14.0
+      shiki: 1.14.1
       twoslash: 0.2.9(typescript@5.5.4)
       twoslash-vue: 0.2.9(typescript@5.5.4)
       vue: 3.4.38(typescript@5.5.4)
@@ -2016,9 +2016,9 @@ snapshots:
       '@shikijs/core': 1.13.0
       '@types/hast': 3.0.4
 
-  shiki@1.14.0:
+  shiki@1.14.1:
     dependencies:
-      '@shikijs/core': 1.14.0
+      '@shikijs/core': 1.14.1
       '@types/hast': 3.0.4
 
   source-map-js@1.2.0: {}
