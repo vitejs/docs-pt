@@ -16,7 +16,7 @@ importers:
         specifier: ^5.0.0
         version: 5.1.1
       '@shikijs/vitepress-twoslash':
-        specifier: ^1.12.1
+        specifier: ^1.14.1
         version: 1.14.1(typescript@5.5.4)
       '@types/express':
         specifier: ^4.17.21
@@ -37,10 +37,10 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
       vitepress:
-        specifier: ^1.3.2
+        specifier: ^1.3.3
         version: 1.3.4(@algolia/client-search@5.1.1)(@types/node@20.16.1)(@types/react@18.3.4)(postcss@8.4.41)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.0)(typescript@5.5.4)
       vue:
-        specifier: ^3.4.37
+        specifier: ^3.4.38
         version: 3.4.38(typescript@5.5.4)
 
 packages:
@@ -58,12 +58,18 @@ packages:
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
+    peerDependenciesMeta:
+      '@algolia/client-search':
+        optional: true
 
   '@algolia/autocomplete-shared@1.9.3':
     resolution: {integrity: sha512-Wnm9E4Ye6Rl6sTTqjoymD+l8DjSTHsHboVRYrKgEt8Q7UHm9nYbqhN/i0fhUYA3OAEH7WA8x3jfpnmJm3rKvaQ==}
     peerDependencies:
       '@algolia/client-search': '>= 4.9.1 < 6'
       algoliasearch: '>= 4.9.1 < 6'
+    peerDependenciesMeta:
+      '@algolia/client-search':
+        optional: true
 
   '@algolia/cache-browser-local-storage@4.24.0':
     resolution: {integrity: sha512-t63W9BnoXVrGy9iYHBgObNXqYXM3tYXCjDSHeNwnsc324r4o5UiVKUiAB4THQ5z9U5hTj6qUvwg/Ez43ZD85ww==}
@@ -1037,13 +1043,15 @@ snapshots:
   '@algolia/autocomplete-preset-algolia@1.9.3(@algolia/client-search@5.1.1)(algoliasearch@4.24.0)':
     dependencies:
       '@algolia/autocomplete-shared': 1.9.3(@algolia/client-search@5.1.1)(algoliasearch@4.24.0)
-      '@algolia/client-search': 5.1.1
       algoliasearch: 4.24.0
+    optionalDependencies:
+      '@algolia/client-search': 5.1.1
 
   '@algolia/autocomplete-shared@1.9.3(@algolia/client-search@5.1.1)(algoliasearch@4.24.0)':
     dependencies:
-      '@algolia/client-search': 5.1.1
       algoliasearch: 4.24.0
+    optionalDependencies:
+      '@algolia/client-search': 5.1.1
 
   '@algolia/cache-browser-local-storage@4.24.0':
     dependencies:
