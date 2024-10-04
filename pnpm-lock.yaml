@@ -1001,8 +1001,8 @@ packages:
   vfile@6.0.3:
     resolution: {integrity: sha512-KzIbH/9tXat2u30jf+smMwFCsno4wHVdNmzFyL+T/L3UGqqk6JKfVqOFOZEpZSHADH1k40ab6NUIXZq422ov3Q==}
 
-  vite@5.4.2:
-    resolution: {integrity: sha512-dDrQTRHp5C1fTFzcSaMxjk6vdpKvT+2/mIdE07Gw2ykehT49O0z/VHS3zZ8iV/Gh8BJJKHWOe5RjaNrW5xf/GA==}
+  vite@5.4.8:
+    resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -1523,9 +1523,9 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-vue@5.1.2(vite@5.4.2(@types/node@20.16.10))(vue@3.5.11(typescript@5.5.4))':
+  '@vitejs/plugin-vue@5.1.2(vite@5.4.8(@types/node@20.16.10))(vue@3.5.11(typescript@5.5.4))':
     dependencies:
-      vite: 5.4.2(@types/node@20.16.10)
+      vite: 5.4.8(@types/node@20.16.10)
       vue: 3.5.11(typescript@5.5.4)
 
   '@volar/language-core@2.4.5':
@@ -2222,7 +2222,7 @@ snapshots:
       '@types/unist': 3.0.3
       vfile-message: 4.0.2
 
-  vite@5.4.2(@types/node@20.16.10):
+  vite@5.4.8(@types/node@20.16.10):
     dependencies:
       esbuild: 0.21.5
       postcss: 8.4.47
@@ -2238,7 +2238,7 @@ snapshots:
       '@shikijs/core': 1.14.1
       '@shikijs/transformers': 1.14.1
       '@types/markdown-it': 14.1.2
-      '@vitejs/plugin-vue': 5.1.2(vite@5.4.2(@types/node@20.16.10))(vue@3.5.11(typescript@5.5.4))
+      '@vitejs/plugin-vue': 5.1.2(vite@5.4.8(@types/node@20.16.10))(vue@3.5.11(typescript@5.5.4))
       '@vue/devtools-api': 7.3.8
       '@vue/shared': 3.4.38
       '@vueuse/core': 11.0.1(vue@3.5.11(typescript@5.5.4))
@@ -2247,7 +2247,7 @@ snapshots:
       mark.js: 8.11.1
       minisearch: 7.1.0
       shiki: 1.14.1
-      vite: 5.4.2(@types/node@20.16.10)
+      vite: 5.4.8(@types/node@20.16.10)
       vue: 3.5.11(typescript@5.5.4)
     optionalDependencies:
       postcss: 8.4.47
