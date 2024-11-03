@@ -57,8 +57,6 @@ A nova interface de programação traz muitos benefícios:
 
 A ideia inicial [foi proposto por Pooya Parsa](https://github.com/nuxt/vite/pull/201) e implementada por [Anthony Fu](https://github.com/antfu) como o pacote [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) para [alimentar a interpretação do lado do servidor de desenvolvimento da Nuxt 3](https://antfu.me/posts/dev-ssr-on-nuxt) e mais tarde também usada como base para [Vitest](https://vitest.dev). Portanto, a ideia geral do [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) foi testada em batalha por algum tempo. Esta é uma nova iteração da interface da programação por [Vladimir Sheremet](https://github.com/sheremet-va), que já havia re-implementado o [vite-node](https://github.com/vitest-dev/vitest/tree/main/packages/vite-node#readme) na [Vitest](https://vitest.dev) e aproveitou os aprendizados para tornar a interface de programação ainda mais poderosa e flexível ao adicioná-la ao Núcleo da Vite. O pedido de atualização de repositório esteve um ano em preparação, podemos ver a evolução e as discussões com os responsáveis do ecossistema [neste hiperligação](https://github.com/vitejs/vite/issues/12165).
 
-Nós podemos ler mais no [guia da interface de programação da execução da Vite](/guide/api-vite-runtime) e [dar a nossa opinião](https://github.com/vitejs/vite/discussions/15774).
-
 :::info
 A Interface de Programação de Aplicação da Execução da Vite evoluiu na Interface de Programação de Aplicação Executora de Módulo, lançada na Vite 6 como parte da [Interface de Programação de Aplicação do Ambiente](/guide/api-environment).
 :::
