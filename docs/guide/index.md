@@ -141,9 +141,21 @@ E criar um ficheiro `index.html` como este:
 
 Depois, executar a interface da linha de comando da `vite` no nosso terminal:
 
-```bash
-vite
+::: code-group
+```bash [NPM]
+$ npx vite
 ```
+
+```bash [Yarn]
+$ yarn vite
+```
+```bash [PNPM]
+$ pnpm vite
+```
+```bash [Bun]
+$ bunx vite
+```
+:::
 
 O `index.html` será servido no `http://localhost:5173`.
 
