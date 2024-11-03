@@ -328,7 +328,7 @@ Nós podemos implantar a nossa aplicação de Vite como uma Aplicação Estátic
 
 4. Especificamos um nome de projeto e o ramo:
 
-   - **Comando de Construção (ou _Build Command_)**: `npm run build`
+   - **Comando de Construção (ou _Build Command_)**: `npm install && npm run build`
    - **Diretório de Publicação (_Publish Directory_)**: `dist`
 
 5. Clicamos em **Criar Aplicação Estática (_Create Static Site_)**:
