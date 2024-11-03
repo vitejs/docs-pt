@@ -282,7 +282,7 @@ export default defineConfig({
               link: '/guide/api-javascript'
             },
             {
-              text: 'API de Execução da Vite',
+              text: 'API de Ambiente da Vite',
               link: '/guide/api-environment'
             },
             {
