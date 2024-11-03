@@ -261,7 +261,7 @@ export default defineConfig({
               link: '/guide/philosophy',
             },
             {
-              text: 'Migração da Versão 4',
+              text: 'Migração da Versão 6',
               link: '/guide/migration'
             }
           ]
@@ -283,7 +283,7 @@ export default defineConfig({
             },
             {
               text: 'API de Execução da Vite',
-              link: '/guide/api-vite-runtime'
+              link: '/guide/api-environment'
             },
             {
               text: 'Referência da Configuração',
@@ -330,7 +330,46 @@ export default defineConfig({
             }
           ]
         }
-      ]
+      ],
+      '/changes/': [
+        {
+          text: 'Breaking Changes',
+          link: '/changes/',
+        },
+        {
+          text: 'Current',
+          items: [],
+        },
+        {
+          text: 'Future',
+          items: [
+            {
+              text: 'this.environment in Hooks',
+              link: '/changes/this-environment-in-hooks',
+            },
+            {
+              text: 'HMR hotUpdate Plugin Hook',
+              link: '/changes/hotupdate-hook',
+            },
+            {
+              text: 'Move to per-environment APIs',
+              link: '/changes/per-environment-apis',
+            },
+            {
+              text: 'SSR using ModuleRunner API',
+              link: '/changes/ssr-using-modulerunner',
+            },
+            {
+              text: 'Shared plugins during build',
+              link: '/changes/shared-plugins-during-build',
+            },
+          ],
+        },
+        {
+          text: 'Past',
+          items: [],
+        },
+      ],
     },
     outline: {
       level: [2, 3],

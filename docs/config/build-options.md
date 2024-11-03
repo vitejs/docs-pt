@@ -188,12 +188,19 @@ Quando definido para `true`, a construção também gerará um manifesto de SSR 
 
 Produz a construção orientada pela SSR. O valor pode ser uma sequência de caracteres para diretamente especificar a entrada da SSR, ou `true`, o qual exige a especificação da entrada de SSR através de `rollupOptions.input`.
 
+## `build.emitAssets` {#build-emitassets}
+
+- **Tipo:** `boolean`
+- **Predefinida como:** `false`
+
+Durante as construções sem cliente, os recursos ou ativos estáticos não são emitidos, uma vez que se assume que seriam emitidos como parte da construção do cliente. Esta opção permite que as abstrações forcem a sua emissão noutros ambientes de construção. É da responsabilidade da abstração fundir os recursos estáticos com uma etapa pós-construção.
+
 ## `build.ssrEmitAssets` {#build-ssremitassets}
 
 - **Tipo:** `boolean`
 - **Predefinida como:** `false`
 
-Durante a construção do lado do servidor, os recursos estáticos não são emitidos, uma vez que se assume que seriam emitidos como parte da construção do cliente. Esta opção permite a abstração forçar a emissão deles em ambas construções do cliente e do servidor. É responsabilidade da abstração combinar os recursos com uma etapa pós-construção.
+Durante a construção do lado do servidor, os recursos estáticos não são emitidos, uma vez que se assume que seriam emitidos como parte da construção do cliente. Esta opção permite a abstração forçar a emissão deles em ambas construções do cliente e do servidor. É responsabilidade da abstração combinar os recursos com uma etapa pós-construção. Esta opção será substituída por `build.emitAssets` quando a interface de programação de aplicação de ambiente estiver estável.
 
 ## `build.minify` {#build-minify}
 

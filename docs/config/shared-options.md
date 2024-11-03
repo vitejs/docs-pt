@@ -492,3 +492,12 @@ Se a nossa aplicação for uma aplicação duma única página, uma [aplicação
 - `'custom'`: não inclui intermediários de HTML
 
 Saiba mais no [Guia de Interpretação do Lado do Servidor](/guide/ssr#vite-cli) da Vite. Relacionado ao [`server.middlewareMode`](./server-options#server-middlewaremode).
+
+## `future` {#future}
+
+- **Tipo:** `Record<string, 'warn' | undefined>`
+- **Relacionada a:** [Mudanças de Rutura](/changes/)
+
+Ativa futuras alterações de rutura para preparar uma migração suave para a próxima versão principal da Vite. A lista pode ser atualizada, adicionada ou removida em qualquer altura, à medida que são desenvolvidas novas funcionalidades.
+
+Consultar a página [Mudanças de Rutura](/changes/) para obter detalhes sobre as opções possíveis.

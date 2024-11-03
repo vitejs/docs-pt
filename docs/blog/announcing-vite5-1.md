@@ -59,6 +59,10 @@ A ideia inicial [foi proposto por Pooya Parsa](https://github.com/nuxt/vite/pull
 
 Nós podemos ler mais no [guia da interface de programação da execução da Vite](/guide/api-vite-runtime) e [dar a nossa opinião](https://github.com/vitejs/vite/discussions/15774).
 
+:::info
+A Interface de Programação de Aplicação da Execução da Vite evoluiu na Interface de Programação de Aplicação Executora de Módulo, lançada na Vite 6 como parte da [Interface de Programação de Aplicação do Ambiente](/guide/api-environment).
+:::
+
 ## Funcionalidades {#features}
 
 ### Suporte Melhorado para `.css?url` {#improved-support-for-css-url}

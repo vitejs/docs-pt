@@ -1,245 +1,82 @@
-# Migração da Versão 4 {#migration-from-v4}
+# Migration from v5
 
-## Suporte da Node.js {#node-js-support}
+## Environment API
 
-A Vite já não suporta a Node.js 14 / 16 / 17 / 19, as quais alcançaram o fim da sua expetativa de vida. A Node.js 18 / 20+ agora é obrigatória.
+As part of the new experimental [Environment API](/guide/api-environment.md), a big internal refactoring was needed. Vite 6 strives to avoid breaking changes to ensure most projects can quickly upgrade to the new major. We'll wait until a big portion of the ecosystem has moved to stabilize and start recommending the use of the new APIs. There may be some edge cases but these should only affect low level usage by frameworks and tools. We have worked with maintainers in the ecosystem to mitigate these differences before the release. Please [open an issue](https://github.com/vitejs/vite/issues/new?assignees=&labels=pending+triage&projects=&template=bug_report.yml) if you spot a regression.
 
-## Rollup 4 {#rollup-4}
+Some internal APIs have been removed due to changes in Vite's implementation. If you were relying on one of them, please create a [feature request](https://github.com/vitejs/vite/issues/new?assignees=&labels=enhancement%3A+pending+triage&projects=&template=feature_request.yml).
 
-A Vite agora usa Rollup 4 que também vem com suas mudanças de rutura, em particular:
+## Vite Runtime API
 
-- As asserções de importação (propriedade `assertions`) foram renomeada para importar atributos (propriedade `attributes`).
-- As extensão da bolota já não são suportados.
-- Para extensões da Vite, a opção `skipSelf` de `this.resolve` agora é `true` por padrão.
-- Para extensão da Vite, `this.parse` agora apenas suportam a opção `allowReturnOutsideFunction` por agora.
+The experimental Vite Runtime API evolved into the Module Runner API, released in Vite 6 as part of the new experimental [Environment API](/guide/api-environment). Given that the feature was experimental the removal of the previous API introduced in Vite 5.1 isn't a breaking change, but users will need to update their use to the Module Runner equivalent as part of migrating to Vite 6.
 
-Leia as mudanças de rutura completa nas [notas de lançamento do Rollup](https://github.com/rollup/rollup/releases/tag/v4.0.0) por mudanças relacionadas à construção no [`build.rollupOptions`](/config/build-options#build-rollupoptions).
+## General Changes
 
-Se estivermos usando a TypeScript, devemos certificar-nos de definir `moduleResolution: 'bundler'` (ou `node16`/`nodenext`) conforme a Rollup 4 o exige. Ou podemos definir `skipLibCheck: true`.
+### JSON stringify
 
-## Depreciação da API da Node de CJS {#deprecate-cjs-node-api}
+In Vite 5, when [`json.stringify: true`](/config/shared-options#json-stringify) is set, [`json.namedExports`](/config/shared-options#json-namedexports) was disabled.
 
-A API da Node de CJS da Vite está depreciada. Quando chamamos `require('vite')`, um aviso de depreciação agora é registado. Nós devemos atualizar os nossos ficheiros ou abstrações para importar a construção de módulo de ECMAScript da Vite.
+From Vite 6, even when `json.stringify: true` is set, `json.namedExports` is not disabled and the value is respected. If you wish to achieve the previous behavior, you can set `json.namedExports: false`.
 
-Num projeto de Vite básico, devemos certificar-nos de que:
+Vite 6 also introduces a new default value for `json.stringify` which is `'auto'`, which will only stringify large JSON files. To disable this behavior, set `json.stringify: false`.
 
-1. O conteúdo do ficheiro `vite.config.js` está a usar a sintaxe de módulo de ECMAScript.
-2. O ficheiro `package.json` mais próximo tem `"type": "module"`, ou devemos usar a extensão `.mjs` ou `.mts`, por exemplo `vite.config.mjs` ou `vite.config.mts`.
+### Extended support of asset references in HTML elements
 
-Para outros projetos, existem algumas abordagens gerais:
+In Vite 5, only a few supported HTML elements were able to reference assets that will be processed and bundled by Vite, such as `<link href>`, `<img src>`, etc.
 
-- **Configurar o ESM como padrão, aderir à CJS se necessário:** Adicionar `"type": "module"` no projeto `package.json`. Todos os ficheiros `*.js` agora são interpretados como módulo ECMAScript e precisa usar a sintaxe da módulo ECMAScript. Nós podemos renomear um ficheiro com a extensão `.cjs` para manter usando CJS.
-- **Manter CJS como padrão, aderir à módulo de ECMAScript se necessário:** Se o `package.json` do projeto não tem `"type":"module"`, todos os ficheiros `*.js` são interpretados como CJS. Nós podemos renomear um ficheiro com a extensão `.mjs` para usar módulo de ECMAScript.
-- **Importar dinamicamente a Vite:** Se precisarmos de continuar a usar CJS, podemos importar dinamicamente a Vite usando `import('vite')`. Isto exige que o nosso código seja escrito num contexto `async`, mas ainda assim deve ser gerenciável como API da Vite é principalmente assíncrona.
+Vite 6 extends the support to even more HTML elements. The full list can be found at the [HTML features](/guide/features.html#html) docs.
 
-Consulte o [guia de resolução de problemas](/guide/troubleshooting#vite-cjs-node-api-deprecated) por mais informação.
+To opt-out of HTML processing on certain elements, you can add the `vite-ignore` attribute on the element.
 
-### Retrabalhar a Estratégia de Substituição de `define` e `import.meta.env` {#rework-define-import-meta-env-replacement-strategy}
+### postcss-load-config
 
-Na Vite 4, as funcionalidades [`define`](/config/shared-options#define) e [`import.meta.env`](/guide/env-and-mode#env-variables) usam diferentes estratégias de substituição no desenvolvimento e na construção:
+[`postcss-load-config`](https://npmjs.com/package/postcss-load-config) has been updated to v6 from v4. [`tsx`](https://www.npmjs.com/package/tsx) or [`jiti`](https://www.npmjs.com/package/jiti) is now required to load TypeScript postcss config files instead of [`ts-node`](https://www.npmjs.com/package/ts-node). Also [`yaml`](https://www.npmjs.com/package/yaml) is now required to load YAML postcss config files.
 
-- No desenvolvimento, ambas funcionalidades são injetadas como variáveis globais ao `globalThis` e `import.meta` respetivamente.
-- Na construção, ambas funcionalidades são estaticamente substituídas por uma expressão regular.
+### Sass now uses modern API by default
 
-Isto resulta numa inconsistência de desenvolvimento e construção quando tentamos acessar as variáveis, e algumas vezes até levava a construção à falhar. Por exemplo:
+In Vite 5, the legacy API was used by default for Sass. Vite 5.4 added support for the modern API.
 
-```js
-// vite.config.js
-export default defineConfig({
-  define: {
-    __APP_VERSION__: JSON.stringify('1.0.0'),
-  },
-})
-```
+From Vite 6, the modern API is used by default for Sass. If you wish to still use the legacy API, you can set [`css.preprocessorOptions.sass.api: 'legacy'` / `css.preprocessorOptions.scss.api: 'legacy'`](/config/shared-options#css-preprocessoroptions). But note that the legacy API support will be removed in Vite 7.
 
-```js
-const data = { __APP_VERSION__ }
-// dev: { __APP_VERSION__: "1.0.0" } ✅
-// build: { "1.0.0" } ❌
+To migrate to the modern API, see [the Sass documentation](https://sass-lang.com/documentation/breaking-changes/legacy-js-api/).
 
-const docs = 'I like import.meta.env.MODE'
-// dev: "I like import.meta.env.MODE" ✅
-// build: "I like "production"" ❌
-```
+### Customize CSS output file name in library mode
 
-A Vite 5 corrige isto usando a `esbuild` para lidar com as substituições nas construções, alinhando com o comportamento do desenvolvimento.
+In Vite 5, the CSS output file name in library mode was always `style.css` and cannot be easily changed through the Vite config.
 
-Esta mudança não deve afetar a maioria das configurações, uma vez que já é documentado que os valores de `define` seguem a sintaxe da `esbuild`:
+From Vite 6, the default file name now uses `"name"` in `package.json` similar to the JS output files. If [`build.lib.fileName`](/config/build-options.md#build-lib) is set with a string, the value will also be used for the CSS output file name. To explicitly set a different CSS file name, you can use the new [`build.lib.cssFileName`](/config/build-options.md#build-lib) to configure it.
 
-> Para ser consistente com o comportamento da `esbuild`, expressões devem ou ser um objeto de JSON (`null`, `boolean`, `number`, `string`, `array`, ou `object`) ou um único identificador.
+To migrate, if you had relied on the `style.css` file name, you should update references to it to the new name based on your package name. For example:
 
-No entanto, se preferirmos continuar à estaticamente substituir os valores diretamente, podemos usar [`@rollup/plugin-replace`](https://github.com/rollup/plugins/tree/master/packages/replace).
-
-## Mudanças Gerais {#general-changes}
-
-### O Valor dos Módulos Expostos da Interpretação do Lado do Servidor agora Corresponde à Produção {#ssr-externalized-modules-value-now-matches-production}
-
-Na Vite 4, os módulos expostos da interpretação do lado do servidor são embrulhados com `.default` e a manipulação de `__esModule` para melhor interoperabilidade, mas não corresponde o comportamento de produção quando carregado pelo ambiente de execução (por exemplo, Node.js), causando incoerências difíceis de detetar. Por padrão, todas as dependências diretas do projeto são expostas pela interpretação do lado do servidor.
-
-A Vite 5 agora remove o `.default` e a manipulação de `.__esModule` para corresponder o comportamento de produção. Em prática, isto não deve afetar as dependências empacotadas apropriadamente, mas se encontrarmos novos problemas carregando módulos, podemos tentar estas alterações:
-
-```js
-// Antes:
-import { foo } from 'bar'
-
-// Depois:
-import _bar from 'bar'
-const { foo } = _bar
-```
-
-```js
-// Antes:
-import foo from 'bar'
-
-// Depois:
-import * as _foo from 'bar'
-const foo = _foo.default
-```
-
-Nota que estas mudanças correspondem o comportamento da Node.js, então podemos também executar as importações na Node.js para testar. Se preferirmos permanecer com o comportamento anterior, podemos definir `legacy.proxySsrExternalModules` para `true`.
-
-### `worker.plugins` agora é uma Função {#worker-plugins-is-now-a-function}
-
-Na Vite 4, [`worker.plugins`](/config/worker-options#worker-plugins) aceitava uma vetor de extensões (`(Plugin | Plugin[])[]`). Desde a Vite 5, precisa de ser configurada como uma função que retorna um vetor de extensões (`() => (Plugin | Plugin[])[]`). Esta mudança é necessária para que as construções dos operários paralelas sejam executadas de maneira mais consistente e previsível.
-
-### Permitir Caminho Contendo `.` Para Recuar para `index.html` {#allow-path-containing-to-fallback-to-index-html}
-
-Na Vite 4, acessar um caminho contendo `.` não recuava para `index.html` mesmo se [`appType`](/config/shared-options#apptype) for definida para `'SPA'` (padrão). A partir da Vite 5, recuará para `index.html`.
-
-Nota que o navegador já não mostrará a mensagem de erro de 404 na consola se apontarmos o caminho da imagem para um ficheiro inexistente (por exemplo, `<img src="./file-does-not-exist.png">`).
-
-### Alinhar o Comportamento Serviço de HTML do Desenvolvimento e Pré-visualização {#align-dev-and-preview-html-serving-behaviour}
-
-Na Vite 4, os servidores de desenvolvimento e pré-visualização servem o HTML baseado na sua estrutura de diretório e na barra final de maneira diferente. Isto causa inconsistências quando testamos a nossa aplicação construída. A Vite 5 refaz este comportamento à um único comportamento como de baixo, dado a seguinte estrutura de ficheiro:
-
-```
-├── index.html
-├── file.html
-└── dir
-    └── index.html
-```
-
-
-| Requisição           | Antes (desenvolvimento)                 | Antes (pré-visualização)  | Depois (desenvolvimento & pré-visualização)        |
-| ----------------- | ---------------------------- | ----------------- | ---------------------------- |
-| `/dir/index.html` | `/dir/index.html`            | `/dir/index.html` | `/dir/index.html`            |
-| `/dir`            | `/index.html` (retrocesso de SPA) | `/dir/index.html` | `/index.html` (retrocesso de SPA)   |
-| `/dir/`           | `/dir/index.html`            | `/dir/index.html` | `/dir/index.html`            |
-| `/file.html`      | `/file.html`                 | `/file.html`      | `/file.html`                 |
-| `/file`           | `/index.html` (retrocesso de SPA) | `/file.html`      | `/file.html`                 |
-| `/file/`          | `/index.html` (retrocesso de SPA) | `/file.html`      | `/index.html` (retrocesso de SPA) |
-
-### Ficheiros de Manifesto Agora São Gerados no Diretório `.vite` Por Padrão {#manifest-files-are-now-generated-in-vite-directory-by-default}
-
-Na Vite 4, os ficheiros de manifesto ([`build.manifest`](/config/build-options#build-manifest) e [`build.ssrManifest`](/config/build-options#build-ssrmanifest)) eram gerados na raiz do [`build.outDir`](/config/build-options#build-outdir) por padrão.
-
-Na Vite 5, estes serão gerados no diretório `.vite` no `build.outDir` por padrão. Esta mudança ajuda desfazer o conflito os ficheiros públicos com os mesmos nomes de ficheiro de manifesto quando são copiados ao `build.outDir`.
-
-### Os ficheiros de CSS correspondentes não são listados como entradas de alto nível no ficheiro `manifest.json` {#corresponding-css-files-are-not-listed-as-top-level-entry-in-manifest-json-file}
-
-Na Vite 4, o ficheiro de CSS correspondente para um ponto de entrada de JavaScript também era listado como uma entrada de alto nível no ficheiro de manifesto ([`build.manifest`](/config/build-options#build-manifest)). Estas entradas foram adicionadas de forma não intencional e só funcionavam para casos simples.
-
-Na Vite 5, os ficheiros de CSS correspondentes só podem ser encontrados dentro da seção do ficheiro de entrada de JavaScript. Quando injetamos o ficheiro de JavaScript, os ficheiros de CSS correspondentes [devem ser injetados](/guide/backend-integration.md#:~:text=%3C!%2D%2D%20if%20production%20%2D%2D%3E%0A%3Clink%20rel%3D%22stylesheet%22%20href%3D%22/assets/%7B%7B%20manifest%5B%27main.js%27%5D.css%20%7D%7D%22%20/%3E%0A%3Cscript%20type%3D%22module%22%20src%3D%22/assets/%7B%7B%20manifest%5B%27main.js%27%5D.file%20%7D%7D%22%3E%3C/script%3E). Quando o CSS deve ser injetado separadamente, deve ser adicionado como um ponto de entrada separado.
-
-### Atalhos da Interface da Linha de Comando Exigem Uma Pressão de `Enter` Adicional {#cli-shortcuts-require-an-additional-enter-press}
-
-Os atalhos da interface da linha de comando, como `r` para reiniciar o servidor de desenvolvimento, agora exige uma pressão de `Enter` adicional para acionar o atalho. Por exemplo, `r + Enter` para reiniciar o servidor de desenvolvimento.
-
-Esta mudança impedi a Vite de engolir e controlar atalhos específicos do sistema operacional, permitindo melhor compatibilidade quando combinamos o servidor de desenvolvimento da Vite com outros processos, e evita as [advertências anteriores](https://github.com/vitejs/vite/pull/14342).
-
-### Atualizar o Comportamentos da TypeScript de `experimentalDecorators` e `useDefineForClassFields` {#update-experimentaldecorators-and-usedefineforclassfields-typescript-behaviour}
-
-A Vite 5 usa a `esbuild` 0.19 e remove a camada de compatibilidade para `esbuild` 0.18, a qual muda como [`experimentalDecorators`](https://www.typescriptlang.org/tsconfig#experimentalDecorators) e [`useDefineForClassFields`](https://www.typescriptlang.org/tsconfig#useDefineForClassFields) são manipuladas.
-
-- **`experimentalDecorators` não é ativada por padrão**
-
-  Nós precisamos definir `compilerOptions.experimentalDecorators` para `true` no `tsconfig.json` para usarmos os decoradores.
-
-- **`useDefineForClassFields` predefini-se dependendo do valor de `target` da TypeScript**
-
-  Se `target` não for `ESNext` ou `ES2022` ou mais recente, ou se não existir nenhum ficheiro `tsconfig.json`, `useDefineForClassFields` pré-definirá para `false` o que pode ser problemático com valor de `esbuild.target` padrão de `esnext`. Esta pode traduzir o código para [blocos de inicialização estática](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility) que podem não ser suportadas no nosso navegador.
-
-  Como tal, é recomendado definir `target` para `ESNext` ou `ES2022` ou mais recente, ou definir `useDefineForClassFields` para `true` explicitamente quando configuramos `tsconfig.json`.
-
-```jsonc
+```json [package.json]
 {
-  "compilerOptions": {
-    // Definir `true` se usarmos decoradores
-    "experimentalDecorators": true,
-    // Definir `true` se vermos erros de analise no navegador
-    "useDefineForClassFields": true,
+  "name": "my-lib",
+  "exports": {
+    "./style.css": "./dist/style.css" // [!code --]
+    "./style.css": "./dist/my-lib.css" // [!code ++]
   }
 }
 ```
 
-### Remover a Opção `--https` e `http: true` {#remove-https-flag-and-http-true}
+If you prefer to stick with `style.css` like in Vite 5, you can set `build.lib.cssFileName: 'style'` instead.
 
-A opção `--https` define `http: true`. Esta configuração foi concebida para ser usada em conjunto com a funcionalidade de geração de certificação de `https` automática que [foi abandonada na Vite 3](https://v3.vitejs.dev/guide/migration.html#automatic-https-certificate-generation). Portanto, esta configuração já não faz sentido, uma vez que fará a Vite iniciar um servidor de HTTPs sem um certificado.
+## Advanced
 
-Se usarmos [`@vitejs/plugin-basic-ssl`](https://github.com/vitejs/vite-plugin-basic-ssl) ou [`vite-plugin-mkcert`](https://github.com/liuweiGL/vite-plugin-mkcert), estas já definirão o configuração de `https` internamente, então podemos remover `--https`, `server.https: true` e `preview.https: true` da nossa configuração.
+There are other breaking changes which only affect few users.
 
-### Remover as APIs `resolvePackageEntry` e `resolvePackageData` {#remove-resolvepackageentry-and-resolvepackagedata-apis}
+- [[#15637] fix!: default `build.cssMinify` to `'esbuild'` for SSR](https://github.com/vitejs/vite/pull/15637)
+  - [`build.cssMinify`](/config/build-options#build-cssminify) is now enabled by default even for SSR builds.
+- [[#18070] feat!: proxy bypass with WebSocket](https://github.com/vitejs/vite/pull/18070)
+  - `server.proxy[path].bypass` is now called for WebSocket upgrade requests and in that case, the `res` parameter will be `undefined`.
+- [[#18209] refactor!: bump minimal terser version to 5.16.0](https://github.com/vitejs/vite/pull/18209)
+  - Minimal supported terser version for [`build.minify: 'terser'`](/config/build-options#build-minify) was bumped to 5.16.0 from 5.4.0.
+- [[#18231] chore(deps): update dependency @rollup/plugin-commonjs to v28](https://github.com/vitejs/vite/pull/18231)
+  - [`commonjsOptions.strictRequires`](https://github.com/rollup/plugins/blob/master/packages/commonjs/README.md#strictrequires) is now `true` by default (was `'auto'` before).
+- [[#18243] chore(deps)!: migrate `fast-glob` to `tinyglobby`](https://github.com/vitejs/vite/pull/18243)
+  - Range braces (`{01..03}` ⇒ `['01', '02', '03']`) and incremental braces (`{2..8..2}` ⇒ `['2', '4', '6', '8']`) are no longer supported in globs.
+- [[#18493] refactor!: remove fs.cachedChecks option](https://github.com/vitejs/vite/pull/18493)
+  - This opt-in optimization was removed due to edge cases when writing a file in a cached folder and immediately importing it.
 
-As APIs `resolvePackageEntry` e `resolvePackageData` foram removidas uma vez que expunham os interiores da Vite e bloqueavam potenciais otimizações da Vite 4.3 no passado. Estas APIs podem ser substituídas por pacotes de terceiros, por exemplo:
+## Migration from v4
 
-- `resolvePackageEntry`: [`import.meta.resolve`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/import.meta/resolve) ou o pacote [`import-meta-resolve`](https://github.com/wooorm/import-meta-resolve).
-- `resolvePackageData`: O mesmo que o de cima, e rastreie o diretório do pacote para obter o `package.json` da raiz. Ou use o pacote [`vitefu`](https://github.com/svitejs/vitefu) da comunidade.
-
-```js
-import { resolve } from 'import-meta-resolve'
-import { findDepPkgJsonPath } from 'vitefu'
-import fs from 'node:fs'
-
-const pkg = 'my-lib'
-const basedir = process.cwd()
-
-// `resolvePackageEntry`:
-const packageEntry = resolve(pkg, basedir)
-
-// `resolvePackageData`:
-const packageJsonPath = findDepPkgJsonPath(pkg, basedir)
-const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'))
-```
-
-## APIs Depreciadas Removida {#removed-deprecated-apis}
-
-- As exportações padrão de ficheiros de CSS (por exemplo, `import style from './foo.css'`): Usamos a consulta `?inline`.
-- `import.meta.globEager`: Usamos `import.meta.glob('*', { eager: true })`.
-- `ssr.format: 'cjs'` e `legacy.buildSsrCjsExternalHeuristics` ([#13816](https://github.com/vitejs/vite/discussions/13816))
-- `server.middlewareMode: 'ssr'` e `server.middlewareMode: 'html'`: Usamos [`appType`](/config/shared-options.md#apptype) + [`server.middlewareMode: true`](/config/server-options.md#server-middlewaremode) ao invés de ([#8452](https://github.com/vitejs/vite/pull/8452))
-
-## Avançado {#advanced}
-
-Existe algumas mudanças que apenas afetam os criadores de extensão e ferramenta.
-
-- [[#14119] refactor!: merge `PreviewServerForHook` into `PreviewServer` type](https://github.com/vitejs/vite/pull/14119)
-  - O gatilho `configurePreviewServer` agora aceita o tipo `PreviewServer` ao invés do tipo `PreviewServerForHook`.
-- [[#14818] refactor(preview)!: use base middleware](https://github.com/vitejs/vite/pull/14818)
-  - Os intermediários adicionados a partir da função retornada na `configurePreviewServer` agora não tem acesso à `base` quando comparamos o valor `req.url`. Isto alinha o comportamento com o servidor de desenvolvimento. Nós podemos consultar a `base` a partir do gatilho `configResolved` se necessário.
-- [[#14834] fix(types)!: expose httpServer with Http2SecureServer union](https://github.com/vitejs/vite/pull/14834)
-  - `http.Server | http2.Http2SecureServer` agora é usado no lugar de `http.Server` onde for apropriado.
-
-Além disto, existem outras mudanças de rutura que apenas afetam alguns utilizadores.
-
-- [[#14098] fix!: avoid rewriting this (reverts #5312)](https://github.com/vitejs/vite/pull/14098)
-  - `this` de alto nível foi reescrito ao `globalThis` por padrão quando construímos. Este comportamento agora foi removido.
-- [[#14231] feat!: add extension to internal virtual modules](https://github.com/vitejs/vite/pull/14231)
-  - O identificador dos módulos virtuais internos agora tem uma extensão (`.js`).
-- [[#14583] refactor!: remove exporting internal APIs](https://github.com/vitejs/vite/pull/14583)
-  - APIs internas exportadas removidas acidentalmente: `isDepsOptimizerEnabled` e `getDepOptimizationConfig`
-  - Tipos internos exportados removidos: `DepOptimizationResult`, `DepOptimizationProcessing`, e `DepsOptimizer`
-  - Tipo de `ResolveWorkerOptions` renomeado para `ResolvedWorkerOptions`
-- [[#5657] fix: return 404 for resources requests outside the base path](https://github.com/vitejs/vite/pull/5657)
-  - No passado, a Vite respondia às requisições fora do caminho de base sem `Accept: text/html`, como se fossem requisitadas com o caminho de base. A Vite já não faz isto e responde com 404.
-- [[#14723] fix(resolve)!: remove special .mjs handling](https://github.com/vitejs/vite/pull/14723)
-  - No passado, quando campo `"exports"` duma biblioteca mapeava para um ficheiro `.mjs`, a Vite ainda tentava corresponder os campos `"browser"` e `"module"` para corrigir a compatibilidade com certas bibliotecas. Este comportamento agora foi removido para alinhar-se com o algoritmo de resolução de exportações.
-- [[#14733] feat(resolve)!: remove `resolve.browserField`](https://github.com/vitejs/vite/pull/14733)
-  - `resolve.browserField` foi depreciada desde a Vite 3 em favor duma predefinição atualizada de `['browser', 'module', 'jsnext:main', 'jsnext']` para [`resolve.mainFields`](/config/shared-options#resolve-mainfields).
-- [[#14855] feat!: add isPreview to ConfigEnv and resolveConfig](https://github.com/vitejs/vite/pull/14855)
-  - `ssrBuild` renomeado para `isSsrBuild` no objeto `ConfigEnv`.
-  - [[#14945] fix(css): correctly set manifest source name and emit CSS file](https://github.com/vitejs/vite/pull/14945)
-  - Os nomes de ficheiro de CSS agora são gerados baseados no nome do pedaço.
-
-## Migração da Versão 3 {#migration-from-v3}
-
-Consulte primeiro o [Guia de Migração da Versão 3](https://v4.vitejs.dev/guide/migration) na documentação da versão 4 da Vite para veres as mudanças necessárias para portar a nossa aplicação para a versão 4 da Vite, e depois prossiga com as mudanças nesta página.
+Check the [Migration from v4 Guide](https://v5.vite.dev/guide/migration.html) in the Vite v5 docs first to see the needed changes to port your app to Vite 5, and then proceed with the changes on this page.
