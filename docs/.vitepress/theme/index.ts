@@ -7,6 +7,7 @@ import AsideSponsors from './components/AsideSponsors.vue'
 import SvgImage from './components/SvgImage.vue'
 import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
+import 'virtual:group-icons.css'
 
 export default {
   extends: DefaultTheme,
