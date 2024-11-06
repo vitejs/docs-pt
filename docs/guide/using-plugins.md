@@ -10,8 +10,7 @@ Para usar uma extensão, esta precisa ser adicionada à `devDependencies` do pro
 $ npm add -D @vitejs/plugin-legacy
 ```
 
-```js
-// vite.config.js
+```js twoslash [vite.config.js]
 import legacy from '@vitejs/plugin-legacy'
 import { defineConfig } from 'vite'
 
@@ -46,8 +45,7 @@ Para compatibilidade com algumas extensões de Rollup, pode ser necessário for�
 - `default`: invoca a extensão depois das extensões principais da Vite
 - `post`: invoca a extensão depois das extensões de construção da Vite
 
-```js
-// vite.config.js
+```js twoslash [vite.config.js]
 import image from '@rollup/plugin-image'
 import { defineConfig } from 'vite'
 
@@ -67,8 +65,7 @@ Consulte o [Guia da API de Extensões](./api-plugin.md#plugin-ordering) por info
 
 Por padrão, as extensões são invocadas por ambos comandos `serve` e `build`. Nos casos onde uma extensão precisa ser condicionalmente aplicada apenas durante a execução do comando `serve` ou `build`, usamos a propriedade `apply` para apenas invocá-las durante o `'build'` ou `'serve'`;
 
-```js
-// vite.config.js
+```js twoslash [vite.config.js]
 import typescript2 from 'rollup-plugin-typescript2'
 import { defineConfig } from 'vite'
 

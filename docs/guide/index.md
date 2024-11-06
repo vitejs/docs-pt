@@ -178,7 +178,7 @@ A execução de `vite` inicia o servidor de desenvolvimento usando o diretório 
 Num projeto onde a Vite estiver instalada, podemos usar o binário `vite` nos nossos programas de npm, ou executá-la diretamente com `npx vite`. Eis os programas de npm padrão num projeto de Vite estruturado:
 
 <!-- prettier-ignore -->
-```json
+```json [package.json]
 {
   "scripts": {
     "dev": "vite", // iniciar o servidor de desenvolvimento, pseudónimos: `vite dev`, `vite serve`

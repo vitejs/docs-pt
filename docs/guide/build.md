@@ -65,8 +65,7 @@ Quando uma nova implementação de produção ocorre, o serviço de hospedagem p
 
 Nós podemos ativar o observador da Rollup com `vite build --watch`. Ou, podemos ajustar diretamente a [`WatcherOptions`](https://rollupjs.org/configuration-options/#watch) subjacente através da `build.watch`:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 export default defineConfig({
   build: {
     watch: {
@@ -96,8 +95,7 @@ Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - e
 
 Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
@@ -123,8 +121,7 @@ Quando estivermos desenvolvimento uma biblioteca orienta ao navegador, estaremos
 
 Na hora de empacotar a nossa biblioteca para distribuição, usamos a [opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
@@ -156,8 +153,7 @@ export default defineConfig({
 
 O ficheiro de entrada conteria as exportações que poderiam ser importadas pelos utilizadores do nosso pacote:
 
-```js
-// lib/main.js
+```js [lib/main.js]
 import Foo from './Foo.vue'
 import Bar from './Bar.vue'
 export { Foo, Bar }
@@ -174,7 +170,7 @@ dist/my-lib.umd.cjs 0.30 kB / gzip: 0.16 kB
 
 O `package.json` recomendado para a nossa biblioteca:
 
-```json
+```json [package.json]
 {
   "name": "my-lib",
   "type": "module",
@@ -192,7 +188,7 @@ O `package.json` recomendado para a nossa biblioteca:
 
 Ou, se estivermos expondo vários pontos de entrada:
 
-```json
+```json [package.json]
 {
   "name": "my-lib",
   "type": "module",

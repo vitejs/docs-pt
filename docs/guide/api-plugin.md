@@ -2,15 +2,15 @@
 
 As extensões de Vite estendem a bem desenha interface de extensão da Rollup com algumas opções adicionais específicas da Vite. Como resultado, podes escrever uma extensão de Vite uma vez e tê-la a funcionar para ambos desenvolvimento e construção.
 
-**É recomendado passar primeiro pela [documentação de extensão da Rollup](https://rollupjs.org/plugin-development/) antes de ler as seções abaixo.**
+**É recomendado passar primeiro pela [documentação de extensão da Rollup](https://rollupjs.org/plugin-development/) antes de ler as secções abaixo.**
 
 ## Produzindo uma Extensão {#authoring-a-plugin}
 
 A Vite esforça-se em oferecer padrões estabelecidos fora da caixa, assim antes de criares uma nova extensão certifica-te de verificar o [Guia de Funcionalidades](/guide/features) para ver se a funcionalidade que pretendes adicionar já está implementada. Além disto revise as extensões disponíveis na comunidade, ambos na forma de uma [extensão compatível com a Rollup](https://github.com/rollup/awesome) e [extensões especificas para Vite](https://github.com/vitejs/awesome-vite#plugins).
 
-Quando estiveres a criar uma extensão, podes incorporá-la no teu `vite.config.js`. Não existe necessidade de criar um novo pacote para isto. Uma vez que veres que uma extensão foi útil nos teus projetos, considere partilhá-la para ajudar os outros [no ecossistema](https://chat.vitejs.dev).
+Quando estiveres a criar uma extensão, podes incorporá-la no teu `vite.config.js`. Não existe necessidade de criar um novo pacote para isto. Uma vez que veres que uma extensão foi útil nos teus projetos, considere partilhá-la para ajudar os outros [no ecossistema](https://chat.vite.dev).
 
-:::tip Dica
+:::tip DICA
 Quando estiveres a aprender, depurar, ou escrever extensões, sugerimos incluir a [vite-plugin-inspect](https://github.com/antfu/vite-plugin-inspect) no teu projeto. Isto permite-te inspecionar o estado intermediário de extensões de Vite. Depois da instalação, podes visitar `localhost:5173/__inspect/` para inspecionar as pilhas de módulos e transformação do teu projeto. Consulte instruções de instalação na [documentação da vite-plugin-inspect](https://github.com/antfu/vite-plugin-inspect).
 ![vite-plugin-inspect](/images/vite-plugin-inspect.png)
 :::
@@ -42,8 +42,7 @@ Consulte também a [Convenção de Módulos Virtuais](#virtual-modules-conventio
 
 Os utilizadores adicionarão as extensões ao `devDependencies` projeto e configurá-los com o uso de o arranjo de opções `plugins`.
 
-```js
-// vite.config.js
+```js [vite.config.js]
 import vitePlugin from 'vite-plugin-feature'
 import rollupPlugin from 'rollup-plugin-feature'
 
@@ -66,8 +65,7 @@ export default function framework(config) {
 }
 ```
 
-```js
-// vite.config.js
+```js [vite.config.js]
 import { defineConfig } from 'vite'
 import framework from 'vite-plugin-framework'
 
@@ -523,8 +521,7 @@ Se a extensão de Rollup apenas fazer sentido para a fase de construção, entã
 
 Também podemos aumentar uma extensão de Rollup existente com as propriedades exclusivas de Vite:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 import example from 'rollup-plugin-example'
 import { defineConfig } from 'vite'
 
@@ -564,8 +561,7 @@ Desde a Vite 2.9, fornecemos alguns utilitários para extensões para ajudar a m
 
 No lado da extensão, poderíamos usar a `server.ws.send` para difundir os eventos ao cliente:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 export default defineConfig({
   plugins: [
     {
@@ -610,8 +606,7 @@ if (import.meta.hot) {
 
 Depois usamos `server.ws.on` e ouvimos os eventos do lado do servidor:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 export default defineConfig({
   plugins: [
     {

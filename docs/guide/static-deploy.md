@@ -6,7 +6,7 @@ As seguintes orientações são baseadas em algumas suposições partilhadas:
 - Nós estamos usando o npm. Nós podemos usar os comandos equivalentes para executar os programas se estivermos usando Yarn ou outros gestores de pacote.
 - A Vite é instalada como uma dependência local no nosso projeto, e temos configurado os seguintes programas de npm:
 
-```json
+```json [package.json]
 {
   "scripts": {
     "build": "vite build",
@@ -44,7 +44,7 @@ O comando `vite preview` iniciará um servidor da Web estático localmente que s
 
 Nós podemos configurar a porta do servidor passando a opção `--port` como argumento:
 
-```json
+```json [package.json]
 {
   "scripts": {
     "preview": "vite preview --port 8080"
@@ -263,9 +263,7 @@ Nós também podemos adicionar domínios personalizados e manipular as definiç�
 
 2. Críamos o `firebase.json` e o `.firebaserc` na raiz do nosso projeto com o seguinte conteúdo:
 
-   `firebase.json`:
-
-   ```json
+   ```json [firebase.json]
    {
      "hosting": {
        "public": "dist",
@@ -280,9 +278,7 @@ Nós também podemos adicionar domínios personalizados e manipular as definiç�
    }
    ```
 
-   `.firebaserc`:
-
-   ```js
+   ```js [.firebaserc]
    {
      "projects": {
        "default": "<YOUR_FIREBASE_ID>"

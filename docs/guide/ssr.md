@@ -69,9 +69,7 @@ Isto é substituído estaticamente durante a construção, assim esta permitirá
 
 Quando construirmos uma aplicação de Interpretação do Lado do Servidor, provavelmente queremos ter controlo total sobre o nosso servidor principal e dissociar a Vite do ambiente de produção. É portanto recomendado usar a Vite no modo intermediário. Eis um exemplo com a [express](https://expressjs.com/):
 
-**server.js**
-
-```js{15-18}
+```js{15-18} twoslash [server.js]
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -116,7 +114,7 @@ Neste exemplo a `vite` é uma instância de [`ViteDevServer`](./api-javascript#v
 
 A próxima etapa está implementando o manipulador `*` para servir o HTML interpretado pelo servidor:
 
-```js
+```js twoslash [server.js]
 // @noErrors
 import fs from 'node:fs'
 import path from 'node:path'
@@ -176,7 +174,7 @@ app.use('*', async (req, res, next) => {
 
 O programa `dev` no `package.json` também deve ser alterado para usar o programa do servidor:
 
-```diff
+```diff [package.json]
   "scripts": {
 -   "dev": "vite"
 +   "dev": "node server"
@@ -192,7 +190,7 @@ Para entregar um projeto de Interpretação do Lado do Servidor para produção,
 
 Os nossos programas no `package.json` parecer-se-ão com isto:
 
-```json
+```json [package.json]
 {
   "scripts": {
     "dev": "node server",
@@ -229,8 +227,7 @@ Para influenciar o manifesto, as abstrações precisam fornecer uma maneira reun
 
 A `@vitejs/plugin-vue` suporta isto fora da caixa e regista automaticamente os identificadores do módulo do componente usados no contexto da Interpretação do Lado do Servidor da Vue associado:
 
-```js
-// src/entry-server.js
+```js [src/entry-server.js]
 const ctx = {}
 const html = await vueServerRenderer.renderToString(app, ctx)
 // `ctx.modules` agora é um conjunto de identificadores do

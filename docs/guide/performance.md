@@ -59,8 +59,7 @@ Se estivermos a usar a TypeScript, podemos ativar `"moduleResolution": "bundler"
 
 Os ficheiros embarricados são ficheiros que re-exportam as APIs dos outros ficheiros no mesmo diretório. Por exemplo:
 
-```js
-// src/utils/index.js
+```js [src/utils/index.js]
 export * from './color.js'
 export * from './dom.js'
 export * from './slash.js'
@@ -92,7 +91,7 @@ vite:transform 62.95ms /src/components/BigComponent.vue +1ms
 vite:transform 102.54ms /src/utils/big-utils.js +1ms
 ```
 
-```js
+```js [vite.config.js]
 export default defineConfig({
   server: {
     warmup: {

@@ -8,10 +8,9 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
 
 1. Na nossa configuração de Vite, configuramos uma entrada e ativamos o manifeste de construção:
 
-   ```js
+   ```js twoslash [vite.config.js]
    import { defineConfig } from 'vite'
-
-   // vite.config.js
+   // ---cut---
    export default defineConfig({
      build: {
        // gera `.vite/manifest.json` no diretório de saída
@@ -60,7 +59,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
 
 3. Para a produção: depois de executar `vite build`, um ficheiro `.vite/manifest.json` será gerado ao lado dos outros ficheiros de recurso. Um ficheiro de manifesto de exemplo se parece com isto:
 
-   ```json
+  ```json [.vite/manifest.json]
    {
      "_shared-!~{003}~.js": {
        "file": "assets/shared-ChJ_j-JJ.css",

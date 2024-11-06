@@ -17,10 +17,10 @@ O primeiro caso é quando `localhost` é usado. A Node.js na versão 17 reordena
 
 Nós podemos definir [`dns.setDefaultResultOrder('verbatim')`](https://nodejs.org/api/dns.html#dns_dns_setdefaultresultorder_order) para desativar o comportamento de reordenação. A Vite então imprimirá o endereço como `localhost`.
 
-```js
+```js twoslash [vite.config.js]
 // vite.config.js
 import { defineConfig } from 'vite'
-import dns from 'dns'
+import dns from 'node:dns'
 
 dns.setDefaultResultOrder('verbatim')
 
