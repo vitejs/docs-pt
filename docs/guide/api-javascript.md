@@ -222,6 +222,7 @@ async function build(
 **Exemplo de Utilização:**
 
 ```ts twoslash [vite.config.js]
+// @errors: 2307
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { build } from 'vite'
@@ -250,6 +251,7 @@ async function preview(inlineConfig?: InlineConfig): Promise<PreviewServer>
 **Exemplo de Utilização:**
 
 ```ts twoslash
+// @errors: 2307
 import { preview } from 'vite'
 
 const previewServer = await preview({
