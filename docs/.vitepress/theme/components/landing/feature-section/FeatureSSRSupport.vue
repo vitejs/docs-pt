@@ -418,10 +418,10 @@ const { isCardActive, startAnimation } = useCardAnimation(
     </div>
     <div class="feature__meta">
       <div class="meta__title">
-        Suporte a Interpretação do Lado do Servidor de Primeira Classe
+        Interpretação do Lado do Servidor de Primeira Classe
       </div>
       <div class="meta__description">
-        Nunca foi tão fácil configurar a interpretação do lado do servidor personalizada ou criar a nossa própria estrutura de interpretação do lado do servidor.
+        Interpretação do lado do servidor mais fácil de criar, configurar e personalizar.
       </div>
     </div>
   </div>
