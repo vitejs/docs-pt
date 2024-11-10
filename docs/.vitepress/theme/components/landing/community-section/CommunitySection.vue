@@ -37,7 +37,7 @@ SolidJS in mind, they should scale from our simplest template to opinionated sta
     avatar:
       'https://pbs.twimg.com/profile_images/754886061872979968/BzaOWhs1_400x400.jpg',
     comment: [
-      `It’s also a great platform to build a framework on since it provides a pluggable dev environment.`,
+      `It's also a great platform to build a framework on since it provides a pluggable dev environment.`,
       `Community is amazing too.`,
     ],
   },

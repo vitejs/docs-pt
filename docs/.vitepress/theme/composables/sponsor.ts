@@ -25,27 +25,26 @@ const data = ref()
 const dataHost = 'https://sponsors.vuejs.org'
 const dataUrl = `${dataHost}/vite.json`
 
-// no sponsors yet :(
 const viteSponsors: Pick<Sponsors, 'special' | 'gold'> = {
   special: [
     // sponsors patak-dev
     {
       name: 'StackBlitz',
       url: 'https://stackblitz.com',
-      img: '/stackblitz.svg'
+      img: '/stackblitz.svg',
     },
-    // sponsor antfu
+    // sponsors antfu
     {
       name: 'NuxtLabs',
       url: 'https://nuxtlabs.com',
-      img: '/nuxtlabs.svg'
+      img: '/nuxtlabs.svg',
     },
-    // sponsor bluwy
+    // sponsors bluwy
     {
       name: 'Astro',
       url: 'https://astro.build',
-      img: '/astro.svg'
-    }
+      img: '/astro.svg',
+    },
   ],
   gold: [
     // now automated via sponsors.vuejs.org too
@@ -102,18 +101,18 @@ function mapSponsors(sponsors: Sponsors) {
     {
       tier: 'em parceria com a',
       size: 'big',
-      items: viteSponsors['special']
+      items: viteSponsors['special'],
     },
     {
       tier: 'Patrocinadores de Platina',
       size: 'big',
-      items: mapImgPath(sponsors['platinum'])
+      items: mapImgPath(sponsors['platinum']),
     },
     {
       tier: 'Patrocinadores de Ouro',
       size: 'medium',
       items: [...mapImgPath(sponsors['gold']), ...viteSponsors['gold']],
-    }
+    },
   ]
 }
 

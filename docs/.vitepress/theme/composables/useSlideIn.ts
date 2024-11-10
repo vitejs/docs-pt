@@ -1,6 +1,5 @@
-import e from 'express'
+import { nextTick, onMounted } from 'vue'
 import { gsap } from 'gsap'
-import { nextTick, onMounted } from "vue"
 
 export function useSlideIn(el: HTMLElement | string) {
   onMounted(async () => {
@@ -13,7 +12,7 @@ export function useSlideIn(el: HTMLElement | string) {
           trigger: el,
           start: 'top 100%',
           once: true,
-        }
+        },
       })
     })
   })
