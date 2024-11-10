@@ -184,7 +184,7 @@ onUnmounted(() => {
     <div class="feature__meta">
       <div class="meta__title">Inicialização Instantânea do Servidor</div>
       <div class="meta__description">
-        Serviço de ficheiros a pedido sobre o Módulo de ECMAScript nativo, sem necessidade de agrupamento ou empacotamento!
+        Serviço de ficheiros sobre demanda, sem necessidade de empacotamento!
       </div>
     </div>
   </div>
