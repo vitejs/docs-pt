@@ -17,11 +17,11 @@
 > Ferramentas de Frontend de Nova Geração
 
 - 💡 Inicialização do Servidor Instantânea
-- ⚡️ Substituição de Módulo Instantânea Rápida como Relâmpago
-- 🛠️ Vastidão de Funcionalidades
+- ⚡️ Substituição de Módulo Instantânea Extremamente Rápida
+- 🛠️ Funcionalidades Avançadas
 - 📦 Construção Otimizada
 - 🔩 Interface de Extensão Universal
-- 🔑 APIs Completamente Tipificadas
+- 🔑 APIs Totalmente Tipificadas
 
 Vite (palavra Francesa para "rápido", pronunciada [`/vit/`](https://cdn.jsdelivr.net/gh/vitejs/vite@main/docs/public/vite.mp3), como "veet") é uma nova espécie de ferramenta de construção que melhora significativamente a experiência de programação do frontend. Ela consiste em duas partes principais:
 

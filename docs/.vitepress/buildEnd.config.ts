@@ -5,7 +5,7 @@ import type { SiteConfig } from 'vitepress'
 import { createContentLoader } from 'vitepress'
 
 
-const SITE_URL = 'https://pt.vitejs.dev'
+const SITE_URL = 'https://pt.vite.dev'
 const BLOG_URL = `${SITE_URL}/blog`
 
 export const buildEnd = async (config: SiteConfig): Promise<void> => {
@@ -15,9 +15,9 @@ export const buildEnd = async (config: SiteConfig): Promise<void> => {
     id: BLOG_URL,
     link: BLOG_URL,
     language: 'pt',
-    image: 'https://pt.vitejs.dev/og-image.png',
-    favicon: 'https://pt.vitejs.dev/logo.svg',
-    copyright: 'Direitos de Autor © 2019-presente Evan You & Colaboradores da Vite',
+    image: 'https://pt.vite.dev/og-image.png',
+    favicon: 'https://pt.vite.dev/logo.svg',
+    copyright: 'Direitos de Autor © 2019-presente VoidZero Inc. & Colaboradores da Vite',
   })
 
   const posts = await createContentLoader('blog/*.md', {

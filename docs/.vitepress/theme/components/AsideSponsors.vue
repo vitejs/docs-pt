@@ -20,14 +20,14 @@ const sponsors = computed(() => {
 <template>
   <a
     class="viteconf"
-    href="https://viteconf.org/?utm=vite-sidebar"
+    href="https://viteconf.org/24/replay?utm=vite-sidebar"
     target="_blank"
   >
-    <img width="22" height="22" src="/viteconf.svg" />
+    <img width="22" height="22" src="/viteconf.svg" alt="Logótipo da ViteConf" />
     <span>
       <p class="extra-info">Construir Juntos</p>
-      <p class="heading">ViteConf 24 - 3 de Outubro</p>
-      <p class="extra-info">Obter o Bilhete Gratuito!</p>
+      <p class="heading">ViteConf 2024</p>
+      <p class="extra-info">Assistir a Repetição!</p>
     </span>
   </a>
   <VPDocAsideSponsors v-if="data" :data="sponsors" />
