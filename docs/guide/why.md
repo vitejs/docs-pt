@@ -49,7 +49,9 @@ Embora o Módulo de ECMAScript nativo esteja largamente suportado, entregar Mód
 
 Garantir resultado ideal e consistência comportamental entre o servidor de desenvolvimento e a construção de produção não é fácil. Isto porque a Vite entrega com um [comando de construção](./build) pré-configurado que realiza várias [otimizações de desempenho](./features#build-optimizations) fora da caixa.
 
-## Por que Não Empacotar com a esbuild? {#why-not-bundle-with-esbuild}
+## Por que Não Empacotar com a `esbuild`? {#why-not-bundle-with-esbuild}
+
+Enquanto a Vite usa a `esbuild` para [pré-empacotar algumas dependências em desenvolvimento](./dep-pre-bundling), a Vite não usa a `esbuild` como empacotadora para construções de produção.
 
 Embora a `esbuild` seja extremamente rápida e seja já um empacotador muito capaz para bibliotecas, algumas das funcionalidades importantes necessárias para o empacotamento de _aplicações_ ainda estão a funcionar em progresso - em particular a separação de código e manipulação de CSS. Por enquanto, a Rollup é mais madura e flexível nestes aspetos. Com isto dito, não descartamos a possibilidade da utilização de `esbuild` para construções de produção quando ele estabilizar estas funcionalidades no futuro.
 
