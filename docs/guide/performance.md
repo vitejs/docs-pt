@@ -52,7 +52,7 @@ Por isso, é normalmente melhor ser explícito com os nossos caminhos de importa
 Se formos autores de extensão, devemos certificar-nos de apenas chamar [`this.resolve`](https://rollupjs.org/plugin-development/#this-resolve) quando precisamos reduzir o número de verificações de cima.
 
 :::tip TypeScript
-Se estivermos a usar a TypeScript, podemos ativar `"moduleResolution": "bundler"` e `"allowImportingTsExtensions": true` na `compilerOptions` do nosso `tsconfig.json` para usarmos extensões `.ts` e `tsx` diretamente no nosso código.
+Se estivermos a usar a TypeScript, podemos ativar `"moduleResolution": "Bundler"` e `"allowImportingTsExtensions": true` na `compilerOptions` do nosso `tsconfig.json` para usarmos extensões `.ts` e `tsx` diretamente no nosso código.
 :::
 
 ## Evitar Ficheiros Embarricados {#avoid-barrel-files}
