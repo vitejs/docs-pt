@@ -215,7 +215,7 @@ Incorpora a configuração de PostCSS ou um diretório personalizado a partir do
 
 Para a configuração de PostCSS em linha, espera o mesmo formato que o `postcss.config.js`. Mas para a propriedade `plugins`, apenas o [formato de vetor](https://github.com/postcss/postcss-load-config/blob/main/README.md#array) pode ser usado.
 
-A procura é feita usando o [`postcss-load-config`](https://github.com/postcss/postcss-load-config) e apenas os nomes de ficheiro de configuração suportados são carregados.
+A procura é feita usando a [`postcss-load-config`](https://github.com/postcss/postcss-load-config) e apenas os nomes de ficheiro de configuração suportados são carregados. Os ficheiros de configuração fora da raiz do espaço de trabalho (ou a [raiz do projeto](/guide/#index-html-and-project-root) se nenhum espaço de trabalho não for encontrado) não são procurados por predefinição. Podemos especificar um caminho personalizado fora da raiz para carregar o ficheiro de configuração específico, se necessário.
 
 Nota que se uma configuração em linha for fornecida, a Vite são procurará por outras fontes de configuração de PostCSS.
 
