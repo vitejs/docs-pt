@@ -145,3 +145,32 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
   <!-- opcional -->
   <link rel="modulepreload" href="assets/shared-B7PI925R.js" />
   ```
+
+::: details Pseudo-Implementação da `importedChunks`
+
+Um exemplo de pseudo-implementação de `importedChunks` em TypeScript (Isto não precisará ser adaptada a nossa linguagem de programação e linguagem de modelagem de marcação de hipertexto):
+
+```ts
+   import type { Manifest, ManifestChunk } from 'vite'
+   export default function importedChunks(
+     manifest: Manifest,
+     name: string,
+   ): ManifestChunk[] {
+     const seen = new Set<string>()
+     function getImportedChunks(chunk: ManifestChunk): ManifestChunk[] {
+       const chunks: ManifestChunk[] = []
+       for (const file of chunk.imports ?? []) {
+         const importee = manifest[file]
+         if (seen.has(file)) {
+           continue
+         }
+         seen.add(file)
+         chunks.push(...getImportedChunks(importee))
+         chunks.push(importee)
+       }
+       return chunks
+     }
+     return getImportedChunks(manifest[name])
+   }
+```
+:::
