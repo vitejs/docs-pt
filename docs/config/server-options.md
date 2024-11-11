@@ -187,7 +187,7 @@ O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. 
 
 Aquece os ficheiros para transformar e armazenar para consulta imediata os resultados antecipadamente. Isto melhora o carregamento inicial da página durante a inicialização do servidor e evitar as cascatas de transformação.
 
-Os `clientFiles` são ficheiros que são usados apenas no cliente, enquanto os `ssrFiles` são ficheiros que são usados apenas na interpretação do lado do servidor. Eles aceitam um vetor de caminhos de ficheiros ou padrões de [`fast-glob`](https://github.com/mrmlnc/fast-glob) relativos à `root`.
+Os `clientFiles` são ficheiros que são usados apenas no cliente, enquanto os `ssrFiles` são ficheiros que são usados apenas na interpretação do lado do servidor. Eles aceitam um vetor de caminhos de ficheiros ou padrões de [`tinyglobby`](https://github.com/SuperchupuDev/tinyglobby) relativos à `root`.
 
 Nós devemos certificar-nos de apenas adicionar os ficheiros que são frequentemente usados para não sobrecarregar o servidor de desenvolvimento da Vite durante a inicialização.
 

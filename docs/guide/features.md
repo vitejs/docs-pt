@@ -547,7 +547,7 @@ Nota que:
 
 - Isto é uma funcionalidade exclusiva da Vite e não é um padrão da Web ou ECMAScript.
 - Os padrões de globos são tratados como especificadores de importação: estes devem ser relativos (começam com `/`) ou absolutos (começam com `/`, resolvidos em relação à raiz do projeto) ou um caminho de pseudónimo (consultar a [opção `resolve.alias`](/config/shared-options#resolve-alias)).
-- A correspondência do globo é feita através da [`fast-glob`](https://github.com/mrmlnc/fast-glob) - consultar a documentação por [padrões de globos suportados](https://github.com/mrmlnc/fast-glob#pattern-syntax).
+- A correspondência do globo é feita através da [`tinyglobby`](https://github.com/SuperchupuDev/tinyglobby).
 - Nós também devemos estar cientes de que todos os argumentos na `import.meta.glob` devem ser **passados como literais**. Nós NÃO podemos usar variáveis ou expressões nelas.
 
 ## Importação Dinâmica {#dynamic-import}
