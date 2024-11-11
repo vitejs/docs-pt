@@ -343,12 +343,12 @@ Se for verdadeiro suporta as importações nomeadas a partir de ficheiros `.json
 
 ## `json.stringify` {#json-stringify}
 
-- **Tipo:** `boolean`
-- **Predefinido como:** `false`
+- **Tipo:** `boolean | 'auto'`
+- **Predefinido como:** `'auto'`
 
 Se definido para `true`, o JSON importado será transformado em `export default JSON.parse("...")` o que é significativamente mais otimizado do que literais de `Object`, especialmente quando o ficheiro JSON for grande.
 
-A ativação disto desativa as importações nomeadas.
+Se definida como `'auto'`, os dados serão transformados em sequência de caracteres apenas se [os dados forem maiores do que 10kb](https://v8.dev/blog/cost-of-javascript-2019#json:~:text=A%20good%20rule%20of%20thumb%20is%20to%20apply%20this%20technique%20for%20objects%20of%2010%20kB%20or%20larger).
 
 ## `esbuild` {#esbuild}
 
