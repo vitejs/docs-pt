@@ -1,4 +1,4 @@
-# Construindo para Produção {#building-for-production}
+# Construir para Produção {#building-for-production}
 
 Quando for o momento de implementar a nossa aplicação em produção, simplesmente executamos o comando `vite build`. Por padrão, este usa `<root>/index.html` como o ponto de entrada da construção, e produz um pacote de aplicação que é adequado para ser servido sobre um serviço de hospedagem estática. Consultar o [Implementando uma Aplicação Estática](./static-deploy) por orientações sobre os serviços populares.
 
@@ -29,7 +29,16 @@ A exceção é quando precisamos concatenar dinamicamente as URLs em tempo real.
 
 Para controlo avançado do caminho de base, consultar as [Opções Avançadas da Base](#advanced-base-options).
 
-## Personalizando a Construção {#customizing-the-build}
+### Base Relativa {#relative-base}
+
+Se não soubermos o caminho base com antecedência, podemos definir um caminho base relativo com `"base": "./"` ou `"base": ""`. Isto fará com que todos os endereços de localização de recursos gerados sejam relativos a cada ficheiro.
+
+:::warning Suporte para navegadores mais antigos quando se utilizam bases relativas
+
+O suporte a `import.meta` é obrigatório para bases relativas. Se precisarmos de suportar [navegadores que não suportam `import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta), podemos usar [a extensão `legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy).
+:::
+
+## Personalizar a Construção {#customizing-the-build}
 
 A construção pode ser personalizada através de várias [opções de configuração da construção](/config/build-options). Especificamente, podemos ajustar diretamente as [opções de Rollup](https://rollupjs.org/configuration-options/) subjacentes através da `build.rollupOptions`:
 
