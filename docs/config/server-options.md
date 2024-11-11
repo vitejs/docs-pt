@@ -84,7 +84,9 @@ export default defineConfig({
 
 - **Tipo:** `Record<string, string | ProxyOptions>`
 
-Configura regras de delegação personalizadas para o servidor de desenvolvimento. Espera um objeto de pares `{ chave: opções }`. Se a chave começar com `^`, ela será interpretada como uma `RegExp` (Expressão Regular). A opção `configure` pode ser utilizada para acessar a instância de delegação.
+Configura regras de delegação personalizadas para o servidor de desenvolvimento. Espera um objeto de pares `{ chave: opções }`. Se a chave começar com `^`, ela será interpretada como uma `RegExp` (Expressão Regular). A opção `configure` pode ser utilizada para acessar a instância de delegação. Se uma requisição corresponde quaisquer uma das regras de delegação configurada, a requisição não será transformada pela Vite.
+
+Nota se usarmos [`base`](/config/shared-options#base) que não relativa, devemos prefixar cada chave com esta `base`.
 
 Estende a [`http-proxy`](https://github.com/http-party/node-http-proxy#options). As opções adicionais estão [neste endereço](https://github.com/vitejs/vite/blob/main/packages/vite/src/node/server/middlewares/proxy.ts#L13).
 
