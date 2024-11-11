@@ -94,62 +94,57 @@ A interface `ResolvedConfig` tem todas as mesmas propriedade de uma `UserConfig`
 ```ts
 interface ViteDevServer {
   /**
-   * O objeto de configuração da Vite resolvido.
+   * The resolved Vite config object.
    */
   config: ResolvedConfig
   /**
-   * A connect app instance Uma instância da aplicação de conexão
-   * - Pode ser utilizada para atribuir intermediários personalizados ao
-   *   servidor de desenvolvimento.
-   * - Também pode ser utilizado como função manipuladora de um servidor
-   *   de http personalizado ou como um intermediário em quaisquer abstrações
-   *   de estilo de conexão da Node.js.
+   * A connect app instance
+   * - Can be used to attach custom middlewares to the dev server.
+   * - Can also be used as the handler function of a custom http server
+   *   or as a middleware in any connect-style Node.js frameworks.
    *
    * https://github.com/senchalabs/connect#use-middleware
    */
   middlewares: Connect.Server
   /**
-   * Instância do servidor de http da Node.js Nativa
-   * Será "null" no modo do intermediário.
+   * Native Node http server instance.
+   * Will be null in middleware mode.
    */
   httpServer: http.Server | null
   /**
-   * Instância do observador do Chokidar.
-   * Se `config.server.watch` for definida para `null`,
-   * retorna um emissor de evento noop
+   * Chokidar watcher instance. If `config.server.watch` is set to `null`,
+   * returns a noop event emitter.
    * https://github.com/paulmillr/chokidar#api
    */
   watcher: FSWatcher
   /**
-   * Servidor de WebSocket com o método `send(payload)`.
+   * Web socket server with `send(payload)` method.
    */
   ws: WebSocketServer
   /**
-   * Contentor da extensão da Rollup que pode executar gatilhos da
-   * extensão em um dado ficheiro.
+   * Rollup plugin container that can run plugin hooks on a given file.
    */
   pluginContainer: PluginContainer
   /**
-   * Gráfico do módulo que rastreia as relacionamentos de importação,
-   * URL para o mapeamento de ficheiro e o estado da HMR.
+   * Module graph that tracks the import relationships, url to file mapping
+   * and hmr state.
    */
   moduleGraph: ModuleGraph
   /**
-   * As URLs resolvidas que a Vite imprime na Linha de Comando.
-   * "null" no modo de intermediário ou antes de `server.listen` ser chamada.
+   * The resolved urls Vite prints on the CLI (URL-encoded). Returns `null`
+   * in middleware mode or if the server is not listening on any port.
    */
   resolvedUrls: ResolvedServerUrls | null
   /**
-   * Resolve, carrega e transforma programaticamente uma URL e
-   * obtém o resultado sem ir através de uma conduta de requisição de http.
+   * Programmatically resolve, load and transform a URL and get the result
+   * without going through the http request pipeline.
    */
   transformRequest(
     url: string,
     options?: TransformOptions,
   ): Promise<TransformResult | null>
   /**
-   * Aplica as transformações de HTML embutida de Vite e
-   * quaisquer transformações de HTML de extensão.
+   * Apply Vite built-in HTML transforms and any plugin HTML transforms.
    */
   transformIndexHtml(
     url: string,
@@ -157,42 +152,38 @@ interface ViteDevServer {
     originalUrl?: string,
   ): Promise<string>
   /**
-   * Carrega uma dada URL como um módulo instanciado para SSR.
+   * Load a given URL as an instantiated module for SSR.
    */
   ssrLoadModule(
     url: string,
     options?: { fixStacktrace?: boolean },
   ): Promise<Record<string, any>>
   /**
-   * Corrige o erro de "stacktrace" da ssr.
+   * Fix ssr error stacktrace.
    */
   ssrFixStacktrace(e: Error): void
   /**
-   * Aciona a substituição de módulo instantânea no
-   * gráfico de módulo. Nós podemos usar a API
-   * `server.moduleGraph` para recuperar o módulo
-   * a ser recarregado. Se `hmr` for falso,
-   * trata-se duma operação nula.
-  */
+   * Triggers HMR for a module in the module graph. You can use the `server.moduleGraph`
+   * API to retrieve the module to be reloaded. If `hmr` is false, this is a no-op.
+   */
   reloadModule(module: ModuleNode): Promise<void>
   /**
-   * Inicia o servidor.
+   * Start the server.
    */
   listen(port?: number, isRestart?: boolean): Promise<ViteDevServer>
   /**
-   * Reinicia o servidor.
+   * Restart the server.
    *
-   * @param forceOptimize - força o otimizador à reempacotar,
-   * o mesmo a opção --force da linha de comando.
+   * @param forceOptimize - force the optimizer to re-bundle, same as --force cli flag
    */
   restart(forceOptimize?: boolean): Promise<void>
   /**
-   * Terminar o servidor.
+   * Stop the server.
    */
   close(): Promise<void>
   /**
-   * Vincular os atalhos da interface da linha de comando
-  */
+   * Bind CLI shortcuts
+   */
   bindCLIShortcuts(options?: BindCLIShortcutsOptions<ViteDevServer>): void
   /**
    * Calling `await server.waitForRequestsIdle(id)` will wait until all static imports
@@ -289,8 +280,8 @@ interface PreviewServer {
    */
   httpServer: http.Server
   /**
-   * The resolved urls Vite prints on the CLI.
-   * null before server is listening.
+   * The resolved urls Vite prints on the CLI (URL-encoded). Returns `null`
+   * if the server is not listening on any port.
    */
   resolvedUrls: ResolvedServerUrls | null
   /**
