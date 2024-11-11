@@ -62,7 +62,7 @@ Nós podemos configurar como os pedaços são separados usando `build.rollupOpti
 
 A Vite emite o evento `vite:preloadError` quando não consegue carregar as importações dinâmicas. `event.payload` contém o erro de importação original. Se chamarmos `event.preventDefault()`, o erro não será lançado:
 
-```js
+```js twoslash
 window.addEventListener('vite:preloadError', (event) => {
   window.location.reload() // por exemplo, atualizar a página
 })
@@ -104,7 +104,7 @@ Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - e
 
 Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
-```js [vite.config.js]
+```js twoslash [vite.config.js]
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
@@ -130,7 +130,9 @@ Quando estivermos desenvolvimento uma biblioteca orienta ao navegador, estaremos
 
 Na hora de empacotar a nossa biblioteca para distribuição, usamos a [opção de configuração `build.lib`](/config/build-options#build-lib). Temos que certificar-nos de também expomos quaisquer dependências que não queremos empacotar na nossa biblioteca, por exemplo, `vue` ou `react`:
 
-```js [vite.config.js]
+::: code-group
+
+```js twoslash [vite.config.js (single entry)]
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
@@ -160,6 +162,37 @@ export default defineConfig({
 })
 ```
 
+```js twoslash [vite.config.js (multiple entries)]
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  build: {
+    lib: {
+      entry: {
+        'my-lib': resolve(__dirname, 'lib/main.js'),
+        secondary: resolve(__dirname, 'lib/secondary.js'),
+      },
+      name: 'MyLib',
+    },
+    rollupOptions: {
+      // certificar de expor as dependências que não
+      // devem ser empacotadas na nossa biblioteca
+      external: ['vue'],
+      output: {
+        // fornecer as variáveis globais para usar na
+        // construção UMD para as dependências expostas
+        globals: {
+          vue: 'Vue',
+        },
+      },
+    },
+  },
+})
+```
+
+:::
+
 O ficheiro de entrada conteria as exportações que poderiam ser importadas pelos utilizadores do nosso pacote:
 
 ```js [lib/main.js]
@@ -168,7 +201,12 @@ import Bar from './Bar.vue'
 export { Foo, Bar }
 ```
 
-Executar `vite build` com esta configuração usa uma predefinição de Rollup que é orientada para bibliotecas de entrega e produz dois formatos de pacote: `es` e `umd` (configurável através de `build.lib`):
+Executar `vite build` com esta configuração usa uma predefinição de Rollup que é orientada para bibliotecas de entrega e produz dois formatos de pacote:
+
+- `es` e `umd` (para única entrada)
+- `es` e `cjs` (para  várias entradas)
+
+Os formatos podem ser configurados com a opção [`build.lib.formats`](/config/build-options#build-lib):
 
 ```
 $ vite build
@@ -179,7 +217,9 @@ dist/my-lib.umd.cjs 0.30 kB / gzip: 0.16 kB
 
 O `package.json` recomendado para a nossa biblioteca:
 
-```json [package.json]
+::: code-group
+
+```json [package.json (single entry)]
 {
   "name": "my-lib",
   "type": "module",
@@ -195,9 +235,7 @@ O `package.json` recomendado para a nossa biblioteca:
 }
 ```
 
-Ou, se estivermos expondo vários pontos de entrada:
-
-```json [package.json]
+```json [package.json (multiple entries)]
 {
   "name": "my-lib",
   "type": "module",
@@ -213,6 +251,31 @@ Ou, se estivermos expondo vários pontos de entrada:
       "import": "./dist/secondary.js",
       "require": "./dist/secondary.cjs"
     }
+  }
+}
+```
+
+:::
+
+### Suporte da CSS {#css-support}
+
+Se nossa biblioteca importa qualquer folha de estilo, esta será empacotada como um único ficheiro de folha de estilo em cascata para além dos ficheiros `.js` construídos, por exemplo, `dist/my-lib.css`. O nome é predefinido pela `build.lib.fileName`, mas também pode ser alterada com [`build.lib.cssFileName`](/config/build-options#build-lib).
+
+Podemos exportar o ficheiro de folha de estilo no nosso `package.json` para ser importado pelos utilizadores:
+
+```json {12}
+{
+  "name": "my-lib",
+  "type": "module",
+  "files": ["dist"],
+  "main": "./dist/my-lib.umd.cjs",
+  "module": "./dist/my-lib.js",
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.js",
+      "require": "./dist/my-lib.umd.cjs"
+    },
+    "./style.css": "./dist/my-lib.css"
   }
 }
 ```
@@ -243,7 +306,8 @@ Para os casos de uso avançados, os recursos e ficheiros públicos implementados
 
 Uma única [base](#public-base-path) estática não é o suficiente nestes cenários. A Vite fornece suporte experimental para opções de base avançadas durante a construção, usando a `experimental.renderBuiltUrl`.
 
-```ts
+```ts twoslash
+// @errors: 2307 7006 7031
 import type { UserConfig } from 'vite'
 // prettier-ignore
 const config: UserConfig = {
@@ -267,7 +331,8 @@ experimental: {
 
 Se os recursos de nome embaralhado e os ficheiros públicos são forem implementados em produção em conjunto, as opções para grupo podem ser definidas de maneira independente usando a `type` de recurso incluída no segundo parâmetro `context` dado à função:
 
-```ts
+```ts twoslash
+// @errors: 2307 7006 7031
 import type { UserConfig } from 'vite'
 import path from 'node:path'
 // prettier-ignore
