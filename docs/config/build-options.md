@@ -127,7 +127,7 @@ Ela deve apenas ser usada quando estiveres mirando um navegador fora dos padrão
 ## `build.cssMinify` {#build-cssminify}
 
 - **Tipo:**
-- **Predefinida como:** o mesmo que [`build.minify`](#build-minify)
+- **Predefinida como:** o mesmo que [`build.minify`](#build-minify) para o cliente, `'esbuild'` para interpretação do lado do servidor.
 
 Esta opção permite os utilizadores sobrepor a especificamente a minificação de CSS no lugar de padronizar para `build.minify`, assim podes configurar a minificação para código de JavaScript e CSS separadamente. A Vite usa a `esbuild` por padrão para minificar a CSS. Defina a opção para `'lightningcss'` para usar a [CSS relâmpago](https://lightningcss.dev/minification.html). Caso selecionada, pode ser configurada usando [`css.lightningcss`](./shared-options#css-lightningcss).
 
