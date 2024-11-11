@@ -87,11 +87,12 @@ Mas algumas bibliotecas ainda não fizeram a transição para este novo padrão,
 
 - [Documentação da TypeScript](https://www.typescriptlang.org/tsconfig#target)
 
-A Vite não traduz o código da TypeScript com o valor de `target` configurado por padrão, seguindo o mesmo comportamento que a `esbuild`.
+A Vite ignora o valor da `target` no `tsconfig.json`, seguindo o mesmo comportamento da `esbuild`.
 
-A opção [`esbuild.target`](/config/shared-options#esbuild) pode ser usada, a qual predefine para `esnext` para tradução de código minimalista. Nas construções, a opção [`build.target`](/config/build-options#build-target) tem maior prioridade e também pode ser definida se necessário.
+Para especificar o alvo em desenvolvimento, a opção [`esbuild.target`](/config/shared-options#esbuild) pode ser usada, a qual predefine para `esnext` para tradução de código minimalista. Nas construções, a opção [`build.target`](/config/build-options#build-target) tem maior prioridade sobre a `esbuild.target` e também pode ser definida se necessária.
 
 :::warning `useDefineForClassFields`
+
 Se `target` não for `ESNext` ou `ES2022` ou mais recente, ou se não existir nenhum ficheiro `tsconfig.json`, `useDefineForClassFields` predefinirá para `false` o que pode ser problemático com o valor padrão de `esbuild.target` de `esnext`. Esta pode traduzir o código para [blocos de inicialização estática](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Static_initialization_blocks#browser_compatibility) que pode não ser suportado no nosso navegador.
 
 Como tal, é recomendado definir `target` para `ESNext` ou `ES2022` ou mais recente, ou definir `useDefineForClassFields` para `true` explicitamente quando configuramos o `tsconfig.json`.
