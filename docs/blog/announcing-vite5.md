@@ -13,10 +13,10 @@ head:
       content: Anunciando a Vite 5
   - - meta
     - property: og:image
-      content: https://pt.vitejs.dev/og-image-announcing-vite5.png
+      content: https://pt.vite.dev/og-image-announcing-vite5.png
   - - meta
     - property: og:url
-      content: https://pt.vitejs.dev/blog/announcing-vite5
+      content: https://pt.vite.dev/blog/announcing-vite5
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 5
@@ -49,16 +49,16 @@ Ligações rápidas:
 
 Documentações em outros idiomas:
 
-- [简体中文](https://cn.vitejs.dev/)
-- [日本語](https://ja.vitejs.dev/)
-- [Español](https://es.vitejs.dev/)
-- [Português](https://pt.vitejs.dev/)
-- [한국어](https://ko.vitejs.dev/)
-- [Deutsch](https://de.vitejs.dev/) (tradução nova!)
+- [简体中文](https://cn.vite.dev/)
+- [日本語](https://ja.vite.dev/)
+- [Español](https://es.vite.dev/)
+- [Português](https://pt.vite.dev/)
+- [한국어](https://ko.vite.dev/)
+- [Deutsch](https://de.vite.dev/) (tradução nova!)
 
 Se formos novo a Vite, sugerimos ler primeiro os guias [Começar](/guide/) e [Funcionalidades](/guide/features).
 
-Nós apreciamos os mais de [850 colaboradores ao Núcleo da Vite](https://github.com/vitejs/vite/graphs/contributors), e os responsáveis e colaboradores das extensões, integrações, ferramentas, e traduções da Vite que ajudaram-nos a chegar onde estamos. Nós encorajamos-te a envolver-se e continuar a melhorar a Vite connosco. É possível aprender mais no nosso [Guia de Contribuição](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md). Para começar, recomendamos [fazer a triagem de questões](https://github.com/vitejs/vite/issues), [revisar os pedidos de atualização do repositório](https://github.com/vitejs/vite/pulls), enviar pedidos de atualização do repositório de testes que estiverem falhando baseados nas questões abertas, e ajudar outros nas [Discussões](https://github.com/vitejs/vite/discussions) e no [fórum de ajuda](https://discord.com/channels/804011606160703521/1019670660856942652) da Vite Land. É possível aprender muito ao longo do caminho e ter um caminho suave para mais contribuições ao projeto. Se houverem dúvidas, é possível juntar-se a nossa [comunidade da Discord](http://chat.vitejs.dev/) e dizer um oi no [canal `#contributing`](https://discord.com/channels/804011606160703521/804439875226173480).
+Nós apreciamos os mais de [850 colaboradores ao Núcleo da Vite](https://github.com/vitejs/vite/graphs/contributors), e os responsáveis e colaboradores das extensões, integrações, ferramentas, e traduções da Vite que ajudaram-nos a chegar onde estamos. Nós encorajamos-te a envolver-se e continuar a melhorar a Vite connosco. É possível aprender mais no nosso [Guia de Contribuição](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md). Para começar, recomendamos [fazer a triagem de questões](https://github.com/vitejs/vite/issues), [revisar os pedidos de atualização do repositório](https://github.com/vitejs/vite/pulls), enviar pedidos de atualização do repositório de testes que estiverem falhando baseados nas questões abertas, e ajudar outros nas [Discussões](https://github.com/vitejs/vite/discussions) e no [fórum de ajuda](https://discord.com/channels/804011606160703521/1019670660856942652) da Vite Land. É possível aprender muito ao longo do caminho e ter um caminho suave para mais contribuições ao projeto. Se houverem dúvidas, é possível juntar-se a nossa [comunidade da Discord](http://chat.vite.dev/) e dizer um oi no [canal `#contributing`](https://discord.com/channels/804011606160703521/804439875226173480).
 
 Mantenha-se atualizado, siga-nos na [X](https://twitter.com/vite_js) ou [Mastodon](https://webtoo.ls/@vite).
 
@@ -74,7 +74,7 @@ A Vite já não suporta Node.js 14 / 16 / 17 / 19, as quais alcançaram a sua ex
 
 ## Desempenho {#performance}
 
-Sobre as melhorias de desempenho de construção da Rollup 4, existe um novo guia para ajudar-nos a identificar e corrigir problemas de desempenho comuns em [https://pt.vitejs.dev/guide/performance](/guide/performance).
+Sobre as melhorias de desempenho de construção da Rollup 4, existe um novo guia para ajudar-nos a identificar e corrigir problemas de desempenho comuns em [https://pt.vite.dev/guide/performance](/guide/performance).
 
 A Vite 5 também introduz [`server.warmup`](/guide/performance#warm-up-frequently-used-files), uma nova funcionalidade para melhorar o tempo de inicialização. Esta permite-nos definir uma lista de módulos que deveriam ser pré-transformadas logo que o servidor começar. Quando usamos [`--open` ou `server.open`](/config/server-options#server-open), a Vite também aquecerá automaticamente o ponto de entrada da nossa aplicação ou a URL fornecida a abrir.
 

@@ -169,7 +169,7 @@ Consulte [`vite-setup-catalogue`](https://github.com/sapphi-red/vite-setup-catal
 Com a configuração padrão, as delegações reversas na frente da Vite são esperadas para suportarem a delegação de WebSocket. Se o cliente da HMR da Vite falhar ao conectar o WebSocket, o cliente recuará para conectar a WebSocket diretamente ao servidor da HMR da Vite contornando as delegações reversas:
 
 ```
-Direct websocket connection fallback. Check out https://vitejs.dev/config/server-options.html#server-hmr to remove the previous connection error.
+Direct websocket connection fallback. Check out https://vite.dev/config/server-options.html#server-hmr to remove the previous connection error.
 ```
 
 O erro que aparece no Navegador quando o retrocesso acontece pode ser ignorado. Para evitar o erro ao diretamente contornar as delegações reversas, poderias tanto:

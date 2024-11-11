@@ -13,7 +13,7 @@ head:
       content: Anunciando a Vite 2.0
   - - meta
     - property: og:url
-      content: https://pt.vitejs.dev/blog/announcing-vite2
+      content: https://pt.vite.dev/blog/announcing-vite2
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 2
@@ -33,7 +33,7 @@ Vite (palavra Francesa para "rápido", pronunciado `/vit/`, como "veet") é um n
 
 Para ter ideia do quanto a Vite é rápida, consulte [esta comparação em vídeo](https://twitter.com/amasad/status/1355379680275128321) da inicialização de uma aplicação de React na Repl.it usando Vite versus a `create-react-app` (CRA).
 
-Se já ouviste falar da Vite antes e gostarias de aprender mais sobre ela, consulte [o fundamento lógico por trás do projeto](https://vitejs.dev/guide/why.html). Se estiveres interessado em como a Vite se difere de outras ferramentas similares, consulte as [comparações](https://vitejs.dev/guide/comparisons.html).
+Se já ouviste falar da Vite antes e gostarias de aprender mais sobre ela, consulte [o fundamento lógico por trás do projeto](https://vite.dev/guide/why.html). Se estiveres interessado em como a Vite se difere de outras ferramentas similares, consulte as [comparações](https://vite.dev/guide/comparisons.html).
 
 ## O Que Existe de Novo na 2.0 {#whats-new-in-2.0}
 
@@ -49,7 +49,7 @@ A Vite 2.0 junta o que aprendemos ao longo do caminho e é redesenhada desde o z
 
 Inspirada pela [WMR](https://github.com/preactjs/wmr), o novo sistema de extensão estende a interface de extensão da Rollup e é [compatível com muitas extensões de Rollup](https://vite-rollup-plugins.patak.dev/) fora da caixa. As extensões podem usar gatilhos compatíveis com a Rollup, com gatilhos específicos de Vite adicionais e propriedades para ajustar apenas o comportamento da Vite (por exemplo, a diferenciação entre o desenvolvimento e construção ou a manipulação personalizada da HMR).
 
-A [API programática](https://vitejs.dev/guide/api-javascript.html) também tem sido grandemente aprimorada para facilitar ferramentas ou abstrações de mais alto nível construídas sobre a Vite.
+A [API programática](https://vite.dev/guide/api-javascript.html) também tem sido grandemente aprimorada para facilitar ferramentas ou abstrações de mais alto nível construídas sobre a Vite.
 
 ### Pré-Empacotamento de Dependência Alimentado pela esbuild {#esbuild-powered-dep-pre-bundling}
 
@@ -65,7 +65,7 @@ A Vite trata a CSS como cidadão de primeira classe do gráfico de módulo e sup
 
 ### Suporte a Interpretação no Lado do Servidor (SSR) {#server-side-rendering-support}
 
-A Vite 2.0 vem com o [suporte experimental a SSR](https://vitejs.dev/guide/ssr.html). A Vite fornece APIs para carregar e atualizar eficientemente código-fonte baseado em módulo de ECMAScript (ESM) na Node.js durante o desenvolvimento (quase como HMR do lado do servidor), e expõe automaticamente as dependências compatíveis com a CommonJS para melhorar o desenvolvimento e a velocidade da construção da SSR. O servidor de produção pode ser completamente separado da Vite, e a mesma configuração pode ser facilmente adaptada para realizar a pré-interpretação / SSG.
+A Vite 2.0 vem com o [suporte experimental a SSR](https://vite.dev/guide/ssr.html). A Vite fornece APIs para carregar e atualizar eficientemente código-fonte baseado em módulo de ECMAScript (ESM) na Node.js durante o desenvolvimento (quase como HMR do lado do servidor), e expõe automaticamente as dependências compatíveis com a CommonJS para melhorar o desenvolvimento e a velocidade da construção da SSR. O servidor de produção pode ser completamente separado da Vite, e a mesma configuração pode ser facilmente adaptada para realizar a pré-interpretação / SSG.
 
 A SSR de Vite é fornecida como uma funcionalidade de baixo nível e nós estamos a espera de ver abstrações de alto nível influenciando-a nos bastidores.
 
@@ -81,4 +81,4 @@ Foi muitas funcionalidades, mas começar com a Vite é simples! Tu podes configu
 npm init @vitejs/app
 ```
 
-Depois, consulte [o guia](https://vitejs.dev/guide/) para veres o que a Vite fornece fora da caixa. Tu podes também consultar o código-fonte na [GitHub](https://github.com/vitejs/vite), seguir as atualizações na [Twitter](https://twitter.com/vite_js), ou juntares-te em discussões com outros utilizadores de Vite no nosso [servidor de conversa da Discord](http://chat.vitejs.dev/).
+Depois, consulte [o guia](https://vite.dev/guide/) para veres o que a Vite fornece fora da caixa. Tu podes também consultar o código-fonte na [GitHub](https://github.com/vitejs/vite), seguir as atualizações na [Twitter](https://twitter.com/vite_js), ou juntares-te em discussões com outros utilizadores de Vite no nosso [servidor de conversa da Discord](http://chat.vite.dev/).

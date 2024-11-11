@@ -13,10 +13,10 @@ head:
       content: Anunciando a Vite 4
   - - meta
     - property: og:image
-      content: https://pt.vitejs.dev/og-image-announcing-vite4.png
+      content: https://pt.vite.dev/og-image-announcing-vite4.png
   - - meta
     - property: og:url
-      content: https://pt.vitejs.dev/blog/announcing-vite4
+      content: https://pt.vite.dev/blog/announcing-vite4
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 4
@@ -35,7 +35,7 @@ A Vite 3 [foi lançada](./announcing-vite3.md) a cinco meses atrás. Os descarre
 
 De acordo com um mostruário do crescimento que a Vite e os projetos relacionados têm experimentado, o ecossistema da Vite reuniu em 11 Outubro na [ViteConf 2022](https://viteconf.org/2022/replay). Nós vimos representantes das principais abstrações e ferramentas de web a contarem histórias de inovação e colaboração. E em um movimento simbólico, a equipa da Rollup escolheu aquele exato dia para lançar a [Rollup 3](https://rollupjs.org).
 
-Hoje, a [equipa](https://vitejs.dev/team) da Vite com a ajuda dos nossos parceiros do ecossistema, tem o prazer em anunciar o lançamento da Vite 4, alimentada durante momento da construção pela Rollup 3. Temos trabalhado com o ecossistema para garantir um caminho de atualização suave para esta nova versão principal. A Vite agora está a usar a [Rollup 3](https://github.com/vitejs/vite/issues/9870), o que permitiu-nos simplificar a manipulação de recurso interno da Vite e tem muitas melhorias. Consulte as [notas de lançamento da Rollup 3](https://github.com/rollup/rollup/releases/tag/v3.0.0).
+Hoje, a [equipa](https://vite.dev/team) da Vite com a ajuda dos nossos parceiros do ecossistema, tem o prazer em anunciar o lançamento da Vite 4, alimentada durante momento da construção pela Rollup 3. Temos trabalhado com o ecossistema para garantir um caminho de atualização suave para esta nova versão principal. A Vite agora está a usar a [Rollup 3](https://github.com/vitejs/vite/issues/9870), o que permitiu-nos simplificar a manipulação de recurso interno da Vite e tem muitas melhorias. Consulte as [notas de lançamento da Rollup 3](https://github.com/rollup/rollup/releases/tag/v3.0.0).
 
 ![Imagem de Capa do Anúncio da Vite 4](/og-image-announcing-vite4.png)
 
@@ -47,11 +47,11 @@ Ligações rápidas:
 
 Documentação em outros idiomas:
 
-- [简体中文](https://cn.vitejs.dev/)
-- [日本語](https://ja.vitejs.dev/)
-- [Español](https://es.vitejs.dev/)
+- [简体中文](https://cn.vite.dev/)
+- [日本語](https://ja.vite.dev/)
+- [Español](https://es.vite.dev/)
 
-Se começaste a usar a Vite recentemente, sugerimos a leitura do [Guia do Porquê da Vite](https://vitejs.dev/guide/why.html) e consultar [o Começo](https://vitejs.dev/guide/) e [guia de Funcionalidades](https://vitejs.dev/guide/features). Se quiseres envolver-te, contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Quase [700 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm contribuído com a Vite. Siga as atualizações na [Twitter](https://twitter.com/vite_js) e [Mastodon](https://webtoo.ls/@vite), ou colabore com os outros na nossa [comunidade da Discord](http://chat.vitejs.dev/).
+Se começaste a usar a Vite recentemente, sugerimos a leitura do [Guia do Porquê da Vite](https://vite.dev/guide/why.html) e consultar [o Começo](https://vite.dev/guide/) e [guia de Funcionalidades](https://vite.dev/guide/features). Se quiseres envolver-te, contribuições são bem-vindas na [GitHub](https://github.com/vitejs/vite). Quase [700 colaboradores](https://github.com/vitejs/vite/graphs/contributors) têm contribuído com a Vite. Siga as atualizações na [Twitter](https://twitter.com/vite_js) e [Mastodon](https://webtoo.ls/@vite), ou colabore com os outros na nossa [comunidade da Discord](http://chat.vite.dev/).
 
 ## Começar a brincar com a Vite 4 {#start-playing-with-vite-4}
 
@@ -135,6 +135,6 @@ We're also thankful to individuals and companies sponsoring the Vite team, and c
 
 ## Próximos Passos {#next-steps}
 
-Nosso foco imediato estaria sobre a triagem das questões abertas recentemente para evitar a interrupção por possíveis regressões. Se gostarias de envolver-te e ajudar-nos a melhorar a Vite, sugerimos começar com a triagem de problemas. Junta-te à [nossa Discord](https://chat.vitejs.dev) e contacte-nos na canal `#contributing`. Polir a história da nossa `#docs`, e ajudar os outros no `#help`. Nós precisamos continuar a construir uma comunidade prestável e acolhedora para próxima onde de utilizadores, a medida que a adoção da Vite continua a crescer.
+Nosso foco imediato estaria sobre a triagem das questões abertas recentemente para evitar a interrupção por possíveis regressões. Se gostarias de envolver-te e ajudar-nos a melhorar a Vite, sugerimos começar com a triagem de problemas. Junta-te à [nossa Discord](https://chat.vite.dev) e contacte-nos na canal `#contributing`. Polir a história da nossa `#docs`, e ajudar os outros no `#help`. Nós precisamos continuar a construir uma comunidade prestável e acolhedora para próxima onde de utilizadores, a medida que a adoção da Vite continua a crescer.
 
 Existem muita frentes abertas para continuar a melhorar a Experiência de Programação de todos que escolheram a Vite para alimentar as suas abstrações e programar suas aplicações. Para diante!

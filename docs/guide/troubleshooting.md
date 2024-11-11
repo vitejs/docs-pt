@@ -2,7 +2,7 @@
 
 Consulte também o [guia de resolução de problemas da Rollup](https://rollupjs.org/troubleshooting/) para obter mais informações.
 
-Se as sugestões neste documento não funcionarem, tente publicar as questões nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) ou no canal de `#help` da [Discord do País de Vite (Vite Land)](https://chat.vitejs.dev).
+Se as sugestões neste documento não funcionarem, tente publicar as questões nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) ou no canal de `#help` da [Discord do País de Vite (Vite Land)](https://chat.vite.dev).
 
 ## CJS {#cjs}
 
@@ -122,9 +122,9 @@ Ou, importando-o pela aplicação Keychain Access e atualizando a confiança do 
 
 Quando o servidor ou servidor de websocket recebe um cabeçalho de HTTP grande, a requisição será largada e o seguinte aviso será exibido.
 
-> Server responded with status code 431. See https://vitejs.dev/guide/troubleshooting.html#_431-request-header-fields-too-large.
+> Server responded with status code 431. See https://vite.dev/guide/troubleshooting.html#_431-request-header-fields-too-large.
 
-> (Tradução) O servidor respondeu com o código de estado 431. Consulte https://pt.vitejs.dev/guide/troubleshooting.html#_campos-do-cabeçalho-da-requisição-muito-grandes.
+> (Tradução) O servidor respondeu com o código de estado 431. Consulte https://pt.vite.dev/guide/troubleshooting.html#_campos-do-cabeçalho-da-requisição-muito-grandes.
 
 Isto porque a Node.js limita o tamanho do cabeçalho da requisição para mitigar o [CVE-2018-12121](https://www.cve.org/CVERecord?id=CVE-2018-12121).
 

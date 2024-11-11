@@ -1,6 +1,6 @@
 # Guia de Contribuição de Vite {#vite-contributing-guide}
 
-Olá! Estamos muito excitados que estejas interessado em contribuir com a Vite. Antes da submissão da tua contribuição, certifica-te de tirar um momento para ler através do seguinte guia. Nós também sugerimos-te ler a [Filosofia do Projeto](https://pt.vitejs.dev/guide/philosophy) na nossa documentação.
+Olá! Estamos muito excitados que estejas interessado em contribuir com a Vite. Antes da submissão da tua contribuição, certifica-te de tirar um momento para ler através do seguinte guia. Nós também sugerimos-te ler a [Filosofia do Projeto](https://pt.vite.dev/guide/philosophy) na nossa documentação.
 
 ## Configuração de Repositório {$repo-setup}
 
@@ -233,7 +233,7 @@ Nós já temos muitas opções de configuração, e devemos evitar a correção 
 
 ## Contribuição com a tradução da documentação {#docs-translation-contribution}
 
-Se gostarias de começar uma tradução no teu idioma, és convidado a contribuir! Faça a gentileza de juntar-te ao [canal `#translations` na Vite Land](https://chat.vitejs.dev) para discutir e coordenar com os outros.
+Se gostarias de começar uma tradução no teu idioma, és convidado a contribuir! Faça a gentileza de juntar-te ao [canal `#translations` na Vite Land](https://chat.vite.dev) para discutir e coordenar com os outros.
 
 A documentação em Inglês está fixada no repositório principal da Vite, para permitir os colaboradores trabalharem sobre a documentação, testes e implementação na mesma PR. As traduções são feitas copiando o repositório principal.
 

@@ -13,10 +13,10 @@ head:
       content: Anunciando a Vite 4.3
   - - meta
     - property: og:image
-      content: https://pt.vitejs.dev/og-image-announcing-vite4-3.png
+      content: https://pt.vite.dev/og-image-announcing-vite4-3.png
   - - meta
     - property: og:url
-      content: https://pt.vitejs.dev/blog/announcing-vite4-3
+      content: https://pt.vite.dev/blog/announcing-vite4-3
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 4.3
@@ -33,7 +33,7 @@ _20 de Abril de 2023_
 
 Ligações rápidas:
 
-- Documentações: [English](/), [简体中文](https://cn.vitejs.dev/), [日本語](https://ja.vitejs.dev/), [Español](https://es.vitejs.dev/), [Português](https://pt.vitejs.dev/)
+- Documentações: [English](/), [简体中文](https://cn.vite.dev/), [日本語](https://ja.vite.dev/), [Español](https://es.vite.dev/), [Português](https://pt.vite.dev/)
 - [Relatório de Mudança da Vite 4.3](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#430-2023-04-20)
 
 ## Melhorias do Desempenho {#performance-improvements}
@@ -83,7 +83,7 @@ Continuaremos a trabalhar no desempenho da Vite. Estamos a trabalhar numa [ferra
 
 E a [`vite-plugin-inspect`](https://github.com/antfu/vite-plugin-inspect) agora tem mais funcionalidades relacionadas ao desempenho para ajudar-te a identificar quais extensões ou intermediários estão a causar congestionamento para as tuas aplicações.
 
-Usar `vite --profile` (e depois pressionando `p`) assim que a página carregar guardará um perfil da CPU da inicialização do servidor de desenvolvimento. Tu podes abri-los numa aplicação como [speedscope](https://www.speedscope.app/) para identificares os problemas de desempenho. E podes partilhar as tuas descobertas com a equipa da Vite numa [Discussão](https://github.com/vitejs/vite/discussions) ou na [Discorda da Vite](https://chat.vitejs.dev).
+Usar `vite --profile` (e depois pressionando `p`) assim que a página carregar guardará um perfil da CPU da inicialização do servidor de desenvolvimento. Tu podes abri-los numa aplicação como [speedscope](https://www.speedscope.app/) para identificares os problemas de desempenho. E podes partilhar as tuas descobertas com a equipa da Vite numa [Discussão](https://github.com/vitejs/vite/discussions) ou na [Discorda da Vite](https://chat.vite.dev).
 
 ## Próximos Passos {#next-steps}
 

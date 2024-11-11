@@ -209,4 +209,4 @@ Depois seguimos para o nosso projeto baseado de Vite e executamos `pnpm link --g
 
 ## Comunidade {#community}
 
-Se tivermos questões ou precisarmos de ajuda, podemos entrar em contacto com a comunidade na [Discord](https://chat.vitejs.dev) e nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions).
+Se tivermos questões ou precisarmos de ajuda, podemos entrar em contacto com a comunidade na [Discord](https://chat.vite.dev) e nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions).

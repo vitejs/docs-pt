@@ -21,8 +21,8 @@
     "docs",
     "portuguese",
     "translation",
-    "pt.vitejs.dev",
-    "br.vitejs.dev"
+    "pt.vite.dev",
+    "br.vite.dev"
   ],
   "author": {
     "name": "Nazaré da Piedade",

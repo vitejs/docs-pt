@@ -13,10 +13,10 @@ head:
       content: Anúncio da Vite 5.1
   - - meta
     - property: og:image
-      content: https://pt.vitejs.dev/og-image-announcing-vite5-1.png
+      content: https://pt.vite.dev/og-image-announcing-vite5-1.png
   - - meta
     - property: og:url
-      content: https://pt.vitejs.dev/blog/announcing-vite5-1
+      content: https://pt.vite.dev/blog/announcing-vite5-1
   - - meta
     - property: og:description
       content: Anúncio do Lançamento da Vite 5.1
@@ -35,7 +35,7 @@ A Vite 5 [foi lançada](./announcing-vite5.md) em Novembro passado, e represento
 
 Hiperligações rápidas: [Documentação](/), [Registo de Alterações](https://github.com/vitejs/vite/blob/main/packages/vite/CHANGELOG.md#510-2024-02-08)
 
-Documentação em outros idiomas: [简体中文](https://cn.vitejs.dev/), [日本語](https://ja.vitejs.dev/), [Español](https://es.vitejs.dev/), [Português](https://pt.vitejs.dev/), [한국어](https://ko.vitejs.dev/), [Deutsch](https://de.vitejs.dev/)
+Documentação em outros idiomas: [简体中文](https://cn.vite.dev/), [日本語](https://ja.vite.dev/), [Español](https://es.vite.dev/), [Português](https://pt.vite.dev/), [한국어](https://ko.vite.dev/), [Deutsch](https://de.vite.dev/)
 
 Nós podemos experimentar a Vite 5.1 online na StackBlitz: [vanilla](https://vite.new/vanilla-ts), [vue](https://vite.new/vue-ts), [react](https://vite.new/react-ts), [preact](https://vite.new/preact-ts), [lit](https://vite.new/lit-ts), [svelte](https://vite.new/svelte-ts), [solid](https://vite.new/solid-ts), [qwik](https://vite.new/qwik-ts).
 
@@ -128,7 +128,7 @@ O pré-empacotamento do tempo de construção, uma funcionalidade experimental a
 
 ## Participar {#get-involved}
 
-Estamos gratos aos [900 colaboradores do núcleo da Vite](https://github.com/vitejs/vite/graphs/contributors), e aos responsáveis de extensões, integrações, ferramentas e traduções que continuam a impulsionar o ecossistema. Se gosta da Vite, o convidamos a participar e a ajudar-nos. Consultar o nosso [Guia de Colaboração](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md), começar a fazer [triagem de problemas](https://github.com/vitejs/vite/issues), [revisar os PRs](https://github.com/vitejs/vite/pulls), responder perguntas nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) e a ajudar outras pessoas da comunidade na [Vite Land](https://chat.vitejs.dev).
+Estamos gratos aos [900 colaboradores do núcleo da Vite](https://github.com/vitejs/vite/graphs/contributors), e aos responsáveis de extensões, integrações, ferramentas e traduções que continuam a impulsionar o ecossistema. Se gosta da Vite, o convidamos a participar e a ajudar-nos. Consultar o nosso [Guia de Colaboração](https://github.com/vitejs/vite/blob/main/CONTRIBUTING.md), começar a fazer [triagem de problemas](https://github.com/vitejs/vite/issues), [revisar os PRs](https://github.com/vitejs/vite/pulls), responder perguntas nas [Discussões da GitHub](https://github.com/vitejs/vite/discussions) e a ajudar outras pessoas da comunidade na [Vite Land](https://chat.vite.dev).
 
 ## Agradecimentos {#acknowledgments}
 

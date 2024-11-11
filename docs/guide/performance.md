@@ -29,7 +29,7 @@ No entanto, o desempenho das extensões da comunidade está fora do controlo da 
    Nós podemos inspecionar a duração do tempo que demora para transformar um ficheiro  usando `vite --debug plugin-transform` ou [`vite-plugin-inspect]`(https://github.com/antfu/vite-plugin-inspect). Nota que, uma vez que as operações assíncronas tendem a fornecer tempos imprecisos, devemos tratar os números como uma estimativa grosseira, mas ainda deve revelar as operações mais extensas. Para definir variáveis de ambientes na plataforma Windows, precisamos consultar a [documentação](https://github.com/debug-js/debug?tab=readme-ov-file#windows-command-prompt-notes).
 
 :::tip Perfilamento
-Nós podemos executar `vite --profile`, visitar a aplicação, e pressionar `p + enter` no nosso terminal para registar um `.cpuprofile`. Uma ferramenta como [`speedscope`](https://www.speedscope.app) pode então ser usada para inspecionar o perfil e identificar os gargalos. Nós também podemos [partilhar os perfis](https://chat.vitejs.dev) com a equipa da Vite para ajudá-los a identificarem os problemas de desempenho.
+Nós podemos executar `vite --profile`, visitar a aplicação, e pressionar `p + enter` no nosso terminal para registar um `.cpuprofile`. Uma ferramenta como [`speedscope`](https://www.speedscope.app) pode então ser usada para inspecionar o perfil e identificar os gargalos. Nós também podemos [partilhar os perfis](https://chat.vite.dev) com a equipa da Vite para ajudá-los a identificarem os problemas de desempenho.
 :::
 
 ## Reduzir as Operações de Resolução {#reduce-resolve-operations}
