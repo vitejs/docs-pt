@@ -106,10 +106,7 @@ Então podemos colocar o recurso num diretório `public` especial sob a raiz do 
 
 O diretório é predefinido para `<root>/public`, mas pode ser configurado através da [opção `publicDir`](/config/shared-options#publicdir).
 
-Nota que:
-
-- Nós sempre devemos referenciar os recursos do `public` usando o caminho absoluto da raiz - por exemplo, `public/icon.png` deve ser referenciado no código-fonte como `/icon.png`.
-- Os recursos no `public` não podem ser importados a partir do código de JavaScript.
+Nota que sempre devemos referenciar os recursos do diretório `public` usando o caminho absoluto da raiz - por exemplo, `public/icon.png` deve ser referenciado no código-fonte como `/icon.png`.
 
 ## `new URL(url, import.meta.url)` {#new-url-url-import-meta-url}
 
