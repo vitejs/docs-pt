@@ -162,6 +162,35 @@ Por exemplo, para fazer a importação padrão dum componente `*.svg` de React:
 
 :::
 
+## HTML {#html}
+
+Os ficheiros de marcação de hipertexto `.html` estão [na frente e no centro](/guide/#index-html-and-project-root) de um projeto de Vite, servindo como pontos de entrada para a nossa aplicação, tornando simples a criação de aplicações de página única e de [várias páginas](/guide/build#multi-page-app).
+
+Quaisquer ficheiros de marcação de hipertexto na raiz do nosso projeto pode ser diretamente acessado por seu respetivo caminho de diretório:
+
+- `<root>/index.html` -> `http://localhost:5173/`
+- `<root>/about.html` -> `http://localhost:5173/about.html`
+- `<root>/blog/index.html` -> `http://localhost:5173/blog/index.html`
+
+Os elementos da linguagem de marcação de hipertexto tais como os marcadores `<script type="module">` e `<link href>` são processados por predefinição, o que permite utilizar as funcionalidades da Vite nos ficheiros hiperligados. Os elementos gerais de recursos, tais como `<img src>`, `<video src>` e `<source src>`, também são rebaseados para garantir que são otimizados e hiperligados ao caminho correto:
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+    <img src="/src/images/logo.svg" alt="logo" />
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
+```
+
+Para optar por não processar a marcação de hipertexto em determinados elementos, podemos adicionar o atributo `vite-ignore` ao elemento, o que pode ser útil ao referenciar os recursos externos ou rede de entrega de conteúdo.
+
 ## Vue {#vue}
 
 A Vite fornece suporte de Vue de primeira classe:
