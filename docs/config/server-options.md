@@ -208,11 +208,11 @@ export default defineConfig({
 
 - **Tipo:** `object | null`
 
-Opções do observador do sistema de ficheiro para passar ao [`chokidar`](https://github.com/paulmillr/chokidar#api).
+Opções do observador do sistema de ficheiro para passar ao [`chokidar`](https://github.com/paulmillr/chokidar#getting-started). Se a opção `ignored` for passada, a Vite também converterá automaticamente quaisquer sequências de caracteres como [padrões `picomatch`](https://github.com/micromatch/picomatch#globbing-features).
 
 O observador do servidor da Vite observa o `root` e ignora os diretórios `.git/`, `node_modules/`, e os diretórios `cacheDir` e `build.outDir` da Vite por padrão. Quando atualizamos um ficheiro observado, a Vite aplicará substituição de módulo instantânea e atualizar a página apenas se necessário.
 
-Se definida para `null`, nenhum ficheiro será observado. `server.watcher` fornecerá um emissor de evento compatível, mas chamar `add` ou `unwatch` não terá nenhum efeito.
+Se definida para `null`, nenhum ficheiro será observado. `server.watcher` não corresponderá quaisquer ficheiros e chamar `add` não terá nenhum efeito.
 
 :::warning Observando os Ficheiros no `node_modules`
 
