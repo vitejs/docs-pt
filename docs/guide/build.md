@@ -201,10 +201,10 @@ import Bar from './Bar.vue'
 export { Foo, Bar }
 ```
 
-Executar `vite build` com esta configuração usa uma predefinição de Rollup que é orientada para bibliotecas de entrega e produz dois formatos de pacote:
+Quando executamos o comando `vite build` com esta configuração, usamos uma predefinição da Rollup que é orientada às bibliotecas de envio e produz dois formatos de pacotes:
 
-- `es` e `umd` (para única entrada)
-- `es` e `cjs` (para  várias entradas)
+- `es` e `umd` (para uma única entrada)
+- `es` e `cjs` (para várias entradas)
 
 Os formatos podem ser configurados com a opção [`build.lib.formats`](/config/build-options#build-lib):
 
@@ -257,11 +257,11 @@ O `package.json` recomendado para a nossa biblioteca:
 
 :::
 
-### Suporte da CSS {#css-support}
+### Suporte de Folha de Estilo em Cascata {#css-support}
 
-Se nossa biblioteca importa qualquer folha de estilo, esta será empacotada como um único ficheiro de folha de estilo em cascata para além dos ficheiros `.js` construídos, por exemplo, `dist/my-lib.css`. O nome é predefinido pela `build.lib.fileName`, mas também pode ser alterada com [`build.lib.cssFileName`](/config/build-options#build-lib).
+Se a nossa biblioteca importar alguma folha de estilo em cascata, esta será empacotada como um único ficheiro `.css` para além dos ficheiros `.js`, por exemplo, `dist/my-lib.css`. O nome pré-definido é `build.lib.fileName`, mas também pode ser alterado como [`build.lib.cssFileName`](/config/build-options#build-lib).
 
-Podemos exportar o ficheiro de folha de estilo no nosso `package.json` para ser importado pelos utilizadores:
+Podemos exportar o ficheiro `.css` no nosso `package.json` para ser importado pelos utilizadores:
 
 ```json {12}
 {
