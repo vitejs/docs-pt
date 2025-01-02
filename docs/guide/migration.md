@@ -108,6 +108,7 @@ There are other breaking changes which only affect few users.
     <summary>Click to expand example</summary>
 
     ```ts twoslash
+    // @errors: 2307 7031 2339
     import type { Plugin, EnvironmentModuleNode } from 'vite'
 
     function hmrReload(): Plugin {
