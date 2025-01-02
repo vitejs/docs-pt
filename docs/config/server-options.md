@@ -332,14 +332,6 @@ export default defineConfig({
 
 Lista de bloqueio para ficheiros sensíveis sendo restringidos de serem servidos pelo servidor de desenvolvimento da Vite. Isto terá uma prioridade superior a [`server.fs.allow`](#server-fs-allow). [Os padrões `picomatch`](https://github.com/micromatch/picomatch#globbing-features) são suportados.
 
-## `server.fs.cachedChecks` {#server-fs-cachedchecks}
-
-- **Tipo:** `boolean`
-- **Predefinida como:** `false`
-- **Experimental**
-
-Armazena transitoriamente os nomes dos ficheiros dos diretórios acessados para evitar operações repetidas do sistema de ficheiros. Particularmente no Windows, isto pode resultar em um aumento de desempenho. Está desativada por predefinição devido a casos extremos quando se escreve um ficheiro numa pasta armazenada transitoriamente e o importa imediatamente.
-
 ## `server.origin` {#server-origin}
 
 - **Tipo:** `string`
