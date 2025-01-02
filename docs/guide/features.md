@@ -164,15 +164,23 @@ Por exemplo, para fazer a importação padrão dum componente `*.svg` de React:
 
 ## HTML {#html}
 
-Os ficheiros de marcação de hipertexto `.html` estão [na frente e no centro](/guide/#index-html-and-project-root) de um projeto de Vite, servindo como pontos de entrada para a nossa aplicação, tornando simples a criação de aplicações de página única e de [várias páginas](/guide/build#multi-page-app).
+<!-- Os ficheiros de marcação de hipertexto `.html` estão [na frente e no centro](/guide/#index-html-and-project-root) de um projeto de Vite, servindo como pontos de entrada para a nossa aplicação, tornando simples a criação de aplicações de página única e de [várias páginas](/guide/build#multi-page-app). -->
+Os ficheiros referenciados por elementos da linguagem de marcação de hipertexto tais como `<script type="module">` e `<link href>` são processados e empacotados como parte da aplicação. Elementos de recursos gerais também podem referenciar recursos a serem otimizados por padrão, incluindo:
 
-Quaisquer ficheiros de marcação de hipertexto na raiz do nosso projeto pode ser diretamente acessado por seu respetivo caminho de diretório:
-
-- `<root>/index.html` -> `http://localhost:5173/`
-- `<root>/about.html` -> `http://localhost:5173/about.html`
-- `<root>/blog/index.html` -> `http://localhost:5173/blog/index.html`
-
-Os elementos da linguagem de marcação de hipertexto tais como os marcadores `<script type="module">` e `<link href>` são processados por predefinição, o que permite utilizar as funcionalidades da Vite nos ficheiros hiperligados. Os elementos gerais de recursos, tais como `<img src>`, `<video src>` e `<source src>`, também são rebaseados para garantir que são otimizados e hiperligados ao caminho correto:
+- `<audio src>`
+- `<embed src>`
+- `<img src>` e `<img srcset>`
+- `<image src>`
+- `<input src>`
+- `<link href>` e `<link imagesrcet>`
+- `<object data>`
+- `<source src>` e `<source srcset>`
+- `<track src>`
+- `<use href>` e `<use xlink:href>`
+- `<video src>` e `<video poster>`
+- `<meta content>`
+  - Só se o atributo `name` corresponder ao `msapplication-tileimage`, `msapplication-square70x70logo`, `msapplication-square150x150logo`, `msapplication-wide310x150logo`, `msapplication-square310x310logo`, `msapplication-config`, ou `twitter:image`
+  - Ou só se o atributo `property` corresponder ao `og:image`, `og:image:url`, `og:image:secure_url`, `og:audio`, `og:audio:secure_url`, `og:video`, ou `og:video:secure_url`
 
 ```html
 <!doctype html>
@@ -182,7 +190,6 @@ Os elementos da linguagem de marcação de hipertexto tais como os marcadores `<
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <div id="app"></div>
     <img src="/src/images/logo.svg" alt="logo" />
     <script type="module" src="/src/main.js"></script>
   </body>
