@@ -102,14 +102,16 @@ export default defineConfig({
       // http://localhost:5173/foo -> http://localhost:4567/foo
       '/foo': 'http://localhost:4567',
       // com opções:
-      // http://localhost:5173/api/bar-> http://jsonplaceholder.typicode.com/bar
+      // http://localhost:5173/api/bar ->
+      // http://jsonplaceholder.typicode.com/bar
       '/api': {
         target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       },
       // com expressões regulares:
-      // http://localhost:5173/fallback/ -> http://jsonplaceholder.typicode.com/
+      // http://localhost:5173/fallback/ ->
+      // http://jsonplaceholder.typicode.com/
       '^/fallback/.*': {
         target: 'http://jsonplaceholder.typicode.com',
         changeOrigin: true,
@@ -254,16 +256,21 @@ async function createServer() {
   // Cria um servidor de Vite no modo intermediário.
   const vite = await createViteServer({
     server: { middlewareMode: true },
-    appType: 'custom' // não inclui os intermediários de manipulação de HTML padrão da Vite
+    // não incluir os intermediários de manipulação da
+    // linguagem de marcação de hipertexto padrão da Vite
+    appType: 'custom'
   })
-  // Utiliza instância de conexão da Vite como intermediário
+  // Utilizar instância de conexão da Vite como intermediário
   app.use(vite.middlewares)
 
   app.use('*', async (req, res) => {
     // Já que `appType` é `'custom'`, deve servir a resposta aqui.
-    // Nota: se `appType` for `'spa'` ou `'mpa'`, a Vite inclui os intermediários para manipular as
-    // requisições de HTML e 404s assim os intermediários do utilizador
-    // devem ser adicionados antes dos intermediários da Vite para ter efeito
+    // Nota: se `appType` for `'spa'` ou `'mpa'`,
+    // a Vite inclui os intermediários para manipular as
+    // requisições da linguagem de marcação de hipertexto
+    // e 404s assim os intermediários do utilizador
+    // devem ser adicionados antes dos intermediários
+    // da Vite para surtirem efeito
   })
 }
 
