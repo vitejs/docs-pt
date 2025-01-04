@@ -164,8 +164,9 @@ Por exemplo, para fazer a importação padrão dum componente `*.svg` de React:
 
 ## HTML {#html}
 
-<!-- Os ficheiros de marcação de hipertexto `.html` estão [na frente e no centro](/guide/#index-html-and-project-root) de um projeto de Vite, servindo como pontos de entrada para a nossa aplicação, tornando simples a criação de aplicações de página única e de [várias páginas](/guide/build#multi-page-app). -->
-Os ficheiros referenciados por elementos da linguagem de marcação de hipertexto tais como `<script type="module">` e `<link href>` são processados e empacotados como parte da aplicação. Elementos de recursos gerais também podem referenciar recursos a serem otimizados por padrão, incluindo:
+Os ficheiros de marcação de hipertexto `.html` estão [na frente e no centro](/guide/#index-html-and-project-root) de um projeto de Vite, servindo como pontos de entrada para a nossa aplicação, simplificando a criação de aplicações compostas por uma única página e de [várias páginas](/guide/build#multi-page-app).
+
+Os recursos referenciados por elementos da linguagem de marcação de hipertexto tais como `<script type="module" src>` e `<link href>` são processados e empacotados como parte da aplicação. A lista completa de elementos suportados é a seguinte:
 
 - `<audio src>`
 - `<embed src>`
@@ -174,6 +175,7 @@ Os ficheiros referenciados por elementos da linguagem de marcação de hipertext
 - `<input src>`
 - `<link href>` e `<link imagesrcet>`
 - `<object data>`
+- `<script type="module" src>`
 - `<source src>` e `<source srcset>`
 - `<track src>`
 - `<use href>` e `<use xlink:href>`
