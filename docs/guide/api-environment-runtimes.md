@@ -165,6 +165,7 @@ await moduleRunner.import('/src/entry-point.js')
 ## `ModuleRunnerOptions`
 
 ```ts twoslash
+// @errors: 2307
 import type {
   InterceptorOptions as InterceptorOptionsRaw,
   ModuleRunnerHmr as ModuleRunnerHmrRaw,
@@ -215,6 +216,7 @@ interface ModuleRunnerOptions {
 **Type Signature:**
 
 ```ts twoslash
+// @errors: 2307
 import type { ModuleRunnerContext as ModuleRunnerContextRaw } from 'vite/module-runner'
 import type { Debug } from '@type-challenges/utils'
 
@@ -252,6 +254,7 @@ Vite exports `ESModulesEvaluator` that implements this interface by default. It 
 **Type Signature:**
 
 ```ts twoslash
+// @errors: 2307
 import type { ModuleRunnerTransportHandlers } from 'vite/module-runner'
 /** an object */
 type HotPayload = unknown
