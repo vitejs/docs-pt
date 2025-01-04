@@ -92,10 +92,10 @@ As variáveis de ambiente podem ser obtidas a partir de `process.env` como de co
 
 Nota que a Vite não carrega os ficheiros `.env` por padrão visto que os ficheiros à carregar apenas podem ser determinados depois de avaliar a configuração da Vite, por exemplo, as opções `root` e `envDir` afetam o comportamento do carregamento. No entanto, podemos usar a auxiliar `loadEnv` exportada para carregar o ficheiro `.env` especifico se necessário:
 
-```js
+```js twoslash
 import { defineConfig, loadEnv } from 'vite'
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   // Carregar o ficheiro de ambiente baseado no `mode` no
   // diretório de trabalho atual.
   // Definir o terceiro parâmetro para '' para carregar todos os
