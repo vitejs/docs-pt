@@ -3,7 +3,7 @@
 - Relacionado com: [Caminho de Base Pública](./build#public-base-path)
 - Relacionado com: [opção de configuração `assetsInclude`](/config/shared-options#assetsinclude)
 
-## Importando o Recurso como URL {#importing-asset-as-url}
+## Importação de Recurso como URL {#importing-asset-as-url}
 
 A importação dum recurso estático retornará a URL pública resolvida quando esta for servida:
 
@@ -55,7 +55,18 @@ import workletURL from 'extra-scalloped-border/worklet.js?url'
 CSS.paintWorklet.addModule(workletURL)
 ```
 
-### Importando Recurso como Sequência de Caracteres {#importing-asset-as-string}
+### Manipulação Explícita Incorporada {#explicit-inline-handling}
+
+Os recursos podem ser importados explicitamente com incorporação ou sem incorporação ao usar-se o sufixo `?inline` ou `?no-inline` respetivamente:
+
+```js twoslash
+import 'vite/client'
+// ---cut---
+import imgUrl1 from './img.svg?no-inline'
+import imgUrl2 from './img.png?inline'
+```
+
+### Importação de Recurso como Sequência de Caracteres {#importing-asset-as-string}
 
 Os recursos podem ser importados como sequências de caracteres usando o sufixo `?raw`:
 
@@ -65,7 +76,7 @@ import 'vite/client'
 import shaderString from './shader.glsl?raw'
 ```
 
-### Importando Programa como um Operário {#importing-script-as-a-worker}
+### Importação de Programa como um Operário {#importing-script-as-a-worker}
 
 Os programas podem ser importados como operários da Web com o sufixo `?worker` ou `?sharedworker`:
 
