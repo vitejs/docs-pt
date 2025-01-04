@@ -115,8 +115,9 @@ Para construções da interpretação do lado do servidor, a eliminação de dup
 ## `resolve.conditions` {#resolve-conditions}
 
 - **Tipo:** `string[]`
+- **Predefinida como:** `['module', 'browser', 'development|production']`
 
-Além das condições permitidas quando resolvemos as [Exportações Condicionais](https://nodejs.org/api/packages.html#packages_conditional_exports) dum pacote.
+Condições adicionais permitidas ao resolver [Exportações Condicionais](https://nodejs.org/api/packages.html#packages_conditional_exports) a partir de um pacote.
 
 Um pacote com exportações condicionais pode ter o seguinte campo `exports` no seu `package.json`:
 
@@ -131,11 +132,13 @@ Um pacote com exportações condicionais pode ter o seguinte campo `exports` no 
 }
 ```
 
-Aqui, `import` e `require` são "condições". As condições podem ser encaixados e devem ser especificados a partir do mais específico ao menos específico.
+Neste exemplo, `import` e `require` são "condições". As condições podem ser encaixados e devem ser especificados a partir do mais específico ao menos específico.
 
-A Vite tem uma lista de "condições permitidas" e corresponderá a primeira condição que está na lista permitida. As condições permitidas padrão são: `import`, `module`, `browser`, `default`, e `production/development` baseado no modo atual. A opção de configuração `resolve.conditions` permite especificar condições permitidas adicionais.
+`development|production` é um valor especial que é substituído por `production` ou `development` dependendo do valor de `process.env.NODE_ENV`. É substituído por `production` quando `process.env.NODE_ENV == 'production'` e `development` caso contrário.
 
-:::warning Resolução das Exportações do Sub-caminho
+Notemos que as condições `import`, `require`, `default` são sempre aplicadas se os requisitos forem cumpridos.
+
+:::warning Resolução de Exportações de Sub-caminhos
 As chaves de exportação que terminam com "/" está depreciada pela Node e podem não funcionar bem. Contacte o autor do pacote para usar [padrões de sub-caminho `*`](https://nodejs.org/api/packages.html#package-entry-points).
 :::
 

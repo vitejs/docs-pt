@@ -32,15 +32,15 @@ Alvo da construção para o servidor da interpretação do lado do servidor.
 ## `ssr.resolve.conditions` {#srr-resolve-conditions}
 
 - **Tipo:** `string[]`
+- **Predefinida como:** `['module', 'node', 'development|production']` (`['module', 'browser', 'development|production']` for `ssr.target === 'webworker'`)
 - **Relacionada às:** [Condições de Resolução](./shared-options#resolve-conditions)
 
-Predefine para a [`resolve.conditions`](./shared-options#resolve-conditions) de raiz.
 
-Estas condições são usadas na conduta de extensão, e apenas afetam as dependências não são exteriorizadas durante a construção da interpretação do lado do servidor. Usamos `ssr.resolve.externalConditions` para afetar as importações exteriorizadas.
+Estas condições são usadas na conduta de extensão, e apenas afetam as dependências que não são exteriorizadas durante a construção de aplicações interpretadas do lado do servidor. Usamos `ssr.resolve.externalConditions` para afetar as importações exteriorizadas.
 
 ## `ssr.resolve.externalConditions` {#ssr-resolve-externalconditions}
 
 - **Tipo:** `string[]`
-- **Predefinido como:** `[]`
+- **Predefinida como:** `['node']`
 
-Condições usadas durante a importação da interpretação do lado do servidor (incluindo `ssrLoadModule`) das dependências exteriorizadas.
+Condições usadas durante a importação da aplicação interpretada do lado do servidor (incluindo `ssrLoadModule`) das dependências exteriorizadas.
