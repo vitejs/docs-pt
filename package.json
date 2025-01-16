@@ -48,7 +48,7 @@
     "@algolia/client-search": "^5.18.0",
     "@shikijs/vitepress-twoslash": "^1.26.1",
     "@types/express": "^5.0.0",
-    "@types/node": "22.10.6",
+    "@types/node": "22.10.7",
     "@types/react": "^19.0.2",
     "feed": "^4.2.2",
     "gsap": "^3.12.5",
