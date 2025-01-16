@@ -32,7 +32,7 @@ importers:
         version: 4.2.2
       gsap:
         specifier: ^3.12.5
-        version: 3.12.5
+        version: 3.12.7
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -795,8 +795,8 @@ packages:
     resolution: {integrity: sha512-OkToC372DtlQeje9/zHIo5CT8lRP/FUgEOKBEhU4e0abL7J7CD24fD9ohiLN5hagG/kWCYj4K5oaxxtj2Z0Dig==}
     engines: {node: '>=18'}
 
-  gsap@3.12.5:
-    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+  gsap@3.12.7:
+    resolution: {integrity: sha512-V4GsyVamhmKefvcAKaoy0h6si0xX7ogwBoBSs2CTJwt7luW0oZzC0LhdkyuKV8PJAXr7Yaj8pMjCKD4GJ+eEMg==}
 
   hast-util-to-html@9.0.4:
     resolution: {integrity: sha512-wxQzXtdbhiwGAUKrnQJXlOPmHnEehzphwkK7aluUPQ+lEc1xefC8pblMgpp2w5ldBTEfveRIrADcrhGIWrlTDA==}
@@ -1958,7 +1958,7 @@ snapshots:
 
   globals@15.14.0: {}
 
-  gsap@3.12.5: {}
+  gsap@3.12.7: {}
 
   hast-util-to-html@9.0.4:
     dependencies:
