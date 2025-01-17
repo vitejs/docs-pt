@@ -22,7 +22,6 @@ export const core = [
     desc: 'Membro da equipa principal da Vite, e membro da equipa da Vue.js.',
     links: [
       { icon: 'github', link: 'https://github.com/patak-dev' },
-      { icon: 'x', link: 'https://x.com/patak_dev' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@patak' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/patak.dev' },
     ],
@@ -37,7 +36,6 @@ export const core = [
     desc: 'Um desenvolvedor fanático por código-aberto. Membro da equipa principal da Vite e Vue. Trabalhando na NuxtLabs.',
     links: [
       { icon: 'github', link: 'https://github.com/antfu' },
-      { icon: 'x', link: 'https://x.com/antfu7' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@antfu' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/antfu.me' },
     ],
@@ -47,10 +45,9 @@ export const core = [
     avatar: 'https://github.com/bluwy.png',
     name: 'Bjorn Lu',
     title: 'Programador',
-    desc: 'Desenvolvedor de projetos de código-aberto. Residência principal da Astro. Membro da equipa principal da Svelte e da Vite.',
+    desc: 'Desenvolvedor de projetos de código-aberto. Membro da equipa principal da Vite, Astro, e Svelte.',
     links: [
       { icon: 'github', link: 'https://github.com/bluwy' },
-      { icon: 'x', link: 'https://x.com/bluwyoo' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@bluwy' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/bluwy.me' },
     ],
@@ -63,7 +60,8 @@ export const core = [
     desc: 'Membro da equipa principal da Vite. Chama-me safira ou verde, ou verdura 😉',
     links: [
       { icon: 'github', link: 'https://github.com/sapphi-red' },
-      { icon: 'x', link: 'https://x.com/sapphi_red' },
+      { icon: 'bluesky', link: 'https://bsky.app/profile/sapphi.red' },
+      { icon: 'twitter', link: 'https://twitter.com/sapphi_red' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@sapphi_red' },
     ],
     sponsor: 'https://github.com/sponsors/sapphi-red',
@@ -75,7 +73,6 @@ export const core = [
     desc: 'Desenvolvedor apaixonado pelo ferramental em torno da TypeScript e React.',
     links: [
       { icon: 'github', link: 'https://github.com/ArnaudBarre' },
-      { icon: 'x', link: 'https://x.com/_ArnaudBarre' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@ArnaudBarre' },
       {
         icon: 'bluesky',
@@ -103,7 +100,6 @@ export const core = [
     links: [
       { icon: 'github', link: 'https://github.com/sheremet-va' },
       { icon: 'mastodon', link: 'https://elk.zone/m.webtoo.ls/@sheremet_va' },
-      { icon: 'x', link: 'https://x.com/sheremet_va' },
       { icon: 'bluesky', link: 'https://bsky.app/profile/erus.dev' },
     ],
     sponsor: 'https://github.com/sponsors/sheremet-va',
@@ -115,7 +111,7 @@ export const core = [
     desc: 'Entusiasta do Código-Aberto',
     links: [
       { icon: 'github', link: 'https://github.com/hi-ogawa' },
-      { icon: 'x', link: 'https://x.com/hiroshi_18181' },
+      { icon: 'bluesky', link: 'https://bsky.app/profile/hiogawa.bsky.social' },
     ],
     sponsor: 'https://github.com/sponsors/hi-ogawa',
   },
