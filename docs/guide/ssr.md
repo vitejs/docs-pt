@@ -67,7 +67,7 @@ Isto é substituído estaticamente durante a construção, assim esta permitirá
 
 ## Configurando o Servidor de Desenvolvimento {#setting-up-the-dev-server}
 
-Quando construirmos uma aplicação de Interpretação do Lado do Servidor, provavelmente queremos ter controlo total sobre o nosso servidor principal e dissociar a Vite do ambiente de produção. É portanto recomendado usar a Vite no modo intermediário. Eis um exemplo com a [express](https://expressjs.com/):
+Quando construirmos uma aplicação de Interpretação do Lado do Servidor, provavelmente queremos ter controlo total sobre o nosso servidor principal e dissociar a Vite do ambiente de produção. É portanto recomendado usar a Vite no modo intermediário. Eis um exemplo com a [express](https://expressjs.com/) (v4):
 
 ```js{15-18} twoslash [server.js]
 import fs from 'node:fs'
