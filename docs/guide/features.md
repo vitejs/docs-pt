@@ -173,7 +173,7 @@ Os recursos referenciados por elementos da linguagem de marcação de hipertexto
 - `<img src>` e `<img srcset>`
 - `<image src>`
 - `<input src>`
-- `<link href>` e `<link imagesrcet>`
+- `<link href>` e `<link imagesrcset>`
 - `<object data>`
 - `<script type="module" src>`
 - `<source src>` e `<source srcset>`
