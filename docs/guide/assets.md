@@ -135,6 +135,7 @@ Este padrão suporta URLs dinâmicas através dos literais de modelo:
 
 ```js
 function getImageUrl(name) {
+  // notemos que isto não inclui ficheiros em subdiretórios
   return new URL(`./dir/${name}.png`, import.meta.url).href
 }
 ```
@@ -145,6 +146,22 @@ Durante a construção de produção, a Vite realizará as transformações nece
 // A Vite não transformará isto
 const imgUrl = new URL(imagePath, import.meta.url).href
 ```
+
+::: details Como Isto Funciona
+A Vite transformará a função `getImageUrl` para:
+
+```js
+import __img0png from './dir/img0.png'
+import __img1png from './dir/img1.png'
+function getImageUrl(name) {
+  const modules = {
+    './dir/img0.png': __img0png,
+    './dir/img1.png': __img1png,
+  }
+  return new URL(modules[`./dir/${name}.png`], import.meta.url).href
+}
+```
+:::
 
 :::warning NÃO FUNCIONA COM A INTERPRETAÇÃO DO LADO DO SERVIDOR
 Este padrão não funciona se estivermos usando a Vite para interpretação do lado do servidor, porque `import.meta.url` tem semânticas diferentes nos navegadores versus a Node.js. O pacote do servidor também não pode determinar antecipadamente a URL do hospedeiro do cliente.
