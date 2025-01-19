@@ -7,6 +7,7 @@ import TwoslashFloatingVue from '@shikijs/vitepress-twoslash/client'
 import '@shikijs/vitepress-twoslash/style.css'
 import './styles/vars.css'
 import './styles/landing.css'
+import YouTubeVideo from './components/YouTubeVideo.vue'
 import 'virtual:group-icons.css'
 
 export default {
@@ -18,6 +19,7 @@ export default {
   },
   enhanceApp({ app }) {
     app.component('SvgImage', SvgImage)
+    app.component('YouTubeVideo', YouTubeVideo)
     app.use(TwoslashFloatingVue)
   }
 } satisfies Theme
