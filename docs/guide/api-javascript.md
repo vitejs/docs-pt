@@ -114,7 +114,7 @@ interface ViteDevServer {
   /**
    * Chokidar watcher instance. If `config.server.watch` is set to `null`,
    * it will not watch any files and calling `add` will have no effect.
-   * https://github.com/paulmillr/chokidar#getting-started
+   * https://github.com/paulmillr/chokidar/tree/3.6.0#api
    */
   watcher: FSWatcher
   /**

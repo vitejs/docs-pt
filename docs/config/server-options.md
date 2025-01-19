@@ -210,11 +210,11 @@ export default defineConfig({
 
 - **Tipo:** `object | null`
 
-Opções do observador do sistema de ficheiro para passar ao [`chokidar`](https://github.com/paulmillr/chokidar#getting-started). Se a opção `ignored` for passada, a Vite também converterá automaticamente quaisquer sequências de caracteres como [padrões `picomatch`](https://github.com/micromatch/picomatch#globbing-features).
+Opções do observador do sistema de ficheiros para passar para [`chokidar`](https://github.com/paulmillr/chokidar/tree/3.6.0#api).
 
 O observador do servidor da Vite observa o `root` e ignora os diretórios `.git/`, `node_modules/`, e os diretórios `cacheDir` e `build.outDir` da Vite por padrão. Quando atualizamos um ficheiro observado, a Vite aplicará substituição de módulo instantânea e atualizar a página apenas se necessário.
 
-Se definida para `null`, nenhum ficheiro será observado. `server.watcher` não corresponderá quaisquer ficheiros e chamar `add` não terá nenhum efeito.
+Se definida como `null`, nenhum ficheiro será observado. `server.watcher` fornecerá um emissor de eventos compatível, mas chamar `add` ou `unwatch` não surtirá nenhum efeito.
 
 :::warning Observando os Ficheiros no `node_modules`
 
@@ -231,7 +231,7 @@ Para corrigir isto, poderias tanto:
 - **Recomendado**: Utilizar aplicações de WSL2 para editar os teus ficheiros.
   - Também é recomendado mover a pasta do projeto para fora de um sistema de ficheiro do Windows. A remoção deste custo geral melhorará o desempenho.
 - Definir `{ usePolling: true }`.
-  - Nota que [`usePolling` leva para alta utilização da CPU](https://github.com/paulmillr/chokidar#performance).
+  - Nota que [`usePolling` leva para alta utilização da CPU](https://github.com/paulmillr/chokidar/tree/3.6.0#performance).
 
 :::
 
