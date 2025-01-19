@@ -98,6 +98,7 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    - O manifesto tem uma estrutura de `Record<name, chunk>`
    - Para a entrada ou pedaços de entrada dinâmica, a chave é o caminho de origem relativo a partir da raiz do projeto.
    - Para os pedaços que não forem de entrada, a chave é nome da base do ficheiro gerado prefixado com `_`.
+   - Para o ficheiro de folha de estilo gerado quando [`build.cssCodeSplit`](/config/build-options#build-csscodesplit) for `false`, a chave é `style.css`.
    - Os pedaços conterão informação sobre as suas importações estáticas e dinâmicas (ambas são chaves que mapeiam para o pedaço correspondente no manifesto), e também os seus ficheiros de CSS e recursos correspondentes (se existirem).
 
 4. Nós podemos usar este ficheiro para desenhar as ligações ou pré-carregar as diretivas com nomes de ficheiros compostos por caracteres pseudo-aleatórios.
