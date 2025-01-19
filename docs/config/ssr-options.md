@@ -43,4 +43,10 @@ Estas condições são usadas na conduta de extensão, e apenas afetam as depend
 - **Tipo:** `string[]`
 - **Predefinida como:** `['node']`
 
-Condições usadas durante a importação da aplicação interpretada do lado do servidor (incluindo `ssrLoadModule`) das dependências exteriorizadas.
+Condições usadas durante a importação da aplicação interpretada do lado do servidor (incluindo `ssrLoadModule`) das dependências diretas exteriorizadas (dependências externas importadas pela Vite).
+
+:::tip DICA
+Quando usamos esta opção, devemos executar a Node com [opção `--conditions`](https://nodejs.org/docs/latest/api/cli.html#-c-condition---conditionscondition) com os mesmos valores em ambos desenvolvimento e construção para obtermos um comportamento consistente.
+
+Por exemplo, quando definimos `['node', 'custom']`, devemos executar `NODE_OPTIONS='--conditions custom' vite` em desenvolvimento e `NODE_OPTIONS="--conditions custom" node ./dist/server.js` depois da construção.
+:::
