@@ -115,9 +115,9 @@ Para construções da interpretação do lado do servidor, a eliminação de dup
 ## `resolve.conditions` {#resolve-conditions}
 
 - **Tipo:** `string[]`
-- **Predefinida como:** `['module', 'browser', 'development|production']`
+- **Predefinida como:** `['module', 'browser', 'development|production']` (`defaultClientConditions`)
 
-Condições adicionais permitidas ao resolver [Exportações Condicionais](https://nodejs.org/api/packages.html#packages_conditional_exports) a partir de um pacote.
+Condições adicionais permitidas quando resolvemos [Exportações Condicionais](https://nodejs.org/api/packages.html#packages_conditional_exports) a partir de um pacote.
 
 Um pacote com exportações condicionais pode ter o seguinte campo `exports` no seu `package.json`:
 
@@ -145,9 +145,9 @@ As chaves de exportação que terminam com "/" está depreciada pela Node e pode
 ## `resolve.mainFields` {#resolve-mainfields}
 
 - **Tipo:** `string[]`
-- **Predefinido como:** `['browser', 'module', 'jsnext:main', 'jsnext']`
+- **Predefinido como:** `['browser', 'module', 'jsnext:main', 'jsnext']` (`defaultClientMainFields`)
 
-A lista de campos no `package.json` para experimentar quando resolvemos um ponto de entrada do pacote. Nota que isto recebe menor prioridade  do que as exportações condicionais resolvidas a partir do campo `exports`: se um ponto de entrada for resolvido com sucesso a partir do `exports`, o campo principal será ignorado.
+Lista de campos no `package.json` para experimentar quando resolvemos um ponto de entrada do pacote. Nota que isto recebe menor prioridade  do que as exportações condicionais resolvidas a partir do campo `exports`: se um ponto de entrada for resolvido com sucesso a partir do `exports`, o campo principal será ignorado.
 
 ## `resolve.extensions` {#resolve-extensions}
 

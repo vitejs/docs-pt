@@ -32,7 +32,7 @@ Alvo da construção para o servidor da interpretação do lado do servidor.
 ## `ssr.resolve.conditions` {#srr-resolve-conditions}
 
 - **Tipo:** `string[]`
-- **Predefinida como:** `['module', 'node', 'development|production']` (`['module', 'browser', 'development|production']` for `ssr.target === 'webworker'`)
+- **Predefinida como:** `['module', 'node', 'development|production']` (`defaultServerConditions`) (`['module', 'browser', 'development|production']` (`defaultClientConditions`) para `ssr.target === 'webworker'`)
 - **Relacionada às:** [Condições de Resolução](./shared-options#resolve-conditions)
 
 
