@@ -29,6 +29,8 @@ A Vite usa o pacote [`dotenv`](https://github.com/motdotla/dotenv) para carregar
 
 Um ficheiro de ambiente para um modo específico (por exemplo, `.env.production`) receberá prioridade superior à um genérico (por exemplo, `.env`).
 
+A Vite sempre carregará o `.env` e o `.env.local` além do ficheiro de específico de modo `.env.[mode]`. As variáveis declaradas nos ficheiros específicos de modo terão precedência sobre aquelas em ficheiros genéricos, mas variáveis definidas apenas no `.env` ou `.env.local` ainda estarão disponíveis no ambiente.
+
 Além disto, as variáveis de ambiente que já existiam quando a Vite for executada têm a prioridade muito superior e não serão sobrescritas pelos ficheiros `.env`. Por exemplo, quando executamos `VITE_SOME_KEY=123 vite build`.
 
 Os ficheiros `.env` são carregados durante a inicialização da Vite. Reinicia o servidor depois de fazermos mudanças.
