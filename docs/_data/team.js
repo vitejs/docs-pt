@@ -115,6 +115,12 @@ export const core = [
     ],
     sponsor: 'https://github.com/sponsors/hi-ogawa',
   },
+  {
+    avatar: 'https://github.com/btea.png',
+    name: 'btea',
+    title: 'Programador da Web',
+    links: [{ icon: 'github', link: 'https://github.com/btea' }],
+  },
 ]
 
 export const emeriti = [
