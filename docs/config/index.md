@@ -8,8 +8,7 @@ Quando executamos a `vite` a partir da linha de comando, a Vite tentará resolve
 
 O ficheiro de configuração mais elementar parece-se com isto:
 
-```js
-// vite.config.js
+```js [vite.config.js]
 export default {
   // opções de configuração
 }
