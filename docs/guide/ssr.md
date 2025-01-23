@@ -12,10 +12,6 @@ Isto é uma API de baixo nível destinada aos autores de biblioteca e abstraçã
 Atualmente, a Vite está trabalhando uma API de interpretação do lado do servidor melhorada com a [API de Ambiente](https://github.com/vitejs/vite/discussions/16358). Consultar a hiperligação por mais detalhes.
 :::
 
-:::tip APOIO
-Se tivermos questões, a comunidade é normalmente útil no [canal da `#ssr` da Discord da Vite](https://discord.gg/PkbxgzPhJv).
-:::
-
 ## Projetos de Exemplo {#example-projects}
 
 Vite fornece suporte embutido para interpretação do lado do servidor (SSR, sigla em Inglês). A [`create-vite-extra`](https://github.com/bluwy/create-vite-extra) contém configurações de Interpretação do Lado do Servidor de exemplo que podemos usar como referência para este guia:
