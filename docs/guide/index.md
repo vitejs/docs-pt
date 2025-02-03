@@ -20,11 +20,11 @@ Nós podemos aprender mais a respeito do fundamento lógico por trás do projeto
 
 ## Suporte do Navegador {#browser-support}
 
-O construção padrão dirige-se aos navegadores que suportam [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de módulos de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta). Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial - consulte a seção [Construindo para Produção](./build) por mais detalhes.
+Para construção de produção, por predefinição a Vite tem como alvo os navegadores que suportam JavaScript moderno, tais como [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de módulos de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta), [união nula](https://caniuse.com/mdn-javascript_operators_nullish_coalescing), e [`BigInt`](https://caniuse.com/bigint). Os navegadores antigos podem ser suportados através do [`@vitejs/plugin-legacy`](https://github.com/vitejs/vite/tree/main/packages/plugin-legacy) oficial - consulte a secção [Construção de Produção](./build) por mais detalhes.
 
-## Experimentando a Vite Online {#trying-vite-online}
+## Experimentar a Vite no Navegador {#trying-vite-online}
 
-Nós podemos experimentar a Vite online na [StackBlitz](https://vite.new/). Esta executa a configuração de construção baseada em Vite diretamente no navegador, assim é quase idêntica a configuração local mas não exige a instalação de nada na nossa máquina. Nós podemos navegar para `vite.new/{template}` para selecionar a abstração que queremos usar.
+Nós podemos experimentar a Vite no navegador através da [StackBlitz](https://vite.new/). Esta executa a configuração de construção baseada em Vite diretamente no navegador, assim é quase idêntica a configuração local mas não exige a instalação de nada na nossa máquina. Nós podemos navegar para `vite.new/{template}` para selecionar a abstração que queremos usar.
 
 As pré-configurações de modelo de projeto suportadas são:
 

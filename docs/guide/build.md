@@ -4,7 +4,9 @@ Quando for o momento de implementar a nossa aplicação em produção, simplesme
 
 ## Compatibilidade do Navegador {#browser-compatibility}
 
-Por predefinição, o pacote de produção pressupõe suporte para JavaScript moderno, incluindo os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
+Por predefinição, o pacote de produção pressupõe suporte para JavaScript moderno, incluindo os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta), [união nula](https://caniuse.com/mdn-javascript_operators_nullish_coalescing), e [`BigInt`](https://caniuse.com/bigint). O intervalo de suporte do navegador predefinido é:
+
+<!-- Search for the `ESBUILD_MODULES_TARGET` constant for more information -->
 
 - Chrome >=87
 - Firefox >=78
@@ -13,6 +15,8 @@ Por predefinição, o pacote de produção pressupõe suporte para JavaScript mo
 
 Nós podemos especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
 Podemos especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo mais baixo é `es2015`. Se for definida um alvo mais baixo, a Vite continuará a exigir estes intervalos mínimos de suporte de navegador, uma vez que se baseia na [importação dinâmica de módulos de ECMAScript nativa](https://caniuse.com/es6-module-dynamic-import) e em [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
+
+<!-- Search for the `defaultEsbuildSupported` constant for more information -->
 
 - Chrome >=64
 - Firefox >=67
