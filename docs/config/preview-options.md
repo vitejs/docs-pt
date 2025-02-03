@@ -85,7 +85,9 @@ Utiliza [`http-proxy`](https://github.com/http-party/node-http-proxy). Opções 
 - **Tipo:** `boolean | CorsOptions`
 - **Predefinido como:** [`server.cors`](./server-options#server-cors)
 
-Configura o CORS para o servidor de pré-visualização. Isto está ativado por padrão e permite qualquer origem. Passa um [objeto de opções](https://github.com/expressjs/cors#configuration-options) para afinar bem o comportamento ou `false` para desativar.
+Configura a partilha de recursos entre origens (CORS) para o servidor de pré-visualização.
+
+Consultar [`server.cors`](./server-options#server-cors) por mais detalhes.
 
 ## `preview.headers` {#preview-headers}
 
