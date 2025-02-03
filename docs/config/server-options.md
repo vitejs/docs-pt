@@ -154,7 +154,7 @@ export default defineConfig({
 ## `server.cors` {#server-cors}
 
 - **Tipo:** `boolean | CorsOptions`
-- **Predefinida como:** `false`
+- **Predefinida como:** `{ origin: /^https?:\/\/(?:(?:[^:]+\.)?localhost|127\.0\.0\.1|\[::1\])(?::\d+)?$/ }` (permite `localhost`, `127.0.0.1` e `::1`)
 
 Configura a partilha de recursos entre origens (CORS) para o servidor de desenvolvimento. Passa um [objeto de opções](https://github.com/expressjs/cors#configuration-options) para ajustar o comportamento ou `true` para permitir qualquer origem.
 
