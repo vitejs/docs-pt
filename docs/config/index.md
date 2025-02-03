@@ -22,6 +22,10 @@ Nós também podemos especificar explicitamente um ficheiro de configuração à
 vite --config my-config.js
 ```
 
+:::tip EMPACOTAMENTO DA CONFIGURAÇÃO
+Por predefinição, a Vite usa a `esbuild` para empacotar a configuração num ficheiro temporário. Isto pode causar problemas ao importar ficheiros de TypeScript (`.ts`) em um mono-repositório. Se encontrarmos qualquer problema com esta abordagem, podemos especificar `--configLoader=runner` para usar o módulo executor — este não criará uma configuração temporária e transformará quaisquer ficheiros imediatamente. Notemos que o módulo executor não suporta CJS (CommonJS) em ficheiros de configuração, mas os pacotes de CJS externos devem funcionar como habitualmente.
+:::
+
 ## Configuração do Sensor Inteligente {#config-intellisense}
 
 Uma vez que a Vite disponibiliza-se com tipos de TypeScript, podemos influenciar o sensor inteligente do nosso ambiente de desenvolvimento integrado com sugestões de tipo da `jsdoc`:
