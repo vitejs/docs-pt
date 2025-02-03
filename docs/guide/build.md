@@ -105,8 +105,11 @@ Durante o desenvolvimento, simplesmente navegamos a ou ligamos ao `/nested/` - e
 Durante a construção, tudo o que precisamos fazer é especificar vários ficheiros `.html` como pontos de entrada:
 
 ```js twoslash [vite.config.js]
-import { resolve } from 'path'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   build: {
@@ -133,8 +136,11 @@ Na hora de empacotar a nossa biblioteca para distribuição, usamos a [opção d
 ::: code-group
 
 ```js twoslash [vite.config.js (single entry)]
-import { resolve } from 'path'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   build: {
@@ -163,8 +169,11 @@ export default defineConfig({
 ```
 
 ```js twoslash [vite.config.js (multiple entries)]
-import { resolve } from 'path'
+import { dirname, resolve } from 'node:path'
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
+
+const __dirname = dirname(fileURLToPath(import.meta.url))
 
 export default defineConfig({
   build: {
