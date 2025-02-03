@@ -12,6 +12,12 @@ Se precisarmos duma integração personalizada, podemos seguir os passos neste g
    import { defineConfig } from 'vite'
    // ---cut---
    export default defineConfig({
+      server: {
+       cors: {
+         // a origem que acederemos através do navegador
+         origin: 'http://my-backend.example.com',
+       },
+     },
      build: {
        // gera `.vite/manifest.json` no diretório de saída
        manifest: true,

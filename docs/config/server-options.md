@@ -154,8 +154,13 @@ export default defineConfig({
 ## `server.cors` {#server-cors}
 
 - **Tipo:** `boolean | CorsOptions`
+- **Predefinida como:** `false`
 
-Configura o CORS para o servidor de desenvolvimento. Isto é ativado por padrão e permite qualquer origem. Passa um [objeto de opções](https://github.com/expressjs/cors#configuration-options) para aperfeiçoar o comportamento ou `false` para desativar.
+Configura a partilha de recursos entre origens (CORS) para o servidor de desenvolvimento. Passa um [objeto de opções](https://github.com/expressjs/cors#configuration-options) para ajustar o comportamento ou `true` para permitir qualquer origem.
+
+:::warning AVISO
+Recomendamos a definição de um valor específico em vez de `true` para evitar a exposição do código-fonte a origens não confiáveis.
+:::
 
 ## `server.headers` {#server-headers}
 
