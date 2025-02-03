@@ -39,6 +39,17 @@ Quando executamos a Vite no Subsistema de Windows para Linux versão 2, não é 
 
 :::
 
+## `server.allowedHosts` {#server-allowedhosts}
+
+- **Tipo:** `string[] | true`
+- **Predefinida como:** `[]`
+
+Os nomes de hospedeiros que a Vite está autorizada a responder. O `localhost` e os domínios sob `.localhost` e todos os endereços do protocolo de internet (IP) são permitidos por predefinição. Quando se utiliza o protocolo seguro de hipertexto (HTTPs), esta verificação é ignorada.
+
+Se uma sequência de caracteres começar com `.`, esta permitirá o nome do hospedeiro sem o `.` e todos os subdomínios sob o nome do hospedeiro. Por exemplo, `.example.com` permitirá `example.com`, `foo.example.com`, e `foo.bar.example.com`.
+
+Se definida como `true`, o servidor tem permissão para responder a pedidos para quaisquer hospedeiro. Isto não é recomendado, porque esta estará vulnerável a ataques de re-ligação de sistema de nome de domínio (DNS).
+
 ## `server.port` {#server-port}
 
 - **Tipo:** `number`

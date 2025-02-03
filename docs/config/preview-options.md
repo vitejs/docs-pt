@@ -17,6 +17,15 @@ Consulte [`server.host`](./server-options#server-host) para obter mais detalhes.
 
 :::
 
+## `preview.allowedHosts` {#preview-allowedhosts}
+
+- **Tipo:** `string | true`
+- **Predefinida como:** [`server.allowedHosts`](./server-options#server-allowedhosts)
+
+Os nomes de hospedeiros que a Vite está autorizada a responder.
+
+Consultar [`server.allowedHosts`](./server-options#server-allowedhosts) por mais detalhes.
+
 ## `preview.port` {#preview-port}
 
 - **Tipo:** `number`
