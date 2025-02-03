@@ -4,7 +4,7 @@ Quando for o momento de implementar a nossa aplicação em produção, simplesme
 
 ## Compatibilidade do Navegador {#browser-compatibility}
 
-O pacote de produção pressupõe suporte para JavaScript moderno. Por padrão, a Vite dirige-se aos navegadores que suportam os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
+Por predefinição, o pacote de produção pressupõe suporte para JavaScript moderno, incluindo os [módulos de ECMAScript nativo](https://caniuse.com/es6-module), [importação dinâmica de Módulo de ECMAScript nativo](https://caniuse.com/es6-module-dynamic-import), e [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
 
 - Chrome >=87
 - Firefox >=78
@@ -12,6 +12,12 @@ O pacote de produção pressupõe suporte para JavaScript moderno. Por padrão, 
 - Edge >=88
 
 Nós podemos especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo inferior é `es2015`.
+Podemos especificar alvos personalizados através da [opção de configuração `build.target`](/config/build-options#build-target), onde o alvo mais baixo é `es2015`. Se for definida um alvo mais baixo, a Vite continuará a exigir estes intervalos mínimos de suporte de navegador, uma vez que se baseia na [importação dinâmica de módulos de ECMAScript nativa](https://caniuse.com/es6-module-dynamic-import) e em [`import.meta`](https://caniuse.com/mdn-javascript_operators_import_meta):
+
+- Chrome >=64
+- Firefox >=67
+- Safari >=11.1
+- Edge >=79
 
 Nota que por padrão, a Vite apenas manipula os transformações de sintaxe e **não cobre os enchimentos de polietileno de funcionalidades**. Nós podemos consultar o https://cdnjs.cloudflare.com/polyfill/, o qual gera automaticamente pacotes de enchimentos de polietileno baseado na sequência de caracteres do `UserAgent` do navegador do utilizador.
 
