@@ -43,11 +43,11 @@
   },
   "dependencies": {
     "search-insights": "^2.17.3",
-    "vite": "^6.0.11"
+    "vite": "^6.1.0"
   },
   "devDependencies": {
-    "@algolia/client-search": "^5.20.0",
-    "@shikijs/vitepress-twoslash": "^2.2.0",
+    "@algolia/client-search": "^5.20.1",
+    "@shikijs/vitepress-twoslash": "^2.3.2",
     "@types/express": "^5.0.0",
     "@types/node": "22.13.1",
     "@types/react": "^19.0.8",
