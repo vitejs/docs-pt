@@ -43,20 +43,20 @@
   },
   "dependencies": {
     "search-insights": "^2.17.3",
-    "vite": "^6.1.0"
+    "vite": "^6.2.0"
   },
   "devDependencies": {
-    "@algolia/client-search": "^5.20.1",
-    "@shikijs/vitepress-twoslash": "^3.0.0",
+    "@algolia/client-search": "^5.20.3",
+    "@shikijs/vitepress-twoslash": "^3.1.0",
     "@types/express": "^5.0.0",
     "@types/node": "22.13.9",
-    "@types/react": "^19.0.8",
+    "@types/react": "^19.0.10",
     "feed": "^4.2.2",
     "gsap": "^3.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "vitepress": "^1.6.3",
-    "vitepress-plugin-group-icons": "^1.3.5",
+    "vitepress-plugin-group-icons": "^1.3.6",
     "vue": "^3.5.13"
   },
   "packageManager": "pnpm@10.5.2+sha512.da9dc28cd3ff40d0592188235ab25d3202add8a207afbedc682220e4a0029ffbff4562102b9e6e46b4e3f9e8bd53e6d05de48544b0c57d4b0179e22c76d1199b"
