@@ -50,6 +50,12 @@ Se uma sequência de caracteres começar com `.`, esta permitirá o nome do hosp
 
 Se definida como `true`, o servidor tem permissão para responder a pedidos para quaisquer hospedeiro. Isto não é recomendado, porque esta estará vulnerável a ataques de re-ligação de sistema de nome de domínio (DNS).
 
+::: details Configurar através duma Variável de Ambiente
+
+Podemos definir a variável de ambiente `__VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS` para adicionar mais um hospedeiro permitido.
+
+:::
+
 ## `server.port` {#server-port}
 
 - **Tipo:** `number`
