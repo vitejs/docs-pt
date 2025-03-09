@@ -131,6 +131,14 @@ Isto porque a Node.js limita o tamanho do cabeçalho da requisição para mitiga
 
 Para evitar isto, tente reduzir o tamanho do cabeçalho da tua requisição. Por exemplo, se o cookie for longo, elimine-o. Ou podes utilizar a [`--max-http-header-size`](https://nodejs.org/api/cli.html#--max-http-header-sizesize) para mudar o tamanho máximo do cabeçalho.
 
+### Contentores de Desenvolvimento / Encaminhamento de Porta do VS Code {#dev-containers-vs-code-port-forwarding}
+
+Se estivermos a usar um contentor de desenvolvimento ou uma funcionalidade de encaminhamento de porta no VS Code, podemos precisar de definir a opção [`server.host`](/config/server-options#server-host) para `127.0.0.1` na configuração para fazê-la funcionar.
+
+Isto porque [a funcionalidade de encaminhamento de porta no VS Code não suporta a IPv6](https://github.com/microsoft/vscode-remote-release/issues/7029).
+
+Consultar [#16522](https://github.com/vitejs/vite/issues/16522) por mais detalhes.
+
 ## Substituição de Módulo Instantânea {#hmr}
 
 ### A Vite Deteta uma Mudança de Ficheiro mas a HMR não está a Funcionar {#vite-detects-a-file-change-but-the-hmr-is-not-working}
