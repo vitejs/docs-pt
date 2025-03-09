@@ -77,6 +77,23 @@ Se quisermos personalizar o prefixo das variáveis de ambiente, temos que consul
 - Uma vez que quaisquer variáveis expostas ao nosso código-fonte de Vite terminarão no pacote do nosso cliente, as variáveis `VITE_*` _não_ devem conter quaisquer informação sensíveis.
 :::
 
+::: details Expansão de Variáveis em Ordem Inversa
+
+A Vite suporta expansão de variáveis em ordem inversa. Por exemplo, o `.env` abaixo será avaliado como `VITE_FOO=foobar`, `VITE_BAR=bar`:
+
+```[.env]
+VITE_FOO=foo${VITE_BAR}
+VITE_BAR=bar
+```
+
+Isto não funciona nos programas de terminal (shell) e em outras ferramentas como `docker-compose`.
+
+Dito isto, a Vite suporta este comportamento, já que este foi suportado pelo `dotenv-expand` por um muito tempo e outras ferramentas no ecossistema da JavaScript usam versões mais antigas que suportam este comportamento.
+
+Para evitar problemas de interoperabilidade, recomenda-se evitar confiar neste ou depender deste comportamento. A Vite pode começar a emitir avisos ou alertas para este comportamento no futuro.
+
+:::
+
 ### Sensor Inteligente para TypeScript {#intellisense-for-typescript}
 
 Por padrão, a Vite fornece definições de tipo para `import.meta.env` no [`vite/client.d.ts`](https://github.com/vitejs/vite/blob/main/packages/vite/client.d.ts). Embora possamos definir mais variáveis de ambiente personalizadas nos ficheiros `.env.[mode]`, talvez queiramos receber o Sensor Inteligente de TypeScript para as variáveis de ambiente definidas pelo utilizador que são prefixadas com `VITE_`.
@@ -173,7 +190,8 @@ Os diferentes valores da `NODE_ENV` e do modo também se refletem sobre as suas 
 | `NODE_ENV=production`  | `true`                 | `false`               |
 | `NODE_ENV=development` | `false`                | `true`                |
 | `NODE_ENV=other`       | `false`                | `true`                |
-| Command              | `import.meta.env.MODE` |
+
+| Comando              | `import.meta.env.MODE` |
 | -------------------- | ---------------------- |
 | `--mode production`  | `"production"`         |
 | `--mode development` | `"development"`        |
