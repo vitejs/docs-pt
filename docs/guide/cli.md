@@ -26,7 +26,7 @@ vite [root]
 | `--base <path>`          | Caminho de base pública (default: `/`) (`string`)                 |
 | `-l, --logLevel <level>` | informação \| aviso \| erro \| silencioso (`string`)              |
 | `--clearScreen`          | Permitir/desativar a limpeza da tela quando estiver a fazer o registo em diário (`boolean`)               |
-| `--configLoader <loader>` | Usar `bundle` para empacotar a configuração com a `esbuild` ou `runner` (experimental) para processá-la em tempo real (predefinida como: `bundle`) |
+| `--configLoader <loader>` | Usar `bundle` para empacotar a configuração com a `esbuild` ou `runner` (experimental) para processá-la em tempo real, ou `native` (experimental) para carregar usando a execução nativa (predefinida como: `bundle`) |
 | `--profile`               | Iniciar o inspetor da Node.js incorporado (consultar [problemas de desempenho](/guide/troubleshooting#performance-bottlenecks))     |
 | `-d, --debug [feat]`     | Exibir os registos da depuração (`string \| boolean`)             |
 | `-f, --filter <filter>`  | Filtrar os registos da depuração (`string`)                       |
