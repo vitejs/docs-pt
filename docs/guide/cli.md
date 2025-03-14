@@ -77,7 +77,7 @@ vite build [root]
 
 ### `vite optimize` {#vite-optimize}
 
-Pré-empacota as dependências.
+**Depreciada**: o processo de pré-empacotamento executa automaticamente e não precisa ser chamado.
 
 #### Uso {#vite-optimize-usage}
 
