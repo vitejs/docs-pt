@@ -63,6 +63,16 @@ Enquanto esta pode funcionar com uso de [`--experimental-require-module`](https:
 - adicionar `"type": "module"` ao `package.json` mais próximo
 - ou renomear `vite.config.js` ou `vite.config.ts` para `vite.config.mjs` ou `vite.config.mts`.
 
+### `failed to load config from '/path/to/config*/vite.config.js'`
+
+
+> failed to load config from '/path/to/config\*/vite.config.js'
+> error when starting dev server:
+> Error: Build failed with 1 error:
+> error: Must use "outdir" when there are multiple input files
+
+O erro acima pode ocorrer se o caminho para a pasta do nosso projeto contiver `*`, que a `esbuild` trata como um globo. Precisaremos renomear o nosso diretório para remover o `*`.
+
 ## Servidor de Desenvolvimento {#dev-server}
 
 ### Requisições são Bloqueada para Sempre {#requests-are-stalled-forever}
