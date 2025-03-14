@@ -1,8 +1,10 @@
 # Variáveis e Modos de Ambiente {#env-variables-and-modes}
 
-## Variáveis de Ambiente {#env-variables}
+A `vite` expõe certas constantes sob o objeto especial **`import.meta.env`**. Estas constantes são definidas como variáveis globais durante o desenvolvimento e substituídas estaticamente em tempo de construção para tornar eficaz a alteração da árvore.
 
-A Vite expõe as variáveis de ambiente sobre o objeto especial **`import.meta.env`**, as quais são substituídas estaticamente em tempo de construção. Algumas variáveis embutidas estão disponíveis em todos os casos:
+## Constantes Embutidas {#built-in-constants}
+
+Algumas constantes embutidas estão disponíveis em todos os casos:
 
 - **`import.meta.env.MODE`**: `{string}` o [modo](#modes) no qual a aplicação executa.
 
@@ -13,6 +15,30 @@ A Vite expõe as variáveis de ambiente sobre o objeto especial **`import.meta.e
 - **`import.meta.env.DEV`**: `{boolean}` se a aplicação executa em desenvolvimento (sempre o oposto de `import.meta.env.PROD`)
 
 - **`import.meta.env.SSR`**: `{boolean}` se a aplicação executa no [servidor](./ssr#conditional-logic).
+
+## Variáveis de Ambiente {#env-variables}
+
+A `vite` expõe automaticamente variáveis de ambiente sob o objeto `import.meta.env` como sequências de caracteres.
+
+Para evitarmos o vazamento acidental das variáveis de ambiente para o cliente, apenas as variáveis prefixadas com `VITE_` são expostas ao nosso código processado pela Vite. Por exemplo, para as seguintes variáveis de ambiente:
+
+```[.env]
+VITE_SOME_KEY=123
+DB_PASSWORD=foobar
+```
+
+Apenas `VITE_SOME_KEY` será exposta como `import.meta.env.VITE_SOME_KEY` para o nosso código-fonte do cliente, mas `DB_PASSWORD` não será:
+
+```js
+console.log(import.meta.env.VITE_SOME_KEY) // "123"
+console.log(import.meta.env.DB_PASSWORD) // undefined
+```
+
+Se quisermos personalizar o prefixo das variáveis de ambiente, podemos consultar a opção [`envPrefix`](/config/shared-options#envprefix).
+
+:::tip Analise de Variáveis de Ambiente
+Como mostrado acima, `VITE_SOME_KEY` é um número, mas retorna uma sequência de caracteres quando analisada. O mesmo aconteceria com variáveis de ambiente booleanas. Precisamos certificar-nos de converter para o tipo desejado ao usá-la no nosso código.
+:::
 
 ## Os Ficheiros `.env` {#env-files}
 

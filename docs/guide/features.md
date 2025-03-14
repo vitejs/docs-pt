@@ -135,8 +135,8 @@ Alternativamente, podemos adicionar `vite/client` à `compilerOptions.types` den
 
 Isto fornecerá os seguintes ajustes de tipo:
 
-- Importações de recurso (por exemplo, importação dum ficheiro `.svg`)
-- Tipos para as [variáveis de ambiente](./env-and-mode#env-variables) injetadas pela Vite sobre a `import.meta.env`
+- Importações de recurso (por exemplo, importação de um ficheiro `.svg`)
+- Tipos para as [variáveis constantes](./env-and-mode#env-variables) injetadas pela Vite sobre a `import.meta.env`
 - Tipos para a [API de Substituição de Módulo Instantânea](./api-hmr) sobre a `import.meta.hot`
 
 :::tip DICA

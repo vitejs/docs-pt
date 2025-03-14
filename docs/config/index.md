@@ -53,7 +53,7 @@ A Vite também suporta diretamente os ficheiros de configuração de TypeScript.
 
 ## Configuração Condicional {#conditional-config}
 
-Se a configuração precisa determinar condicionalmente as opções baseadas no comando (`serve` ou `build`), no [modo](/guide/env-and-mode) a ser usado, ou se for uma construção da interpretação do lado do servidor (`isSsrBuild`), ou é uma pré-visualização da construção (`isPreview`), esta pode exportar uma função:
+Se a configuração precisa determinar condicionalmente as opções baseadas no comando (`serve` ou `build`), no [modo](/guide/env-and-mode#mode) a ser usado, ou se for uma construção da interpretação do lado do servidor (`isSsrBuild`), ou é uma pré-visualização da construção (`isPreview`), esta pode exportar uma função:
 
 ```js
 import { defineConfig } from 'vite'
