@@ -13,7 +13,7 @@ importers:
         version: 2.17.3
       vite:
         specifier: ^6.3.4
-        version: 6.3.4(@types/node@22.15.3)
+        version: 6.3.5(@types/node@22.15.3)
     devDependencies:
       '@algolia/client-search':
         specifier: ^5.20.3
@@ -1334,8 +1334,8 @@ packages:
       terser:
         optional: true
 
-  vite@6.3.4:
-    resolution: {integrity: sha512-BiReIiMS2fyFqbqNT/Qqt4CVITDU9M9vE+DKcVAsB+ZV0wvTKd+3hMbkpxz1b+NmEDMegpVbisKiAZOnvO92Sw==}
+  vite@6.3.5:
+    resolution: {integrity: sha512-cZn6NDFE7wdTpINgs++ZJ4N49W2vRp8LCKrn3Ob1kYNtOo21vfDoaV5GzBfLU4MovSAB8uNRm4jgzVQZ+mBzPQ==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -2822,7 +2822,7 @@ snapshots:
       '@types/node': 22.15.3
       fsevents: 2.3.3
 
-  vite@6.3.4(@types/node@22.15.3):
+  vite@6.3.5(@types/node@22.15.3):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.4(picomatch@4.0.2)
