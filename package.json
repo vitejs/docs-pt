@@ -51,7 +51,7 @@
     "@types/express": "^5.0.0",
     "@types/node": "22.15.14",
     "@types/react": "^19.0.10",
-    "feed": "^4.2.2",
+    "feed": "^5.0.0",
     "gsap": "^3.12.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
