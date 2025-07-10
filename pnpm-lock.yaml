@@ -13,7 +13,7 @@ importers:
         version: 2.17.3
       vite:
         specifier: ^7.0.0
-        version: 7.0.3(@types/node@22.16.2)
+        version: 7.0.4(@types/node@22.16.2)
     devDependencies:
       '@algolia/client-search':
         specifier: ^5.20.3
@@ -47,7 +47,7 @@ importers:
         version: 1.6.3(@algolia/client-search@5.32.0)(@types/node@22.16.2)(@types/react@19.1.8)(postcss@8.5.6)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(search-insights@2.17.3)(typescript@5.5.4)
       vitepress-plugin-group-icons:
         specifier: ^1.3.6
-        version: 1.6.1(markdown-it@14.1.0)(vite@7.0.3(@types/node@22.16.2))
+        version: 1.6.1(markdown-it@14.1.0)(vite@7.0.4(@types/node@22.16.2))
       vue:
         specifier: ^3.5.13
         version: 3.5.17(typescript@5.5.4)
@@ -1471,8 +1471,8 @@ packages:
       terser:
         optional: true
 
-  vite@7.0.3:
-    resolution: {integrity: sha512-y2L5oJZF7bj4c0jgGYgBNSdIu+5HF+m68rn2cQXFbGoShdhV1phX9rbnxy9YXj82aS8MMsCLAAFkRxZeWdldrQ==}
+  vite@7.0.4:
+    resolution: {integrity: sha512-SkaSguuS7nnmV7mfJ8l81JGBFV7Gvzp8IzgE8A8t23+AxuNX61Q5H1Tpz5efduSN7NHC8nQXD3sKQKZAu5mNEA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
     peerDependencies:
@@ -3074,7 +3074,7 @@ snapshots:
       '@types/node': 22.16.2
       fsevents: 2.3.3
 
-  vite@7.0.3(@types/node@22.16.2):
+  vite@7.0.4(@types/node@22.16.2):
     dependencies:
       esbuild: 0.25.6
       fdir: 6.4.6(picomatch@4.0.2)
@@ -3086,13 +3086,13 @@ snapshots:
       '@types/node': 22.16.2
       fsevents: 2.3.3
 
-  vitepress-plugin-group-icons@1.6.1(markdown-it@14.1.0)(vite@7.0.3(@types/node@22.16.2)):
+  vitepress-plugin-group-icons@1.6.1(markdown-it@14.1.0)(vite@7.0.4(@types/node@22.16.2)):
     dependencies:
       '@iconify-json/logos': 1.2.4
       '@iconify-json/vscode-icons': 1.2.23
       '@iconify/utils': 2.3.0
       markdown-it: 14.1.0
-      vite: 7.0.3(@types/node@22.16.2)
+      vite: 7.0.4(@types/node@22.16.2)
     transitivePeerDependencies:
       - supports-color
 
