@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "search-insights": "^2.17.3",
-    "vite": "^7.0.0"
+    "vite": "^7.0.8"
   },
   "devDependencies": {
     "@algolia/client-search": "^5.20.3",
